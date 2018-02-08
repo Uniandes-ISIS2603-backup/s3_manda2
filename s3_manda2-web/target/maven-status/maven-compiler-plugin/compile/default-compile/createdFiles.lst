@@ -1,0 +1,5 @@
+co\edu\uniandes\csw\manda2\resources\RestConfig.class
+co\edu\uniandes\csw\manda2\mappers\BusinessLogicExceptionMapper.class
+co\edu\uniandes\csw\manda2\resources\CityResource.class
+co\edu\uniandes\csw\manda2\dtos\CityDetailDTO.class
+co\edu\uniandes\csw\manda2\dtos\CityDTO.class
