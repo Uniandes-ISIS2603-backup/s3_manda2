@@ -14,6 +14,8 @@ import javax.ws.rs.*;
  * @author da.ramos
  */
 @Path("paypal")
+@Produces("application/json")
+@Consumes("application/json")
 public class PayPalResource {
     
     @GET

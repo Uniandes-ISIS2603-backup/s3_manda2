@@ -14,6 +14,8 @@ import javax.ws.rs.*;
  * @author da.ramos
  */
 @Path("servicios")
+@Consumes("application/json")
+@Produces("application/json")
 public class ServicioResource {
     
     @GET
