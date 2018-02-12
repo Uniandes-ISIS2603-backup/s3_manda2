@@ -66,7 +66,29 @@ public abstract class ServicioDTO {
      */
     private String descripcion;
     
-        /**
+    /**
+     * Crea un nuevo servicio.
+     * @param id id del servicio
+     * @param nombre noombre del servicio
+     * @param costo costo del servicio
+     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
+     * @param puntoDeRealizacion punto de realizacion del servicio
+     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
+     * @param calificacion calificación del servicio.
+     * @param descripcion descripción del servicio.
+     */
+    public ServicioDTO(long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.costo = costo;
+        this.puntoDeEncuentro = puntoDeEncuentro;
+        this.puntoDeRealizacion = puntoDeRealizacion;
+        this.exitoDiligencia = exitoDiligencia;
+        this.calificacion = calificacion;
+        this.descripcion = descripcion;
+    }
+    
+     /**
      * Retorna el id.
      * @return Id
      */
