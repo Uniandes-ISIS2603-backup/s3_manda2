@@ -1,7 +1,12 @@
 <<<<<<< HEAD
+*/target/
+s3_manda2-web/target/
+=======
+<<<<<<< HEAD
 /target/
 /s3_manda2-back/target/
 =======
 /target/
 /s3_manda2-web/target/
 >>>>>>> 4de1abbe59cddbf98e6be99a3e1865907daa265b
+>>>>>>> c80f78993d91a272b5be16d772c74be181b4f3cf

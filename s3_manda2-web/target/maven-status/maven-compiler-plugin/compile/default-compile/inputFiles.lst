@@ -1,5 +1,13 @@
+<<<<<<< HEAD
+C:\Users\dv.gonzalez10\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\dtos\CityDetailDTO.java
+C:\Users\dv.gonzalez10\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\dtos\CityDTO.java
+C:\Users\dv.gonzalez10\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\mappers\BusinessLogicExceptionMapper.java
+C:\Users\dv.gonzalez10\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\resources\RestConfig.java
+C:\Users\dv.gonzalez10\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\resources\CityResource.java
+=======
 C:\Users\na.caceres\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\resources\CityResource.java
 C:\Users\na.caceres\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\dtos\CityDTO.java
 C:\Users\na.caceres\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\mappers\BusinessLogicExceptionMapper.java
 C:\Users\na.caceres\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\dtos\CityDetailDTO.java
 C:\Users\na.caceres\Documents\NetBeansProjects\s3_manda2\s3_manda2-web\src\main\java\co\edu\uniandes\csw\manda2\resources\RestConfig.java
+>>>>>>> c80f78993d91a272b5be16d772c74be181b4f3cf

@@ -11,4 +11,46 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class ClienteDTO {
     
+    //Atributos
+    private boolean pagoAnticipado;
+    
+    private int horasDeServicioSemanal;
+    //Constructor
+    
+    public ClienteDTO()
+    {
+        pagoAnticipado =false;
+        horasDeServicioSemanal =0;
+        //super();
+    }
+    //Metodos
+
+    /**
+     * @return the pagoAnticipado
+     */
+    public boolean isPagoAnticipado() {
+        return pagoAnticipado;
+    }
+
+    /**
+     * @param pagoAnticipado the pagoAnticipado to set
+     */
+    public void setPagoAnticipado(boolean pagoAnticipado) {
+        this.pagoAnticipado = pagoAnticipado;
+    }
+
+    /**
+     * @return the horasDeServicioSemanal
+     */
+    public int getHorasDeServicioSemanal() {
+        return horasDeServicioSemanal;
+    }
+
+    /**
+     * @param horasDeServicioSemanal the horasDeServicioSemanal to set
+     */
+    public void setHorasDeServicioSemanal(int horasDeServicioSemanal) {
+        this.horasDeServicioSemanal = horasDeServicioSemanal;
+    }
+    
 }
