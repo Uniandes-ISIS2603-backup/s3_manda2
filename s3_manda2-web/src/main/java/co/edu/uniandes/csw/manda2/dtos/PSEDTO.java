@@ -21,6 +21,7 @@ public class PSEDTO {
     {
         id= pId;
         linkPse = pLinkPse;
+        //super();
     }
     
     //Metodos

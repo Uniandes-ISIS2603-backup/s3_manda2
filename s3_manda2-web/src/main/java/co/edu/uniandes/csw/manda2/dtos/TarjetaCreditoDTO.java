@@ -20,6 +20,7 @@ public class TarjetaCreditoDTO {
     {
         id = pId;
         numeroTarjeta = pNumeroTarjeta;
+        //super();
     }
     //Metodos
 
