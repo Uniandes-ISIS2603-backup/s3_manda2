@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.manda2.dtos;
 import java.util.ArrayList;
 /**
- *
+ *      
  * @author na.caceres
  */
 public class ClienteDetailDTO extends ClienteDTO {
