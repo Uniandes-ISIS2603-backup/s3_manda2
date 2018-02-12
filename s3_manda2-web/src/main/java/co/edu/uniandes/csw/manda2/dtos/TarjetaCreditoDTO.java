@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *
  * @author na.caceres
  */
-public class TarjetaCreditoDTO {
+public class TarjetaCreditoDTO extends MedioPagoDTO {
     
     //Atributos
     private long id;

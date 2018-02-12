@@ -26,5 +26,5 @@ public class ClienteDetailDTO extends ClienteDTO {
         quejasYReclamos = new ArrayList<Reclamo>();
     }
     //Metodos
-    
+    // Con errores no puedo generar los getters y setters.
 }

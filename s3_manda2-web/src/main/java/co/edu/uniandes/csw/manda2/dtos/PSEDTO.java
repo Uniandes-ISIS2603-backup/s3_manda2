@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *
  * @author na.caceres
  */
-public class PSEDTO {
+public class PSEDTO extends MedioPagoDTO {
     //Parametros
     
     private String linkPse;
