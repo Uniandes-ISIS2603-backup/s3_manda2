@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
  *
  * @author n.bello
  */
-@Path("servicios")
+@Path("empleados")
 @Consumes("application/json")
 @Produces("application/json")
 public class EmpleadoResource {

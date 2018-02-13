@@ -20,7 +20,7 @@ import co.edu.uniandes.csw.manda2.dtos.PSEDTO;
  *
  * @author na.caceres
  */
-@Path("pse")
+@Path("pses")
 @Produces("application/json")
 @Consumes("application/json")
 

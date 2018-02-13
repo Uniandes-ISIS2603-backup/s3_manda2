@@ -21,7 +21,7 @@ import javax.ws.rs.PUT;
  *
  * @author n.bello
  */
-@Path("Usuarios")
+@Path("usuarios")
 @Consumes("application/json")
 @Produces("application/json")
 public class UsuarioResource {

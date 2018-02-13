@@ -14,7 +14,7 @@ import javax.ws.rs.*;
  * @author m.moreno
  */
 
-@Path("pago")
+@Path("pagos")
 @Produces("application/json")
 @Consumes("application/json")
 
