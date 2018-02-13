@@ -11,277 +11,7 @@
         "http"
     ],
     "paths": {
-        "/MedioPago": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MedioPagoDTO"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/MedioPagoDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/MedioPagoDTO"
-                        }
-                    }
-                }
-            }
-        },
-        "/MedioPago/{id }": {
-            "put": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/MedioPagoDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/MedioPagoDTO"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No Content",
-                        "headers": {
-                        }
-                    }
-                }
-            }
-        },
-        "/MedioPago/{id}": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/MedioPagoDTO"
-                        }
-                    }
-                }
-            }
-        },
-        "/Usuarios": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/UsuarioDTO"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/UsuarioDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/UsuarioDTO"
-                        }
-                    }
-                }
-            }
-        },
-        "/Usuarios/{cedula }": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/UsuarioDTO"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/UsuarioDTO"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No Content",
-                        "headers": {
-                        }
-                    }
-                }
-            }
-        },
-        "/billetera": {
+        "/billeteras": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -331,7 +61,7 @@
                 }
             }
         },
-        "/billetera/{cedula }": {
+        "/billeteras/{cedula }": {
             "put": {
                 "consumes": [
                     "application/json"
@@ -390,7 +120,7 @@
                 }
             }
         },
-        "/billetera/{cedula}": {
+        "/billeteras/{cedula}": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -566,7 +296,145 @@
                 }
             }
         },
-        "/comprasEnTienda": {
+        "/clientes": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClienteDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/clientes/{cedula }": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/comprasentienda": {
             "get": {
                 "description": "<h1>GET /api/comprasEnTiendaResource : Obtener todos las comprasEnTiendaResource.</h1>\n \n <pre>Busca y devuelve todos las comprasEnTiendaResource que existen en la aplicación.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos las comprasEnTiendaResource de la aplicacion.</code> \n </pre>",
                 "consumes": [
@@ -621,7 +489,7 @@
                 }
             }
         },
-        "/comprasEnTienda/{id }": {
+        "/comprasentienda/{id }": {
             "get": {
                 "description": "<h1>GET /api/comprasEnTiendaResource/{id} : Obtener comprasEnTiendaResource por id.</h1>\n \n <pre>Busca la comprasEnTiendaResource con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la comprasEnTiendaResource correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe una comprasEnTiendaResource con el id dado.\n </code> \n </pre>",
                 "consumes": [
@@ -712,7 +580,145 @@
                 }
             }
         },
-        "/entregasDeDocumentosResource": {
+        "/empleados": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/EmpleadoDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/EmpleadoDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/EmpleadoDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/empleados/{cedula }": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/EmpleadoDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/EmpleadoDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/entregasdedocumentos": {
             "get": {
                 "description": "<h1>GET /api/entregasDeDocumentos : Obtener todos las entregasDeDocumentos.</h1>\n \n <pre>Busca y devuelve todos las entregasDeDocumentos que existen en la aplicación.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos las entregasDeDocumentos de la aplicacion.</code> \n </pre>",
                 "consumes": [
@@ -768,7 +774,7 @@
                 }
             }
         },
-        "/entregasDeDocumentosResource/{id }": {
+        "/entregasdedocumentos/{id }": {
             "get": {
                 "description": "<h1>GET /api/entregasDeDocumentos/{id} : Obtener entregasDeDocumentos por id.</h1>\n \n <pre>Busca la entregasDeDocumentos con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la entregasDeDocumentos correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un entregasDeDocumentos con el id dado.\n </code> \n </pre>",
                 "consumes": [
@@ -855,6 +861,146 @@
                     "204": {
                         "description": "No Content",
                         "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/mediospago": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/MedioPagoDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/mediospago/{id }": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/mediospago/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
                         }
                     }
                 }
@@ -1015,7 +1161,7 @@
                 }
             }
         },
-        "/pago": {
+        "/pagos": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1068,7 +1214,7 @@
                 }
             }
         },
-        "/pago/{estado}": {
+        "/pagos/{estado}": {
             "put": {
                 "consumes": [
                     "application/json"
@@ -1104,7 +1250,7 @@
                 }
             }
         },
-        "/pago/{id }": {
+        "/pagos/{id }": {
             "delete": {
                 "consumes": [
                     "application/json"
@@ -1129,7 +1275,7 @@
                 }
             }
         },
-        "/pago/{id}": {
+        "/pagos/{id}": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1215,7 +1361,7 @@
         },
         "/paypals/{id }": {
             "get": {
-                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
+                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -1305,7 +1451,7 @@
                 }
             }
         },
-        "/pse": {
+        "/pses": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1358,7 +1504,7 @@
                 }
             }
         },
-        "/pse/{id }": {
+        "/pses/{id }": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1443,7 +1589,7 @@
                 }
             }
         },
-        "/servicios": {
+        "/reclamos": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1480,7 +1626,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
+                            "$ref": "#/definitions/ReclamoDetailDTO"
                         }
                     }
                 ],
@@ -1490,73 +1636,13 @@
                         "headers": {
                         },
                         "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
+                            "$ref": "#/definitions/ReclamoDetailDTO"
                         }
                     }
                 }
             }
         },
-        "/servicios/{cedula }": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/EmpleadoDetailDTO"
-                        }
-                    }
-                }
-            },
+        "/reclamos/{cedula }": {
             "delete": {
                 "consumes": [
                     "application/json"
@@ -1581,99 +1667,7 @@
                 }
             }
         },
-        "/servicios/{id }": {
-            "get": {
-                "description": "<h1>GET /api/servicios/{id} : Obtener servicio por id.</h1>\n \n <pre>Busca el servicio con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el servicio correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un servicio con el id dado.\n </code> \n </pre>",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "Identificador del servicio que se está buscando. Este debe ser una cadena de dígitos."
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ServicioDetailDTO"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "description": "<h1>PUT /api/servicios/{id} : Actualizar servicio con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza el servicio con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza el servicio con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un servicio con el id dado.\n </code> \n </pre>",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "Identificador del servicio que se desea actualizar. Este debe ser una cadena de dígitos."
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ServicioDetailDTO"
-                        },
-                        "description": "{@link servicioDTO} - El servicio que se desea guardar."
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ServicioDetailDTO"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "description": "<h1>DELETE /api/servicios/{id} : Borrar servicio por id.</h1>\n \n <pre>Borra el servicio con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina el servicio correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un servicio con el id dado.\n </code>\n </pre>",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "Identificador del servicio que se desea borrar. Este debe ser una cadena de dígitos."
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No Content",
-                        "headers": {
-                        }
-                    }
-                }
-            }
-        },
-        "/servicios/{numero }": {
+        "/reclamos/{numero }": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1735,7 +1729,7 @@
                 }
             }
         },
-        "/tarjetacredito": {
+        "/tarjetascredito": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1788,7 +1782,7 @@
                 }
             }
         },
-        "/tarjetacredito/{id }": {
+        "/tarjetascredito/{id }": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -1873,7 +1867,137 @@
                 }
             }
         },
-        "/vueltasConDemoraEnOficina": {
+        "/usuarios": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UsuarioDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UsuarioDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/UsuarioDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/usuarios/{cedula }": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/UsuarioDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/UsuarioDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
+                        }
+                    }
+                }
+            }
+        },
+        "/vueltascondemoraenoficina": {
             "get": {
                 "description": "<h1>GET /api/vueltasConDemoraEnOficina : Obtener todos las vueltasConDemoraEnOFicina.</h1>\n \n <pre>Busca y devuelve todos las vueltasConDemoraEnOFicina que existen en la aplicación.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos las vueltasConDemoraEnOFicina de la aplicacion.</code> \n </pre>",
                 "consumes": [
@@ -1928,7 +2052,7 @@
                 }
             }
         },
-        "/vueltasConDemoraEnOficina/{id }": {
+        "/vueltascondemoraenoficina/{id }": {
             "get": {
                 "description": "<h1>GET /api/vueltasConDemoraEnOficina/{id} : Obtener vueltasConDemoraEnOficina por id.</h1>\n \n <pre>Busca la vueltasConDemoraEnOficina con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve la vueltasConDemoraEnOficina correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un vueltasConDemoraEnOficina con el id dado.\n </code> \n </pre>",
                 "consumes": [

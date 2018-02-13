@@ -5,11 +5,12 @@ import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
 /**
  * <pre>Clase que implementa el recurso "paypals".
- * URL: /api/cities
+ * URL: /api/paypals
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
  * este recurso tiene la ruta "paypals".</i>
@@ -18,13 +19,13 @@ import javax.ws.rs.*;
  * <pre>
  * Path: indica la dirección después de "api" para acceder al recurso
  * Produces/Consumes: indica que los servicios definidos en este recurso reciben y devuelven objetos en formato JSON
- * RequestScoped: Inicia una transacción desde el llamado de cada método (servicio). 
  * </pre>
  * @author da.ramos
  */
 @Path("paypals")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 public class PayPalResource {
     
 
@@ -49,7 +50,7 @@ public class PayPalResource {
      * 
      * <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.
      * 
-     * Codigos de respuesta:
+     * Códigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve el PayPal correspondiente al id.
      * </code> 
