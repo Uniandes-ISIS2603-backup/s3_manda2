@@ -14,14 +14,13 @@ public class PSEDTO extends MedioPagoDTO {
     
     private String linkPse;
     
-    private long id;
     //Constructor
     
-    public PSEDTO(long pId , String pLinkPse)
+    public PSEDTO(String pLinkPse)
     {
-        id= pId;
+        super();
         linkPse = pLinkPse;
-        //super();
+        
     }
     
     //Metodos
@@ -39,19 +38,7 @@ public class PSEDTO extends MedioPagoDTO {
         this.linkPse = linkPse;
     }
 
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
+    
     
     
 }

@@ -12,31 +12,16 @@ package co.edu.uniandes.csw.manda2.dtos;
 public class TarjetaCreditoDTO extends MedioPagoDTO {
     
     //Atributos
-    private long id;
     
     private int numeroTarjeta;
     //Constructor
-    public TarjetaCreditoDTO(long pId, int pNumeroTarjeta)
+    public TarjetaCreditoDTO(int pNumeroTarjeta)
     {
-        id = pId;
+        super();
         numeroTarjeta = pNumeroTarjeta;
         //super();
     }
     //Metodos
-
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
 
     /**
      * @return the numeroTarjeta

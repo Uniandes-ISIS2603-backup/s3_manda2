@@ -23,7 +23,7 @@ public class ClienteDetailDTO extends ClienteDTO {
         billetera = new BilleteraDTO();
         servicios = new ArrayList<ServicioDTO>();
         pagos = new ArrayList<PagoDTO>();
-        quejasYReclamos = new ArrayList<Reclamo>();
+        quejasYReclamos = new ArrayList<ReclamoDTO>();
     }
     //Metodos
     // Con errores no puedo generar los getters y setters.

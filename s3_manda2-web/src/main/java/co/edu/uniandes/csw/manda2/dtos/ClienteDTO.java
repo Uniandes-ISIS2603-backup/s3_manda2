@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *
  * @author na.caceres
  */
-public class ClienteDTO {
+public class ClienteDTO extends UsuarioDTO {
     
     //Atributos
     private boolean pagoAnticipado;
@@ -19,9 +19,9 @@ public class ClienteDTO {
     
     public ClienteDTO()
     {
+        super();
         pagoAnticipado =false;
         horasDeServicioSemanal =0;
-        //super();
     }
     //Metodos
 
