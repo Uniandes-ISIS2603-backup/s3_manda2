@@ -10,5 +10,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  * @author dv.gonzalez10
  */
 public class ComprasEnTiendaDetailsDTO {
-    //articulo 
+    //atributos
+    //private Articulo articulo;
+   
 }
