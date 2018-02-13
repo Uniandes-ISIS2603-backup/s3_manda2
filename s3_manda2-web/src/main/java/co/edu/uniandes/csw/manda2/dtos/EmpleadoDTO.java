@@ -18,7 +18,7 @@ public class EmpleadoDTO extends UsuarioDTO{
     /**
      * Atributo que muestra la foto del empleado
      */
-    private ArticuloDTO  foto;
+    private String  foto;
     /**
      * Atributo quemuestra la EPS a la que esta afiliado el empleado
      */
