@@ -19,7 +19,7 @@ import co.edu.uniandes.csw.manda2.dtos.TarjetaCreditoDTO;
  *
  * @author na.caceres
  */
-@Path("tarjetacredito")
+@Path("tarjetascredito")
 @Produces("application/json")
 @Consumes("application/json")
 public class TarjetaCreditoResource {

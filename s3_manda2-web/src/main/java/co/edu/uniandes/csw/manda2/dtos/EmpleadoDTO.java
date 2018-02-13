@@ -18,7 +18,7 @@ public class EmpleadoDTO extends UsuarioDTO{
     /**
      * Atributo que muestra la foto del empleado
      */
-    private ArticuloDTO  foto;
+    private String  foto;
     /**
      * Atributo quemuestra la EPS a la que esta afiliado el empleado
      */
@@ -54,14 +54,14 @@ public class EmpleadoDTO extends UsuarioDTO{
      * retorna la foto del empleado
      * @return foto
      */
-    public ArticuloDTO getFoto() {
+    public String getFoto() {
         return foto;
     }
      /**
      * asigna la foto al empleado 
      * @param foto
      **/
-    public void setFoto(ArticuloDTO foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
     /**

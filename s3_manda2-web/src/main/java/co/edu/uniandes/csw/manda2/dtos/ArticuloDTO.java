@@ -3,14 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.DTOS;
+package co.edu.uniandes.csw.manda2.dtos;
 
 /**
  *
  * @author cvtrujillo
  */
-public abstract class ArticuloDTO 
+public class ArticuloDTO 
 {
+
+    public ArticuloDTO(String rutaImagen, String nombre, double precio) {
+        this.rutaImagen = rutaImagen;
+        this.nombre = nombre;
+        this.precio = precio;
+    }    
+    
+    
     /**
      * La ruta de la imágen del artículo
      * */
@@ -27,6 +35,7 @@ public abstract class ArticuloDTO
     
     /**
      * Obtener la ruta de la imagen del articulo
+     * @return ruta de la imagen
      * */
     public String getRutaImagen()
     {
@@ -34,6 +43,7 @@ public abstract class ArticuloDTO
     }
     /**
      * Obtener el nombre del articulo
+     * @return nombre
      * */
     
     public String getNombre()
@@ -43,6 +53,7 @@ public abstract class ArticuloDTO
     
     /**
      * Obtener el precio del articulo
+     * @return precio
      * */
     public double getPrecio()
     {
@@ -50,6 +61,7 @@ public abstract class ArticuloDTO
     }
     /**
      * Establecer la ruta de la imagen del articulo
+     * @param rutaIm nueva ruta 
      * */
     
     public void setRutaImagen(String rutaIm)
@@ -59,6 +71,7 @@ public abstract class ArticuloDTO
     
     /**
      *  Establecer  el nombre del articulo
+     * @param pNombre nuevo nombre
      * */
     public void setNombreArticulo(String pNombre)
     {
@@ -67,6 +80,7 @@ public abstract class ArticuloDTO
     
     /**
      *  Establecer el precio del articulo
+     * @param pPrecio nuevo precio
      * */
     public void setPrecio(double pPrecio)
     {

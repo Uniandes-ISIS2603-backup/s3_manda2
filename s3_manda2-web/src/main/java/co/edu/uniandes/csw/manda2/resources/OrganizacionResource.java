@@ -1,7 +1,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 
-import co.edu.uniandes.csw.manda2.DTOS.OrganizacionDetailsDTO;
+import co.edu.uniandes.csw.manda2.dtos.OrganizacionDetailsDTO;
 import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.Path;

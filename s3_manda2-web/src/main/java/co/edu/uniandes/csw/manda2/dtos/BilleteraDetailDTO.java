@@ -20,10 +20,10 @@ public class BilleteraDetailDTO extends BilleteraDTO {
      * @param puntosFidelidad puntos acumulados en billetera
      */
     
-    public BilleteraDetailDTO(MedioPagoDTO medioPagop, double saldo, Integer puntosFidelidad)
+    public BilleteraDetailDTO(MedioPagoDTO medioPago, double saldo, Integer puntosFidelidad)
     {
         super(saldo,puntosFidelidad);
-        this.medioPago = medioPagop;
+        this.medioPago = medioPago;
     }
     
     
