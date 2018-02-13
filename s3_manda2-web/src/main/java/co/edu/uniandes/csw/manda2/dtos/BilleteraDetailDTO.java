@@ -12,6 +12,21 @@ package co.edu.uniandes.csw.manda2.dtos;
 public class BilleteraDetailDTO extends BilleteraDTO {
     
     
+    
+    /**
+     * Constructor de la billetera.
+     * @param medioPago Medio de pago para realizar la transaccion
+     * @param saldo saldo disponible en billetera
+     * @param puntosFidelidad puntos acumulados en billetera
+     */
+    
+    public BilleteraDetailDTO(MedioPagoDTO medioPagop, double saldo, Integer puntosFidelidad)
+    {
+        super(saldo,puntosFidelidad);
+        this.medioPago = medioPagop;
+    }
+    
+    
     /**
      * Medio de pago para realizar la transaccion
      */

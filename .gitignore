@@ -23,3 +23,4 @@ hs_err_pid*
 /manda2-back/target/
 /manda2-web/target/
 /target/
+/s3_manda2-back/target/

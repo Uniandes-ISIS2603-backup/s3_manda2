@@ -16,9 +16,9 @@ public class PSEDTO extends MedioPagoDTO {
     
     //Constructor
     
-    public PSEDTO(String pLinkPse)
+    public PSEDTO(String pLinkPse, long id, String nombreCliente)
     {
-        super();
+        super(id, nombreCliente);
         linkPse = pLinkPse;
         
     }

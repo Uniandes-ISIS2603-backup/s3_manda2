@@ -17,10 +17,10 @@ public class ClienteDetailDTO extends ClienteDTO {
     private ArrayList<PagoDTO> pagos;
     private ArrayList<ReclamoDTO> quejasYReclamos;
     //Constructor
-    public ClienteDetailDTO ()
+    public ClienteDetailDTO (double saldo, Integer puntosFidelidad)
     {
         super();
-        billetera = new BilleteraDTO();
+        billetera = new BilleteraDTO(saldo, puntosFidelidad);
         servicios = new ArrayList<ServicioDTO>();
         pagos = new ArrayList<PagoDTO>();
         quejasYReclamos = new ArrayList<ReclamoDTO>();
