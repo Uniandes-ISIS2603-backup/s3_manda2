@@ -11,6 +11,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public abstract class ServicioDTO {
     
+    
      /**
      * Id del objeto
      */

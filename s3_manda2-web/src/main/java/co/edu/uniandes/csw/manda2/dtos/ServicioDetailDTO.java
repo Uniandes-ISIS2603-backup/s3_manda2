@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  * Clase que representa un servicio de la aplicación en detalle.
  * @author da.ramos
  */
-public class ServicioDetailDTO extends ServicioDTO{
+public abstract class ServicioDetailDTO extends ServicioDTO{
 
     /**
      * Constructor del servicio.
