@@ -33,7 +33,7 @@ import javax.ws.rs.Produces;
  * </pre>
  * @author dv.gonzalez10
  */
-@Path("vueltasConDemoraEnOficina")
+@Path("vueltascondemoraenoficina")
 @Produces("application/json")
 @Consumes("application/json")
 public class VueltasConDemoraEnOficinaResource {

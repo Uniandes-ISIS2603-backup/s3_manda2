@@ -20,7 +20,7 @@ import javax.ws.rs.Produces;
  *
  * @author n.bello
  */
-@Path("servicios")
+@Path("reclamos")
 @Consumes("application/json")
 @Produces("application/json")
 public class ReclamoResource {

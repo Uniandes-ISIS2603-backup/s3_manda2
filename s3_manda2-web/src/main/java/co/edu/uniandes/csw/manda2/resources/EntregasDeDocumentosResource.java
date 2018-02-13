@@ -32,7 +32,7 @@ import javax.ws.rs.Produces;
  * </pre>
  * @author dv.gonzalez10
  */
-@Path("entregasDeDocumentosResource")
+@Path("entregasdedocumentos")
 @Produces("application/json")
 @Consumes("application/json")
 /**

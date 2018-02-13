@@ -33,7 +33,7 @@ import javax.ws.rs.Produces;
  * </pre>
  * @author dv.gonzalez10
  */
-@Path("comprasEnTienda")
+@Path("comprasentienda")
 @Produces("application/json")
 @Consumes("application/json")
 public class ComprasEnTiendaResource {

@@ -12,7 +12,7 @@ import javax.ws.rs.*;
  * @author m.moreno
  */
 
-@Path("billetera")
+@Path("billeteras")
 @Produces("application/json")
 @Consumes("application/json")
 

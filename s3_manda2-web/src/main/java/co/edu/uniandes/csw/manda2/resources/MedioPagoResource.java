@@ -13,7 +13,7 @@ import javax.ws.rs.*;
  * @author m.moreno
  */
 
- @Path("MedioPago")
+ @Path("mediospago")
 @Produces("application/json")
 @Consumes("application/json")
 public class MedioPagoResource {
