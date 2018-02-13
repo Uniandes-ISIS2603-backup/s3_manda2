@@ -32,7 +32,7 @@ import javax.ws.rs.Produces;
  * </pre>
  * @author dv.gonzalez10
  */
-@Path("entregasDeDocumentosResource")
+@Path("entregasdedocumentosresource")
 @Produces("application/json")
 @Consumes("application/json")
 /**
@@ -120,7 +120,6 @@ public class EntregasDeDocumentosResource {
      * @param id Identificador del vueltasConDemoraEnOficina que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param entregasDeDocumentos  {@link EntregasDeDocumentosDTO}  entregasDeDocumentos  que se desea guardar.
      * @return JSON {@link entregasDeDocumentos} -  entregasDeDocumentos  guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar vueltasConDemoraEnOficina  porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")
