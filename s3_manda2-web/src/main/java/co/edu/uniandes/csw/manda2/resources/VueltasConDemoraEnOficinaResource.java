@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.VueltasConDemoraEnOficinaDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -21,14 +22,14 @@ import javax.ws.rs.Produces;
  *
  * @author dv.gonzalez10
  */
-@Path("VueltasConDemoraEnOficina")
+@Path("vueltasConDemoraEnOficina")
 @Produces("application/json")
 @Consumes("application/json")
 public class VueltasConDemoraEnOficinaResource {
 
     @GET
     public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina(){
-        return null;
+        return new ArrayList <> ();
     }
     
     @GET
@@ -39,13 +40,13 @@ public class VueltasConDemoraEnOficinaResource {
     
     @POST
     public VueltasConDemoraEnOficinaDTO createVueltaConDemoraEnOficina( VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina){
-        return null;
+        return vueltaConDemoraEnOficina;
     }
     
     @PUT
     @Path("{id : \\d+}")
-    public VueltasConDemoraEnOficinaDTO  updateVueltaConDemoraEnOficina( @PathParam("id") long id, VueltasConDemoraEnOficinaDTO  servicio ){
-        return null;
+    public VueltasConDemoraEnOficinaDTO  updateVueltaConDemoraEnOficina( @PathParam("id") long id, VueltasConDemoraEnOficinaDTO  vueltaConDemoraEnOficina ){
+        return vueltaConDemoraEnOficina;
 
     }
     
