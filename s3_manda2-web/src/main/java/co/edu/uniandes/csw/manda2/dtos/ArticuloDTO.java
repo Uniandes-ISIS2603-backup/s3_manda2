@@ -9,8 +9,16 @@ package co.edu.uniandes.csw.manda2.DTOS;
  *
  * @author cvtrujillo
  */
-public abstract class ArticuloDTO 
+public class ArticuloDTO 
 {
+
+    public ArticuloDTO(String rutaImagen, String nombre, double precio) {
+        this.rutaImagen = rutaImagen;
+        this.nombre = nombre;
+        this.precio = precio;
+    }    
+    
+    
     /**
      * La ruta de la imágen del artículo
      * */
