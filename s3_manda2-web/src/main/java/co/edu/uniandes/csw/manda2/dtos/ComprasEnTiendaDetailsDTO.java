@@ -11,6 +11,23 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class ComprasEnTiendaDetailsDTO {
     //atributos
-    //private Articulo articulo;
+    /*
+    *Articulo que se quiere comprar en tienda
+    */
+    private ArticuloDTO articulo;
+
+    public ComprasEnTiendaDetailsDTO(ArticuloDTO articulo) {
+        this.articulo = articulo;
+    }
+
+    public ArticuloDTO getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(ArticuloDTO articulo) {
+        this.articulo = articulo;
+    }
+    
+    
    
 }

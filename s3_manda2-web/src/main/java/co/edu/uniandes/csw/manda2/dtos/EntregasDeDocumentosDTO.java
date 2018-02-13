@@ -20,11 +20,19 @@ public class EntregasDeDocumentosDTO {
     *El porcentaaje que se cobra extra por el servicio 
     */
     private Double porcentajeExtra;
-    /*
-    *iD del servicio
-    */
-    private Long iD;
 
+    
+    /**
+     * Metodo constructor de el servicio entregas de documentos
+     * @param costoDeTransporte
+     * @param porcentajeExtra 
+     */
+    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra) {
+        this.costoDeTransporte = costoDeTransporte;
+        this.porcentajeExtra = porcentajeExtra;
+    }
+
+   
     
     //Metodos 
     
@@ -60,25 +68,5 @@ public class EntregasDeDocumentosDTO {
     public void setPorcentajeExtra(Double porcentajeExtra) {
         this.porcentajeExtra = porcentajeExtra;
     }
-    
-    
-    
-     /**
-     *Retorna el iD asociado al servicio de entregas de documentos
-     * @return iD
-     */
-    public Long getiD() {
-        return iD;
-    }
-
-    
-    /**
-     * Asigna el iD de el servicio de entrega de documento
-     *  @param iD
-     */
-    public void setiD(Long iD) {
-        this.iD = iD;
-    }
-    
     
 }

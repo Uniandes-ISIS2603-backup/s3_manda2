@@ -23,30 +23,39 @@ public class VueltasConDemoraEnOficinaDTO {
         /*
         *El costo de la duracion del servicio en oficina
         */
-        private Date costoDuracion;
+        private Double costoDuracion;
         /*
         *El costo del transporte del servicio
         */
         private Double costoDeTransporte;
-        /**
-        * Id del objeto
-        */
-        private Long  iD;
+     
 
         
-     /**
+        //Constructor
+        
+    /**
+     * Metodo constructor de vueltas con demora 
+     * @param costoDuracion El costo de la duracion del servicio en oficina
+     * @param costoDeTransporte El costo del transporte del servicio
+     */
+    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte) {
+        this.costoDuracion = costoDuracion;
+        this.costoDeTransporte = costoDeTransporte;
+    }
+
+    /**
      *Retorna el valor asociado a la duración del servicio
      * @return costoDeTransporte
      */    
-    public Date getCostoDuracion() {
+    public Double getCostoDuracion() {
         return costoDuracion;
     }
 
     /**
      * Asigna el costo de duración.
-     * @param Date costoDuracion
+     * @param Double costoDuracion
      */
-    public void setCostoDuracion(Date costoDuracion) {
+    public void setCostoDuracion(Double costoDuracion) {
         this.costoDuracion = costoDuracion;
     }
 
@@ -65,22 +74,6 @@ public class VueltasConDemoraEnOficinaDTO {
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
-    
-     /**
-     *Retorna el iD asociado al servicio de entregas de documentos
-     * @return iD
-     */
-    public Long getiD() {
-        return iD;
-    }
-    /**
-     * Asigna el iD de el servicio de entrega de documento
-     *  @param iD
-     */
-    public void setiD(Long iD) {
-        this.iD = iD;
-    }
-        
-        
+  
             
 }
