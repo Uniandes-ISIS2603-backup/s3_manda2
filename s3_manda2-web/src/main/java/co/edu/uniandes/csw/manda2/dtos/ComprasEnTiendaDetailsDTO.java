@@ -11,7 +11,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class ComprasEnTiendaDetailsDTO {
     //atributos
-    /*
+    /**
     *Articulo que se quiere comprar en tienda
     */
     private ArticuloDTO articulo;

@@ -10,19 +10,41 @@ package co.edu.uniandes.csw.manda2.dtos;
  * Clase que representa el servicio de compras en tienda
  * @author dv.gonzalez10
  */
-public class ComprasEnTiendaDTO {
+public class ComprasEnTiendaDTO extends ServicioDetailDTO{
     
     //Atributos
     /*
     *El costo del transporte del servicio
     */
     private Double costoDeTransporte;
-    /**
-     * Id del objeto
-     */
-    private Long iD;
+  
 
     
+    /**
+     * Constructor
+     * @param costoDeTransporte
+     * @param iD
+     * @param pago
+     * @param cliente
+     * @param empleado
+     * @param id
+     * @param nombre
+     * @param costo
+     * @param puntoDeEncuentro
+     * @param puntoDeRealizacion
+     * @param exitoDiligencia
+     * @param calificacion
+     * @param descripcion 
+     */
+    public ComprasEnTiendaDTO(Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+        super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
+        this.costoDeTransporte = costoDeTransporte;
+    }
+
+    
+    
+    
+    //METODOS
       /**
      *Retorna el valor asociado al transporte del servicio
      * @return costoDeTransporte
@@ -37,22 +59,5 @@ public class ComprasEnTiendaDTO {
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
-    }
-     /**
-     *Retorna el iD asociado al servicio de entregas de documentos
-     * @return iD
-     */
-    public Long getiD() {
-        return iD;
-    }
-    /**
-     * Asigna el iD de el servicio de entrega de documento
-     *  @param iD
-     */
-    public void setiD(Long iD) {
-        this.iD = iD;
-    }
-    
-    
-    
+    }   
 }

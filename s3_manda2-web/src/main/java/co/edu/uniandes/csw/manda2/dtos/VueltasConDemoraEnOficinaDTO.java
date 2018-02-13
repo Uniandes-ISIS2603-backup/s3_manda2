@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraEnOficinaDTO {
+public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
     
         //Atributos
     
@@ -32,13 +32,24 @@ public class VueltasConDemoraEnOficinaDTO {
 
         
         //Constructor
-        
     /**
-     * Metodo constructor de vueltas con demora 
-     * @param costoDuracion El costo de la duracion del servicio en oficina
-     * @param costoDeTransporte El costo del transporte del servicio
+     * Constructor
+     * @param costoDuracion
+     * @param costoDeTransporte
+     * @param pago
+     * @param cliente
+     * @param empleado
+     * @param id
+     * @param nombre
+     * @param costo
+     * @param puntoDeEncuentro
+     * @param puntoDeRealizacion
+     * @param exitoDiligencia
+     * @param calificacion
+     * @param descripcion 
      */
-    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte) {
+    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+        super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDuracion = costoDuracion;
         this.costoDeTransporte = costoDeTransporte;
     }

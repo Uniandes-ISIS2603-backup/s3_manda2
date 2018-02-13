@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO {
+public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     
     //Atributos
     /*
@@ -20,18 +20,35 @@ public class EntregasDeDocumentosDTO {
     *El porcentaaje que se cobra extra por el servicio 
     */
     private Double porcentajeExtra;
+    
+    
+    //Constructor
 
     
     /**
-     * Metodo constructor de el servicio entregas de documentos
+     * Constructor
      * @param costoDeTransporte
-     * @param porcentajeExtra 
+     * @param porcentajeExtra
+     * @param pago
+     * @param cliente
+     * @param empleado
+     * @param id
+     * @param nombre
+     * @param costo
+     * @param puntoDeEncuentro
+     * @param puntoDeRealizacion
+     * @param exitoDiligencia
+     * @param calificacion
+     * @param descripcion 
      */
-    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra) {
+    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+        super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
         this.porcentajeExtra = porcentajeExtra;
     }
 
+    
+    
    
     
     //Metodos 
