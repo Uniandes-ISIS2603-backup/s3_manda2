@@ -65,7 +65,7 @@ public class VueltasConDemoraEnOficinaResource {
      * 200 OK Devuelve la vueltasConDemoraEnOficina correspondiente al id.
      * </code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found No existe un PayPal con el id dado.
+     * 404 Not Found No existe un vueltasConDemoraEnOficina con el id dado.
      * </code> 
      * </pre>
      * @param id Identificador de la vueltasConDemoraEnOficina que se está buscando. Este debe ser una cadena de dígitos.
@@ -105,7 +105,7 @@ public class VueltasConDemoraEnOficinaResource {
     
     
     /**
-     * <h1>PUT /api/paypals/{id} : Actualizar VueltasConDemoraEnOficina con el id dado.</h1>
+     * <h1>PUT /api/vueltasConDemoraEnOficina/{id} : Actualizar VueltasConDemoraEnOficina con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link VueltasConDemoraEnOficinaDTO }.
      * 
      * Actualiza vueltasConDemoraEnOficina con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
@@ -119,7 +119,7 @@ public class VueltasConDemoraEnOficinaResource {
      * </pre>
      * @param id Identificador del vueltasConDemoraEnOficina que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param VueltasConDemoraEnOficina  {@link VueltasConDemoraEnOficinaDTO}  VueltasConDemoraEnOficina  que se desea guardar.
-     * @return JSON {@link VueltasConDemoraEnOficinaDTO} -  ueltasConDemoraEnOficina  guardado.
+     * @return JSON {@link VueltasConDemoraEnOficinaDTO} -  VueltasConDemoraEnOficina  guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar vueltasConDemoraEnOficina  porque ya existe uno con ese nombre.
      */
     @PUT

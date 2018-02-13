@@ -37,6 +37,17 @@ public class PagoDTO {
      */
     private Date fecha; 
     
+     /**
+     * Constructor de un nuevo Pago.
+     * @param id id del pago
+     * @param estado estado en que se encuentra el pago
+     * @param fecha fecha de pago
+     */
+    public PagoDTO(long id, String estado, Date fecha){
+        this.id  =id;
+        this.estadoTransaccion = estado;
+        this.fecha  = fecha;
+    }
     
     /**
      * Retorna el id del pago.

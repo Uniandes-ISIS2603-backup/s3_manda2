@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.dtos;
+import java.util.Date;
 
 /**
  *
@@ -21,7 +22,19 @@ public class PagoDetailDTO extends PagoDTO {
      */
     private MedioPagoDTO medioPago;
     
-    
+     /**
+     * Constructor de un nuevo Pago.
+     * @param servicio servicio asociado al pago
+     *  @param medio Medio de pago para realizar la transaccion
+     *  @param id id del pago
+     *  @param estado estado en que se encuentra el pago
+     * @param fecha fecha de pago
+     */
+    public PagoDetailDTO (ServicioDTO servicio, MedioPagoDTO medio, long id, String estado, Date fecha){
+        super(id, estado, fecha);
+        this.medioPago = medio;
+        this.servicio = servicio;
+    }
     /**
      * Retorna el servicio relacionado al pago.
      * @return servicio.

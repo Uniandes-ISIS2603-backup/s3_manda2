@@ -15,9 +15,9 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     
     private int numeroTarjeta;
     //Constructor
-    public TarjetaCreditoDTO(int pNumeroTarjeta)
+    public TarjetaCreditoDTO(int pNumeroTarjeta, long id,  String nombreCliente)
     {
-        super();
+        super(id, nombreCliente);
         numeroTarjeta = pNumeroTarjeta;
         //super();
     }
