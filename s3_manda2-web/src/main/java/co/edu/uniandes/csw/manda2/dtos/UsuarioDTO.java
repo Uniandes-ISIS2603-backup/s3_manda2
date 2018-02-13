@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author n.bello
  */
-public class Usuario  {
+public abstract class UsuarioDTO  {
     //ATRIBUTOS
     /**
      * Atributo que representa el nombre del usuario
@@ -29,9 +29,21 @@ public class Usuario  {
      * Atributo que representa la calificacion del usuario
      */
     private Double calificacion;
-    
+     /**
+     * Atributo que representa la id del usuario
+     */
+    private Long id;
     //CONSTRUCTOR
- 
+    /**
+     */
+    public UsuarioDTO()
+    {
+        nombre = "";
+        cedula = "";
+        fechaingreso = null;
+        calificacion = 0.0;
+        id = new Long(0);
+    }
     //METODOS
     /**
      * retorna el nombre del ususario
@@ -89,5 +101,14 @@ public class Usuario  {
     public void setCalificacion(Double calificacion) {
         this.calificacion = calificacion;
     }
-    
+    public Long getId() {
+        return id;
+    }
+    /**
+     * asigna la calificacion que llega por parametro
+     * @param calificacion 
+     */
+    public void setID(Long  id) {
+        this.id = id;
+    }
 }

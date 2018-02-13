@@ -24,15 +24,13 @@ public class ReclamoDetailDTO extends ReclamoDTO {
     //CONSTRUCTOR
     
     /**
-     * se general el reclamo
-     * @param pEmpleado
-     * @param pServicio 
+     * se general el reclamo 
      */
-    public ReclamoDetailDTO(EmpleadoDTO pEmpleado, ServicioDTO pServicio)
+    public ReclamoDetailDTO()
     {
-        super;
-        empleado = pEmpleado;
-        servicio = pServicio;
+        super();
+        empleado = null;
+        servicio = null;
     }
     
     //METODOS

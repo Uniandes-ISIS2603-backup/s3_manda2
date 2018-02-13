@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
+import co.edu.uniandes.csw.manda2.dtos.ReclamoDetailDTO;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -24,25 +25,25 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 public class ReclamoResource {
     @GET
-    public List<RelcamoDetailDTO> getReclamos(){
+    public List<ReclamoDetailDTO> getReclamos(){
         return null;
     }
     
     @GET
     @Path("{numero : \\d+}")
-    public RelcamoDetailDTO getReclamo (@PathParam ("numero") String cedula){
+    public ReclamoDetailDTO getReclamo (@PathParam ("numero") String cedula){
         return null;
     }
     
     
     @POST
-    public RelcamoDetailDTO createReclamo( RelcamoDetailDTO reclamo){
+    public ReclamoDetailDTO createReclamo( ReclamoDetailDTO reclamo){
         return null;
     }
     
     @PUT
     @Path("{numero : \\d+}")
-    public RelcamoDetailDTO updateReclamo (@PathParam("numero") String numero, RelcamoDetailDTO servicio ){
+    public ReclamoDetailDTO updateReclamo (@PathParam("numero") String numero, ReclamoDetailDTO servicio ){
         return null;
     }
     

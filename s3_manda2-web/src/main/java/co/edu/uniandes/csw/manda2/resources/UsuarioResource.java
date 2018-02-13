@@ -5,13 +5,15 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
+import co.edu.uniandes.csw.manda2.dtos.UsuarioDTO;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import co.edu.uniandes.csw.manda2.dtos.UsuarioDTO;
+
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 
@@ -32,7 +34,7 @@ public class UsuarioResource {
     @Path ("{cedula : \\d+}")
     public UsuarioDTO getUsuario (@PathParam ("cedula") String cedula)
     {
-        retrun null;
+        return null;
     }
      @POST
     public UsuarioDTO createUsuario( UsuarioDTO usuario){

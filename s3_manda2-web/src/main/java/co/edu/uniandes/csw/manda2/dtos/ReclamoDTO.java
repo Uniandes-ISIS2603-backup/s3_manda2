@@ -19,16 +19,20 @@ public class ReclamoDTO {
      * Atributo qie representa el numero del reclamo
      */
     private Integer numero;
+    /**
+     * Atributo qie representa el id del reclamo
+     **/
+    private Long id;
     //CONSTRUCTOR
     /**
      * Se genera un reclamo
-     * @param pMensaje
-     * @param pNumero 
+     * 
      */
-    public ReclamoDTO(String pMensaje,Integer pNumero)
+    public ReclamoDTO()
     {
-      mensaje = pMensaje;
-      numero = pNumero;
+      mensaje = "";
+      numero = 0;
+      id = new Long(0);
     }
     //METODOS
     /**
@@ -59,5 +63,18 @@ public class ReclamoDTO {
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
-    
+     /**
+     * retorna el numero del mansahe
+     * @return numero
+     */
+    public Long getId() {
+        return id;
+    }
+    /**
+     * se asigna el numero al reclamo
+     * @param numero 
+     */
+    public void setNumero(Long id) {
+        this.id = id;
+    }
 }

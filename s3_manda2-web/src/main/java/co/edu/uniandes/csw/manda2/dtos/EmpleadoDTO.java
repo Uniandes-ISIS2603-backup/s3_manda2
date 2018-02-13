@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *
  * @author n.bello
  */
-public class EmpleadoDTO implements UsuarioDTO{
+public class EmpleadoDTO extends UsuarioDTO{
     //ATRIBUTOS
     /**
      * Atributo que identifica a un empleado
@@ -26,15 +26,14 @@ public class EmpleadoDTO implements UsuarioDTO{
     //CONSTRUCTOR
     /**
      * Genera un empleado
-     * @param pIdentificacion
-     * @param pFoto
-     * @param pEPS 
+     *
      */
-    public EmpleadoDTO(String pIdentificacion,ArticuloDTO pFoto, String pEPS)
+    public EmpleadoDTO()
     {
-        identificacion = pIdentificacion;
-        foto = pFoto;
-        EPS = pEPS;
+        super();
+        identificacion = "";
+        foto = null;
+        EPS = "";
     }
     //METODOS
      /**

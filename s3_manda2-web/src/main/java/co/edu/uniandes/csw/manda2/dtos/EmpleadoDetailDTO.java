@@ -20,14 +20,14 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      /**
      * Listado de todos los servicios del empleado
      */
-    private ArrayList<ServicioDetailDTO>servicios
+    private ArrayList<ServicioDetailDTO>servicios;
     //CONSTRUCTOR
     /**
      * 
      **/
-    public EmpladoDetailDTO()
-    {
-        super;
+    public EmpleadoDetailDTO()
+    {   
+        super();
         pagos = new ArrayList<PagoDTO>();
         servicios = new ArrayList<ServicioDetailDTO>();
     }
