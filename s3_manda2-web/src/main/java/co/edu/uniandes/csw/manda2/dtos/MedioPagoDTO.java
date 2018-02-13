@@ -11,6 +11,11 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class MedioPagoDTO {
     
+    
+    /**
+     * Indica el id de medio pago.
+     */
+    private long id;
     /**
      * Indica el nombre del cliente que realiza pago.
      */
@@ -30,5 +35,16 @@ public class MedioPagoDTO {
      */
     public void setNombreCliente(String pNombre){
         this.nombreCliente = pNombre;
+    }
+     public long getId()
+    {
+        return id;
+    }
+    /**
+     * Establece el nombre del cliente.
+     * @param pNombre.
+     */
+    public void setId(long id){
+        this.id = id;
     }
 }
