@@ -26,7 +26,7 @@ public abstract class OrganizacionDTO
      * Representa si es necesario el desplazamiento de uno de nuestros trabajadores
      * con el fin de cumplir con la diligencia. 0
     */
-    private boolean desplazamiento;
+    private Boolean desplazamiento;
     
     /**
      * Identificacion del servicio de Organizacion
@@ -83,7 +83,7 @@ public abstract class OrganizacionDTO
      * Verifica si el sericio requiere de un desplazamiento
      * @return 
      */
-    public boolean isDesplazamiento()
+    public Boolean isDesplazamiento()
     {
         return desplazamiento;
     }

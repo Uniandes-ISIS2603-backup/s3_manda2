@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
+import co.edu.uniandes.csw.manda2.dtos.ClienteDetailDTO;
+import co.edu.uniandes.csw.manda2.dtos.EmpleadoDetailDTO;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
