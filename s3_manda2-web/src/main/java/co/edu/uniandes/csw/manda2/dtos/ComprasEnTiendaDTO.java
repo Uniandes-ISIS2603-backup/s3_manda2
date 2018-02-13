@@ -23,7 +23,6 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO{
     /**
      * Constructor
      * @param costoDeTransporte
-     * @param iD
      * @param pago
      * @param cliente
      * @param empleado
@@ -41,8 +40,6 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO{
         this.costoDeTransporte = costoDeTransporte;
     }
 
-    
-    
     
     //METODOS
       /**
