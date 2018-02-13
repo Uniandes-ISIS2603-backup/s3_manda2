@@ -10,11 +10,11 @@ package co.edu.uniandes.csw.manda2.dtos;
  * @author da.ramos
  */
 public class PayPalDTO extends MedioPagoDTO{
-    
-    /**
-     * Id del objeto
-     */
-    private long id;
+
+    public PayPalDTO(long id, String linkPayPal, String nombreCliente) {
+        super(id, nombreCliente);
+        this.linkPayPal = linkPayPal;
+    }
     
     /**
      * Link de PayPal.
@@ -35,21 +35,5 @@ public class PayPalDTO extends MedioPagoDTO{
      */
     public void setLinkPayPal(String linkPayPal) {
         this.linkPayPal = linkPayPal;
-    }
-
-    /**
-     * Retorna el id.
-     * @return Id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * Asigna el id al dado por parámetro.
-     * @param id Nuevo id.
-     */
-    public void setId(long id) {
-        this.id = id;
     }
 }
