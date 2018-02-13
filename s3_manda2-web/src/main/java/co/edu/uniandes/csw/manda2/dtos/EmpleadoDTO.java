@@ -54,14 +54,14 @@ public class EmpleadoDTO extends UsuarioDTO{
      * retorna la foto del empleado
      * @return foto
      */
-    public ArticuloDTO getFoto() {
+    public String getFoto() {
         return foto;
     }
      /**
      * asigna la foto al empleado 
      * @param foto
      **/
-    public void setFoto(ArticuloDTO foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
     /**
