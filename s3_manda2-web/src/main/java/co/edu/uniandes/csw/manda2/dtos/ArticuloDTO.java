@@ -35,6 +35,7 @@ public class ArticuloDTO
     
     /**
      * Obtener la ruta de la imagen del articulo
+     * @return ruta de la imagen
      * */
     public String getRutaImagen()
     {
@@ -42,6 +43,7 @@ public class ArticuloDTO
     }
     /**
      * Obtener el nombre del articulo
+     * @return nombre
      * */
     
     public String getNombre()
@@ -51,6 +53,7 @@ public class ArticuloDTO
     
     /**
      * Obtener el precio del articulo
+     * @return precio
      * */
     public double getPrecio()
     {
@@ -58,6 +61,7 @@ public class ArticuloDTO
     }
     /**
      * Establecer la ruta de la imagen del articulo
+     * @param rutaIm nueva ruta 
      * */
     
     public void setRutaImagen(String rutaIm)
@@ -67,6 +71,7 @@ public class ArticuloDTO
     
     /**
      *  Establecer  el nombre del articulo
+     * @param pNombre nuevo nombre
      * */
     public void setNombreArticulo(String pNombre)
     {
@@ -75,6 +80,7 @@ public class ArticuloDTO
     
     /**
      *  Establecer el precio del articulo
+     * @param pPrecio nuevo precio
      * */
     public void setPrecio(double pPrecio)
     {
