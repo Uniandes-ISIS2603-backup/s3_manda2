@@ -7,6 +7,24 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 /**
  * Clase que representa el medio de pago de PayPal.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "id": number, 
+ *      "nombreCliente": string,
+ *      "linkPayPal": string
+ *   }
+ * </pre>
+ * Por ejemplo un PayPal se representa así:<br>
+ * 
+ * <pre>
+ *   {
+ *      "id": 19846, 
+ *      "nombreCliente": "Juan Perez",
+ *      "linkPayPal": "http://www.paypal.com/users/juanperez"
+ *   }
+ * </pre>
  * @author da.ramos
  */
 public class PayPalDTO extends MedioPagoDTO{
