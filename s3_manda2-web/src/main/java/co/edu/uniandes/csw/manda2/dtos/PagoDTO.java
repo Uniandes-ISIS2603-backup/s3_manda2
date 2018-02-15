@@ -49,7 +49,7 @@ public class PagoDTO {
      /**
      * Id del pago
      */
-    private long id;
+    private Long id;
     
      /**
      * Indica el estado en el que se encuentra la transaccion
@@ -67,7 +67,7 @@ public class PagoDTO {
      * @param estado estado en que se encuentra el pago
      * @param fecha fecha de pago
      */
-    public PagoDTO(long id, String estado, Date fecha){
+    public PagoDTO(Long id, String estado, Date fecha){
         this.id  =id;
         this.estadoTransaccion = estado;
         this.fecha  = fecha;
@@ -77,7 +77,7 @@ public class PagoDTO {
      * Retorna el id del pago.
      * @return id de pago.
      */
-    public long getID(){
+    public Long getID(){
         return id;
     }
     
@@ -99,7 +99,7 @@ public class PagoDTO {
      * Establece el id del pago.
      * @param id del pago.
      */
-    public void setId(long id){
+    public void setId(Long id){
         this.id = id;
     }
      /**

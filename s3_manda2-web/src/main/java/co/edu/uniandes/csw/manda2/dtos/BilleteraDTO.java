@@ -34,7 +34,7 @@ public class BilleteraDTO {
     /**
      * Indica el saldo disponible en la billetera.
      */
-    private double saldo;
+    private Double saldo;
     /**
      * Indica los puntos de fidelidad acumulados.
      */
@@ -46,9 +46,8 @@ public class BilleteraDTO {
      * @param puntosFidelidad puntos de fidelidad acumulados
      */
     
-    public BilleteraDTO(double saldo, Integer puntosFidelidad){
-        this.puntosDeFidelidad = puntosFidelidad;
-        this.saldo = saldo;
+    public BilleteraDTO(){
+        
     }
     
     /**
@@ -56,7 +55,7 @@ public class BilleteraDTO {
      * @return saldo en la billetera.
      */
     
-    public double getSaldo(){
+    public Double getSaldo(){
         return saldo;
     }
     /**

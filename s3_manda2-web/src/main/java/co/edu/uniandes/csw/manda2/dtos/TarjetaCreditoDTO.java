@@ -49,7 +49,7 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      * @param id
      * @param nombreCliente 
      */
-    public TarjetaCreditoDTO(int pNumeroTarjeta, long id,  String nombreCliente)
+    public TarjetaCreditoDTO(Integer pNumeroTarjeta, Long id,  String nombreCliente)
     {
         super(id, nombreCliente);
         numeroTarjeta = pNumeroTarjeta;
@@ -60,14 +60,14 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     /**
      * @return the numeroTarjeta
      */
-    public int getNumeroTarjeta() {
+    public Integer getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
     /**
      * @param numeroTarjeta the numeroTarjeta to set
      */
-    public void setNumeroTarjeta(int numeroTarjeta) {
+    public void setNumeroTarjeta(Integer numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
     
