@@ -48,7 +48,7 @@ public class VueltasConDemoraEnOficinaResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos las vueltasConDemoraEnOFicina de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link PayPalDTO} - Las vueltasConDemoraEnOFicina encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link VueltasConDemoraEnOficinaDTO} - Las vueltasConDemoraEnOFicina encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina(){

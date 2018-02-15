@@ -5,11 +5,13 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author dv.gonzalez10
  */
-public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO {
+public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Serializable{
     //atributos
     /**
     *Articulo que se quiere comprar en tienda
