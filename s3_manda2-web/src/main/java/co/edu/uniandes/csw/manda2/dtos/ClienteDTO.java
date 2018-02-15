@@ -27,13 +27,13 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "id": number,
- *      "nombre": string,
- *      "cedula": string,
- *      "fechaDeIngreso": date,
- *      "calificacion": double,
- *      "pagoAnticipado": boolean,
- *      "horasDeServicioSemanal": number
+ *      "id": 084156584,
+ *      "nombre": Nicolas Bello,
+ *      "cedula": 1020839175,
+ *      "fechaDeIngreso": 15/07/06,
+ *      "calificacion": 5,
+ *      "pagoAnticipado": false,
+ *      "horasDeServicioSemanal": 20
  *   }
  *
  * </pre>
