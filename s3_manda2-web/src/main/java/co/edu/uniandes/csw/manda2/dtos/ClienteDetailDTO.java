@@ -26,5 +26,61 @@ public class ClienteDetailDTO extends ClienteDTO {
         quejasYReclamos = new ArrayList<ReclamoDTO>();
     }
     //Metodos
-    // Con errores no puedo generar los getters y setters.
+
+    /**
+     * @return the billetera
+     */
+    public BilleteraDTO getBilletera() {
+        return billetera;
+    }
+
+    /**
+     * @param billetera the billetera to set
+     */
+    public void setBilletera(BilleteraDTO billetera) {
+        this.billetera = billetera;
+    }
+
+    /**
+     * @return the servicios
+     */
+    public ArrayList<ServicioDTO> getServicios() {
+        return servicios;
+    }
+
+    /**
+     * @param servicios the servicios to set
+     */
+    public void setServicios(ArrayList<ServicioDTO> servicios) {
+        this.servicios = servicios;
+    }
+
+    /**
+     * @return the pagos
+     */
+    public ArrayList<PagoDTO> getPagos() {
+        return pagos;
+    }
+
+    /**
+     * @param pagos the pagos to set
+     */
+    public void setPagos(ArrayList<PagoDTO> pagos) {
+        this.pagos = pagos;
+    }
+
+    /**
+     * @return the quejasYReclamos
+     */
+    public ArrayList<ReclamoDTO> getQuejasYReclamos() {
+        return quejasYReclamos;
+    }
+
+    /**
+     * @param quejasYReclamos the quejasYReclamos to set
+     */
+    public void setQuejasYReclamos(ArrayList<ReclamoDTO> quejasYReclamos) {
+        this.quejasYReclamos = quejasYReclamos;
+    }
+    
 }
