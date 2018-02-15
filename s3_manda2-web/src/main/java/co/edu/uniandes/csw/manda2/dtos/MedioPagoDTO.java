@@ -6,7 +6,27 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
+ * * MedioPagoDTO Objeto de transferencia de datos de Medio Pago. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "id": long,
+ *      "nombreCliente: string
+ *   }
+ * </pre>
+ * Por ejemplo una ciudad se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "id": 91852,
+ *      "nombreCliente: "Pepito Perez"
+ *   }
  *
+ * </pre>
  * @author m.moreno
  */
 public class MedioPagoDTO {
@@ -44,6 +64,11 @@ public class MedioPagoDTO {
     public void setNombreCliente(String pNombre){
         this.nombreCliente = pNombre;
     }
+    
+     /**
+     * Retorna el id del medio de pago.
+     * @return id de medio de pago.
+     */
      public long getId()
     {
         return id;

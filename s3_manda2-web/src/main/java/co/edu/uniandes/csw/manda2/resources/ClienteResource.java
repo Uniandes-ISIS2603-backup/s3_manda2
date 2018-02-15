@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.ClienteDetailDTO;
+import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 /**
  *
@@ -14,10 +16,12 @@ import javax.ws.rs.*;
 @Path("servicios")
 @Consumes("application/json")
 @Produces("application/json")
+@RequestScoped
 public class ClienteResource {
+    
     @GET
     public List<ClienteDetailDTO> getClientes(){
-        return null;
+        return new ArrayList<>();
     }
     
     @GET

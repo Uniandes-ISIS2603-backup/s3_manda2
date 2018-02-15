@@ -7,7 +7,7 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 /**
  *
- * @author cvtrujillo
+ * @author cv.trujillo
  */
 public class ArticuloDTO 
 {

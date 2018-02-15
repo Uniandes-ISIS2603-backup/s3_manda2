@@ -7,7 +7,7 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 /**
  *
- * @author Usuario
+ * @author cv.trujillo
  */
 public abstract class  ElementoBusquedaReservaDTO 
 {

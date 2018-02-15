@@ -6,7 +6,26 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
- *
+ * 
+ * Clase que representa los reclamos que se hacen.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "mensaje": string, 
+ *      "numero": number,
+ *      "id": number
+ *   }
+ * </pre>
+ * Por ejemplo de un reclamo se representa así:<br>
+ * 
+ * <pre>
+ *   {
+ *      "mensaje": "El servicio se demoro mucho", 
+ *      "numero": 001,
+ *      "id": 001
+ *   }
+ * </pre>
  * @author n.bello
  */
 public class ReclamoDTO {
@@ -26,13 +45,24 @@ public class ReclamoDTO {
     //CONSTRUCTOR
     /**
      * Se genera un reclamo
-     * 
      */
     public ReclamoDTO()
     {
       mensaje = "";
       numero = 0;
       id = new Long(0);
+    }
+    /** 
+     * Se genera un reclamo
+     * @param pMensaje el mensaje que se asignara al reclamo
+     * @param pNumero el numero del reclamo
+     * @param PId el id que se le asignara al reclamo
+     **/
+    public ReclamoDTO(String pMensaje, Integer pNumero, Long pId)
+    {
+      mensaje = pMensaje;
+      numero = pNumero;
+      id =pId;
     }
     //METODOS
     /**
@@ -44,35 +74,35 @@ public class ReclamoDTO {
     }
     /**
      * Asigna un mensaje al reclamo
-     * @param mensaje 
+     * @param mensaje llega el mensaje que se quiere asignar
      */
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
     /**
-     * retorna el numero del mansahe
-     * @return numero
+     * retorna el numero del reclamo
+     * @return numero el numero del reclamo
      */
     public Integer getNumero() {
         return numero;
     }
     /**
      * se asigna el numero al reclamo
-     * @param numero 
+     * @param numero el numero del reclamo
      */
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
      /**
-     * retorna el numero del mansahe
-     * @return numero
+     * retorna el id del reclamo
+     * @return numero del id
      */
     public Long getId() {
         return id;
     }
     /**
      * se asigna el numero al reclamo
-     * @param numero 
+     * @param id el id que se le asigna al reclamo
      */
     public void setNumero(Long id) {
         this.id = id;

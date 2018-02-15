@@ -6,7 +6,27 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
+ * BilleteraDTO Objeto de transferencia de datos de Billeteras. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "saldo": double,
+ *      "puntosFidelidad": integer
+ *   }
+ * </pre>
+ * Por ejemplo una billetera se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "saldo": 37000,
+ *      "puntosFidelidad": "100"
+ *   }
  *
+ * </pre>
  * @author m.moreno
  */
 public class BilleteraDTO {
@@ -33,7 +53,7 @@ public class BilleteraDTO {
     
     /**
      * Retorna el saldo en la billetera.
-     * @return saldo.
+     * @return saldo en la billetera.
      */
     
     public double getSaldo(){
