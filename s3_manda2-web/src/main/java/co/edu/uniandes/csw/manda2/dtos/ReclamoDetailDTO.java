@@ -6,7 +6,29 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
- *
+ *Clase que representa el reclamo. 
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "mensaje": string, 
+ *      "numero": number,
+ *      "id": number,
+ *      "empleado": "EmpleadoDTO",
+ *      "servicio": "ServicioDTO"  
+ * }
+ * </pre>
+ * Por ejemplo reclamo se representa así:<br>
+ * 
+ * <pre>
+ *   {
+ *      ""mensaje": "El servicio se demoro mucho", 
+ *      "numero": 001,
+ *      "id": 001,
+ *      "empleado": null,
+ *      "servicio": null
+ *   }
+ * </pre>
  * @author n.bello
  */
 public class ReclamoDetailDTO extends ReclamoDTO {
@@ -37,28 +59,28 @@ public class ReclamoDetailDTO extends ReclamoDTO {
     
     /**
      * retorna al empleado del reclamo
-     * @return empleado
+     * @return empleado del cual se hace el reclamo
      */
     public EmpleadoDTO getEmpleado() {
         return empleado;
     }
     /**
      * asigna empleado al reclamo
-     * @param empleado 
+     * @param empleado el empleado del cual se hace el reclamo
      */
     public void setEmpleado(EmpleadoDTO empleado) {
         this.empleado = empleado;
     }
     /**
      * retorna el servicio del reclamo  
-     * @return servicio
+     * @return servicio se retorna el servicio del cual se hace el reclamo
      */
     public ServicioDTO getServicio() {
         return servicio;
     }
     /**
      * asigna el servicio al reclamo
-     * @param servicio 
+     * @param servicio se asigna el servicio al cual se le hace el reclamo
      */
     public void setServicio(ServicioDTO servicio) {
         this.servicio = servicio;
