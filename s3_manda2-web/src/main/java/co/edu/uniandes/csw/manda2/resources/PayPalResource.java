@@ -5,11 +5,12 @@ import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 
 /**
  * <pre>Clase que implementa el recurso "paypals".
- * URL: /api/cities
+ * URL: /api/paypals
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
  * este recurso tiene la ruta "paypals".</i>
@@ -18,13 +19,13 @@ import javax.ws.rs.*;
  * <pre>
  * Path: indica la dirección después de "api" para acceder al recurso
  * Produces/Consumes: indica que los servicios definidos en este recurso reciben y devuelven objetos en formato JSON
- * RequestScoped: Inicia una transacción desde el llamado de cada método (servicio). 
  * </pre>
  * @author da.ramos
  */
 @Path("paypals")
 @Produces("application/json")
 @Consumes("application/json")
+@RequestScoped
 public class PayPalResource {
     
 
@@ -37,7 +38,7 @@ public class PayPalResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los PayPals de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link PayPalDTO} - Los PayPals encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link PayPalDTO} - Los PayPals encontrados en la aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
     public List<PayPalDTO> getPayPals(){
@@ -49,7 +50,7 @@ public class PayPalResource {
      * 
      * <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.
      * 
-     * Codigos de respuesta:
+     * Códigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve el PayPal correspondiente al id.
      * </code> 
@@ -61,7 +62,7 @@ public class PayPalResource {
      * @return JSON {@link PayPalDTO} - El PayPal buscado
      */
     @GET
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public PayPalDTO getPayPal(@PathParam("id") long id){
         return null;
     }
@@ -110,7 +111,7 @@ public class PayPalResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public PayPalDTO updatePayPal(@PathParam("id") long id, PayPalDTO payPal) throws BusinessLogicException{
         return payPal;
     }
@@ -130,7 +131,7 @@ public class PayPalResource {
      * @param id Identificador del PayPal que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public void deletePayPal(@PathParam("id") long id){
         
     }

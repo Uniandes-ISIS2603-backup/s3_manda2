@@ -35,37 +35,37 @@ public abstract class ServicioDTO {
     /**
      * Nombre del servicio.
      */
-    private String nombre;
+    protected String nombre;
     
     /**
      * Costo del servicio.
      */
-    private double costo;
+    protected double costo;
     
     /**
      * Punto de encuentro del empleado con el cliente.
      */
-    private String puntoDeEncuentro;
+    protected String puntoDeEncuentro;
     
     /**
      * Punto donde se tiene que hacer el servicio.
      */
-    private String puntoDeRealizacion;
+    protected String puntoDeRealizacion;
     
     /**
      * Indica si la diligencia tuvo éxito.
      */
-    private boolean exitoDiligencia;
+    protected boolean exitoDiligencia;
     
     /**
      * Calificación del servicio.
      */
-    private double calificacion;
+    protected double calificacion;
     
     /**
      * Descripción del servicio.
      */
-    private String descripcion;
+    protected String descripcion;
     
     /**
      * Crea un nuevo servicio.

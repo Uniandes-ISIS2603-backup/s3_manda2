@@ -807,6 +807,11 @@
                         "type": "integer",
                         "name": "id",
                         "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
                         "required": true,
                         "description": "Identificador del medio de pagque se desea actualizar.Este debe ser una cadena de dígitos."
                     },
@@ -1248,9 +1253,9 @@
                 }
             }
         },
-        "/paypals/{id }": {
+        "/paypals/{id}": {
             "get": {
-                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
+                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
