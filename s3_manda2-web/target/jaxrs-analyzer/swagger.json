@@ -807,11 +807,6 @@
                         "type": "integer",
                         "name": "id",
                         "in": "path",
-                        "required": true
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
                         "required": true,
                         "description": "Identificador del medio de pagque se desea actualizar.Este debe ser una cadena de dígitos."
                     },
@@ -1347,6 +1342,7 @@
         },
         "/pses": {
             "get": {
+                "description": "<h1>GET /api/pses : Obtener todas los pses.</h1>\n \n <pre>Busca y devuelve todas las pses que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas los pses de la aplicacion.</code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -2177,6 +2173,16 @@
         }
     },
     "definitions": {
+        "BilleteraDTO": {
+            "properties": {
+                "puntosFidelidad": {
+                    "type": "integer"
+                },
+                "saldo": {
+                    "type": "number"
+                }
+            }
+        },
         "BilleteraDetailDTO": {
             "properties": {
                 "medioPago": {
@@ -2230,6 +2236,9 @@
         },
         "ClienteDetailDTO": {
             "properties": {
+                "billetera": {
+                    "$ref": "#/definitions/BilleteraDTO"
+                },
                 "calificacion": {
                     "type": "number"
                 },
@@ -2250,6 +2259,24 @@
                 },
                 "pagoAnticipado": {
                     "type": "boolean"
+                },
+                "pagos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PagoDTO"
+                    }
+                },
+                "quejasYReclamos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReclamoDTO"
+                    }
+                },
+                "servicios": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServicioDTO"
+                    }
                 }
             }
         },
@@ -2498,6 +2525,19 @@
                 },
                 "nombreCliente": {
                     "type": "string"
+                }
+            }
+        },
+        "ReclamoDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "mensaje": {
+                    "type": "string"
+                },
+                "numero": {
+                    "type": "integer"
                 }
             }
         },
