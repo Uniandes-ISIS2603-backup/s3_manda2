@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ComprasEnTiendaDTO;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -49,11 +50,11 @@ public class ComprasEnTiendaResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos las comprasEnTiendaResource de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link PayPalDTO} - Las comprasEnTiendaResource encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link ComprasEnTiendaDTO} - Las comprasEnTiendaResource encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
      @GET
     public List<ComprasEnTiendaDTO> getComprasEnTienda(){
-        return new ArrayList <> ();
+        return new LinkedList<> ();
     }
     
     
