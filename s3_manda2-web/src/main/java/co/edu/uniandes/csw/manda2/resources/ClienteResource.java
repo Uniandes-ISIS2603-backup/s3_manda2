@@ -13,7 +13,7 @@ import javax.ws.rs.*;
  *
  * @author na.caceres
  */
-@Path("servicios")
+@Path("clientes")
 @Consumes("application/json")
 @Produces("application/json")
 @RequestScoped
