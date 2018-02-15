@@ -38,7 +38,7 @@ public class PayPalResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los PayPals de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link PayPalDTO} - Los PayPals encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link PayPalDTO} - Los PayPals encontrados en la aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
     public List<PayPalDTO> getPayPals(){
@@ -62,7 +62,7 @@ public class PayPalResource {
      * @return JSON {@link PayPalDTO} - El PayPal buscado
      */
     @GET
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public PayPalDTO getPayPal(@PathParam("id") long id){
         return null;
     }
@@ -111,7 +111,7 @@ public class PayPalResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public PayPalDTO updatePayPal(@PathParam("id") long id, PayPalDTO payPal) throws BusinessLogicException{
         return payPal;
     }
@@ -131,7 +131,7 @@ public class PayPalResource {
      * @param id Identificador del PayPal que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
-    @Path("{id : \\d+}")
+    @Path("{id: \\d+}")
     public void deletePayPal(@PathParam("id") long id){
         
     }

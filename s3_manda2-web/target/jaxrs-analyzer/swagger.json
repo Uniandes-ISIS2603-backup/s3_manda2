@@ -296,144 +296,6 @@
                 }
             }
         },
-        "/clientes": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ClienteDetailDTO"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                }
-            }
-        },
-        "/clientes/{cedula }": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/ClienteDetailDTO"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "cedula",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No Content",
-                        "headers": {
-                        }
-                    }
-                }
-            }
-        },
         "/comprasentienda": {
             "get": {
                 "description": "<h1>GET /api/comprasEnTiendaResource : Obtener todos las comprasEnTiendaResource.</h1>\n \n <pre>Busca y devuelve todos las comprasEnTiendaResource que existen en la aplicación.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos las comprasEnTiendaResource de la aplicacion.</code> \n </pre>",
@@ -1359,7 +1221,7 @@
                 }
             }
         },
-        "/paypals/{id }": {
+        "/paypals/{id}": {
             "get": {
                 "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
                 "consumes": [
@@ -1724,6 +1586,144 @@
                         },
                         "schema": {
                             "$ref": "#/definitions/ReclamoDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/servicios": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClienteDetailDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/servicios/{cedula }": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteDetailDTO"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "cedula",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {
                         }
                     }
                 }
