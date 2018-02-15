@@ -23,9 +23,9 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "nombre": string,
- *      "exitosa": boolean,
- *      "datosBusqueda": string,
+ *      "nombre": concierto Justin Bieber,
+ *      "exitosa": true,
+ *      "datosBusqueda": primera fila con meet and greet,
  *     
  *   }
  *
@@ -41,7 +41,7 @@ public abstract class  ElementoBusquedaReservaDTO
     private String nombre;
     
     /**
-     * El dato de busqueda
+     * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */
 
     private String datosBusqueda;

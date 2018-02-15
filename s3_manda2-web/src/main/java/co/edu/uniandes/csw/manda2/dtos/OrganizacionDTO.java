@@ -24,9 +24,9 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "costoTransporte":double,
- *      "costoDuracion": double,
- *      "desplazamiento": double,
+ *      "costoTransporte":25.000,
+ *      "costoDuracion": 6.5000,
+ *      "desplazamiento": true,
  *     
  *   }
  *
