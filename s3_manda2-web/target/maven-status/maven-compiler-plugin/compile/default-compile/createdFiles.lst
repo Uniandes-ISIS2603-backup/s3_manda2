@@ -35,7 +35,6 @@ co\edu\uniandes\csw\manda2\resources\ComprasEnTiendaResource.class
 co\edu\uniandes\csw\manda2\dtos\BilleteraDTO.class
 co\edu\uniandes\csw\manda2\dtos\ServicioDTO.class
 co\edu\uniandes\csw\manda2\resources\PagoResource.class
-co\edu\uniandes\csw\manda2\resources\ServicioResource.class
 co\edu\uniandes\csw\manda2\dtos\CityDTO.class
 co\edu\uniandes\csw\manda2\resources\MedioPagoResource.class
 co\edu\uniandes\csw\manda2\resources\VueltasConDemoraEnOficinaResource.class

@@ -8,6 +8,30 @@ package co.edu.uniandes.csw.manda2.dtos;
 import java.util.Date;
 
 /**
+ * /**
+ * PagoDTO Objeto de transferencia de datos de Pagos. Los DTO contienen las
+ * representaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "id": long,
+ *      "estadoTransaccion: string,
+ *      "fecha": date
+ *   }
+ * </pre>
+ * Por ejemplo un pago se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "id": 91852,
+ *      "estadoTransaccion: "cancelado",
+ *      "fecha": "02/06/2018"
+ *   }
+ *
+ * </pre>
  *
  * @author m.moreno
  */
@@ -59,28 +83,28 @@ public class PagoDTO {
     
     /**
      * Retorna el estado de transaccion.
-     * @return estado de transaccion.
+     * @return estado de la transaccion.
      */
     public String getEstadoTransaccion(){
         return estadoTransaccion;
     }
     /**
      * Retorna la fecha del pago.
-     * @return fecha.
+     * @return fecha del pago.
      */
     public Date getFecha(){
         return fecha;
     }
      /**
      * Establece el id del pago.
-     * @param id.
+     * @param id del pago.
      */
     public void setId(long id){
         this.id = id;
     }
      /**
      * Establece el  estado de la transaccion.
-     * @param estado Nuevo estado.
+     * @param estado Nuevo estado de pago.
      */
     public void setEstadoTransaccion(String estado)
     {
@@ -88,7 +112,7 @@ public class PagoDTO {
     }
     /**
      * Establece la fecha dada.
-     * @param pFecha fecha.
+     * @param pFecha fecha de el pago.
      */
     public void setFecha (Date pFecha){
         this.fecha = pFecha;

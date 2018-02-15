@@ -6,7 +6,9 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
- *
+ * Clase que extiende de {@link BilleteraDTO} para manejar la transformacion entre
+ * los objetos JSON y las Entidades de la base de datos. Para conocer el
+ * contenido de la ciudad vaya a la documentacion de {@link BilleteraDTO}
  * @author m.moreno
  */
 public class BilleteraDetailDTO extends BilleteraDTO {
@@ -34,14 +36,14 @@ public class BilleteraDetailDTO extends BilleteraDTO {
     
      /**
      * Retorna el medio de pago.
-     * @return Medio de pago.
+     * @return Medio de pago con el que se realizara la transaccion.
      */
     public MedioPagoDTO getMedioPago(){
         return medioPago;
     }
     /**
      * Asigna el medio de pago con el que se realizara la transaccion.
-     * @param pMedioPago.
+     * @param pMedioPago con el que se realizara la transaccion.
      */
     public void setMedioPago(MedioPagoDTO pMedioPago){
         this.medioPago = pMedioPago;
