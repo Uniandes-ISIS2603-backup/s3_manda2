@@ -91,7 +91,7 @@ public class TarjetaCreditoResource {
      * 412 Precodition Failed: Ya existe la tarjeta de credito.
      * </code>
      * </pre>
-     * @param TarjetaCreditoDTO {@link TarjetaCreditoDTO} - La tarjeta de credito que se desea guardar.
+     * @param tarjetaCredito {@link TarjetaCreditoDTO} - La tarjeta de credito que se desea guardar.
      * @return JSON {@link TarjetaCreditoDTO} - La tarjeta de credito guardada con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la tarjeta de credito.
      */
@@ -113,7 +113,7 @@ public class TarjetaCreditoResource {
      * </code> 
      * </pre>
      * @param id Identificador de la tarjeta de credito que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param TarjetaCreditoPSE {@link PSEDTO} - La tarjeta de credito que se desea guardar.
+     * @param tarjetaCredito {@link TarjetaCreditoDTO} - La tarjeta de credito que se desea guardar.
      * @return JSON {@link TarjetaCreditoDTO} - La tarjeta de credito guardada.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
      */

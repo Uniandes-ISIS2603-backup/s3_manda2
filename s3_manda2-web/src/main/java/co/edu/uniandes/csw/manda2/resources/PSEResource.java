@@ -91,7 +91,7 @@ public class PSEResource {
      * 412 Precodition Failed: Ya existe el Pse.
      * </code>
      * </pre>
-     * @param PSEDTO {@link PSEDTO} - El PSE que se desea guardar.
+     * @param pse {@link PSEDTO} - El PSE que se desea guardar.
      * @return JSON {@link PSEDTO} - El PSE guardado con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PSE.
      */
@@ -113,7 +113,7 @@ public class PSEResource {
      * </code> 
      * </pre>
      * @param id Identificador del pse que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param PSEDTO {@link PSEDTO} El pse que se desea guardar.
+     * @param pse {@link PSEDTO} El pse que se desea guardar.
      * @return JSON {@link PSEDTO} - El pse guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
      */
