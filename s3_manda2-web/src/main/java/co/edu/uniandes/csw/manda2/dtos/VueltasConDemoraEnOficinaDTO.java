@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  *
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
+public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO implements Serializable {
     
         //Atributos
     

@@ -28,10 +28,14 @@
                         "headers": {
                         },
                         "schema": {
+<<<<<<< HEAD
+                            "$ref": "#/definitions/BilleteraDetailDTO"
+=======
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/BilleteraDetailDTO"
                             }
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                         }
                     }
                 }
@@ -51,8 +55,12 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/BilleteraDetailDTO"
+<<<<<<< HEAD
+                        }
+=======
                         },
                         "description": "{@link BilleteraDetailDTO} - La billetera que se desea guardar."
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                     }
                 ],
                 "responses": {
@@ -89,8 +97,12 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/BilleteraDetailDTO"
+<<<<<<< HEAD
+                        }
+=======
                         },
                         "description": "{@link BilleteraDetailDTO} La billetera que se desea guardar."
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                     }
                 ],
                 "responses": {
@@ -740,7 +752,10 @@
         },
         "/mediospago": {
             "get": {
+<<<<<<< HEAD
+=======
                 "description": "<h1>GET /api/mediospago : Obtener todos los medios de pago.</h1>\n \n <pre>Busca y devuelve todos los medios de pago que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos los medios de pago de la aplicacion.</code> \n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -764,7 +779,10 @@
                 }
             },
             "post": {
+<<<<<<< HEAD
+=======
                 "description": "<h1>POST /api/mediospago : Crear un medio de pago.</h1>\n \n <pre>Cuerpo de petición: JSON {@link MedioPagoDTO}.\n \n Crea un nuevo medio de pago con la informacion que se recibe en el cuerpo \n de la petición y se regresa un objeto identico con un id auto-generado \n por la base de datos.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó el nuevo medio de pago .\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe el medio de pago.\n </code>\n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -795,7 +813,10 @@
         },
         "/mediospago/{id }": {
             "put": {
+<<<<<<< HEAD
+=======
                 "description": "<h1>PUT /api/mediospago/{id} : Actualizar el medio de pago con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link MedioPagoDTO}.\n \n Actualiza el medio de pago con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza el medio de pago con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un medio de pago con el id dado.\n </code> \n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -813,6 +834,11 @@
                         "name": "body",
                         "in": "body",
                         "required": true,
+<<<<<<< HEAD
+                        "schema": {
+                            "$ref": "#/definitions/MedioPagoDTO"
+                        }
+=======
                         "description": "Identificador del medio de pagque se desea actualizar.Este debe ser una cadena de dígitos."
                     },
                     {
@@ -823,6 +849,7 @@
                             "$ref": "#/definitions/MedioPagoDTO"
                         },
                         "description": "{@link MedioPagoDTO} el medio de pago que se desea guardar."
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                     }
                 ],
                 "responses": {
@@ -837,7 +864,10 @@
                 }
             },
             "delete": {
+<<<<<<< HEAD
+=======
                 "description": "<h1>DELETE /api/mediospago/{id} : Borrar medio de pago id.</h1>\n \n <pre>Borra medio de pago con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina medio de pago correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un medio de pago con el id dado.\n </code>\n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -849,8 +879,12 @@
                         "type": "integer",
                         "name": "id",
                         "in": "path",
+<<<<<<< HEAD
+                        "required": true
+=======
                         "required": true,
                         "description": "Identificador del medio de pago que se desea borrar. Este debe ser una cadena de dígitos."
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                     }
                 ],
                 "responses": {
@@ -864,7 +898,10 @@
         },
         "/mediospago/{id}": {
             "get": {
+<<<<<<< HEAD
+=======
                 "description": "<h1>GET /api/mediospago/{id} : Obtener ciudad por id.</h1>\n \n <pre>Busca el medio de pago con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el medio de pago correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un medio de pago con el id dado.\n </code> \n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -876,8 +913,12 @@
                         "type": "integer",
                         "name": "id",
                         "in": "path",
+<<<<<<< HEAD
+                        "required": true
+=======
                         "required": true,
                         "description": "Identificador del medio de pago que se esta buscando. Este debe ser una cadena de dígitos."
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                     }
                 ],
                 "responses": {
@@ -1103,6 +1144,9 @@
                 }
             }
         },
+<<<<<<< HEAD
+        "/pagos/{estado}": {
+=======
         "/pagos/{id }": {
             "delete": {
                 "description": "<h1>DELETE /api/pagos/{id} : Borrar pago por id.</h1>\n \n <pre>Borra el pago con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina el pago correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un pago con el id dado.\n </code>\n </pre>",
@@ -1159,6 +1203,7 @@
                     }
                 }
             },
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
             "put": {
                 "description": "<h1>PUT /api/pagos/{id} : Actualizar pago con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.\n \n Actualiza el pago con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza el pago con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un pago con el id dado.\n </code> \n </pre>",
                 "consumes": [
@@ -1183,6 +1228,163 @@
                             "$ref": "#/definitions/PagoDetailDTO"
                         },
                         "description": "{@link PagoDetailDTO} El pago que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PagoDetailDTO"
+                        }
+                    }
+                }
+            }
+        },
+<<<<<<< HEAD
+        "/pagos/{id }": {
+            "delete": {
+=======
+        "/paypals": {
+            "get": {
+                "description": "<h1>GET /api/paypals : Obtener todos los PayPals.</h1>\n \n <pre>Busca y devuelve todos los PayPals que existen en la aplicación.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todos los PayPals de la aplicacion.</code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/PayPalDTO"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "<h1>POST /api/paypals : Crear un paypal.</h1>\n \n <pre>Cuerpo de petición: JSON {@link PayPalDTO}.\n \n Crea un nuevo PayPal con la información que se recibe en el cuerpo de la petición\n y se regresa un objeto idéntico con un id auto-generado por la base de datos.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Creó el nuevo PayPal.\n </code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 412 Precodition Failed: Ya existe el PayPal.\n </code>\n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PayPalDTO"
+                        },
+                        "description": "{@link PayPalDTO} - El PayPal que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PayPalDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "/paypals/{id}": {
+            "get": {
+                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del PayPal que se está buscando. Este debe ser una cadena de dígitos."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PayPalDTO"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "<h1>PUT /api/paypals/{id} : Actualizar PayPal con el id dado.</h1>\n <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.\n \n Actualiza el PayPal con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Actualiza el PayPal con el id dado con la información enviada como parámetro. Retorna un objeto identico.</code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un PayPal con el id dado.\n </code> \n </pre>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Identificador del PayPal que se desea actualizar. Este debe ser una cadena de dígitos."
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PayPalDTO"
+                        },
+                        "description": "{@link PayPalDTO} El PayPal que se desea guardar."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/PayPalDTO"
+                        }
+                    }
+                }
+<<<<<<< HEAD
+            }
+        },
+        "/pagos/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -1253,9 +1455,9 @@
                 }
             }
         },
-        "/paypals/{id}": {
+        "/paypals/{id }": {
             "get": {
-                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Códigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
+                "description": "<h1>GET /api/paypals/{id} : Obtener PayPal por id.</h1>\n \n <pre>Busca el PayPal con el id asociado recibido en la URL y la devuelve.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve el PayPal correspondiente al id.\n </code> \n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found No existe un PayPal con el id dado.\n </code> \n </pre>",
                 "consumes": [
                     "application/json"
                 ],
@@ -1318,6 +1520,8 @@
                         }
                     }
                 }
+=======
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
             },
             "delete": {
                 "description": "<h1>DELETE /api/paypals/{id} : Borrar PayPal por id.</h1>\n \n <pre>Borra el PayPal con el id asociado recibido en la URL.\n \n Códigos de respuesta:<br>\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Elimina el PayPal correspondiente al id dado.</code>\n <code style=\"color: #c7254e; background-color: #f9f2f4;\">\n 404 Not Found. No existe un PayPal con el id dado.\n </code>\n </pre>",
@@ -1347,6 +1551,10 @@
         },
         "/pses": {
             "get": {
+<<<<<<< HEAD
+=======
+                "description": "<h1>GET /api/pses : Obtener todas los pses.</h1>\n \n <pre>Busca y devuelve todas las pses que existen en la aplicacion.\n \n Codigos de respuesta:\n <code style=\"color: mediumseagreen; background-color: #eaffe0;\">\n 200 OK Devuelve todas los pses de la aplicacion.</code> \n </pre>",
+>>>>>>> 69a421d636c94b75981efe801e42a9c9c1e2c741
                 "consumes": [
                     "application/json"
                 ],
@@ -2177,6 +2385,16 @@
         }
     },
     "definitions": {
+        "BilleteraDTO": {
+            "properties": {
+                "puntosFidelidad": {
+                    "type": "integer"
+                },
+                "saldo": {
+                    "type": "number"
+                }
+            }
+        },
         "BilleteraDetailDTO": {
             "properties": {
                 "medioPago": {
@@ -2230,6 +2448,9 @@
         },
         "ClienteDetailDTO": {
             "properties": {
+                "billetera": {
+                    "$ref": "#/definitions/BilleteraDTO"
+                },
                 "calificacion": {
                     "type": "number"
                 },
@@ -2250,46 +2471,31 @@
                 },
                 "pagoAnticipado": {
                     "type": "boolean"
+                },
+                "pagos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PagoDTO"
+                    }
+                },
+                "quejasYReclamos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReclamoDTO"
+                    }
+                },
+                "servicios": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServicioDTO"
+                    }
                 }
             }
         },
         "ComprasEnTiendaDTO": {
             "properties": {
-                "calificacion": {
-                    "type": "number"
-                },
-                "cliente": {
-                    "$ref": "#/definitions/ClienteDTO"
-                },
-                "costo": {
-                    "type": "number"
-                },
                 "costoDeTransporte": {
                     "type": "number"
-                },
-                "descripcion": {
-                    "type": "string"
-                },
-                "empleado": {
-                    "$ref": "#/definitions/EmpleadoDTO"
-                },
-                "exitoDiligencia": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "nombre": {
-                    "type": "string"
-                },
-                "pago": {
-                    "$ref": "#/definitions/PagoDTO"
-                },
-                "puntoDeEncuentro": {
-                    "type": "string"
-                },
-                "puntoDeRealizacion": {
-                    "type": "string"
                 }
             }
         },
@@ -2498,6 +2704,19 @@
                 },
                 "nombreCliente": {
                     "type": "string"
+                }
+            }
+        },
+        "ReclamoDTO": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "mensaje": {
+                    "type": "string"
+                },
+                "numero": {
+                    "type": "integer"
                 }
             }
         },

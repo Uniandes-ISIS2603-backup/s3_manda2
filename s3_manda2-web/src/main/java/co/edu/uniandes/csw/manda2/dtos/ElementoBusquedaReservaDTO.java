@@ -6,8 +6,31 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
+ ** ElementoBusqudReservaDTO servicios de tipo reserva. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor. Ésta clase hace parte de la clase OrganizacionDTO
  *
- * @author Usuario
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "nombre": string,
+ *      "exitosa": boolean,
+ *      "datosBusqueda": string,
+ *     
+ *   }
+ * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
+ *
+ * <pre>
+ *
+ *   {
+ *      "nombre": concierto Justin Bieber,
+ *      "exitosa": true,
+ *      "datosBusqueda": primera fila con meet and greet,
+ *     
+ *   }
+ *
+ * </pre>
+ * @author cv.trujillo
  */
 public abstract class  ElementoBusquedaReservaDTO 
 {
@@ -18,7 +41,7 @@ public abstract class  ElementoBusquedaReservaDTO
     private String nombre;
     
     /**
-     * El dato de busqueda
+     * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */
 
     private String datosBusqueda;

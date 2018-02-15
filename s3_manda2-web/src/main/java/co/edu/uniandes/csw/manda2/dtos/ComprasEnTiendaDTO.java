@@ -5,12 +5,14 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * Clase que representa el servicio de compras en tienda
  * @author dv.gonzalez10
  */
-public class ComprasEnTiendaDTO extends ServicioDetailDTO{
+public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serializable{
     
     //Atributos
     /*
@@ -36,7 +38,7 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO{
      * @param descripcion 
      */
     public ComprasEnTiendaDTO(Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
-        super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
+        // super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
     }
 

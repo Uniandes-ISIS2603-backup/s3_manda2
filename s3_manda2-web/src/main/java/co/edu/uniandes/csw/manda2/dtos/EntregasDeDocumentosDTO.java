@@ -5,11 +5,13 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
+public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Serializable{
     
     //Atributos
     /*

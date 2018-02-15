@@ -8,7 +8,8 @@ package co.edu.uniandes.csw.manda2.dtos;
 /**
  * ClienteDTO Objeto de transferencia de datos de Cliente. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
- * servidor.
+ * servidor, ademas hereda la clase (@link UsuarioDTO), dirijase a ella para mas
+ * informacion.
  *
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
@@ -26,13 +27,13 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "id": number,
- *      "nombre": string,
- *      "cedula": string,
- *      "fechaDeIngreso": date,
- *      "calificacion": double,
- *      "pagoAnticipado": boolean,
- *      "horasDeServicioSemanal": number
+ *      "id": 084156584,
+ *      "nombre": Nicolas Bello,
+ *      "cedula": 1020839175,
+ *      "fechaDeIngreso": 15/07/06,
+ *      "calificacion": 5,
+ *      "pagoAnticipado": false,
+ *      "horasDeServicioSemanal": 20
  *   }
  *
  * </pre>

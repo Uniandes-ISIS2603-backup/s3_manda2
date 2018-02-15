@@ -6,7 +6,32 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 /**
+*
+ * OrganizacionDTO Servicios de tipo organización. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
  *
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "costoTransporte": double,
+ *      "costoDuracion": double,
+ *      "desplazamiento": boolean,
+ *     
+ *   }
+ * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
+ *
+ * <pre>
+ *
+ *   {
+ *      "costoTransporte":25.000,
+ *      "costoDuracion": 6.5000,
+ *      "desplazamiento": true,
+ *     
+ *   }
+ *
+ * </pre>
+ 
  * @author cvtrujillo
  */
 public abstract class OrganizacionDTO 
