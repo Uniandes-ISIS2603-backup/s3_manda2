@@ -28,17 +28,14 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     //Constructor
 
     
-    public EntregasDeDocumentosDTO(){
-        this(0D, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
-    }
     
     /**
      * Constructor
-     * @param costoDeTransporte costoasociado con el transporte del servicio 
+     * @param costoDeTransporte costo asociado con el transporte del servicio 
      * @param porcentajeExtra el porcentaje extra por el servicio
-     * @param pago 
-     * @param cliente
-     * @param empleado
+     * @param pago el pago que el cliente realiza por el servicio 
+     * @param cliente el cliente que obtiene el servicio 
+     * @param empleado empleado que realiza el servicio
      * @param id  id del servicio
      * @param nombre nombre del servicio
      * @param costo costo del servicio

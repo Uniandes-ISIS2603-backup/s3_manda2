@@ -52,7 +52,7 @@ public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serial
     /**
      * Constructor
      * @param costoDeTransporte costo relacionado con le costo del transporte 
-     * @param pago 
+     * @param pago el pago que el cliente realiza por el servicio 
      * @param cliente el cliente que obtiene el servicio 
      * @param empleado empleado que realiza el servicio
      * @param id id del servicio

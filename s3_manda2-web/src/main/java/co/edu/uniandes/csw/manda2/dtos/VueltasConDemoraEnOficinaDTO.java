@@ -37,11 +37,11 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         //Constructor
     /**
      * Constructor
-     * @param costoDuracion
-     * @param costoDeTransporte
-     * @param pago
-     * @param cliente
-     * @param empleado
+     * @param costoDuracion  costo relacionado con la duración del servicio 
+     * @param costoDeTransporte  costo relacionado al transporte del servicio 
+     * @param pago el pago que el cliente realiza por el servicio 
+     * @param cliente el cliente que obtiene el servicio 
+     * @param empleado empleado que realiza el servicio
      * @param id id del servicio
      * @param nombre nombre del servicio
      * @param costo costo del servicio

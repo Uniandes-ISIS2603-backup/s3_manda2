@@ -19,18 +19,15 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     private ArticuloDTO articulo;
 
    //CONSTRUCTOR
-    
-    public ComprasEnTiendaDetailsDTO(){
-        this(null, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
-    }
+   
 
     /**
      * Metodo constructor
      * @param articulo articulo que el cliente desea obtener
-     * @param costoDeTransporte coso relacionado al transporte del servicio 
-     * @param pago 
-     * @param cliente
-     * @param empleado
+     * @param costoDeTransporte costo relacionado al transporte del servicio 
+     * @param pago el pago que el cliente realiza por el servicio 
+     * @param cliente el cliente que obtiene el servicio 
+     * @param empleado empleado que realiza el servicio
      * @param id id del servicio
      * @param nombre noombre del servicio
      * @param costo costo del servicio
