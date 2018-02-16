@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Serializable{
+public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     
     //Atributos
     /*

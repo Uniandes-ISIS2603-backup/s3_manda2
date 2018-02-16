@@ -58,10 +58,7 @@ public class EmpleadoDTO extends UsuarioDTO{
      */
     public EmpleadoDTO()
     {
-        super();
-        identificacion = "";
-        foto = null;
-        EPS = "";
+        this("","","");
     }
     /**
      *  Genera un empleado.
