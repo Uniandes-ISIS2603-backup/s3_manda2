@@ -40,6 +40,11 @@ public class MedioPagoDTO {
      * Indica el nombre del cliente que realiza pago.
      */
     private String nombreCliente;
+    
+     public MedioPagoDTO(){
+     this(0L,"");
+    
+    }
      /**
      * Constructor de un nuevo MedioPago.
      *  @param id id de medio

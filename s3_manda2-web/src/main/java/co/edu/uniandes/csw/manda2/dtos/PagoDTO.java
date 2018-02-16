@@ -61,6 +61,10 @@ public class PagoDTO {
      */
     private Date fecha; 
     
+    public PagoDTO(){
+     this(0L,"",null);
+    
+    }
      /**
      * Constructor de un nuevo Pago.
      * @param id id del pago

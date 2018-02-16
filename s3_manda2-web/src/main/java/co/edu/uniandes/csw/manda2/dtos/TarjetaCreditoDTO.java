@@ -42,6 +42,10 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      * Atributo que representa el numero de la tarjeta.
      */
     private int numeroTarjeta;
+    
+    public TarjetaCreditoDTO(){
+        this(0,0L,"");
+    }
     //Constructor
     /**
      * constructor por defecto.

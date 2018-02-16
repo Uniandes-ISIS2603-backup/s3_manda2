@@ -47,6 +47,12 @@ public class BilleteraDTO {
      */
     
     public BilleteraDTO(){
+     this(0D,0);
+    
+    }
+    public BilleteraDTO(Double saldo, Integer puntosFidelidad){
+        this.puntosDeFidelidad = puntosFidelidad;
+        this.saldo = saldo;
         
     }
     
