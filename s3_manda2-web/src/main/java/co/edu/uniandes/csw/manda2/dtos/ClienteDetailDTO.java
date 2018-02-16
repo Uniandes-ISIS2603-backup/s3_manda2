@@ -17,7 +17,7 @@ import java.util.List;
  *      "nombre": string,
  *      "cedula": string,
  *      "fechaDeIngreso": date,
- *      "calificacion": double,
+ *      "calificacion": Double,
  *      "pagoAnticipado": boolean,
  *      "horasDeServicioSemanal": number,
  *      "quejasYReclamos": [{
@@ -32,7 +32,7 @@ import java.util.List;
  *      "fecha": date
  *   }],
  *      "billetera" [{
- *      "saldo": double,
+ *      "saldo": Double,
  *      "puntosFidelidad": integer
  *   }]
  *   }
@@ -99,7 +99,7 @@ public class ClienteDetailDTO extends ClienteDTO {
      * @param saldo
      * @param puntosFidelidad
      */
-    public ClienteDetailDTO (double saldo, Integer puntosFidelidad)
+    public ClienteDetailDTO (Double saldo, Integer puntosFidelidad)
     {
         super();
         billetera = new BilleteraDTO(saldo, puntosFidelidad);
