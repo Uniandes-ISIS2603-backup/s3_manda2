@@ -28,7 +28,7 @@ import javax.ws.rs.Path;
  * </pre>
  * @author cv.trujillo
  */
-@Path ("organizacion")
+@Path ("organizaciones")
 @Consumes("application/json")
 @Produces("application/json")
 public class OrganizacionResource 
