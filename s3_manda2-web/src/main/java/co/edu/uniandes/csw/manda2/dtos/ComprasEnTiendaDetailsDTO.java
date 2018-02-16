@@ -19,26 +19,23 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     private ArticuloDTO articulo;
 
    //CONSTRUCTOR
-    
-    public ComprasEnTiendaDetailsDTO(){
-        this(null, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
-    }
+   
 
     /**
      * Metodo constructor
-     * @param articulo
-     * @param costoDeTransporte
-     * @param pago
-     * @param cliente
-     * @param empleado
-     * @param id
-     * @param nombre
-     * @param costo
-     * @param puntoDeEncuentro
-     * @param puntoDeRealizacion
-     * @param exitoDiligencia
-     * @param calificacion
-     * @param descripcion 
+     * @param articulo articulo que el cliente desea obtener
+     * @param costoDeTransporte costo relacionado al transporte del servicio 
+     * @param pago el pago que el cliente realiza por el servicio 
+     * @param cliente el cliente que obtiene el servicio 
+     * @param empleado empleado que realiza el servicio
+     * @param id id del servicio
+     * @param nombre noombre del servicio
+     * @param costo costo del servicio
+     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
+     * @param puntoDeRealizacion punto de realizacion del servicio
+     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
+     * @param calificacion calificación del servicio.
+     * @param descripcion descripción del servicio.
      */
     public ComprasEnTiendaDetailsDTO(ArticuloDTO articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(costoDeTransporte, pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);

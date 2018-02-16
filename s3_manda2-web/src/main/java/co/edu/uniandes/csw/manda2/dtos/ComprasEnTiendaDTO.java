@@ -10,6 +10,30 @@ import java.io.Serializable;
 /**
  *
  * Clase que representa el servicio de compras en tienda
+
+ * ComprasEnTiendaDTO. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "id": number,
+ *      "name: string,
+ *      "zipcode": string
+ *   }
+ * </pre>
+ * Por ejemplo una ciudad se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "id": 91852,
+ *      "name: "Bogota, DC",
+ *      "zipcode": "121110"
+ *   }
+ *
+ * </pre>
  * @author dv.gonzalez10
  */
 public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serializable{
@@ -27,18 +51,18 @@ public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serial
     
     /**
      * Constructor
-     * @param costoDeTransporte
-     * @param pago
-     * @param cliente
-     * @param empleado
-     * @param id
-     * @param nombre
-     * @param costo
-     * @param puntoDeEncuentro
-     * @param puntoDeRealizacion
-     * @param exitoDiligencia
-     * @param calificacion
-     * @param descripcion 
+     * @param costoDeTransporte costo relacionado con le costo del transporte 
+     * @param pago el pago que el cliente realiza por el servicio 
+     * @param cliente el cliente que obtiene el servicio 
+     * @param empleado empleado que realiza el servicio
+     * @param id id del servicio
+     * @param nombre nombre del servicio
+     * @param costo costo del servicio
+     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
+     * @param puntoDeRealizacion punto de realizacion del servicio
+     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
+     * @param calificacion calificación del servicio.
+     * @param descripcion descripción del servicio.
      */
     public ComprasEnTiendaDTO(Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         // super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
