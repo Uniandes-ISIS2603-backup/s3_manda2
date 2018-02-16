@@ -29,19 +29,19 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Seria
     
     /**
      * Constructor
-     * @param costoDeTransporte
-     * @param porcentajeExtra
-     * @param pago
+     * @param costoDeTransporte costoasociado con el transporte del servicio 
+     * @param porcentajeExtra el porcentaje extra por el servicio
+     * @param pago 
      * @param cliente
      * @param empleado
-     * @param id
-     * @param nombre
-     * @param costo
-     * @param puntoDeEncuentro
-     * @param puntoDeRealizacion
-     * @param exitoDiligencia
-     * @param calificacion
-     * @param descripcion 
+     * @param id  id del servicio
+     * @param nombre nombre del servicio
+     * @param costo costo del servicio
+     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
+     * @param puntoDeRealizacion punto de realizacion del servicio
+     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
+     * @param calificacion calificación del servicio.
+     * @param descripcion descripción del servicio.
      */
     public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
         super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
