@@ -41,8 +41,7 @@ public class MedioPagoDTO {
      */
     private String nombreCliente;
     
-     public MedioPagoDTO(){
-     this(0L,"");
+    public MedioPagoDTO(){
     
     }
      /**

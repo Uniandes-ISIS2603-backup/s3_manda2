@@ -16,6 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import co.edu.uniandes.csw.manda2.dtos.PSEDTO;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
 /**
@@ -96,7 +97,7 @@ public class PSEResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PSE.
      */
     @POST
-    public PSEDTO createPSE(PSEDTO pse) {
+    public PSEDTO createPSE(PSEDTO pse) throws BusinessLogicException{
         return pse;
     }
 /**
@@ -119,7 +120,7 @@ public class PSEResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public PSEDTO updatePSE(@PathParam("id") long id, PSEDTO pse) {
+    public PSEDTO updatePSE(@PathParam("id") long id, PSEDTO pse) throws BusinessLogicException {
         return pse;
     }
 /**

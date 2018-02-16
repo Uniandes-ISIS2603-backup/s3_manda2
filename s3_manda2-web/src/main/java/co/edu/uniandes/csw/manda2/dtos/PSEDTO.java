@@ -40,8 +40,7 @@ public class PSEDTO extends MedioPagoDTO {
      */
     private String linkPse;
     
-     public PSEDTO(){
-     this("",0L,"");
+    public PSEDTO(){
     
     }
     //Constructor
