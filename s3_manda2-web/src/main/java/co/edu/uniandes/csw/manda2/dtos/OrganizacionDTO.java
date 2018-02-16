@@ -16,7 +16,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "costoTransporte": double,
  *      "costoDuracion": double,
- *      "desplazamiento": boolean,
+ *      "desplazamiento": Boolean,
  *     
  *   }
  * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
@@ -128,7 +128,7 @@ public class OrganizacionDTO
      * Establecer el desplazamiento, en caso de ser requerido
      * @param desplazamiento a recorer
      */
-    public void setDesplazamiento(boolean desplazamiento)
+    public void setDesplazamiento(Boolean desplazamiento)
     {
         this.desplazamiento=desplazamiento;
     }

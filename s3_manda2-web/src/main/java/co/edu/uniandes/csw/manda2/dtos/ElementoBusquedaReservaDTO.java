@@ -14,7 +14,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *   {
  *      "nombre": string,
- *      "exitosa": boolean,
+ *      "exitosa": Boolean,
  *      "datosBusqueda": string,
  *     
  *   }
@@ -39,7 +39,7 @@ public class  ElementoBusquedaReservaDTO
         this("", "", false);
     }
     
-    public ElementoBusquedaReservaDTO(String nombre, String datosBusqueda, boolean exitosa) {
+    public ElementoBusquedaReservaDTO(String nombre, String datosBusqueda, Boolean exitosa) {
         this.nombre = nombre;
         this.datosBusqueda = datosBusqueda;
         this.exitosa = exitosa;
@@ -59,7 +59,7 @@ public class  ElementoBusquedaReservaDTO
     /**
      * Determina si la busqueda fue exitosa
      * */
-    private boolean exitosa;
+    private Boolean exitosa;
     
     /**
      * Obtener del nombre del elemento a buscar
@@ -97,7 +97,7 @@ public class  ElementoBusquedaReservaDTO
     /**
      * Indica si el eleme. de busq. es exitoso
      * */
-    public boolean isExistosa()
+    public Boolean isExistosa()
     {
         
         return exitosa;
@@ -107,7 +107,7 @@ public class  ElementoBusquedaReservaDTO
      * Establecer si es exitosa o no
      * @param para establecer el estado
      * */
-    public void setExitosa(boolean exitosa)
+    public void setExitosa(Boolean exitosa)
     {
         this.exitosa=exitosa;
     }
