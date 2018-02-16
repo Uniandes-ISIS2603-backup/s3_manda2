@@ -50,6 +50,15 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class OrganizacionDetailsDTO extends OrganizacionDTO
 {
+    
+    public OrganizacionDetailsDTO(){
+        this(null, 0D, 0D, false, 0L);
+    }
+
+    public OrganizacionDetailsDTO(OrganizacionDTO elementoBusqueda, Double costoDeTransporte, Double costoDeDuracion, Boolean desplazamiento, Long id) {
+        super(costoDeTransporte, costoDeDuracion, desplazamiento, id);
+        this.elementoBusqueda = elementoBusqueda;
+    }
     /**
      * Objeto de busqueda asociado al servicio
      */

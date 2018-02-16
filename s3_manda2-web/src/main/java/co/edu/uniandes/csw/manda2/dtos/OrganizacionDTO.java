@@ -34,8 +34,20 @@ package co.edu.uniandes.csw.manda2.dtos;
  
  * @author cvtrujillo
  */
-public abstract class OrganizacionDTO 
+public class OrganizacionDTO 
 {
+
+    public OrganizacionDTO(){
+        this(0D, 0D, false, 0L);
+    }
+    
+    public OrganizacionDTO(Double costoDeTransporte, Double costoDeDuracion, Boolean desplazamiento, Long id) {
+        this.costoDeTransporte = costoDeTransporte;
+        this.costoDeDuracion = costoDeDuracion;
+        this.desplazamiento = desplazamiento;
+        this.id = id;
+    }
+    
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */

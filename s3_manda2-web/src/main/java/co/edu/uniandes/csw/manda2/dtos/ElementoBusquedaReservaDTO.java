@@ -34,6 +34,17 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class  ElementoBusquedaReservaDTO 
 {
+
+    public ElementoBusquedaReservaDTO(){
+        this("", "", false);
+    }
+    
+    public ElementoBusquedaReservaDTO(String nombre, String datosBusqueda, boolean exitosa) {
+        this.nombre = nombre;
+        this.datosBusqueda = datosBusqueda;
+        this.exitosa = exitosa;
+    }
+    
  
     /**
      * nombre del elemento de busqueda

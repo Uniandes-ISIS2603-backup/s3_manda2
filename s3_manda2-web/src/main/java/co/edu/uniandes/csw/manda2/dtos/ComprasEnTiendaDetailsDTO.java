@@ -19,6 +19,10 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     private ArticuloDTO articulo;
 
    //CONSTRUCTOR
+    
+    public ComprasEnTiendaDetailsDTO(){
+        this(null, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+    }
 
     /**
      * Metodo constructor
@@ -36,7 +40,7 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
      * @param calificacion
      * @param descripcion 
      */
-    public ComprasEnTiendaDetailsDTO(ArticuloDTO articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public ComprasEnTiendaDetailsDTO(ArticuloDTO articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(costoDeTransporte, pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.articulo = articulo;
     }

@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,6 +28,10 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     //Constructor
 
     
+    public EntregasDeDocumentosDTO(){
+        this(0D, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+    }
+    
     /**
      * Constructor
      * @param costoDeTransporte
@@ -43,7 +48,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
      * @param calificacion
      * @param descripcion 
      */
-    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, double calificacion, String descripcion) {
+    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
         this.porcentajeExtra = porcentajeExtra;

@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +12,7 @@ import java.util.Date;
  *
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO implements Serializable {
+public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
     
         //Atributos
     
@@ -29,9 +28,12 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO implements S
         *El costo del transporte del servicio
         */
         private Double costoDeTransporte;
-     
-
         
+        
+        
+    public VueltasConDemoraEnOficinaDTO(){
+        this(0D, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+    }
         //Constructor
     /**
      * Constructor
@@ -49,11 +51,13 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO implements S
      * @param calificacion
      * @param descripcion 
      */
-    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDuracion = costoDuracion;
         this.costoDeTransporte = costoDeTransporte;
     }
+    
+
 
     /**
      *Retorna el valor asociado a la duración del servicio
