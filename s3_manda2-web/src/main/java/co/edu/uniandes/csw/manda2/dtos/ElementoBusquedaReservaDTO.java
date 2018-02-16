@@ -32,7 +32,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  * </pre>
  * @author cv.trujillo
  */
-public abstract class  ElementoBusquedaReservaDTO 
+public class  ElementoBusquedaReservaDTO 
 {
  
     /**

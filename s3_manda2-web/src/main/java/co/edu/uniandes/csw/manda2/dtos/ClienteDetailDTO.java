@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 import java.util.ArrayList;
+import java.util.List;
 /**
  * Clase que extiende de {@link ClienteDTO} para manejar la transformacion entre
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
@@ -76,17 +77,17 @@ public class ClienteDetailDTO extends ClienteDTO {
      *  Atributo que modela una lista con todos los servicios contratados por un
      * usuario.
      */
-    private ArrayList<ServicioDTO> servicios;
+    private List<ServicioDTO> servicios;
     /**
      *  Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
-    private ArrayList<PagoDTO> pagos;
+    private List<PagoDTO> pagos;
     /**
      * Atributo que modela una lista con todos los reclamos hechos por un
      * usuario.
      */
-    private ArrayList<ReclamoDTO> quejasYReclamos;
+    private List<ReclamoDTO> quejasYReclamos;
     //Constructor
     /**
      * Constructor por defecto
@@ -121,42 +122,42 @@ public class ClienteDetailDTO extends ClienteDTO {
     /**
      * @return the servicios
      */
-    public ArrayList<ServicioDTO> getServicios() {
+    public List<ServicioDTO> getServicios() {
         return servicios;
     }
 
     /**
      * @param servicios the servicios to set
      */
-    public void setServicios(ArrayList<ServicioDTO> servicios) {
+    public void setServicios(List<ServicioDTO> servicios) {
         this.servicios = servicios;
     }
 
     /**
      * @return the pagos
      */
-    public ArrayList<PagoDTO> getPagos() {
+    public List<PagoDTO> getPagos() {
         return pagos;
     }
 
     /**
      * @param pagos the pagos to set
      */
-    public void setPagos(ArrayList<PagoDTO> pagos) {
+    public void setPagos(List<PagoDTO> pagos) {
         this.pagos = pagos;
     }
 
     /**
      * @return the quejasYReclamos
      */
-    public ArrayList<ReclamoDTO> getQuejasYReclamos() {
+    public List<ReclamoDTO> getQuejasYReclamos() {
         return quejasYReclamos;
     }
 
     /**
      * @param quejasYReclamos the quejasYReclamos to set
      */
-    public void setQuejasYReclamos(ArrayList<ReclamoDTO> quejasYReclamos) {
+    public void setQuejasYReclamos(List<ReclamoDTO> quejasYReclamos) {
         this.quejasYReclamos = quejasYReclamos;
     }
     

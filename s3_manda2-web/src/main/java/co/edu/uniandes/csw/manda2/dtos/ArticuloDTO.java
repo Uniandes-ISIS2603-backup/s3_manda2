@@ -24,8 +24,8 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "rutaImagen": C:\Users\Public\Pictures\Imagenes\morcilla,
- *      "nombre": morcilla,
+ *      "rutaImagen": "C:\Users\Public\Pictures\Imagenes\morcilla",
+ *      "nombre": "morcilla",
  *      "precio": 5.000,
  *     
  *   }
