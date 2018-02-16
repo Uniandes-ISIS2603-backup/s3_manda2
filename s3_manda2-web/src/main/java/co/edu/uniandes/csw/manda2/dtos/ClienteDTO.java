@@ -51,6 +51,7 @@ public class ClienteDTO extends UsuarioDTO {
      * numero que representa las horas de servicio que tiene un cliente semanalmente
      */
     private Integer horasDeServicioSemanal;
+    
     //Constructor
     /**
      * Constructor por defecto

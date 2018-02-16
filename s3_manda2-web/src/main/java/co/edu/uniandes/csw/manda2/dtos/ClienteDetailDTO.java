@@ -88,6 +88,10 @@ public class ClienteDetailDTO extends ClienteDTO {
      * usuario.
      */
     private List<ReclamoDTO> quejasYReclamos;
+    
+    public ClienteDetailDTO(){
+         this(0D,0);
+    }
     //Constructor
     /**
      * Constructor por defecto
