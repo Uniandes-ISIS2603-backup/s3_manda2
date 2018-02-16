@@ -28,8 +28,12 @@ package co.edu.uniandes.csw.manda2.dtos;
  * @author da.ramos
  */
 public class PayPalDTO extends MedioPagoDTO{
-
-    public PayPalDTO(long id, String linkPayPal, String nombreCliente) {
+    
+     public PayPalDTO(){
+     this(0L,"","");
+    
+    }
+    public PayPalDTO(Long id, String linkPayPal, String nombreCliente) {
         super(id, nombreCliente);
         this.linkPayPal = linkPayPal;
     }

@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Serializable{
+public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     
     //Atributos
     /*
@@ -43,7 +43,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Seria
      * @param calificacion
      * @param descripcion 
      */
-    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, double calificacion, String descripcion) {
         super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
         this.porcentajeExtra = porcentajeExtra;
