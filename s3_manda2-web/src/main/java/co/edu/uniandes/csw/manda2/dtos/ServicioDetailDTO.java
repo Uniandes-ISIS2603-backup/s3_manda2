@@ -10,6 +10,10 @@ package co.edu.uniandes.csw.manda2.dtos;
  * @author da.ramos
  */
 public abstract class ServicioDetailDTO extends ServicioDTO{
+    
+    public ServicioDetailDTO(){
+        this(null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+    }
 
     /**
      * Constructor del servicio.
@@ -25,7 +29,7 @@ public abstract class ServicioDetailDTO extends ServicioDTO{
      * @param calificacion calificación del servicio.
      * @param descripcion descripción del servicio.
      */
-    public ServicioDetailDTO(PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public ServicioDetailDTO(PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.pago = pago;
         this.cliente = cliente;

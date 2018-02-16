@@ -2,6 +2,7 @@ package co.edu.uniandes.csw.manda2.resources;
 
 
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDetailsDTO;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.Path;
@@ -68,7 +69,7 @@ public class OrganizacionResource
      */
     
     @GET
-    @Path("{id : \\\\d+}")
+    @Path("{id : \\d+}")
     public OrganizacionDetailsDTO getServiciosDeOrganizacion(@PathParam ("id") long id)
     {
         return null;
@@ -95,7 +96,7 @@ public class OrganizacionResource
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el servicio de tipo Organización.
      */
     @POST
-    public OrganizacionDetailsDTO crearOrganizacion(OrganizacionDetailsDTO servicio)
+    public OrganizacionDetailsDTO crearOrganizacion(OrganizacionDetailsDTO servicio) throws BusinessLogicException
     {
         return null;
     }
@@ -125,9 +126,9 @@ public class OrganizacionResource
      * @return
      */
     @PUT
-    @Path("{id : \\\\d+}")
+    @Path("{id : \\d+}")
           
-    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") long id, OrganizacionDetailsDTO organizacion)
+    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") long id, OrganizacionDetailsDTO organizacion) throws BusinessLogicException
     {
         return null;
     }
@@ -148,7 +149,7 @@ public class OrganizacionResource
      * @param id Identificador del servicio de tipo Organización que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
-    @Path("{id : \\\\d+}")
+    @Path("{id : \\d+}")
     public void eliminarOrganizacion(@PathParam("id")Long id,OrganizacionDetailsDTO organizacion)
     {
             

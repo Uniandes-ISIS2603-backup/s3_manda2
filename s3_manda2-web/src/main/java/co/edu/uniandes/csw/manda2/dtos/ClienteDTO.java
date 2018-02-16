@@ -46,11 +46,12 @@ public class ClienteDTO extends UsuarioDTO {
     /**
      * boolean que representa si un cliente tiene dinero en su billetera virtual
     */
-    private boolean pagoAnticipado;
+    private Boolean pagoAnticipado;
     /**
      * numero que representa las horas de servicio que tiene un cliente semanalmente
      */
-    private int horasDeServicioSemanal;
+    private Integer horasDeServicioSemanal;
+    
     //Constructor
     /**
      * Constructor por defecto
@@ -65,28 +66,28 @@ public class ClienteDTO extends UsuarioDTO {
     /**
      * @return the pagoAnticipado
      */
-    public boolean isPagoAnticipado() {
+    public Boolean isPagoAnticipado() {
         return pagoAnticipado;
     }
 
     /**
      * @param pagoAnticipado the pagoAnticipado to set
      */
-    public void setPagoAnticipado(boolean pagoAnticipado) {
+    public void setPagoAnticipado(Boolean pagoAnticipado) {
         this.pagoAnticipado = pagoAnticipado;
     }
 
     /**
      * @return the horasDeServicioSemanal
      */
-    public int getHorasDeServicioSemanal() {
+    public Integer getHorasDeServicioSemanal() {
         return horasDeServicioSemanal;
     }
 
     /**
      * @param horasDeServicioSemanal the horasDeServicioSemanal to set
      */
-    public void setHorasDeServicioSemanal(int horasDeServicioSemanal) {
+    public void setHorasDeServicioSemanal(Integer horasDeServicioSemanal) {
         this.horasDeServicioSemanal = horasDeServicioSemanal;
     }
 

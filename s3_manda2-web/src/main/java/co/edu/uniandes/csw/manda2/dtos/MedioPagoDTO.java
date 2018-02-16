@@ -13,7 +13,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "id": long,
+ *      "id": Long,
  *      "nombreCliente: string
  *   }
  * </pre>
@@ -35,17 +35,21 @@ public class MedioPagoDTO {
     /**
      * Indica el id de medio pago.
      */
-    private long id;
+    private Long id;
     /**
      * Indica el nombre del cliente que realiza pago.
      */
     private String nombreCliente;
+    
+    public MedioPagoDTO(){
+    
+    }
      /**
      * Constructor de un nuevo MedioPago.
      *  @param id id de medio
      * @param nombreCliente nombre del cliente que realiza pago.
      */
-    public MedioPagoDTO(long id, String nombreCliente){
+    public MedioPagoDTO(Long id, String nombreCliente){
         this.id = id;
         this.nombreCliente = nombreCliente;
     }
@@ -69,7 +73,7 @@ public class MedioPagoDTO {
      * Retorna el id del medio de pago.
      * @return id de medio de pago.
      */
-     public long getId()
+     public Long getId()
     {
         return id;
     }
@@ -77,7 +81,7 @@ public class MedioPagoDTO {
      * Establece el nombre del cliente.
      * @param pNombre.
      */
-    public void setId(long id){
+    public void setId(Long id){
         this.id = id;
     }
 }

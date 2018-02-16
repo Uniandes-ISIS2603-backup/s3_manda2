@@ -16,7 +16,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "rutaImagen": string,
  *      "nombre": string,
- *      "precio": double,
+ *      "precio": Double,
  *     
  *   }
  * </pre> Por ejemplo un articulo se representa asi:<br>
@@ -24,8 +24,8 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "rutaImagen": C:\Users\Public\Pictures\Imagenes\morcilla,
- *      "nombre": morcilla,
+ *      "rutaImagen": "C:\Users\Public\Pictures\Imagenes\morcilla",
+ *      "nombre": "morcilla",
  *      "precio": 5.000,
  *     
  *   }
@@ -36,8 +36,12 @@ package co.edu.uniandes.csw.manda2.dtos;
  */
 public class ArticuloDTO 
 {
+    
+    public ArticuloDTO(){
+        this("", "", 0D);
+    }
 
-    public ArticuloDTO(String rutaImagen, String nombre, double precio) {
+    public ArticuloDTO(String rutaImagen, String nombre, Double precio) {
         this.rutaImagen = rutaImagen;
         this.nombre = nombre;
         this.precio = precio;
@@ -56,7 +60,7 @@ public class ArticuloDTO
     /**
      * El precio del articulo
      * */
-    private double precio;
+    private Double precio;
     
     /**
      * Obtener la ruta de la imagen del articulo
@@ -80,7 +84,7 @@ public class ArticuloDTO
      * Obtener el precio del articulo
      * @return precio
      * */
-    public double getPrecio()
+    public Double getPrecio()
     {
         return precio;
     }
@@ -107,7 +111,7 @@ public class ArticuloDTO
      *  Establecer el precio del articulo
      * @param pPrecio nuevo precio
      * */
-    public void setPrecio(double pPrecio)
+    public void setPrecio(Double pPrecio)
     {
         this.precio=pPrecio;
     }

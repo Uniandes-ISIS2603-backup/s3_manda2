@@ -33,6 +33,8 @@ public abstract class UsuarioDTO  {
      * Atributo que representa la id del usuario
      */
     private Long id;
+    
+    
     //CONSTRUCTOR
     /**
      * genera un usuario

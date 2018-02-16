@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +12,7 @@ import java.io.Serializable;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Serializable{
+public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     
     //Atributos
     /*
@@ -26,6 +27,10 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Seria
     
     //Constructor
 
+    
+    public EntregasDeDocumentosDTO(){
+        this(0D, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+    }
     
     /**
      * Constructor
@@ -43,7 +48,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO implements Seria
      * @param calificacion calificación del servicio.
      * @param descripcion descripción del servicio.
      */
-    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public EntregasDeDocumentosDTO(Double costoDeTransporte, Double porcentajeExtra, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
         this.porcentajeExtra = porcentajeExtra;

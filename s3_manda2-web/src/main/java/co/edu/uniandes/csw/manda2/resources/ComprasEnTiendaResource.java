@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ComprasEnTiendaDTO;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -101,7 +102,7 @@ public class ComprasEnTiendaResource {
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
      */
     @POST
-    public ComprasEnTiendaDTO createComprasEnTienda( ComprasEnTiendaDTO comprasEnTienda){
+    public ComprasEnTiendaDTO createComprasEnTienda( ComprasEnTiendaDTO comprasEnTienda) throws BusinessLogicException{
         return comprasEnTienda;
     }
     /**
@@ -124,7 +125,7 @@ public class ComprasEnTiendaResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public ComprasEnTiendaDTO  updateComprasEnTienda( @PathParam("id") long id, ComprasEnTiendaDTO  comprasEnTienda ){
+    public ComprasEnTiendaDTO  updateComprasEnTienda( @PathParam("id") long id, ComprasEnTiendaDTO  comprasEnTienda ) throws BusinessLogicException{
         return comprasEnTienda;
 
     }

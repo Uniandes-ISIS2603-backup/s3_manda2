@@ -15,7 +15,7 @@ public abstract class ServicioDTO {
      /**
      * Id del objeto
      */
-    private long id;
+    private Long id;
     
     /**
      * Constante que indica que el estado del servicio es "en espera".
@@ -40,7 +40,7 @@ public abstract class ServicioDTO {
     /**
      * Costo del servicio.
      */
-    protected double costo;
+    protected Double costo;
     
     /**
      * Punto de encuentro del empleado con el cliente.
@@ -55,17 +55,21 @@ public abstract class ServicioDTO {
     /**
      * Indica si la diligencia tuvo éxito.
      */
-    protected boolean exitoDiligencia;
+    protected Boolean exitoDiligencia;
     
     /**
      * Calificación del servicio.
      */
-    protected double calificacion;
+    protected Double calificacion;
     
     /**
      * Descripción del servicio.
      */
     protected String descripcion;
+    
+    public ServicioDTO(){
+        this(0L, "", 0D, "", "", false, 0D, "");
+    }
     
     /**
      * Crea un nuevo servicio.
@@ -78,7 +82,7 @@ public abstract class ServicioDTO {
      * @param calificacion calificación del servicio.
      * @param descripcion descripción del servicio.
      */
-    public ServicioDTO(long id, String nombre, double costo, String puntoDeEncuentro, String puntoDeRealizacion, boolean exitoDiligencia, double calificacion, String descripcion) {
+    public ServicioDTO(Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.costo = costo;
@@ -93,7 +97,7 @@ public abstract class ServicioDTO {
      * Retorna el id.
      * @return Id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -101,7 +105,7 @@ public abstract class ServicioDTO {
      * Asigna el id al dado por parámetro.
      * @param id Nuevo id.
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -125,7 +129,7 @@ public abstract class ServicioDTO {
      * Retorna el costo del servicio.
      * @return Costo del servicio.
      */
-    public double getCosto() {
+    public Double getCosto() {
         return costo;
     }
 
@@ -133,7 +137,7 @@ public abstract class ServicioDTO {
      * Asigna el costo del servicio al dado por parámetro.
      * @param costo Nuevo costo.
      */
-    public void setCosto(double costo) {
+    public void setCosto(Double costo) {
         this.costo = costo;
     }
 
@@ -173,7 +177,7 @@ public abstract class ServicioDTO {
      * Indica si la diligencia tuvo éxito.
      * @return true si la diligencia tuvo éxito, false de lo contrario.
      */
-    public boolean isExitoDiligencia() {
+    public Boolean isExitoDiligencia() {
         return exitoDiligencia;
     }
 
@@ -181,7 +185,7 @@ public abstract class ServicioDTO {
      * Asigna el exito de la diligencia al dado por parámetro.
      * @param exitoDiligencia exito de la diligencia.
      */
-    public void setExitoDiligencia(boolean exitoDiligencia) {
+    public void setExitoDiligencia(Boolean exitoDiligencia) {
         this.exitoDiligencia = exitoDiligencia;
     }
 
@@ -189,7 +193,7 @@ public abstract class ServicioDTO {
      * Retorna la calificación del servicio.
      * @return Calificación del servicio.
      */
-    public double getCalificacion() {
+    public Double getCalificacion() {
         return calificacion;
     }
 
@@ -197,7 +201,7 @@ public abstract class ServicioDTO {
      * Asigna la calificación del sevicio a la dada por parámetro.
      * @param calificacion Nueva calificación del servicio.
      */
-    public void setCalificacion(double calificacion) {
+    public void setCalificacion(Double calificacion) {
         this.calificacion = calificacion;
     }
 

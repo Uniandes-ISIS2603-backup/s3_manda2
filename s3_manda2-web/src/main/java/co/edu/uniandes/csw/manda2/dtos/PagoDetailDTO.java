@@ -32,7 +32,7 @@ public class PagoDetailDTO extends PagoDTO {
      *  @param estado estado en que se encuentra el pago
      * @param fecha fecha de pago
      */
-    public PagoDetailDTO (ServicioDTO servicio, MedioPagoDTO medio, long id, String estado, Date fecha){
+    public PagoDetailDTO (ServicioDTO servicio, MedioPagoDTO medio, Long id, String estado, Date fecha){
         super(id, estado, fecha);
         this.medioPago = medio;
         this.servicio = servicio;

@@ -8,10 +8,7 @@
     <packaging>pom</packaging>
     <name>s3_manda2</name>
  
-    <modules>
-        <module>s3_manda2-back</module>
-        <module>s3_manda2-web</module>
-    </modules>
+    <modules></modules>
     <repositories>
         <repository>
             <id>csw-releases</id>

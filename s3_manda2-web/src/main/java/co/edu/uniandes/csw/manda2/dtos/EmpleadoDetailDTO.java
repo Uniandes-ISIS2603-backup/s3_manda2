@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase que representa el empleado.
@@ -62,11 +63,11 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     /**
      * Listado de todos los pagos que ha hecho el empleado
      */
-    private ArrayList<PagoDTO> pagos;
+    private List<PagoDTO> pagos;
      /**
      * Listado de todos los servicios del empleado
      */
-    private ArrayList<ServicioDetailDTO>servicios;
+    private List<ServicioDetailDTO>servicios;
     //CONSTRUCTOR
     /**
      * genera un empleado
@@ -82,7 +83,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      * Retorna la lista de pagos del empleado
      * @return la lista de pagos
      */
-    public ArrayList<PagoDTO> getPagos() {
+    public List<PagoDTO> getPagos() {
         return pagos;
     }
     /**
@@ -90,14 +91,14 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      * @param pagos Lista de pagos != null
      */
     
-    public void setPagos(ArrayList<PagoDTO> pagos) {
+    public void setPagos(List<PagoDTO> pagos) {
         this.pagos = pagos;
     }
     /**
      * retorna la lista de servicios del empleado
      * @return servicios Lista de servicios del empleado
      **/ 
-    public ArrayList<ServicioDetailDTO> getServicios() {
+    public List<ServicioDetailDTO> getServicios() {
         return servicios;
     }
     /**
@@ -105,7 +106,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      * @param servicios llega la lista de servicios para asignar !=null
      */
     
-    public void setServicios(ArrayList<ServicioDetailDTO> servicios) {
+    public void setServicios(List<ServicioDetailDTO> servicios) {
         this.servicios = servicios;
     }
     
