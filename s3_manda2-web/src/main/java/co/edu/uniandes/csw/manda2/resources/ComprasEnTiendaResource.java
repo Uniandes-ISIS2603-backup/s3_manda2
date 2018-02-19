@@ -97,7 +97,7 @@ public class ComprasEnTiendaResource {
      * 412 Precodition Failed: Ya existe comprasEnTiendaResource.
      * </code>
      * </pre>
-     * @param ComprasEnTiendaResource {@link ComprasEnTiendaResource} - El ComprasEnTiendaResource que se desea guardar.
+     * @param comprasEnTienda compras de la tienda
      * @return JSON {@link ComprasEnTiendaResourceDTO} - El comprasEnTiendaResource guardado con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
      */
@@ -119,7 +119,7 @@ public class ComprasEnTiendaResource {
      * </code>
      * </pre>
      * @param id Identificador del comprasEnTiendaResource que se desea actualizar. Este debe ser una cadena de dígitos.
-     * @param ComprasEnTiendaResource  {@link ComprasEnTiendaResourceDTO}  ComprasEnTiendaResource  que se desea guardar.
+     * @param comprasEnTienda compras de la tienda
      * @return JSON {@link ComprasEnTiendaResourceDTO} -  ComprasEnTiendaResource  guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar vueltasConDemoraEnOficina  porque ya existe uno con ese nombre.
      */

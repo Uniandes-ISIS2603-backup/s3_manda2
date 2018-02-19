@@ -19,7 +19,7 @@ import javax.ws.rs.Produces;
 import java.util.ArrayList;
 
 /**
- * pre>Clase que implementa el recurso "reclamos".
+ * <pre>Clase que implementa el recurso "reclamos".
  * URL: /api/reclamos
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y

@@ -116,14 +116,9 @@ public class OrganizacionResource
      * </code> 
      * </pre>
      * @param id Identificador del servicio de tipo Organización que se desea actualizar. Este debe ser una cadena de dígitos.
-     * @param servicio {@link servicioDTO} - El servicio de tipo Organización que se desea guardar.
+     * @param organizacion la organizacion
      * @return JSON {@link servicioDTO} - El servicio de tipo Organización guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el servicio de tipo Organización porque ya existe uno con ese nombre.
-     
-     * @param 
-     * @param id
-     * @param organizacion
-     * @return
      */
     @PUT
     @Path("{id : \\d+}")
@@ -147,6 +142,7 @@ public class OrganizacionResource
      * </code>
      * </pre>
      * @param id Identificador del servicio de tipo Organización que se desea borrar. Este debe ser una cadena de dígitos.
+     * @param organizacion la organizacion
      */
     @DELETE
     @Path("{id : \\d+}")

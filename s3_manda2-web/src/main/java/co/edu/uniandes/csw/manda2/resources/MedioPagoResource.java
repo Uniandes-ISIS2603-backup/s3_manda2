@@ -86,7 +86,7 @@ public class MedioPagoResource {
      * 412 Precodition Failed: Ya existe el medio de pago.
      * </code>
      * </pre>
-     * @param city {@link MedioPagoDTO} - El medio de pago que se desea guardar.
+     * @param medioPago el medio de pago
      * @return JSON {@link MedioPagoDTO}  - El medio de pago guardado con el atributo id autogenerado.
      */
     @POST

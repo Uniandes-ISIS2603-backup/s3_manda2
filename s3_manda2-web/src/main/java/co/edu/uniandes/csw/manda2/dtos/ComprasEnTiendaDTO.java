@@ -81,7 +81,7 @@ public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serial
 
     /**
      * Asigna el valor del costo del transporte
-     *  @param costoDeTransporte
+     *  @param costoDeTransporte valor del transporte a modificar
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;

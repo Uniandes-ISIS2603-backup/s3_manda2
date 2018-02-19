@@ -81,9 +81,8 @@ public class ArticuloResource {
      * 412 Precodition Failed: Ya existe el articulo.
      * </code>
      * </pre>
-     * @param articulo{@link ArticuloDTO} - El articulo que se desea guardar.
+     * @param articulos el articulo a construir
      * @return JSON {@link ArticuloDTO} - El articuloguardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el articulo
      */
     @POST
     public ArticuloDTO createArticulos(ArticuloDTO articulos) {
@@ -105,7 +104,6 @@ public class ArticuloResource {
      * @param id Identificador del articuloque se desea actualizar.Este debe ser una cadena de dígitos.
      * @param articulo {@link ArticuloDTO} El articuloque se desea guardar.
      * @return JSON {@link ArticuloDTO} - El articuloguardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el articuloporque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")
