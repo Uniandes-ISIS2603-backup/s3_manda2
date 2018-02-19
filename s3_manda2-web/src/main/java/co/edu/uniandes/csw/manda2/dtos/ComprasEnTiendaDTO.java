@@ -12,28 +12,27 @@ import java.io.Serializable;
  * Clase que representa el servicio de compras en tienda
 
  * ComprasEnTiendaDTO. Los DTO contienen las
- * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * 
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "id": number,
- *      "name: string,
- *      "zipcode": string
+ *      "costoDeTransporte": Double,
+ *      "pago": PagoDTO,
+ *      "cliente": ClienteDTO,
+ *      "empleado": Empleado DTO,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
  *   }
- * </pre>
- * Por ejemplo una ciudad se representa asi:<br>
- * 
- * <pre>
- * 
- *   {
- *      "id": 91852,
- *      "name: "Bogota, DC",
- *      "zipcode": "121110"
- *   }
- *
- * </pre>
+ * +
  * @author dv.gonzalez10
  */
 public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serializable{

@@ -8,12 +8,17 @@ package co.edu.uniandes.csw.manda2.dtos;
 import java.io.Serializable;
 
 /**
- *
+ ** Clase que extiende de {@link ComprasEnTiendaDTO} para manejar la transformacion entre
+ * los objetos JSON y las Entidades de la base de datos. Para conocer el
+ * contenido de la ciudad vaya a la documentacion de {@link ComprasEnTiendaDTO}
  * @author dv.gonzalez10
  */
 public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Serializable{
     //atributos
     /**
+     * 
+     * 
+     * 
     *Articulo que se quiere comprar en tienda
     */
     private ArticuloDTO articulo;
