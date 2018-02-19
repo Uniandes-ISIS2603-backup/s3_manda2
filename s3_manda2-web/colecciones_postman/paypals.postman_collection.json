@@ -1,0 +1,152 @@
+{
+	"info": {
+		"name": "paypals",
+		"_postman_id": "d7e4aff9-2e04-d588-7908-15ced66f6874",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals"
+					]
+				},
+				"description": "GET paypals"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals",
+						"1"
+					]
+				},
+				"description": "GET paypal"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 19846, \r\n  \"nombreCliente\": \"Juan Perez\",\r\n  \"linkPayPal\": \"http://www.paypal.com/users/juanperez\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals"
+					]
+				},
+				"description": "POST paypal"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 19846, \r\n  \"nombreCliente\": \"Juan Perez\",\r\n  \"linkPayPal\": \"http://www.paypal.com/users/juanperez\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals",
+						"1"
+					]
+				},
+				"description": "PUT paypal"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals",
+						"1"
+					]
+				},
+				"description": "DELETE paypal"
+			},
+			"response": []
+		}
+	]
+}
