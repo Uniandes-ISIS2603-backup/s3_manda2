@@ -90,7 +90,7 @@ public class  ElementoBusquedaReservaDTO
     }
     /**
      * Establecer los datos del elemento
-     * @param datosBusqueda 
+     * @param datosBusqueda los datos de la busqueda
      */
     
     public void setDatos(String datosBusqueda){
