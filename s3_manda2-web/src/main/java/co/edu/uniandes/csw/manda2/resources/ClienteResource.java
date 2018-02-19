@@ -91,7 +91,7 @@ public class ClienteResource {
      */
     @POST
     public ClienteDetailDTO createCliente( ClienteDetailDTO cliente){
-        return null;
+        return cliente;
     }
     /**
      * <h1>PUT /api/clientes/{id} : Actualizar el cliente con el id dado.</h1>

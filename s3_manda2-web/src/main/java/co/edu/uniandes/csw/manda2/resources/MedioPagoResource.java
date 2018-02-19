@@ -92,7 +92,7 @@ public class MedioPagoResource {
      */
     @POST
     public MedioPagoDTO createMedioPago(MedioPagoDTO medioPago){
-        return null;
+        return medioPago;
     }
     
     

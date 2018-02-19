@@ -53,12 +53,12 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      * @param id
      * @param nombreCliente 
      */
-//    public TarjetaCreditoDTO(Integer pNumeroTarjeta, Long id,  String nombreCliente)
-//    {
-//        super(id, nombreCliente);
-//        numeroTarjeta = pNumeroTarjeta;
-//        //super();
-//    }
+    public TarjetaCreditoDTO(Integer pNumeroTarjeta, Long id,  String nombreCliente)
+    {
+        super(id, nombreCliente);
+        numeroTarjeta = pNumeroTarjeta;
+        //super();
+    }
     //Metodos
 
     /**
