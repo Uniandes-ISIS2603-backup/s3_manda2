@@ -42,7 +42,7 @@ public class MedioPagoDTO {
     private String nombreCliente;
     
     public MedioPagoDTO(){
-    
+        
     }
      /**
      * Constructor de un nuevo MedioPago.
@@ -79,7 +79,7 @@ public class MedioPagoDTO {
     }
     /**
      * Establece el nombre del cliente.
-     * @param pNombre.
+     * @param id id
      */
     public void setId(Long id){
         this.id = id;

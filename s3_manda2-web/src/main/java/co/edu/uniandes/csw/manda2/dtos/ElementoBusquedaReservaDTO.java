@@ -63,6 +63,7 @@ public class  ElementoBusquedaReservaDTO
     
     /**
      * Obtener del nombre del elemento a buscar
+     * @return nombre retorna el nombre del elemento.
      * */
     public String getNombre()
     {
@@ -70,6 +71,7 @@ public class  ElementoBusquedaReservaDTO
     }
     /**
      * Obtener los datos del elemento a buscar
+     * @return datosBusqueda los datos de la busqueda.
      * */
     
     public String getDatos()
@@ -88,7 +90,7 @@ public class  ElementoBusquedaReservaDTO
     }
     /**
      * Establecer los datos del elemento
-     * @param datosBusqueda 
+     * @param datosBusqueda los datos de la busqueda
      */
     
     public void setDatos(String datosBusqueda){
@@ -96,6 +98,7 @@ public class  ElementoBusquedaReservaDTO
     }
     /**
      * Indica si el eleme. de busq. es exitoso
+     * @return exitosa boolean si la busqueda fue exitosa.
      * */
     public Boolean isExistosa()
     {
@@ -105,7 +108,7 @@ public class  ElementoBusquedaReservaDTO
     
     /**
      * Establecer si es exitosa o no
-     * @param para establecer el estado
+     * @param exitosa establecer el estado
      * */
     public void setExitosa(Boolean exitosa)
     {

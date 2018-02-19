@@ -19,7 +19,7 @@ import javax.ws.rs.Produces;
 import java.util.ArrayList;
 
 /**
- * pre>Clase que implementa el recurso "reclamos".
+ * <pre>Clase que implementa el recurso "reclamos".
  * URL: /api/reclamos
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
@@ -75,7 +75,7 @@ public class ReclamoResource {
      /**
      * <h1>POST /api/reclamos : Crear un reclamo.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link PayPalDTO}.
+     * <pre>Cuerpo de petición: JSON {@link ReclamoDetailDTO}.
      * 
      * Crea un nuevo reclamo con la información que se recibe en el cuerpo de la petición
      * y se regresa un objeto idéntico con un id auto-generado por la base de datos.
@@ -90,7 +90,7 @@ public class ReclamoResource {
      * </pre>
      * @param reclamo {@link ReclamoDetailDTO} - El reclamo que se desea guardar.
      * @return JSON {@link ReclamoDetailDTO} - El reclamo guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
     
     @POST
@@ -99,7 +99,7 @@ public class ReclamoResource {
     }
     /**
      * <h1>PUT /api/reclamos/{numero} : Actualizar reclamos con el numero dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link ReclamsDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link ReclamoDetailDTO}.
      * 
      * Actualiza el reclamo con el numero recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -113,7 +113,7 @@ public class ReclamoResource {
      * @param numero Identificador del PayPal que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param reclamo {@link ReclamoDetailDTO} El reclamo que se desea guardar.
      * @return JSON {@link ReclamoDetailDTO} - El reclamo guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{numero : \\d+}")

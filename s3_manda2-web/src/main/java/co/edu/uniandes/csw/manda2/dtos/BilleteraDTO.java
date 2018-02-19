@@ -45,17 +45,18 @@ public class BilleteraDTO {
      * @param saldo saldo en la billetera
      * @param puntosFidelidad puntos de fidelidad acumulados
      */
-    
-    public BilleteraDTO(){
-     this(0D,0);
-    
-    }
     public BilleteraDTO(Double saldo, Integer puntosFidelidad){
         this.puntosDeFidelidad = puntosFidelidad;
         this.saldo = saldo;
         
     }
+    /**
+     * Constructor por defecto
+     */
+    public BilleteraDTO(){
+     this(0D,0);
     
+    }
     /**
      * Retorna el saldo en la billetera.
      * @return saldo en la billetera.

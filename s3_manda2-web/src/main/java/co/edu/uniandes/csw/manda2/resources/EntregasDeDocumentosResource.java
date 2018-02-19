@@ -73,7 +73,7 @@ public class EntregasDeDocumentosResource {
      * </code> 
      * </pre>
      * @param id Identificador de la entregasDeDocumentos que se está buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link entregasDeDocumentosDTO} - La entregasDeDocumentos buscada
+     * @return JSON {@link EntregasDeDocumentosDTO} - La entregasDeDocumentos buscada
      */
     @GET
     @Path("{id : \\d+}")
@@ -84,7 +84,7 @@ public class EntregasDeDocumentosResource {
     /**
      * <h1>POST /api/entregasDeDocumentos: Crear una entregasDeDocumentos.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link entregasDeDocumentos}.
+     * <pre>Cuerpo de petición: JSON {@link EntregasDeDocumentosDTO}.
      * 
      * Crea una nueva entregasDeDocumentos con la información que se recibe en el cuerpo de la petición
      * y se regresa un objeto idéntico con un id auto-generado por la base de datos.
@@ -97,9 +97,9 @@ public class EntregasDeDocumentosResource {
      * 412 Precodition Failed: Ya existe VueltasConDemoraEnOficina.
      * </code>
      * </pre>
-     * @param entregasDeDocumentos {@link entregasDeDocumentos} - El entregasDeDocumentos que se desea guardar.
+     * @param entregasDeDocumentos {@link EntregasDeDocumentosDTO} - El entregasDeDocumentos que se desea guardar.
      * @return JSON {@link EntregasDeDocumentosDTO} - El entregasDeDocumentos guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
      @POST
     public EntregasDeDocumentosDTO createEntregasDeDocumentos( EntregasDeDocumentosDTO entregasDeDocumentos) throws BusinessLogicException{
@@ -120,7 +120,7 @@ public class EntregasDeDocumentosResource {
      * </pre>
      * @param id Identificador del vueltasConDemoraEnOficina que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param entregasDeDocumentos  {@link EntregasDeDocumentosDTO}  entregasDeDocumentos  que se desea guardar.
-     * @return JSON {@link entregasDeDocumentos} -  entregasDeDocumentos  guardado.
+     * @return JSON {@link EntregasDeDocumentosDTO} -  entregasDeDocumentos  guardado.
      */
     @PUT
     @Path("{id : \\d+}")

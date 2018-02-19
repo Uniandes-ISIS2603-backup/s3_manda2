@@ -41,7 +41,7 @@ public class PSEDTO extends MedioPagoDTO {
     private String linkPse;
     
     public PSEDTO(){
-    
+       
     }
     //Constructor
     /**
@@ -50,10 +50,10 @@ public class PSEDTO extends MedioPagoDTO {
      * @param id
      * @param nombreCliente
     */
-    public PSEDTO(String pLinkPse, Long id, String nombreCliente)
-    {
-        super(id, nombreCliente);
-        linkPse = pLinkPse;
+   public PSEDTO(String pLinkPse, Long id, String nombreCliente)
+   {
+       super(id, nombreCliente);
+       linkPse = pLinkPse;
         
     }
     

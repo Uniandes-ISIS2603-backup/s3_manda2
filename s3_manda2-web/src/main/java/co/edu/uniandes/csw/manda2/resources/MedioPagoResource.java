@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.MedioPagoDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 
@@ -66,7 +67,7 @@ public class MedioPagoResource {
      */
     @GET
     public List<MedioPagoDTO> getMediosPago(){
-        return null;
+        return new ArrayList<>();
     }
     
       /**
@@ -86,7 +87,7 @@ public class MedioPagoResource {
      * 412 Precodition Failed: Ya existe el medio de pago.
      * </code>
      * </pre>
-     * @param city {@link MedioPagoDTO} - El medio de pago que se desea guardar.
+     * @param medioPago el medio de pago
      * @return JSON {@link MedioPagoDTO}  - El medio de pago guardado con el atributo id autogenerado.
      */
     @POST
