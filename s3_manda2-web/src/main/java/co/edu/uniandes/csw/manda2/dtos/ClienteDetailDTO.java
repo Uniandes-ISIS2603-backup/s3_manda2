@@ -90,22 +90,22 @@ public class ClienteDetailDTO extends ClienteDTO {
     private List<ReclamoDTO> quejasYReclamos;
     
     public ClienteDetailDTO(){
-         this(0D,0);
+        
     }
     //Constructor
     /**
      * Constructor por defecto
      * 
-     * @param saldo
-     * @param puntosFidelidad
+     * @param saldo representa el saldo que tiene el usuario.
+     * @param puntosFidelidad representa los puntos de fidelidad de cada usuario.
      */
     public ClienteDetailDTO (Double saldo, Integer puntosFidelidad)
     {
         super();
         billetera = new BilleteraDTO(saldo, puntosFidelidad);
-        servicios = new ArrayList<ServicioDTO>();
-        pagos = new ArrayList<PagoDTO>();
-        quejasYReclamos = new ArrayList<ReclamoDTO>();
+        servicios = new ArrayList<>();
+        pagos = new ArrayList<>();
+        quejasYReclamos = new ArrayList<>();
     }
     //Metodos
 

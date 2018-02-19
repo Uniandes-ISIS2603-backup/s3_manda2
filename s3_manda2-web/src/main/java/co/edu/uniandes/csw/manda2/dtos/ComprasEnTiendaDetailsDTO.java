@@ -58,7 +58,7 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
 
     /**
      * Asigna el articulo 
-     * @param articulo 
+     * @param articulo articulo de la compra
      */
     public void setArticulo(ArticuloDTO articulo) {
         this.articulo = articulo;

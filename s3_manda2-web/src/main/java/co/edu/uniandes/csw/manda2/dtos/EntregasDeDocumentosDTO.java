@@ -98,7 +98,10 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     }
 
     
-    
+    public EntregasDeDocumentosDTO()
+    {
+        
+    }
    
     
     //Metodos 
@@ -114,7 +117,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     
     /**
      * Asigna el valor del costo del transporte
-     *  @param costoDeTransporte
+     *  @param costoDeTransporte el valor del transporte.
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
@@ -122,7 +125,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
 
        /**
      *Retorna el valor del costo extra que se adiciona por el servicio
-     * @return porcentajeExtra
+     * @return porcentajeExtra el porcentaje extra
      */
     public Double getPorcentajeExtra() {
         return porcentajeExtra;
@@ -130,7 +133,7 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
 
     /**
      * Asigna el valor del costo extra que se adiciona por el servicio.
-     *  @param porcentajeExtra
+     *  @param porcentajeExtra el porcentaje extra.
      */ 
     public void setPorcentajeExtra(Double porcentajeExtra) {
         this.porcentajeExtra = porcentajeExtra;

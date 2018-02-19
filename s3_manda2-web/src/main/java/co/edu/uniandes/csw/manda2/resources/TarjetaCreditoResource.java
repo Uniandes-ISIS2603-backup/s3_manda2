@@ -14,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import co.edu.uniandes.csw.manda2.dtos.TarjetaCreditoDTO;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
 /**
@@ -93,15 +94,15 @@ public class TarjetaCreditoResource {
      * </pre>
      * @param tarjetaCredito {@link TarjetaCreditoDTO} - La tarjeta de credito que se desea guardar.
      * @return JSON {@link TarjetaCreditoDTO} - La tarjeta de credito guardada con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe la tarjeta de credito.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe la tarjeta de credito.
      */
     @POST
-    public TarjetaCreditoDTO createTarjetaCredito(TarjetaCreditoDTO tarjetaCredito) {
-        return null;
+    public TarjetaCreditoDTO createTarjetaCredito(TarjetaCreditoDTO tarjetaCredito) throws BusinessLogicException {
+        return tarjetaCredito;
     }
 /**
      * <h1>PUT /api/tarjetascreditos/{id} : Actualizar la tarjeta de credito con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link TarjetaCredioDTO}.
+     * <pre>Cuerpo de petición: JSON {@link TarjetaCreditoDTO}.
      * 
      * Actualiza la tarjeta de credito con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -115,11 +116,11 @@ public class TarjetaCreditoResource {
      * @param id Identificador de la tarjeta de credito que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param tarjetaCredito {@link TarjetaCreditoDTO} - La tarjeta de credito que se desea guardar.
      * @return JSON {@link TarjetaCreditoDTO} - La tarjeta de credito guardada.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")
-    public TarjetaCreditoDTO updateTarjetaCredito (@PathParam("id") long id, TarjetaCreditoDTO tarjetaCredito) {
+    public TarjetaCreditoDTO updateTarjetaCredito (@PathParam("id") long id, TarjetaCreditoDTO tarjetaCredito) throws BusinessLogicException {
         return null;
     }
 /**

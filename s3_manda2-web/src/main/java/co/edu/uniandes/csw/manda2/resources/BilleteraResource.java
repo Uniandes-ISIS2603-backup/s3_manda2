@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.BilleteraDetailDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 /**
@@ -44,7 +45,7 @@ public class BilleteraResource {
      * 404 Not Found No existe una billetera con la cedula dada.
      * </code> 
      * </pre>
-     * @param id Identificador de la ciudad que se esta buscando. Este debe ser una cadena de dígitos.
+     * @param cedula cedula de la persona
      * @return JSON {@link BilleteraDetailDTO} - La ciudad buscada
      */
     @GET
@@ -66,7 +67,7 @@ public class BilleteraResource {
      */
     @GET
     public List<BilleteraDetailDTO> getBilletera(){
-        return null;
+        return new ArrayList<>();
     }
     
       /**
@@ -108,7 +109,7 @@ public class BilleteraResource {
      * 404 Not Found. No existe una billetera con el id dado.
      * </code> 
      * </pre>
-     * @param id Identificador de la billetera que se desea actualizar.Este debe ser una cadena de dígitos.
+     * @param cedula cedula de la persona
      * @param billetera {@link BilleteraDetailDTO} La billetera que se desea guardar.
      * @return JSON {@link BilleteraDetailDTO} - La billetera guardada.
      */
@@ -130,7 +131,7 @@ public class BilleteraResource {
      * 404 Not Found. No existe una billetera con el cedula dado.
      * </code>
      * </pre>
-     * @param id Identificador de la billetera que se desea borrar. Este debe ser una cadena de dígitos.
+     * @param cedula cedula de la persona
      */
     @DELETE
     @Path("{cedula : \\d+}")

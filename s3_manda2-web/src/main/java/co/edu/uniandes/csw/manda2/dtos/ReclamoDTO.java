@@ -56,7 +56,7 @@ public class ReclamoDTO {
      * Se genera un reclamo
      * @param pMensaje el mensaje que se asignara al reclamo
      * @param pNumero el numero del reclamo
-     * @param PId el id que se le asignara al reclamo
+     * @param pId id del reclamo
      **/
     public ReclamoDTO(String pMensaje, Integer pNumero, Long pId)
     {

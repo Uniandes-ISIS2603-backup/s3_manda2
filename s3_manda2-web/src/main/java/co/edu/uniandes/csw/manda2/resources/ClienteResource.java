@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.ClienteDetailDTO;
+import co.edu.uniandes.csw.manda2.dtos.ClienteDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -41,7 +42,7 @@ public class ClienteResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todas los clientes de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link ClientesDTO} - Los clientes encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return  Los clientes encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<ClienteDetailDTO> getClientes(){
@@ -61,7 +62,7 @@ public class ClienteResource {
      * </code> 
      * </pre>
      * @param id Identificador del cliente que se esta buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link ClienteDTO} - El cliente buscado
+     * @return El cliente buscado
      */
     @GET
     @Path("{id : \\d+}")
@@ -87,11 +88,10 @@ public class ClienteResource {
      * </pre>
      * @param cliente {@link ClienteDTO} - El cliente que se desea guardar.
      * @return JSON {@link ClienteDTO} - El cliente guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el cliente.
      */
     @POST
     public ClienteDetailDTO createCliente( ClienteDetailDTO cliente){
-        return null;
+        return cliente;
     }
     /**
      * <h1>PUT /api/clientes/{id} : Actualizar el cliente con el id dado.</h1>
@@ -109,7 +109,6 @@ public class ClienteResource {
      * @param id Identificador del cliente que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param cliente {@link ClienteDTO} - El cliente que se desea guardar.
      * @return JSON {@link ClienteDTO} - El cliente guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")

@@ -65,6 +65,7 @@ public class OrganizacionDetailsDTO extends OrganizacionDTO
     private OrganizacionDTO elementoBusqueda;
     /**
      * Permite obtener el elemento de busqueda
+     * @return elementoBusqueda el elemento de la busqueda
      */
     public OrganizacionDTO getElementoBusqueda()
     {

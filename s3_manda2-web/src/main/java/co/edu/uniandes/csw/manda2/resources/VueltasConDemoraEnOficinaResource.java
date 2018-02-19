@@ -95,9 +95,9 @@ public class VueltasConDemoraEnOficinaResource {
      * 412 Precodition Failed: Ya existe VueltasConDemoraEnOficina.
      * </code>
      * </pre>
-     * @param vueltasConDemoraEnOficina {@link VueltasConDemoraEnOficinaDTO} - El VueltasConDemoraEnOficina que se desea guardar.
+     * @param vueltaConDemoraEnOficina las vueltas con demora en oficina.
      * @return JSON {@link VueltasConDemoraEnOficinaDTO} - El vueltasConDemoraEnOficina guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
     @POST
     public VueltasConDemoraEnOficinaDTO createVueltaConDemoraEnOficina( VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina)throws BusinessLogicException{
@@ -119,9 +119,9 @@ public class VueltasConDemoraEnOficinaResource {
      * </code>
      * </pre>
      * @param id Identificador del vueltasConDemoraEnOficina que se desea actualizar. Este debe ser una cadena de dígitos.
-     * @param VueltasConDemoraEnOficina  {@link VueltasConDemoraEnOficinaDTO}  VueltasConDemoraEnOficina  que se desea guardar.
+     * @param vueltaConDemoraEnOficina las vueltas con demora en oficina
      * @return JSON {@link VueltasConDemoraEnOficinaDTO} -  VueltasConDemoraEnOficina  guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar vueltasConDemoraEnOficina  porque ya existe uno con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar vueltasConDemoraEnOficina  porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")

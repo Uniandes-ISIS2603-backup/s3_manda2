@@ -37,6 +37,10 @@ public class PagoDetailDTO extends PagoDTO {
         this.medioPago = medio;
         this.servicio = servicio;
     }
+    public PagoDetailDTO()
+    {
+        
+    }
     /**
      * Retorna el servicio relacionado al pago.
      * @return servicio relacionado al pago.

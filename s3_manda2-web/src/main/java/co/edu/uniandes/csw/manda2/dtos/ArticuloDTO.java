@@ -16,7 +16,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "rutaImagen": string,
  *      "nombre": string,
- *      "precio": Double,
+ *      "precio": Double
  *     
  *   }
  * </pre> Por ejemplo un articulo se representa asi:<br>
@@ -26,7 +26,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "rutaImagen": "C:\Users\Public\Pictures\Imagenes\morcilla",
  *      "nombre": "morcilla",
- *      "precio": 5.000,
+ *      "precio": 5000
  *     
  *   }
  *
@@ -34,7 +34,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  
  * @author cv.trujillo
  */
-public class ArticuloDTO 
+public class ArticuloDTO extends ComprasEnTiendaDTO
 {
     
     public ArticuloDTO(){

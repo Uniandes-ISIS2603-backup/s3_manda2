@@ -23,7 +23,7 @@ import javax.ws.rs.Produces;
  *
  * @author cv.trujillo
  */
-@Path("busquedasElementos")
+@Path("busquedaselementos")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
@@ -81,9 +81,8 @@ public class ElementoBusquedaReservaResource {
      * 412 Precodition Failed: Ya existe el elementoBusqueda.
      * </code>
      * </pre>
-     * @param elementoBusqueda {@link ElementoBusquedaReservaDTO} - El ElementoBusqueda que se desea guardar.
+     * @param ElementoBusquedas el elemento de la busqueda.
      * @return JSON {@link ElementoBusquedaReservaDTO} - El elemetoBusqueda guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el elemetoBusqueda.
      */
     @POST
     public ElementoBusquedaReservaDTO createElementoBusquedas(ElementoBusquedaReservaDTO ElementoBusquedas) {
@@ -105,7 +104,6 @@ public class ElementoBusquedaReservaResource {
      * @param id Identificador del elemetoBusqueda que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param ElementoBusqueda {@link ElementoBusquedaReservaDTO} El elemetoBusqueda que se desea guardar.
      * @return JSON {@link ElementoBusquedaReservaDTO} - El elemetoBusqueda guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el elemetoBusqueda porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")

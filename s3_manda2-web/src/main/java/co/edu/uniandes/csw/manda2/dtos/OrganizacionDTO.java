@@ -16,7 +16,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "costoTransporte": double,
  *      "costoDuracion": double,
- *      "desplazamiento": Boolean,
+ *      "desplazamiento": Boolean
  *     
  *   }
  * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
@@ -26,7 +26,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  *   {
  *      "costoTransporte":25.000,
  *      "costoDuracion": 6.5000,
- *      "desplazamiento": true,
+ *      "desplazamiento": true
  *     
  *   }
  *
@@ -71,6 +71,7 @@ public class OrganizacionDTO
     private Long id;
     /**
      * Retorna el costo del transporte del servicio
+     * @return costoDeTransporte el costo del transporte.
     */
     public Double getCostoTransporte ()
     {
@@ -78,6 +79,7 @@ public class OrganizacionDTO
     }
     /**
      * Retorna el costo de la duración del servicio
+     * @return costoDeDuracion retorna el costo de la duracion.
      */
     public Double getCostoDuracion()
     {
@@ -86,7 +88,7 @@ public class OrganizacionDTO
     
     /**
      * Obtener el id del servicio organizacion
-     * @return 
+     * @return id el id de la organizacion
      */
     public Long getId()
     {
@@ -95,7 +97,7 @@ public class OrganizacionDTO
     
     /**
      * Establecer el costo del trasnporte a cobrar
-     * @param el costo de transporte a asignar
+     * @param costoDeTransporte el costo del transporte
      */
     public void setCostoTransporte (Double costoDeTransporte)
     {
@@ -103,7 +105,7 @@ public class OrganizacionDTO
     }
     /**
      * Establecer el costo del desplazamiento del servicio
-     * @param el costo de la duración del servicio
+     * @param costoDeDuracion el costo por la duracion.
     */
     public void setCostoDuracion(Double costoDeDuracion)
     {
@@ -111,14 +113,16 @@ public class OrganizacionDTO
     }
     /**
      * Establecer el id del servicio de organizacion
-     * */
+     *
+     * @param id el id de la organizacion
+     */
     public void setId(Long id)
     {
         this.id=id;
     }
     /**
      * Verifica si el sericio requiere de un desplazamiento
-     * @return 
+     * @return desplazamiento true si desplazo, false lo contrario
      */
     public Boolean isDesplazamiento()
     {

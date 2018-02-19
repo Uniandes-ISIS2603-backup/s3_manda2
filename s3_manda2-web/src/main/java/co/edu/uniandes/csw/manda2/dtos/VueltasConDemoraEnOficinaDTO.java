@@ -89,7 +89,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
 
     /**
      * Asigna el costo de duración.
-     * @param Double costoDuracion
+     * @param costoDuracion costoDuracion
      */
     public void setCostoDuracion(Double costoDuracion) {
         this.costoDuracion = costoDuracion;
@@ -105,7 +105,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
 
         /**
      * Asigna el valor del costo del transporte
-     *  @param costoDeTransporte
+     *  @param costoDeTransporte el costo del transporte
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
