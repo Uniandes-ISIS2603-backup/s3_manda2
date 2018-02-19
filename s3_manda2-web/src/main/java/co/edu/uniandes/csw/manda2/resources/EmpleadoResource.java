@@ -92,7 +92,7 @@ public class EmpleadoResource {
      * </pre>
      * @param empleado {@link EmpleadoDetailDTO} - El empleado que se desea guardar.
      * @return JSON {@link EmpleadoDetailDTO} - El empleado guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PayPal.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
     @POST
     public EmpleadoDetailDTO createEmpleado( EmpleadoDetailDTO empleado)throws BusinessLogicException{
@@ -114,7 +114,7 @@ public class EmpleadoResource {
      * @param cedula Identificador del empleado que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param empleado {@link EmpleadoDetailDTO} El empleado que se desea guardar.
      * @return JSON {@link EmpleadoDetailDTO} - El empleado guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{cedula : \\d+}")

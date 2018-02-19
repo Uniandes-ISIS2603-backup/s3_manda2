@@ -94,7 +94,7 @@ public class PSEResource {
      * </pre>
      * @param pse {@link PSEDTO} - El PSE que se desea guardar.
      * @return JSON {@link PSEDTO} - El PSE guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el PSE.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PSE.
      */
     @POST
     public PSEDTO createPSE(PSEDTO pse) throws BusinessLogicException{
@@ -116,7 +116,7 @@ public class PSEResource {
      * @param id Identificador del pse que se desea actualizar.Este debe ser una cadena de dígitos.
      * @param pse {@link PSEDTO} El pse que se desea guardar.
      * @return JSON {@link PSEDTO} - El pse guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el pse porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")

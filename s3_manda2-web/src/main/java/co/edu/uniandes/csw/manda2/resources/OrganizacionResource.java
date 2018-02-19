@@ -42,7 +42,7 @@ public class OrganizacionResource
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los servicios de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link ServicioDetailDTO} - Los servicios encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link OrganizacionDetailsDTO} - Los servicios encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     
@@ -65,7 +65,7 @@ public class OrganizacionResource
      * </code> 
      * </pre>
      * @param id Identificador del servicio de tipo organización que se está buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link ServicioDetailDTO} - El servicio buscada
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio buscada
      */
     
     @GET
@@ -78,7 +78,7 @@ public class OrganizacionResource
      /**
      * <h1>POST /api/organizacion: Crear un servicio de tipo Organización.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link servicioDTO}.
+     * <pre>Cuerpo de petición: JSON {@link OrganizacionDetailsDTO}.
      * 
      * Crea un nuevo servicio de tipo Organización con la información que se recibe en el cuerpo de la petición
      * y se regresa un objeto idéntico con un id auto-generado por la base de datos.
@@ -91,9 +91,9 @@ public class OrganizacionResource
      * 412 Precodition Failed: Ya existe el servicio de tipo Organización.
      * </code>
      * </pre>
-     * @param servicio {@link ServicioDetailDTO} - El servicio de tipo Organización que se desea guardar.
-     * @return JSON {@link ServicioDetailDTO} - El servicio de tipo Organización fue guardado con el atributo id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el servicio de tipo Organización.
+     * @param servicio {@link OrganizacionDetailsDTO} - El servicio de tipo Organización que se desea guardar.
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio de tipo Organización fue guardado con el atributo id autogenerado.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el servicio de tipo Organización.
      */
     @POST
     public OrganizacionDetailsDTO crearOrganizacion(OrganizacionDetailsDTO servicio) throws BusinessLogicException
@@ -104,7 +104,7 @@ public class OrganizacionResource
     /**
      * /**
      * <h1>PUT /api/organizacion/{id} : Actualizar servicio de tipo Organización con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link OrganizacionDetailsDTO}.
      * 
      * Actualiza el servicio de tipo Organización con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -117,8 +117,8 @@ public class OrganizacionResource
      * </pre>
      * @param id Identificador del servicio de tipo Organización que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param organizacion la organizacion
-     * @return JSON {@link servicioDTO} - El servicio de tipo Organización guardado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el servicio de tipo Organización porque ya existe uno con ese nombre.
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio de tipo Organización guardado.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el servicio de tipo Organización porque ya existe uno con ese nombre.
      */
     @PUT
     @Path("{id : \\d+}")

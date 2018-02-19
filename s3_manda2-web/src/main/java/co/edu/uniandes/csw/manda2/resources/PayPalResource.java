@@ -94,7 +94,7 @@ public class PayPalResource {
     
      /**
      * <h1>PUT /api/paypals/{id} : Actualizar PayPal con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PayPalDTO}.
      * 
      * Actualiza el PayPal con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
