@@ -23,7 +23,7 @@ import javax.ws.rs.Produces;
  *
  * @author cv.trujillo
  */
-@Path("busquedasElementos")
+@Path("busquedaselementos")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped

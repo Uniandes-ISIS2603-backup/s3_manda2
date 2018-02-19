@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.UsuarioDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
@@ -28,7 +29,7 @@ public class UsuarioResource {
     @GET
     public List<UsuarioDTO> getUsuarios()
     {
-        return null;
+        return new ArrayList<>();
     }
     @GET
     @Path ("{cedula : \\d+}")

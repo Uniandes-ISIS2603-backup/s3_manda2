@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.MedioPagoDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 
@@ -66,7 +67,7 @@ public class MedioPagoResource {
      */
     @GET
     public List<MedioPagoDTO> getMediosPago(){
-        return null;
+        return new ArrayList<>();
     }
     
       /**
@@ -91,7 +92,7 @@ public class MedioPagoResource {
      */
     @POST
     public MedioPagoDTO createMedioPago(MedioPagoDTO medioPago){
-        return null;
+        return medioPago;
     }
     
     

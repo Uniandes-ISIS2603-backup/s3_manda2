@@ -90,7 +90,7 @@ public class ClienteDetailDTO extends ClienteDTO {
     private List<ReclamoDTO> quejasYReclamos;
     
     public ClienteDetailDTO(){
-         this(0D,0);
+        
     }
     //Constructor
     /**
@@ -103,9 +103,9 @@ public class ClienteDetailDTO extends ClienteDTO {
     {
         super();
         billetera = new BilleteraDTO(saldo, puntosFidelidad);
-        servicios = new ArrayList<ServicioDTO>();
-        pagos = new ArrayList<PagoDTO>();
-        quejasYReclamos = new ArrayList<ReclamoDTO>();
+        servicios = new ArrayList<>();
+        pagos = new ArrayList<>();
+        quejasYReclamos = new ArrayList<>();
     }
     //Metodos
 

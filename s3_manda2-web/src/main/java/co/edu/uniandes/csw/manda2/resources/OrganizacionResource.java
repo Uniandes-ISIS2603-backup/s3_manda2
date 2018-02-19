@@ -3,6 +3,7 @@ package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDetailsDTO;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.Path;
@@ -42,13 +43,17 @@ public class OrganizacionResource
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los organizacións de la aplicacion.</code> 
      * </pre>
+<<<<<<< HEAD
      * @return JSONArray {@link OrganizacionDetailsDTO} - Los organizacións encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+=======
+     * @return JSONArray {@link OrganizacionDetailsDTO} - Los servicios encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      */
     @GET
     
     public List<OrganizacionDetailsDTO> getOrganizacion()
     {
-        return null;
+        return new ArrayList<>();
     }
     
     /**
@@ -64,13 +69,20 @@ public class OrganizacionResource
      * 404 Not Found No existe un organización de tipo organización con el id dado.
      * </code> 
      * </pre>
+<<<<<<< HEAD
      * @param id Identificador del organización de tipo organización que se está buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link OrganizacionDetailsDTO} - El organización buscada
+=======
+     * @param id Identificador del servicio de tipo organización que se está buscando. Este debe ser una cadena de dígitos.
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio buscada
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      */
     
     @GET
     @Path("{id : \\d+}")
-    public OrganizacionDetailsDTO getorganizaciónsDeOrganizacion(@PathParam ("id") long id)
+
+
+    public OrganizacionDetailsDTO getServiciosDeOrganizacion(@PathParam ("id") Long id)
     {
         return null;
     }
@@ -78,7 +90,11 @@ public class OrganizacionResource
      /**
      * <h1>POST /api/organizacion: Crear un organización de tipo Organización.</h1>
      * 
+<<<<<<< HEAD
      * <pre>Cuerpo de petición: JSON {@link organizaciónDTO}.
+=======
+     * <pre>Cuerpo de petición: JSON {@link OrganizacionDetailsDTO}.
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      * 
      * Crea un nuevo organización de tipo Organización con la información que se recibe en el cuerpo de la petición
      * y se regresa un objeto idéntico con un id auto-generado por la base de datos.
@@ -91,9 +107,15 @@ public class OrganizacionResource
      * 412 Precodition Failed: Ya existe el organización de tipo Organización.
      * </code>
      * </pre>
+<<<<<<< HEAD
      * @param organización {@link OrganizacionDetailsDTO} - El organización de tipo Organización que se desea guardar.
      * @return JSON {@link OrganizacionDetailsDTO} - El organización de tipo Organización fue guardado con el atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera cuando ya existe el organización de tipo Organización.
+=======
+     * @param servicio {@link OrganizacionDetailsDTO} - El servicio de tipo Organización que se desea guardar.
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio de tipo Organización fue guardado con el atributo id autogenerado.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el servicio de tipo Organización.
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      */
     @POST
     public OrganizacionDetailsDTO crearOrganizacion(OrganizacionDetailsDTO organización) throws BusinessLogicException
@@ -104,8 +126,13 @@ public class OrganizacionResource
      
     /**
      * /**
+<<<<<<< HEAD
      * <h1>PUT /api/organizacion/{id} : Actualizar organización de tipo Organización con el id dado.</h1>
      * <pre>Cuerpo de petición: JSON {@link CityDetailDTO}.
+=======
+     * <h1>PUT /api/organizacion/{id} : Actualizar servicio de tipo Organización con el id dado.</h1>
+     * <pre>Cuerpo de petición: JSON {@link OrganizacionDetailsDTO}.
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      * 
      * Actualiza el organización de tipo Organización con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -118,13 +145,18 @@ public class OrganizacionResource
      * </pre>
      * @param id Identificador del organización de tipo Organización que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param organizacion la organizacion
+<<<<<<< HEAD
      * @return JSON {@link organizaciónDTO} - El organización de tipo Organización guardado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} - Error de lógica que se genera al no poder actualizar el organización de tipo Organización porque ya existe uno con ese nombre.
+=======
+     * @return JSON {@link OrganizacionDetailsDTO} - El servicio de tipo Organización guardado.
+     * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el servicio de tipo Organización porque ya existe uno con ese nombre.
+>>>>>>> 0837a4c2ad95b3caa10cefa28c020ae569554c53
      */
     @PUT
     @Path("{id : \\d+}")
           
-    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") long id, OrganizacionDetailsDTO organizacion) throws BusinessLogicException
+    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") Long id, OrganizacionDetailsDTO organizacion) throws BusinessLogicException
     {
         return organizacion;
     }
