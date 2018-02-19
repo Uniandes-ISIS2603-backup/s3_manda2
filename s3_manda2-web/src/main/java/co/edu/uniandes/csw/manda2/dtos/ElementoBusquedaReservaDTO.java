@@ -23,9 +23,9 @@ package co.edu.uniandes.csw.manda2.dtos;
  * <pre>
  *
  *   {
- *      "nombre": concierto Carrangueros de Ráquira,
+ *      "nombre": "concierto Carrangueros de Ráquira",
  *      "exitosa": true,
- *      "datosBusqueda": primera fila con meet and greet
+ *      "datosBusqueda": "primera fila con meet and greet"
  *     
  *   }
  *
