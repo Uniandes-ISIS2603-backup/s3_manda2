@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author na.caceres
  */
 @Entity
-public class PSEEntity extends MedioDePagoEntity implements Serializable{
+public class PSEEntity extends MedioPagoEntity implements Serializable{
     //Atributos
     /**
      * Atributo que representa el link de la transaccion.
