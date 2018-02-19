@@ -37,6 +37,7 @@ import java.util.Date;
  */
 public class PagoDTO {
     
+    
     /**
      * Constante que indica si el pago ha sido finalizado.
      */
@@ -45,6 +46,7 @@ public class PagoDTO {
      * Constante que indica si el pago ha sido cancelado".
      */
     public static String CANCELADO = "CANCELADO";
+    
     
      /**
      * Id del pago

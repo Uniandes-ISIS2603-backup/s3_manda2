@@ -43,7 +43,7 @@ public abstract class UsuarioDTO  {
     {
         nombre = "";
         cedula = "";
-        fechaingreso = null;
+        //fechaingreso = null;
         calificacion = 5.0;
         id = new Long(0);
     }

@@ -52,7 +52,10 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     }
 
     
-    
+    public EntregasDeDocumentosDTO()
+    {
+        
+    }
    
     
     //Metodos 
