@@ -70,7 +70,7 @@ public class OrganizacionResource
     
     @GET
     @Path("{id : \\d+}")
-    public OrganizacionDetailsDTO getServiciosDeOrganizacion(@PathParam ("id") long id)
+    public OrganizacionDetailsDTO getServiciosDeOrganizacion(@PathParam ("id") Long id)
     {
         return null;
     }
@@ -128,7 +128,7 @@ public class OrganizacionResource
     @PUT
     @Path("{id : \\d+}")
           
-    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") long id, OrganizacionDetailsDTO organizacion) throws BusinessLogicException
+    public OrganizacionDetailsDTO actualizarOrganizacion(@PathParam("id") Long id, OrganizacionDetailsDTO organizacion) throws BusinessLogicException
     {
         return null;
     }
