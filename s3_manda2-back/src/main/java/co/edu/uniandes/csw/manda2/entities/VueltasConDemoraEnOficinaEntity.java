@@ -29,18 +29,34 @@ public class VueltasConDemoraEnOficinaEntity extends ServicioEntity  implements 
         */
         private Double costoDeTransporte;
 
+        
+    /**
+     *Retorna el valor asociado a la duración del servicio
+     * @return costoDeTransporte
+     */    
     public Double getCostoDuracion() {
         return costoDuracion;
     }
-
+    /**
+     * Asigna el costo de duración.
+     * @param costoDuracion costoDuracion
+     */
     public void setCostoDuracion(Double costoDuracion) {
         this.costoDuracion = costoDuracion;
     }
 
+     /**
+     *Retorna el valor asociado al transporte del servicio
+     * @return costoDeTransporte
+     */
     public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
 
+    /**
+     * Asigna el valor del costo del transporte
+     *  @param costoDeTransporte el costo del transporte
+     */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }

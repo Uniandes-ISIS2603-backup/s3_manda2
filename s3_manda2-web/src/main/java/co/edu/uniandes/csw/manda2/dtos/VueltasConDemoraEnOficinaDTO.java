@@ -103,7 +103,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         return costoDeTransporte;
     }
 
-        /**
+     /**
      * Asigna el valor del costo del transporte
      *  @param costoDeTransporte el costo del transporte
      */

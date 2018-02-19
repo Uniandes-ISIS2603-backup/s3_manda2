@@ -14,16 +14,28 @@ import javax.persistence.Entity;
  */
 @Entity
 public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializable{
-    
+
+    //Atributos    
      /*
     *El costo del transporte del servicio
     */
     private Double costoDeTransporte;
 
+    //Metodos
+    
+     /**
+     *Retorna el valor asociado al transporte del servicio
+     * @return costoDeTransporte
+     */
     public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
-
+    
+    
+    /**
+     * Asigna el valor del costo del transporte
+     *  @param costoDeTransporte valor del transporte a modificar
+     */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }

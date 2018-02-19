@@ -24,18 +24,37 @@ public class EntregasDeDocumentosEntity  extends ServicioEntity  implements Seri
     */
     private Double porcentajeExtra;
 
+    
+    
+     /**
+     *Retorna el valor asociado al transporte del servicio
+     * @return costoDeTransporte
+     */
     public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
 
+      
+    /**
+     * Asigna el valor del costo del transporte
+     *  @param costoDeTransporte el valor del transporte.
+     */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
 
+    /**
+     *Retorna el valor del costo extra que se adiciona por el servicio
+     * @return porcentajeExtra el porcentaje extra
+     */
     public Double getPorcentajeExtra() {
         return porcentajeExtra;
     }
 
+     /**
+     * Asigna el valor del costo extra que se adiciona por el servicio.
+     *  @param porcentajeExtra el porcentaje extra.
+     */ 
     public void setPorcentajeExtra(Double porcentajeExtra) {
         this.porcentajeExtra = porcentajeExtra;
     }
