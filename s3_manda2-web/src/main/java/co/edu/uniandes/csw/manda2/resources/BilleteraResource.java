@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.BilleteraDetailDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.*;
 /**
@@ -66,7 +67,7 @@ public class BilleteraResource {
      */
     @GET
     public List<BilleteraDetailDTO> getBilletera(){
-        return null;
+        return new ArrayList<>();
     }
     
       /**

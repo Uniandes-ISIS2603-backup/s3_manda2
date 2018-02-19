@@ -73,7 +73,7 @@ public class PSEResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public PSEDTO getPSE(@PathParam("id") long id) {
+    public PSEDTO getPSE(@PathParam("id") Long id) {
         return null;
     }
 /**
@@ -120,7 +120,7 @@ public class PSEResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public PSEDTO updatePSE(@PathParam("id") long id, PSEDTO pse) throws BusinessLogicException {
+    public PSEDTO updatePSE(@PathParam("id") Long id, PSEDTO pse) throws BusinessLogicException {
         return pse;
     }
 /**
@@ -139,7 +139,7 @@ public class PSEResource {
      */
     @DELETE
     @Path("{id : \\d+}")
-    public void deletePSE(@PathParam("id") long id) {
+    public void deletePSE(@PathParam("id") Long id) {
 
     }
 }

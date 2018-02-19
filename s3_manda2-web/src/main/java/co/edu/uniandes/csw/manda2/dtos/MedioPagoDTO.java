@@ -45,14 +45,14 @@ public class MedioPagoDTO {
         
     }
      /**
-//     * Constructor de un nuevo MedioPago.
-//     *  @param id id de medio
-//     * @param nombreCliente nombre del cliente que realiza pago.
-//     */
-//    public MedioPagoDTO(Long id, String nombreCliente){
-//        this.id = id;
-//        this.nombreCliente = nombreCliente;
-//    }
+     * Constructor de un nuevo MedioPago.
+     *  @param id id de medio
+     * @param nombreCliente nombre del cliente que realiza pago.
+     */
+    public MedioPagoDTO(Long id, String nombreCliente){
+        this.id = id;
+        this.nombreCliente = nombreCliente;
+    }
     /**
      * Retorna el nombre el cliente.
      * @return nombre cliente
@@ -60,11 +60,6 @@ public class MedioPagoDTO {
     public String getNombreCliente()
     {
         return nombreCliente;
-    }
-
-    public MedioPagoDTO(Long id, String nombreCliente) {
-        this.id = id;
-        this.nombreCliente = nombreCliente;
     }
     /**
      * Establece el nombre del cliente.
