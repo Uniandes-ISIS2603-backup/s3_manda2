@@ -63,7 +63,7 @@ public class PayPalResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public PayPalDTO getPayPal(@PathParam("id") long id){
+    public PayPalDTO getPayPal(@PathParam("id") Long id){
         return null;
     }
     
@@ -112,7 +112,7 @@ public class PayPalResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public PayPalDTO updatePayPal(@PathParam("id") long id, PayPalDTO payPal) throws BusinessLogicException{
+    public PayPalDTO updatePayPal(@PathParam("id") Long id, PayPalDTO payPal) throws BusinessLogicException{
         return payPal;
     }
     
@@ -132,7 +132,7 @@ public class PayPalResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deletePayPal(@PathParam("id") long id){
+    public void deletePayPal(@PathParam("id") Long id){
         
     }
 }

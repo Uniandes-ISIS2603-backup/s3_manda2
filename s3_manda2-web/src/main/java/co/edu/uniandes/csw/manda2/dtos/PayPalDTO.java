@@ -32,10 +32,11 @@ public class PayPalDTO extends MedioPagoDTO{
      public PayPalDTO(){
         super();
     }
-//    public PayPalDTO(Long id, String linkPayPal, String nombreCliente) {
-//        super(id, nombreCliente);
-//        this.linkPayPal = linkPayPal;
-//    }
+     
+    public PayPalDTO(Long id, String linkPayPal, String nombreCliente) {
+        super(id, nombreCliente);
+        this.linkPayPal = linkPayPal;
+    }
     
     /**
      * Link de PayPal.
