@@ -3,51 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.dtos;
+package co.edu.uniandes.csw.manda2.entities;
 
 /**
  *
- * ArticuloDTO Encargado de guardar los articulos a pedir por el usuario. Los DTO contienen las
- * represnetaciones de los JSON que se transfieren entre el cliente y el
- * servidor. Ésta clase pertence a compraEnTiendaDTO.
- *
- * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
- * <pre>
- *   {
- *      "rutaImagen": string,
- *      "nombre": string,
- *      "precio": Double
- *     
- *   }
- * </pre> Por ejemplo un articulo se representa asi:<br>
- *
- * <pre>
- *
- *   {
- *      "rutaImagen": "C:\Users\Public\Pictures\Imagenes\morcilla",
- *      "nombre": "morcilla",
- *      "precio": 5000
- *     
- *   }
- *
- * </pre>
- 
  * @author cv.trujillo
  */
-public class ArticuloDTO extends ComprasEnTiendaDTO
-{
-    
-    public ArticuloDTO(){
-        this("", "", 0D);
-    }
-
-    public ArticuloDTO(String rutaImagen, String nombre, Double precio) {
-        this.rutaImagen = rutaImagen;
-        this.nombre = nombre;
-        this.precio = precio;
-    }    
-    
-    
+public class ArticuloEntity extends ComprasEnTiendaEntity {
     /**
      * La ruta de la imágen del artículo
      * */
@@ -115,6 +77,4 @@ public class ArticuloDTO extends ComprasEnTiendaDTO
     {
         this.precio=pPrecio;
     }
-    
-    
 }
