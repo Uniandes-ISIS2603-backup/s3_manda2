@@ -31,6 +31,7 @@ import java.io.Serializable;
  *      "exitoDiligencia": Boolean,
  *      "calification": Double,
  *      "descripcion": String,
+ *  </pre>
  *   }
  * +
  * @author dv.gonzalez10
