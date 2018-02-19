@@ -26,3 +26,5 @@ s3_manda2-web/target/jaxrs-analyzer/swagger\.json
 *.properties
 
 *.lst
+/s3_manda2-web/target/
+/target/
