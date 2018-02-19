@@ -28,7 +28,10 @@ public class BilleteraDetailDTO extends BilleteraDTO {
          this.medioPago = medioPago;
      }
     
-    
+    public BilleteraDetailDTO()
+    {
+        
+    }
     /**
      * Medio de pago para realizar la transaccion
      */

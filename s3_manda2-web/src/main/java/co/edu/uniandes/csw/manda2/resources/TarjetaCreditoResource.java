@@ -98,7 +98,7 @@ public class TarjetaCreditoResource {
      */
     @POST
     public TarjetaCreditoDTO createTarjetaCredito(TarjetaCreditoDTO tarjetaCredito) throws BusinessLogicException {
-        return null;
+        return tarjetaCredito;
     }
 /**
      * <h1>PUT /api/tarjetascreditos/{id} : Actualizar la tarjeta de credito con el id dado.</h1>
