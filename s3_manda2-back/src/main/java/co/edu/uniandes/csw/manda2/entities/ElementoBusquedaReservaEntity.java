@@ -3,50 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.dtos;
+package co.edu.uniandes.csw.manda2.entities;
 
 /**
- ** ElementoBusqudReservaDTO servicios de tipo reserva. Los DTO contienen las
- * represnetaciones de los JSON que se transfieren entre el cliente y el
- * servidor. Ésta clase hace parte de la clase OrganizacionDTO
  *
- * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
- * <pre>
- *   {
- *      "nombre": string,
- *      "exitosa": Boolean,
- *      "datosBusqueda": string
- *     
- *   }
- * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
- *
- * <pre>
- *
- *   {
- *      "nombre": concierto Carrangueros de Ráquira,
- *      "exitosa": true,
- *      "datosBusqueda": primera fila con meet and greet
- *     
- *   }
- *
- * </pre>
  * @author cv.trujillo
  */
-public class  ElementoBusquedaReservaDTO 
-{
-
-    public ElementoBusquedaReservaDTO(){
-        this("", "", false);
-    }
-    
-    public ElementoBusquedaReservaDTO(String nombre, String datosBusqueda, Boolean exitosa) {
-        this.nombre = nombre;
-        this.datosBusqueda = datosBusqueda;
-        this.exitosa = exitosa;
-    }
-    
+public class ElementoBusquedaReservaEntity extends OrganizacionEntity {
  
-    /**
+    
+      /**
      * nombre del elemento de busqueda
      * */
     private String nombre;

@@ -3,52 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.dtos;
+package co.edu.uniandes.csw.manda2.entities;
 
 /**
-*
- * OrganizacionDTO Servicios de tipo organización. Los DTO contienen las
- * represnetaciones de los JSON que se transfieren entre el cliente y el
- * servidor.
  *
- * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
- * <pre>
- *   {
- *      "costoTransporte": double,
- *      "costoDuracion": double,
- *      "desplazamiento": Boolean
- *     
- *   }
- * </pre> Por ejemplo un servicio de tipo organizacion se representa asi:<br>
- *
- * <pre>
- *
- *   {
- *      "costoTransporte":25.000,
- *      "costoDuracion": 6.5000,
- *      "desplazamiento": true
- *     
- *   }
- *
- * </pre>
- 
- * @author cvtrujillo
+ * @author cv.trujillo
  */
-public class OrganizacionDTO 
-{
-
-    public OrganizacionDTO(){
-        this(0D, 0D, false, 0L);
-    }
-    
-    public OrganizacionDTO(Double costoDeTransporte, Double costoDeDuracion, Boolean desplazamiento, Long id) {
-        this.costoDeTransporte = costoDeTransporte;
-        this.costoDeDuracion = costoDeDuracion;
-        this.desplazamiento = desplazamiento;
-        this.id = id;
-    }
-    
-    /**
+public class OrganizacionEntity extends BaseEntity  {
+   /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
     private Double costoDeTransporte;
@@ -69,6 +31,7 @@ public class OrganizacionDTO
      * Identificacion del servicio de Organizacion
      */
     private Long id;
+  
     /**
      * Retorna el costo del transporte del servicio
      * @return costoDeTransporte el costo del transporte.
