@@ -12,34 +12,63 @@ import java.util.Date;
  */
 public class PagoEntity {
     
-
+ /**
+     * Id del pago
+     */
     private Long id;
 
+  /**
+     * Indica el estado en el que se encuentra la transaccion
+     */
     private String estadoTransaccion;
     
+     /**
+     * Fecha en que se realiza el pago
+     */
     private Date fecha; 
     
-      public Long getId() {
+  /**
+     * Retorna el id del pago.
+     * @return id de pago.
+     */
+    public Long getId(){
         return id;
     }
-
-    public void setId(Long Id) {
-        this.id = id;
-    }
-
-    public String estadoTransaccion() {
+    
+    /**
+     * Retorna el estado de transaccion.
+     * @return estado de la transaccion.
+     */
+    public String getEstadoTransaccion(){
         return estadoTransaccion;
     }
-
-    public void estadoTransaccion(String estadoTransaccion) {
-        this.estadoTransaccion= estadoTransaccion;
-    }
-
-    public Date getFecha() {
+    /**
+     * Retorna la fecha del pago.
+     * @return fecha del pago.
+     */
+    public Date getFecha(){
         return fecha;
     }
-
-    public void setEPS(Date fecha) {
-        this.fecha = fecha;
+     /**
+     * Establece el id del pago.
+     * @param id del pago.
+     */
+    public void setId(Long id){
+        this.id = id;
+    }
+     /**
+     * Establece el  estado de la transaccion.
+     * @param estado Nuevo estado de pago.
+     */
+    public void setEstadoTransaccion(String estado)
+    {
+        this.estadoTransaccion = estado;
+    }
+    /**
+     * Establece la fecha dada.
+     * @param pFecha fecha de el pago.
+     */
+    public void setFecha (Date pFecha){
+        this.fecha = pFecha;
     }
 }
