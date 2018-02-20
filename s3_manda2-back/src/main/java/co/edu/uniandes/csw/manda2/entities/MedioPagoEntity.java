@@ -5,15 +5,24 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 /**
  *
  * @author m.moreno
  */
-public class MedioPagoEntity {
+@MappedSuperclass
+public class MedioPagoEntity implements Serializable{
  
      /**
      * Indica el id de medio pago.
      */
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     /**
      * Indica el nombre del cliente que realiza pago.
