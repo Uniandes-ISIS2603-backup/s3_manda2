@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.persistence;
+package co.edu.uniandes.csw.manda2.test.persistence;
 
 /**
  *
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraPersistence {
+public class VueltasConDemoraEnOficinaPersistenceTest {
     
 }
