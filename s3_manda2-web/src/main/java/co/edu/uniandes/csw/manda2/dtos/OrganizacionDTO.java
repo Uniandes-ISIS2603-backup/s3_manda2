@@ -34,7 +34,7 @@ package co.edu.uniandes.csw.manda2.dtos;
  
  * @author cvtrujillo
  */
-public class OrganizacionDTO 
+public class OrganizacionDTO extends ServicioDetailDTO
 {
 
     public OrganizacionDTO(){
