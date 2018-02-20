@@ -38,28 +38,17 @@ public class EmpleadoPersistenceTest {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(EmpleadoEntity.class.getPackage())
                 .addPackage(EmpleadoPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml");
     }
     
-    /**
-     * Inyección de la dependencia a la clase EditorialPersistence cuyos métodos
-     * se van a probar.
-     */
+ 
     @Inject
     private EmpleadoPersistence empleadoPersistence;
-    /**
-     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los métodos que se están probando.
-     */
+
     @PersistenceContext
     private EntityManager em;
     
-    /**
-     * Prueba para crear un Editorial.
-     *
-     *
-     */
+   
     @Test
     public void createEmpleadoTest() {
         PodamFactory factory = new PodamFactoryImpl();
