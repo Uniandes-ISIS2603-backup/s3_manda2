@@ -52,13 +52,13 @@ public abstract class ServicioEntity extends BaseEntity{
     protected String descripcion;
     
     //@OneToOne
-    protected PagoEntity pago;
+    //protected PagoEntity pago;
     
     //@OneToMany
-    protected ClienteEntity cliente;
+    //protected ClienteEntity cliente;
     
     //@OneToMany
-    protected EmpleadoEntity empleado;
+    //protected EmpleadoEntity empleado;
     
         /**
      * Retorna el nombre del servicio.
