@@ -5,8 +5,9 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
-import co.edu.uniandes.csw.manda2.persistence.PayPalPersistence;
+
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,32 +26,32 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author da.ramos
  */
 @RunWith(Arquillian.class)
-public class PayPalPersistenceTest {
+public class ServicioPersistenceTest {
     
     @Deployment
     public static JavaArchive createDeployment(){
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(PayPalEntity.class.getPackage())
-                .addPackage(PayPalPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml");
+                .addPackage(ServicioEntity.class.getPackage())
+                .addPackage(ServicioPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml" );
     }
     
     @Inject
-    private PayPalPersistence PayPalPersistence;
+    private ServicioPersistence servicioPersistence;
     
     @PersistenceContext
     private EntityManager em;
     
     @Test
-    public void createPayPalTest(){
+    public void createServicioTest(){
         PodamFactory factory = new PodamFactoryImpl();
-        PayPalEntity newEntity = factory.manufacturePojo(PayPalEntity.class);
-        PayPalEntity result = PayPalPersistence.create(newEntity);
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        ServicioEntity result = servicioPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        PayPalEntity entity = em.find(PayPalEntity.class, result.getId());
+        ServicioEntity entity = em.find(ServicioEntity.class, result.getId());
         
-        //Assert.assertEquals(newEntity.getName(), entity.getName());       
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 }
