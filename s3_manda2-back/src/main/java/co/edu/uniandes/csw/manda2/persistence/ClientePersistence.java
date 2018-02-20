@@ -46,9 +46,9 @@ public class ClientePersistence {
     public ClienteEntity findByCedula(String cedula) {
         LOGGER.log(Level.INFO, "Consultando cliente por numero de cedula ", cedula);
 
-        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":numeroCedula" es un placeholder que debe ser remplazado
+        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":cedula" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ClienteEntity e where e.cedula = :cedula", ClienteEntity.class);
-        // Se remplaza el placeholder ":numeroTarjeta" con el valor del argumento 
+        // Se remplaza el placeholder ":cedula" con el valor del argumento 
         query = query.setParameter("cedula", cedula);
         // Se invoca el query se obtiene la lista resultado
         List<ClienteEntity> sameCedula = query.getResultList();

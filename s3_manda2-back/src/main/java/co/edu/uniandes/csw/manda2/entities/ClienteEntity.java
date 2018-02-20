@@ -33,7 +33,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     /**
      * @return the pagoAnticipado
      */
-    public Boolean getPagoAnticipado() {
+    public Boolean isPagoAnticipado() {
         return pagoAnticipado;
     }
 
