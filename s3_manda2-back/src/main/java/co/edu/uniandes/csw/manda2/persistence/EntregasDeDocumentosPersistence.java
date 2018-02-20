@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,26 +16,22 @@ import javax.persistence.PersistenceContext;
  * @author dv.gonzalez10
  */
 @Stateless
-public class ComprasEnTiendaPersistence {
-    
-    private static final Logger LOGGER = Logger.getLogger(ComprasEnTiendaPersistence.class.getName());
+public class EntregasDeDocumentosPersistence {
+        
+    private static final Logger LOGGER = Logger.getLogger(EntregasDeDocumentosPersistence.class.getName());
     
     @PersistenceContext(unitName = "Manda2PU")
     protected EntityManager em;
     
-     /**
+    
+    /**
      * @param entity objeto city que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public ComprasEnTiendaEntity create(ComprasEnTiendaEntity entity) {
+    public EntregasDeDocumentosEntity create(EntregasDeDocumentosEntity entity) {
         LOGGER.info("Creando una entrega de documento nueva");
         em.persist(entity);
         LOGGER.info("Creando una entrega de documento nueva");
         return entity;
     }
-    
-    
-    
-    
-    
 }

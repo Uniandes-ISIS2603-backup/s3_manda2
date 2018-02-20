@@ -36,7 +36,7 @@ import java.io.Serializable;
  * +
  * @author dv.gonzalez10
  */
-public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serializable{
+public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializable{
     
     //Atributos
     /*
@@ -65,7 +65,7 @@ public class ComprasEnTiendaDTO /*extends ServicioDetailDTO */ implements Serial
      * @param descripcion descripción del servicio.
      */
     public ComprasEnTiendaDTO(Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
-        // super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
+        //super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
         this.costoDeTransporte = costoDeTransporte;
     }
 
