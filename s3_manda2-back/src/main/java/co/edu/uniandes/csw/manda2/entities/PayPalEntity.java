@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
@@ -12,7 +7,7 @@ import javax.persistence.Entity;
  * @author da.ramos
  */
 @Entity
-public class PayPalEntity extends MedioDePagoEntity{
+public class PayPalEntity extends MedioPagoEntity{
     
     private String linkPayPal;
 
@@ -23,5 +18,4 @@ public class PayPalEntity extends MedioDePagoEntity{
     public void setLinkPayPal(String linkPayPal) {
         this.linkPayPal = linkPayPal;
     }
-    
 }
