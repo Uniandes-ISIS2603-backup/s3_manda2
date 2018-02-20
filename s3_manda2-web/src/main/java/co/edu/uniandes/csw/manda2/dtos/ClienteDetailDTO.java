@@ -99,6 +99,7 @@ public class ClienteDetailDTO extends ClienteDTO {
      * @param saldo representa el saldo que tiene el usuario.
      * @param puntosFidelidad representa los puntos de fidelidad de cada usuario.
      */
+    
     public ClienteDetailDTO (Double saldo, Integer puntosFidelidad)
     {
         super();
@@ -107,6 +108,7 @@ public class ClienteDetailDTO extends ClienteDTO {
         pagos = new ArrayList<>();
         quejasYReclamos = new ArrayList<>();
     }
+    
     //Metodos
 
     /**

@@ -40,6 +40,7 @@ import javax.enterprise.context.RequestScoped;
 @Consumes("application/json")
 @RequestScoped
 public class PSEResource {
+    
      /**
      * <h1>GET /api/pses : Obtener todas los pses.</h1>
      * 
