@@ -26,54 +26,54 @@ public class ClientePersistence {
     
     /**
      *
-     * @param entity objeto Tarjeta de Credito que se creará en la base de datos
+     * @param entity objeto cliente que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public ClienteEntity create(TarjetaDeCreditoEntity entity) {
-        LOGGER.info("Creando una Tarjeta de credito nueva");
+    public ClienteEntity create( ClienteEntity entity) {
+        LOGGER.info("Creando un cliente nuevo");
         em.persist(entity);
-        LOGGER.info("Creando una tarjeta de credito nueva");
+        LOGGER.info("Creando un cliente nuevo");
         return entity;
     }
 
     /**
-     * Busca si hay alguna Tarjeta de credito con el numero que se envía de argumento
+     * Busca si hay algun cliente con el numero de cedula que se envía de argumento
      *
-     * @param numeroTarjeta: Numero de la tarjeta de credito que se está buscando.
-     * @return null si no existe ninguna tarjeta de credito con el numero del argumento. Si
+     * @param cedula: Numero de la cedula del cliente que se está buscando.
+     * @return null si no existe ningun cliente con el numero de cedula del argumento. Si
      * existe alguna devuelve la primera.
      */
-    public TarjetaDeCreditoEntity findByNumero(Integer numeroTarjeta) {
-        LOGGER.log(Level.INFO, "Consultando Tarjeta de Credito por numero de tarjeta ", numeroTarjeta);
+    public ClienteEntity findByCedula(String cedula) {
+        LOGGER.log(Level.INFO, "Consultando cliente por numero de cedula ", cedula);
 
-        // Se crea un query para buscar una tarjeta de credito con el numero que recibe el método como argumento. ":numeroTarjeta" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From TarjetaDeCreditoEntity e where e.numeroTarjeta = :numeroTarjeta", TarjetaDeCreditoEntity.class);
+        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":numeroCedula" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From ClienteEntity e where e.cedula = :cedula", ClienteEntity.class);
         // Se remplaza el placeholder ":numeroTarjeta" con el valor del argumento 
-        query = query.setParameter("numeroTarjeta", numeroTarjeta);
+        query = query.setParameter("cedula", cedula);
         // Se invoca el query se obtiene la lista resultado
-        List<TarjetaDeCreditoEntity> sameNumeroTarjeta = query.getResultList();
-        if (sameNumeroTarjeta.isEmpty()) {
+        List<ClienteEntity> sameCedula = query.getResultList();
+        if (sameCedula.isEmpty()) {
             return null;
         } else {
-            return sameNumeroTarjeta.get(0);
+            return sameCedula.get(0);
         }
     }
 
-    public List<TarjetaDeCreditoEntity> findAll() {
-        LOGGER.info("Consultando todas las tarjetas de credito");
-        TypedQuery query = em.createQuery("select u from TarjetaDeCreditoEntity u", TarjetaDeCreditoEntity.class);
+    public List<ClienteEntity> findAll() {
+        LOGGER.info("Consultando todas los clientes");
+        TypedQuery query = em.createQuery("select u from ClienteEntity u", ClienteEntity.class);
         return query.getResultList();
     }
 
-    public TarjetaDeCreditoEntity find(Long id) {
-        return em.find(TarjetaDeCreditoEntity.class, id);
+    public ClienteEntity find(Long id) {
+        return em.find(ClienteEntity.class, id);
     }
 
-    public TarjetaDeCreditoEntity update(TarjetaDeCreditoEntity entity) {
+    public ClienteEntity update(ClienteEntity entity) {
          return em.merge(entity);
     }
     
-    public void delete(TarjetaDeCreditoEntity entity) {
+    public void delete(ClienteEntity entity) {
         em.remove(entity);
     }
 }

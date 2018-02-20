@@ -17,7 +17,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class ClienteEntity extends UsuarioEntity implements Serializable {
-{
+
     //Atributos
     /**
      * boolean que representa si un cliente tiene dinero en su billetera virtual

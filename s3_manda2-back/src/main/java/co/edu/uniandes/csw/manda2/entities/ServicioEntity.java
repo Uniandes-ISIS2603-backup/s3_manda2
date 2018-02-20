@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -48,6 +50,15 @@ public abstract class ServicioEntity extends BaseEntity{
      * Descripción del servicio.
      */
     protected String descripcion;
+    
+    @OneToOne
+    protected PagoEntity pago;
+    
+    @OneToMany
+    protected ClienteEntity cliente;
+    
+    @OneToMany
+    protected EmpleadoEntity empleado;
     
         /**
      * Retorna el nombre del servicio.
