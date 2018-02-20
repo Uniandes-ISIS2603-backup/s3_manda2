@@ -6,10 +6,56 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import java.io.Serializable;
 
 /**
+ **Clase que representa el servicio de entrega de documentos
+ * 
+ * * EntregasDeDocumentosDTO. Los DTO contienen las
+ * representaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "costoDeTransporte": Double,
+ *      "porcentajeExtra": Double,
+ *      "pago": PagoDTO,
+ *      "cliente": ClienteDTO,
+ *      "empleado": Empleado DTO,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
+ *  </pre>
+ * Por ejemplo una ciudad se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "costoDeTransporte": 20000,
+ *      "porcentajeExtra": 5000,
+ *      "pago": PagoDTO,
+ *      "cliente": ClienteDTO,
+ *      "empleado": Empleado DTO,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
+ *   }
  *
+ * </pre>
+ *        
+ *   }
  * @author dv.gonzalez10
  */
 public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{

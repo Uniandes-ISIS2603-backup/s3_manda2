@@ -5,10 +5,30 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import java.util.Date;
 
 /**
  * Clase que representa el servicio de vueltas con demora en oficina, como filas para bancos, etc ... 
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "costoDeDuracion": Double,
+ *      "costoDeTransporte": Double,
+ *      "porcentajeExtra": Double,
+ *      "pago": PagoDTO,
+ *      "cliente": ClienteDTO,
+ *      "empleado": Empleado DTO,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
+ *  </pre>
+ * Por ejemplo una ciudad se representa asi:<br>
  *
  * @author dv.gonzalez10
  */
@@ -83,7 +103,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         return costoDeTransporte;
     }
 
-        /**
+     /**
      * Asigna el valor del costo del transporte
      *  @param costoDeTransporte el costo del transporte
      */
