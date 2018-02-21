@@ -5,11 +5,15 @@
  */
 package co.edu.uniandes.csw.manda2.persistence;
 
+import co.edu.uniandes.csw.manda2.entities.CityEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -34,5 +38,69 @@ public class VueltasConDemoraEnOficinaPersistence {
         return entity;
     }
     
+     /**
+     * Busca si existe alguna vuelta con demora en oficina con el id que se envia de argumento
+     * @param id el id correspondiente a la vuelta con demora en oficina
+     * @return una vuelta con demora en oficina
+     */
+    public VueltasConDemoraEnOficinaEntity find(Long id) {
+       return em.find(VueltasConDemoraEnOficinaEntity.class, id);
+    }
+
     
+    /**
+     * Busca si hay alguna vuelta con demora en oficina con el nombre que se envía de argumento
+     *
+     * @param name: Nombre de la vuelta con demora en oficina que se está buscando
+     * @return null si no existe ninguna vuelta con demora en oficina con el nombre del argumento. Si
+     * existe alguna devuelve la primera.
+     */
+    public VueltasConDemoraEnOficinaEntity findByName(String name) {
+        LOGGER.log(Level.INFO, "Consultando vueltas por nombre ", name);
+
+        // Se crea un query para buscar vueltas con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From VueltasConDemoraEnOficinaEntity e where e.name = :name", VueltasConDemoraEnOficinaEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        // Se invoca el query se obtiene la lista resultado
+        List<VueltasConDemoraEnOficinaEntity> sameName = query.getResultList();
+        if (sameName.isEmpty()) {
+            return null;
+        } else {
+            return sameName.get(0);
+        }
+    }
+    
+    
+    /**
+     * Devuelve todos las vueltas con demora de la base de datos.
+     *
+     * @return una lista con todos las vueltas con demora que encuentre en la base de
+     * datos
+     */
+        public List<VueltasConDemoraEnOficinaEntity> findAll() {
+        LOGGER.info("Consultando todas las vueltas");
+        TypedQuery query = em.createQuery("select u from VueltasConDemoraEnOficinaEntity u", VueltasConDemoraEnOficinaEntity.class);
+        return query.getResultList();
+    }
+        
+        
+     /**
+     * Actualiza una vuelta con demora en oficina.
+     *
+     * @param entity: la vuelta con demora en oficina que viene con los nuevos cambios. Por ejemplo
+     * el nombre pudo cambiar. En ese caso, se haria uso del método update.
+     * @return la vuelta con demora en oficina con los cambios aplicados.
+     */
+     public VueltasConDemoraEnOficinaEntity update(VueltasConDemoraEnOficinaEntity entity) {
+     return em.merge(entity);
+    }
+    
+     /**
+     * Borra la entrega de documento recibida como argumento
+     * @param entity 
+     */
+    public void delete(VueltasConDemoraEnOficinaEntity entity) {
+        em.remove(entity);
+    }
 }
