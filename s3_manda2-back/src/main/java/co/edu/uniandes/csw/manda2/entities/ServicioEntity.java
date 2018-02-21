@@ -6,11 +6,10 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 /**
- *
+ * Clase abstracta para la serialización de un servicio.
  * @author da.ramos
  */
 @Entity
