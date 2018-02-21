@@ -6,11 +6,10 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 /**
- *
+ * Clase abstracta para la serialización de un servicio.
  * @author da.ramos
  */
 @Entity
@@ -52,13 +51,13 @@ public abstract class ServicioEntity extends BaseEntity{
     protected String descripcion;
     
     //@OneToOne
-    //protected PagoEntity pago;
+    protected PagoEntity pago;
     
     //@OneToMany
-    //protected ClienteEntity cliente;
+    protected ClienteEntity cliente;
     
     //@OneToMany
-    //protected EmpleadoEntity empleado;
+    protected EmpleadoEntity empleado;
     
         /**
      * Retorna el nombre del servicio.
