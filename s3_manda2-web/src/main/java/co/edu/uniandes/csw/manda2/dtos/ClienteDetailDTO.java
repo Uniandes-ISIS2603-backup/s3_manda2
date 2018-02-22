@@ -25,7 +25,17 @@ import java.util.List;
  *      "numero": number,
  *      "id": number
  *   }],
- *      "servicios": [],
+ *      "servicios": [{
+ *      "costoDeTransporte": 500,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
+ * }],
  *      "pagos": [{
  *      "id": long,
  *      "estadoTransaccion: string,
@@ -53,7 +63,17 @@ import java.util.List;
  *      "numero": 001,
  *      "id": 001
  *   }],
- *      "servicios": [],
+ *      "servicios": [{
+ *      "costoDeTransporte": 500,
+ *      "id": 525252145256,
+ *      "nombre": "Nicolas Bello",
+ *      "costo": 58455452,
+ *      "puntoDeEncuentro": "C.C mazuren",
+ *      "puntoDeRealizacion": "Las vegas",
+ *      "exitoDiligencia": true,
+ *      "calification": 5,
+ *      "descripcion": "Hamburguesa grande",
+ * }],
  *      "pagos": ["id": 91852,
  *      "estadoTransaccion: "cancelado",
  *      "fecha": "02/06/2018"],
