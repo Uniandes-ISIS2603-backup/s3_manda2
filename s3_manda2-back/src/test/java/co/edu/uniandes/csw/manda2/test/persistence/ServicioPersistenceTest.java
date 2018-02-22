@@ -52,6 +52,10 @@ public class ServicioPersistenceTest {
         
         ServicioEntity entity = em.find(ServicioEntity.class, result.getId());
         
-        Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertEquals(newEntity.getCalificacion(), entity.getCalificacion());
+        Assert.assertEquals(newEntity.getCosto(), result.getCosto());
+        Assert.assertEquals(newEntity.getDescripcion(), result.getDescripcion());
+        Assert.assertEquals(newEntity.getPuntoDeEncuentro(), result.getPuntoDeEncuentro());
+        Assert.assertEquals(newEntity.getPuntoDeRealizacion(), result.getPuntoDeRealizacion());
     }
 }
