@@ -38,7 +38,7 @@ public class ServicioPersistence {
     
     public List<ServicioEntity> findAll(){
         LOGGER.info("Consultando todos los servicios");
-        TypedQuery query = em.createQuery("select u from ServicioEnity u", ServicioEntity.class);
+        TypedQuery query = em.createQuery("select u from ServicioEntity u", ServicioEntity.class);
         return query.getResultList();
     }
     
