@@ -5,11 +5,15 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import java.io.Serializable;
+import javax.persistence.MappedSuperclass;
+
 /**
  *
  * @author m.moreno
  */
-public class BilleteraEntity {
+@MappedSuperclass
+public class BilleteraEntity extends BaseEntity implements Serializable {
     
      /**
      * Indica el saldo disponible en la billetera.

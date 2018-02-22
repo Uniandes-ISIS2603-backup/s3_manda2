@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.manda2.persistence;
-
+package co.edu.uniandes.csw.manda2.persistence; 
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -18,6 +18,7 @@ import javax.persistence.TypedQuery;
  *
  * @author m.moreno
  */
+@Stateless
 public class PagoPersistence {
  
      private static final Logger LOGGER = Logger.getLogger(PagoPersistence.class.getName());
