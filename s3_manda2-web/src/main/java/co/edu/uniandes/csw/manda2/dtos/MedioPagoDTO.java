@@ -35,11 +35,11 @@ public class MedioPagoDTO {
     /**
      * Indica el id de medio pago.
      */
-    private Long id;
+    protected Long id;
     /**
      * Indica el nombre del cliente que realiza pago.
      */
-    private String nombreCliente;
+    protected String nombreCliente;
     
     public MedioPagoDTO(){
         

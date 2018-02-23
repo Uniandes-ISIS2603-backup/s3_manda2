@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
+
 /**
  * TarjetaCreditoDTO Objeto de transferencia de datos de Tarjetas de cretito. Los DTO contienen las
  * representaciones de los JSON que se transfieren entre el cliente y el
@@ -43,21 +45,25 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      */
     private Integer numeroTarjeta;
     
-    public TarjetaCreditoDTO(){
-        super();
+    /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param tarjeta: Es la entidad que se va a convertir a DTO
+     */
+    public TarjetaCreditoDTO(TarjetaCreditoEntity tarjeta) {
+        this.id = tarjeta.getId();
+        this.nombreCliente = tarjeta.getNombreCliente();
+        this.numeroTarjeta = tarjeta.getNumeroTarjeta();
+
     }
     //Constructor
     /**
      * constructor por defecto.
-     * @param pNumeroTarjeta
-     * @param id
-     * @param nombreCliente 
      */
-    public TarjetaCreditoDTO(Integer pNumeroTarjeta, Long id,  String nombreCliente)
+    public TarjetaCreditoDTO()
     {
-        super(id, nombreCliente);
-        numeroTarjeta = pNumeroTarjeta;
-        //super();
+       
     }
     //Metodos
 
@@ -74,5 +80,16 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     public void setNumeroTarjeta(Integer numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
-    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public TarjetaCreditoEntity toEntity() {
+        TarjetaCreditoEntity entity = new TarjetaCreditoEntity();
+        entity.setId(this.id);
+        entity.setNombreCliente(this.nombreCliente);
+        entity.setNumeroTarjeta(this.numeroTarjeta);
+        return entity;
+    }
 }

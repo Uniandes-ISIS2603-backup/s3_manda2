@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.PSEEntity;
+
 /**
  * PSEDTO Objeto de transferencia de datos de Pses. Los DTO contienen las
  * representaciones de los JSON que se transfieren entre el cliente y el
@@ -39,22 +41,24 @@ public class PSEDTO extends MedioPagoDTO {
      * Atributo que representa el link correspondiente a la transaccion.
      */
     private String linkPse;
-    
-    public PSEDTO(){
-       
-    }
     //Constructor
     /**
      * Constructor por defecto
-     * @param pLinkPse
-     * @param id
-     * @param nombreCliente
     */
-   public PSEDTO(String pLinkPse, Long id, String nombreCliente)
-   {
-       super(id, nombreCliente);
-       linkPse = pLinkPse;
-        
+    public PSEDTO(){
+       
+    }
+    /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param pse: Es la entidad que se va a convertir a DTO
+     */
+    public PSEDTO(PSEEntity pse) {
+        this.id = pse.getId();
+        this.nombreCliente = pse.getNombreCliente();
+        this.linkPse = pse.getLinkPse();
+
     }
     
     //Metodos
@@ -72,7 +76,18 @@ public class PSEDTO extends MedioPagoDTO {
         this.linkPse = linkPse;
     }
 
-    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public PSEEntity toEntity() {
+        PSEEntity entity = new PSEEntity();
+        entity.setId(this.id);
+        entity.setNombreCliente(this.nombreCliente);
+        entity.setLinkPse(this.linkPse);
+        return entity;
+    }
     
     
 }

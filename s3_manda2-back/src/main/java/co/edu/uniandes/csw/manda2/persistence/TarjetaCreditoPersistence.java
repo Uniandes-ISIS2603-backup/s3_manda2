@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.persistence;
-import co.edu.uniandes.csw.manda2.entities.TarjetaDeCreditoEntity;
+import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,9 +17,9 @@ import javax.persistence.TypedQuery;
  * @author na.caceres
  */
 @Stateless
-public class TarjetaDeCreditoPersistence {
+public class TarjetaCreditoPersistence {
     //Constantes
-    private static final Logger LOGGER = Logger.getLogger(TarjetaDeCreditoPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoPersistence.class.getName());
     //Atributos
     @PersistenceContext(unitName="Manda2PU")
     protected EntityManager em;
@@ -29,7 +29,7 @@ public class TarjetaDeCreditoPersistence {
      * @param entity objeto Tarjeta de Credito que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public TarjetaDeCreditoEntity create(TarjetaDeCreditoEntity entity) {
+    public TarjetaCreditoEntity create(TarjetaCreditoEntity entity) {
         LOGGER.info("Creando una Tarjeta de credito nueva");
         em.persist(entity);
         LOGGER.info("Creando una tarjeta de credito nueva");
@@ -43,15 +43,15 @@ public class TarjetaDeCreditoPersistence {
      * @return null si no existe ninguna tarjeta de credito con el numero del argumento. Si
      * existe alguna devuelve la primera.
      */
-    public TarjetaDeCreditoEntity findByNumero(Integer numeroTarjeta) {
+    public TarjetaCreditoEntity findByNumero(Integer numeroTarjeta) {
         LOGGER.log(Level.INFO, "Consultando Tarjeta de Credito por numero de tarjeta ", numeroTarjeta);
 
         // Se crea un query para buscar una tarjeta de credito con el numero que recibe el método como argumento. ":numeroTarjeta" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From TarjetaDeCreditoEntity e where e.numeroTarjeta = :numeroTarjeta", TarjetaDeCreditoEntity.class);
+        TypedQuery query = em.createQuery("Select e From TarjetaDeCreditoEntity e where e.numeroTarjeta = :numeroTarjeta", TarjetaCreditoEntity.class);
         // Se remplaza el placeholder ":numeroTarjeta" con el valor del argumento 
         query = query.setParameter("numeroTarjeta", numeroTarjeta);
         // Se invoca el query se obtiene la lista resultado
-        List<TarjetaDeCreditoEntity> sameNumeroTarjeta = query.getResultList();
+        List<TarjetaCreditoEntity> sameNumeroTarjeta = query.getResultList();
         if (sameNumeroTarjeta.isEmpty()) {
             return null;
         } else {
@@ -59,21 +59,21 @@ public class TarjetaDeCreditoPersistence {
         }
     }
 
-    public List<TarjetaDeCreditoEntity> findAll() {
+    public List<TarjetaCreditoEntity> findAll() {
         LOGGER.info("Consultando todas las tarjetas de credito");
-        TypedQuery query = em.createQuery("select u from TarjetaDeCreditoEntity u", TarjetaDeCreditoEntity.class);
+        TypedQuery query = em.createQuery("select u from TarjetaDeCreditoEntity u", TarjetaCreditoEntity.class);
         return query.getResultList();
     }
 
-    public TarjetaDeCreditoEntity find(Long id) {
-        return em.find(TarjetaDeCreditoEntity.class, id);
+    public TarjetaCreditoEntity find(Long id) {
+        return em.find(TarjetaCreditoEntity.class, id);
     }
 
-    public TarjetaDeCreditoEntity update(TarjetaDeCreditoEntity entity) {
+    public TarjetaCreditoEntity update(TarjetaCreditoEntity entity) {
          return em.merge(entity);
     }
     
-    public void delete(TarjetaDeCreditoEntity entity) {
+    public void delete(TarjetaCreditoEntity entity) {
         em.remove(entity);
     }
 }
