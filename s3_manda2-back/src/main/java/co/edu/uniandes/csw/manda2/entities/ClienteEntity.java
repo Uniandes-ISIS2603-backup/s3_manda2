@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,25 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * numero que representa las horas de servicio que tiene un cliente semanalmente
      */
     private Integer horasDeServicioSemanal;
+    /**
+     * Atributo que representa la billetera que tiene cada usuario.
+     */
+    private BilleteraEntity billetera;
+    /**
+     *  Atributo que modela una lista con todos los servicios contratados por un
+     * usuario.
+     */
+    private List<ServicioEntity> servicios;
+    /**
+     *  Atributo que modela una lista con todos los pagos contratados por un
+     * usuario.
+     */
+    private List<PagoEntity> pagos;
+    /**
+     * Atributo que modela una lista con todos los reclamos hechos por un
+     * usuario.
+     */
+    private List<ReclamoEntity> quejasYReclamos;
 
     //Metodos
 
@@ -34,7 +54,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * @return the pagoAnticipado
      */
     public Boolean isPagoAnticipado() {
-        return pagoAnticipado;
+        return getPagoAnticipado();
     }
 
     /**
@@ -56,6 +76,69 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      */
     public void setHorasDeServicioSemanal(Integer horasDeServicioSemanal) {
         this.horasDeServicioSemanal = horasDeServicioSemanal;
+    }
+
+    /**
+     * @return the pagoAnticipado
+     */
+    public Boolean getPagoAnticipado() {
+        return pagoAnticipado;
+    }
+
+    /**
+     * @return the billetera
+     */
+    public BilleteraEntity getBilletera() {
+        return billetera;
+    }
+
+    /**
+     * @param billetera the billetera to set
+     */
+    public void setBilletera(BilleteraEntity billetera) {
+        this.billetera = billetera;
+    }
+
+    /**
+     * @return the servicios
+     */
+    public List<ServicioEntity> getServicios() {
+        return servicios;
+    }
+
+    /**
+     * @param servicios the servicios to set
+     */
+    public void setServicios(List<ServicioEntity> servicios) {
+        this.servicios = servicios;
+    }
+
+    /**
+     * @return the pagos
+     */
+    public List<PagoEntity> getPagos() {
+        return pagos;
+    }
+
+    /**
+     * @param pagos the pagos to set
+     */
+    public void setPagos(List<PagoEntity> pagos) {
+        this.pagos = pagos;
+    }
+
+    /**
+     * @return the quejasYReclamos
+     */
+    public List<ReclamoEntity> getQuejasYReclamos() {
+        return quejasYReclamos;
+    }
+
+    /**
+     * @param quejasYReclamos the quejasYReclamos to set
+     */
+    public void setQuejasYReclamos(List<ReclamoEntity> quejasYReclamos) {
+        this.quejasYReclamos = quejasYReclamos;
     }
     
 }

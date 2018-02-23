@@ -29,7 +29,7 @@ public class UsuarioEntity implements Serializable{
    private String cedula;
    
    @Temporal(TemporalType.DATE)
-   private Date fechaingreso;
+   private Date fechaIngreso;
    
    private Double calificacion;
 
@@ -57,12 +57,12 @@ public class UsuarioEntity implements Serializable{
         this.cedula = cedula;
     }
 
-    public Date getFechaingreso() {
-        return fechaingreso;
+    public Date getFechaIngreso() {
+        return fechaIngreso;
     }
 
-    public void setFechaingreso(Date fechaingreso) {
-        this.fechaingreso = fechaingreso;
+    public void setFechaIngreso(Date fechaingreso) {
+        this.fechaIngreso = fechaingreso;
     }
 
     public Double getCalificacion() {

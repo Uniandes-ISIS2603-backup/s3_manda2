@@ -16,23 +16,23 @@ public abstract class UsuarioDTO  {
     /**
      * Atributo que representa el nombre del usuario
      */
-    private String nombre;
+    protected String nombre;
     /**
      * Atributo que representa la cedula del usuario
      */
-    private String  cedula;
+    protected String  cedula;
     /**
      * Atributo representa la fecha de ingreso del usuario
      */
-    private Date fechaingreso;
+    protected Date fechaIngreso;
     /**
      * Atributo que representa la calificacion del usuario
      */
-    private Double calificacion;
+    protected Double calificacion;
      /**
      * Atributo que representa la id del usuario
      */
-    private Long id;
+    protected Long id;
     
     
     //CONSTRUCTOR
@@ -43,7 +43,7 @@ public abstract class UsuarioDTO  {
     {
         nombre = "";
         cedula = "";
-        fechaingreso = null;
+        fechaIngreso = null;
         calificacion = 5.0;
         id = new Long(0);
     }
@@ -59,7 +59,7 @@ public abstract class UsuarioDTO  {
     {
         nombre = pNombre;
         cedula = pCedula;
-        fechaingreso = pFechaingreso;
+        fechaIngreso = pFechaingreso;
         calificacion = 5.0;
         id = pId;
     }
@@ -96,15 +96,15 @@ public abstract class UsuarioDTO  {
      * retorna la fecha de ingreso
      * @return fechaingreso retorna la fecha de ingreso del usuario
      */
-    public Date getFechaingreso() {
-        return fechaingreso;
+    public Date getFechaIngreso() {
+        return fechaIngreso;
     }
     /**
      * asigna la fecha de ingreso
      * @param fechaingreso llega la fecha de ingreso que se le asignara al usuario 
      */
-    public void setFechaingreso(Date fechaingreso) {
-        this.fechaingreso = fechaingreso;
+    public void setFechaIngreso(Date fechaingreso) {
+        this.fechaIngreso = fechaingreso;
     }
     /**
      * retorna la calificacion del usuario
