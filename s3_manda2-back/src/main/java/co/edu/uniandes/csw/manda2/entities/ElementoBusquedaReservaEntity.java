@@ -5,13 +5,22 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author cv.trujillo
  */
-public class ElementoBusquedaReservaEntity extends OrganizacionEntity {
+@Entity
+public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements Serializable {
  
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
       /**
      * nombre del elemento de busqueda
      * */

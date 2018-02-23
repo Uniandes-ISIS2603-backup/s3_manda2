@@ -5,12 +5,25 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author cv.trujillo
  */
-public class OrganizacionEntity extends BaseEntity  {
-   /**
+@Entity
+
+public class OrganizacionEntity implements Serializable  {
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
     private Double costoDeTransporte;
@@ -30,7 +43,6 @@ public class OrganizacionEntity extends BaseEntity  {
     /**
      * Identificacion del servicio de Organizacion
      */
-    private Long id;
   
     /**
      * Retorna el costo del transporte del servicio

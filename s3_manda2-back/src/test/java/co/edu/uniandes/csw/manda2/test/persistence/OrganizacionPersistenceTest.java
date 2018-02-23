@@ -12,7 +12,10 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,34 +28,30 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class OrganizacionPersistenceTest {
+     @Deployment
+    public static JavaArchive createDeployment(){
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(OrganizacionEntity.class.getPackage())
+                .addPackage(OrganizacionPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml" );
+    }
     
-    @Inject
-    private OrganizacionPersistence organizacionPersistance;
+     @Inject
+    private OrganizacionPersistence OrganizacionPersistence;
     
     @PersistenceContext
     private EntityManager em;
     
-    @Inject
-    UserTransaction utx;
-    
-    /**
-     * Pruba para crear un servicio de tipo Organización
-     * */
     @Test
-    public void createOrganizacionTest()
-    {
-       PodamFactory factory = new PodamFactoryImpl();
+    public void createServicioTest(){
+        PodamFactory factory = new PodamFactoryImpl();
         OrganizacionEntity newEntity = factory.manufacturePojo(OrganizacionEntity.class);
-        OrganizacionEntity result = organizacionPersistance.create(newEntity);
-        //HASTA AQUÍ SOLO LO HE LLAMADO PARA QUE SE CREE, el verde indica que es mi metodo
-
-        Assert.assertNotNull(result);
-
-        OrganizacionEntity entity = em.find(OrganizacionEntity.class, result.getCostoDuracion());
+        OrganizacionEntity result = OrganizacionPersistence.create(newEntity);
         
-        //le pido que me de el registro
-
+        Assert.assertNotNull(result);
+        
+        OrganizacionEntity entity = em.find(OrganizacionEntity.class, result.getId());
+        
         Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
-     
     }
 }

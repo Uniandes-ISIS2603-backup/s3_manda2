@@ -7,12 +7,13 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author dv.gonzalez10
  */
-@Entity
+@MappedSuperclass
 public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializable{
 
     //Atributos    

@@ -5,11 +5,23 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author cv.trujillo
  */
-public class ArticuloEntity extends ComprasEnTiendaEntity {
+@Entity
+public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializable {
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * La ruta de la imágen del artículo
      * */
