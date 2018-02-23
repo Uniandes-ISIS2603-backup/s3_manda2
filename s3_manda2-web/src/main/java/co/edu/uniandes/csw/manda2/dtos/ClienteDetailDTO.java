@@ -4,13 +4,19 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.dtos;
+
+import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Clase que extiende de {@link ClienteDTO} para manejar la transformacion entre
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
- * contenido de la ciudad vaya a la documentacion de {@link ClienteDTO}
- * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * contenido de la ciudad vaya a la documentacion de {@link ClienteDTO} Al
+ * serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
  *      "id": number,
@@ -21,11 +27,21 @@ import java.util.List;
  *      "pagoAnticipado": boolean,
  *      "horasDeServicioSemanal": number,
  *      "quejasYReclamos": [{
- *      "mensaje": string, 
+ *      "mensaje": string,
  *      "numero": number,
  *      "id": number
  *   }],
- *      "servicios": [],
+ *      "servicios": [{
+ *      "costoDeTransporte": 500,
+ *      "id": Long,
+ *      "nombre": String,
+ *      "costo": Double,
+ *      "puntoDeEncuentro": String,
+ *      "puntoDeRealizacion": String,
+ *      "exitoDiligencia": Boolean,
+ *      "calification": Double,
+ *      "descripcion": String,
+ * }],
  *      "pagos": [{
  *      "id": long,
  *      "estadoTransaccion: string,
@@ -49,11 +65,21 @@ import java.util.List;
  *      "pagoAnticipado": false,
  *      "horasDeServicioSemanal": 20,
  *      "quejasYReclamos": [{
- *      "mensaje": "El servicio se demoro mucho", 
+ *      "mensaje": "El servicio se demoro mucho",
  *      "numero": 001,
  *      "id": 001
  *   }],
- *      "servicios": [],
+ *      "servicios": [{
+ *      "costoDeTransporte": 500,
+ *      "id": 525252145256,
+ *      "nombre": "Nicolas Bello",
+ *      "costo": 58455452,
+ *      "puntoDeEncuentro": "C.C mazuren",
+ *      "puntoDeRealizacion": "Las vegas",
+ *      "exitoDiligencia": true,
+ *      "calification": 5,
+ *      "descripcion": "Hamburguesa grande",
+ * }],
  *      "pagos": ["id": 91852,
  *      "estadoTransaccion: "cancelado",
  *      "fecha": "02/06/2018"],
@@ -64,22 +90,23 @@ import java.util.List;
  *   }
  *
  * </pre>
+ *
  * @author na.caceres
  */
 public class ClienteDetailDTO extends ClienteDTO {
-    
+
     //Atributos
     /**
      * Atributo que representa la billetera que tiene cada usuario.
      */
     private BilleteraDTO billetera;
     /**
-     *  Atributo que modela una lista con todos los servicios contratados por un
+     * Atributo que modela una lista con todos los servicios contratados por un
      * usuario.
      */
     private List<ServicioDTO> servicios;
     /**
-     *  Atributo que modela una lista con todos los pagos contratados por un
+     * Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
     private List<PagoDTO> pagos;
@@ -88,29 +115,68 @@ public class ClienteDetailDTO extends ClienteDTO {
      * usuario.
      */
     private List<ReclamoDTO> quejasYReclamos;
-    
-    public ClienteDetailDTO(){
-        
-    }
+
     //Constructor
     /**
      * Constructor por defecto
-     * 
-     * @param saldo representa el saldo que tiene el usuario.
-     * @param puntosFidelidad representa los puntos de fidelidad de cada usuario.
      */
-    
-    public ClienteDetailDTO (Double saldo, Integer puntosFidelidad)
-    {
+    public ClienteDetailDTO() {
+
+    }
+
+    /**
+     * Constructor para transformar un Entity a un DTO
+     *
+     * @param entity La entidad de ciudad a partir de la cual se construye el
+     * objeto
+     */
+    public ClienteDetailDTO(ClienteEntity entity) {
+
+        super(entity);
+        if (entity != null) {
+//            if (entity.getBilletera() != null) {
+//                this.billetera = new BilleteraDTO(entity.getBilletera());
+//            }
+//            //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
+//
+//            if (entity.getServicios() != null) {
+//                this.servicios = new ArrayList<>();
+//                for (ServicioEntity entityServicio : entity.getServicios()) {
+//                    servicios.add(new ServicioDTO(entityServicio));
+//                }
+//            }
+//
+//            if (entity.getPagos() != null) {
+//                this.pagos = new ArrayList<>();
+//                for (PagoEntity entityPago : entity.getPagos()) {
+//                    servicios.add(new PagoDTO(entityPago));
+//                }
+//            }
+//            if (entity.getQuejasYReclamos()!= null) {
+//                this.quejasYReclamos = new ArrayList<>();
+//                for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
+//                    servicios.add(new ReclamoDTO(entityReclamo));
+//                }
+//            }
+        }
+    }
+
+    /**
+     * Constructor por defecto
+     *
+     * @param saldo representa el saldo que tiene el usuario.
+     * @param puntosFidelidad representa los puntos de fidelidad de cada
+     * usuario.
+     */
+    public ClienteDetailDTO(Double saldo, Integer puntosFidelidad) {
         super();
         billetera = new BilleteraDTO(saldo, puntosFidelidad);
         servicios = new ArrayList<>();
         pagos = new ArrayList<>();
         quejasYReclamos = new ArrayList<>();
     }
-    
-    //Metodos
 
+    //Metodos
     /**
      * @return the billetera
      */
@@ -166,5 +232,40 @@ public class ClienteDetailDTO extends ClienteDTO {
     public void setQuejasYReclamos(List<ReclamoDTO> quejasYReclamos) {
         this.quejasYReclamos = quejasYReclamos;
     }
-    
+
+    /**
+     * Transformar un DTO a un Entity
+     *
+     * @return La entidad construida a partir del DTO.
+     */
+    @Override
+    public ClienteEntity toEntity() {
+        ClienteEntity clienteE = super.toEntity();
+//        if (billetera != null) {
+//            clienteE.setBilletera(billetera.toEntity());
+//        }
+//        //Mismo problema que en el constructor que hago¿?
+//        if (servicios != null) {
+//            List<ServicioEntity> serviciosEntity = new ArrayList<>();
+//            for (ServicioDTO dtoServicio : servicios) {
+//                serviciosEntity.add(dtoServicio.toEntity());
+//            }
+//            clienteE.setServicios(serviciosEntity);
+//        }
+//        if (pagos != null) {
+//            List<PagoEntity> pagosEntity = new ArrayList<>();
+//            for (PagoDTO dtoPago : pagos) {
+//                pagosEntity.add(dtoPago.toEntity());
+//            }
+//            clienteE.setPagos(pagosEntity);
+//        }
+//        if (quejasYReclamos != null) {
+//            List<ReclamoEntity> reclamosEntity = new ArrayList<>();
+//            for (ReclamoDTO dtoReclamo : quejasYReclamos) {
+//                reclamosEntity.add(dtoReclamo.toEntity());
+//            }
+//            clienteE.setQuejasYReclamos(reclamosEntity);
+//        }
+        return clienteE;
+    }
 }

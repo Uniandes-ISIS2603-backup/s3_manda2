@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+
 /**
  * ClienteDTO Objeto de transferencia de datos de Cliente. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
@@ -45,21 +47,38 @@ public class ClienteDTO extends UsuarioDTO {
     //Atributos
     /**
      * boolean que representa si un cliente tiene dinero en su billetera virtual
-    */
+     */
     private Boolean pagoAnticipado;
     /**
-     * numero que representa las horas de servicio que tiene un cliente semanalmente
+     * numero que representa las horas de servicio que tiene un cliente
+     * semanalmente
      */
     private Integer horasDeServicioSemanal;
-    
+
     //Constructor
     /**
      * Constructor por defecto
      */
     public ClienteDTO() {
-        super();
-        pagoAnticipado = false;
-        horasDeServicioSemanal = 0;
+
+    }
+
+    /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param cliente: Es la entidad que se va a convertir a DTO
+     */
+    public ClienteDTO(ClienteEntity cliente) {
+        if (cliente != null) {
+            this.id = cliente.getId();
+            this.nombre = cliente.getNombre();
+            this.cedula = cliente.getCedula();
+            this.fechaIngreso = cliente.getFechaIngreso();
+            this.calificacion = cliente.getCalificacion();
+            this.pagoAnticipado = cliente.isPagoAnticipado();
+            this.horasDeServicioSemanal = cliente.getHorasDeServicioSemanal();
+        }
     }
     //Metodos
 
@@ -73,7 +92,7 @@ public class ClienteDTO extends UsuarioDTO {
     /**
      * @param pagoAnticipado the pagoAnticipado to set
      */
-    public void setPagoAnticipado(Boolean pagoAnticipado) {
+    public void isPagoAnticipado(Boolean pagoAnticipado) {
         this.pagoAnticipado = pagoAnticipado;
     }
 
@@ -91,4 +110,20 @@ public class ClienteDTO extends UsuarioDTO {
         this.horasDeServicioSemanal = horasDeServicioSemanal;
     }
 
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public ClienteEntity toEntity() {
+        ClienteEntity entity = new ClienteEntity();
+        entity.setId(this.id);
+        entity.setNombre(this.nombre);
+        entity.setCedula(this.cedula);
+        entity.setFechaIngreso(this.fechaIngreso);
+        entity.setCalificacion(this.calificacion);
+        entity.setPagoAnticipado(this.pagoAnticipado);
+        entity.setHorasDeServicioSemanal(this.horasDeServicioSemanal);
+        return entity;
+    }
 }

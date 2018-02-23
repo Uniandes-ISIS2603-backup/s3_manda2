@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.TarjetaDeCreditoEntity;
-import co.edu.uniandes.csw.manda2.persistence.TarjetaDeCreditoPersistence;
+import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
+import co.edu.uniandes.csw.manda2.persistence.TarjetaCreditoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -40,8 +40,8 @@ public class TarjetaDeCreditoPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(TarjetaDeCreditoEntity.class.getPackage())
-                .addPackage(TarjetaDeCreditoPersistence.class.getPackage())
+                .addPackage(TarjetaCreditoEntity.class.getPackage())
+                .addPackage(TarjetaCreditoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -50,7 +50,7 @@ public class TarjetaDeCreditoPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private TarjetaDeCreditoPersistence editorialPersistence;
+    private TarjetaCreditoPersistence editorialPersistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -100,7 +100,7 @@ public class TarjetaDeCreditoPersistenceTest {
     /**
      * lista que tiene los datos de prueba
      */
-    private List<TarjetaDeCreditoEntity> data = new ArrayList<TarjetaDeCreditoEntity>();
+    private List<TarjetaCreditoEntity> data = new ArrayList<TarjetaCreditoEntity>();
 
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -112,7 +112,7 @@ public class TarjetaDeCreditoPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
             
-            TarjetaDeCreditoEntity entity = factory.manufacturePojo(TarjetaDeCreditoEntity.class);
+            TarjetaCreditoEntity entity = factory.manufacturePojo(TarjetaCreditoEntity.class);
 
             em.persist(entity);
             
@@ -127,12 +127,12 @@ public class TarjetaDeCreditoPersistenceTest {
     @Test
     public void createEditorialTest() {
         PodamFactory factory = new PodamFactoryImpl();
-        TarjetaDeCreditoEntity newEntity = factory.manufacturePojo(TarjetaDeCreditoEntity.class);
-        TarjetaDeCreditoEntity result = editorialPersistence.create(newEntity);
+        TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
+        TarjetaCreditoEntity result = editorialPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
-        TarjetaDeCreditoEntity entity = em.find(TarjetaDeCreditoEntity.class, result.getId());
+        TarjetaCreditoEntity entity = em.find(TarjetaCreditoEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }

@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
  * @author da.ramos
  */
 @Stateless
-public abstract class ServicioPersistence {
+public class ServicioPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(ServicioPersistence.class.getName());
     
@@ -38,7 +38,7 @@ public abstract class ServicioPersistence {
     
     public List<ServicioEntity> findAll(){
         LOGGER.info("Consultando todos los servicios");
-        TypedQuery query = em.createQuery("select u from ServicioEnity u", ServicioEntity.class);
+        TypedQuery query = em.createQuery("select u from ServicioEntity u", ServicioEntity.class);
         return query.getResultList();
     }
     

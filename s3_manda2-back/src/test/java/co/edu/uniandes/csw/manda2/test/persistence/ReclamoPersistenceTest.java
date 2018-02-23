@@ -27,6 +27,13 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ReclamoPersistenceTest {
+    /**
+     *
+     * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
+     * embebido. El jar contiene las clases de Editorial, el descriptor de la
+     * base de datos y el archivo beans.xml para resolver la inyección de
+     * dependencias.
+     */
     @Deployment
     public static JavaArchive createDeployment(){
         return ShrinkWrap.create(JavaArchive.class)
@@ -35,14 +42,14 @@ public class ReclamoPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml" );
     }
     
-     @Inject
+    @Inject
     private ReclamoPersistence reclamoPersistence;
     
     @PersistenceContext
     private EntityManager em;
     
     @Test
-    public void createServicioTest(){
+    public void createReclamoTest(){
         PodamFactory factory = new PodamFactoryImpl();
         ReclamoEntity newEntity = factory.manufacturePojo(ReclamoEntity.class);
         ReclamoEntity result = reclamoPersistence.create(newEntity);

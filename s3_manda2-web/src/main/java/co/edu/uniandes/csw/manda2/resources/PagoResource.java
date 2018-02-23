@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
-import co.edu.uniandes.csw.manda2.dtos.PagoDetailDTO;
+import co.edu.uniandes.csw.manda2.dtos.PagoDTO;
 import java.util.List;
 import javax.ws.rs.*;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class PagoResource {
     /**
      * <h1>POST /api/pagos : Crear un pago.</h1>
      * 
-     * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PagoDTO}.
      * 
      * Crea un nuevo pago con la informacion que se recibe en el cuerpo 
      * de la petición y se regresa un objeto identico con un id auto-generado 
@@ -51,11 +51,11 @@ public class PagoResource {
      * 412 Precodition Failed: Ya existe el pago.
      * </code>
      * </pre>
-     * @param pago {@link PagoDetailDTO} - El pago que se desea guardar.
-     * @return JSON {@link PagoDetailDTO}  - El pago guardado con el atributo id autogenerado.
+     * @param pago {@link PagoDTO} - El pago que se desea guardar.
+     * @return JSON {@link PagoDTO}  - El pago guardado con el atributo id autogenerado.
      */
     @POST
-    public PagoDetailDTO createPago (PagoDetailDTO pago){
+    public PagoDTO createPago (PagoDTO pago){
         return null;
     }
     
@@ -69,10 +69,10 @@ public class PagoResource {
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
      * 200 OK Devuelve todos los pagos de de la aplicacion.</code> 
      * </pre>
-     * @return JSONArray {@link PagoDetailDTO} - Los pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
+     * @return JSONArray {@link PagoDTO} - Los pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<PagoDetailDTO> getPagos(){
+    public List<PagoDTO> getPagos(){
         return new ArrayList<>();
     }
     
@@ -91,17 +91,17 @@ public class PagoResource {
      * </code> 
      * </pre>
      * @param id Identificador del pago que se está buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link PagoDetailDTO} - El pago buscado
+     * @return JSON {@link PagoDTO} - El pago buscado
      */
     @GET
     @Path("{id: \\d+}")
-    public PagoDetailDTO getPagoId(@PathParam("id") Long id){
+    public PagoDTO getPagoId(@PathParam("id") Long id){
         return null;
     }
     
     /**
      * <h1>PUT /api/pagos/{id} : Actualizar pago con el id dado.</h1>
-     * <pre>Cuerpo de petición: JSON {@link PagoDetailDTO}.
+     * <pre>Cuerpo de petición: JSON {@link PagoDTO}.
      * 
      * Actualiza el pago con el id recibido en la URL con la informacion que se recibe en el cuerpo de la petición.
      * 
@@ -113,12 +113,12 @@ public class PagoResource {
      * </code> 
      * </pre>
      * @param id Identificador del pago que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param pago {@link PagoDetailDTO} El pago que se desea guardar.
-     * @return JSON {@link PagoDetailDTO} - El pago guardado.
+     * @param pago {@link PagoDTO} El pago que se desea guardar.
+     * @return JSON {@link PagoDTO} - El pago guardado.
      */ 
     @PUT 
     @Path("{id: \\d+}")
-    public PagoDetailDTO updatePago(@PathParam("id") long id, PagoDetailDTO pago){
+    public PagoDTO updatePago(@PathParam("id") long id, PagoDTO pago){
         return null;
     }
     

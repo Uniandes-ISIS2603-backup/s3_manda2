@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author na.caceres
  */
 @Entity
-public class TarjetaDeCreditoEntity extends MedioPagoEntity implements Serializable {
+public class TarjetaCreditoEntity extends MedioPagoEntity implements Serializable {
     
     //Atributos
     /**

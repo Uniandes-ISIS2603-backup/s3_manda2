@@ -32,7 +32,8 @@ public class PayPalPersistenceTest {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(PayPalEntity.class.getPackage())
                 .addPackage(PayPalPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml");
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
     @Inject
@@ -51,6 +52,7 @@ public class PayPalPersistenceTest {
         
         PayPalEntity entity = em.find(PayPalEntity.class, result.getId());
         
-        //Assert.assertEquals(newEntity.getName(), entity.getName());       
+        Assert.assertEquals(newEntity.getLinkPayPal(), entity.getLinkPayPal());
+        Assert.assertEquals(newEntity.getNombreCliente(), result.getNombreCliente());
     }
 }
