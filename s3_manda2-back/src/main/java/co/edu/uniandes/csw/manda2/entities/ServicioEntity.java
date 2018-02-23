@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author da.ramos
  */
 @Entity
-public abstract class ServicioEntity extends BaseEntity{
+public class ServicioEntity extends BaseEntity{
     
      /**
      * Nombre del servicio.
@@ -51,12 +51,15 @@ public abstract class ServicioEntity extends BaseEntity{
     protected String descripcion;
     
     //@OneToOne
+    //@PodamExclude
     //protected PagoEntity pago;
     
     //@OneToMany
+    //@PodamExclude
     //protected ClienteEntity cliente;
     
     //@OneToMany
+    //@PodamExclude
     //protected EmpleadoEntity empleado;
     
         /**

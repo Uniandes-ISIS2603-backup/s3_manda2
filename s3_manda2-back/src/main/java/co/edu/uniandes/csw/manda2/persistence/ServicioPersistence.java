@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
  * @author da.ramos
  */
 @Stateless
-public abstract class ServicioPersistence {
+public class ServicioPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(ServicioPersistence.class.getName());
     
