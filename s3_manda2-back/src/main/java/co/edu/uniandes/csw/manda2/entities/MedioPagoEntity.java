@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,8 +16,8 @@ import javax.persistence.MappedSuperclass;
  *
  * @author m.moreno
  */
-@MappedSuperclass
-public class MedioPagoEntity implements Serializable{
+@Entity
+public class MedioPagoEntity extends UsuarioEntity  implements Serializable{
  
      /**
      * Indica el id de medio pago.

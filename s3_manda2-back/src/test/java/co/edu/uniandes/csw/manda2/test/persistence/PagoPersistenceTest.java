@@ -35,7 +35,7 @@ public class PagoPersistenceTest {
  +     *
  +     * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
  +     * embebido. El jar contiene las clases de Editorial, el descriptor de la
- +     * base de datos y el archivo beans.xml para resolver la inyección de
+ +     * base de datos y el archivo beans.xml para resolver la inyecciÃ³n de
  +     * dependencias.
  +     */
     
@@ -53,7 +53,7 @@ public class PagoPersistenceTest {
     private PagoPersistence pagoPersistence;
      /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los métodos que se están probando.
+     * datos por fuera de los mÃ©todos que se estÃ¡n probando.
      */
     @PersistenceContext
     private EntityManager em;
@@ -61,7 +61,7 @@ public class PagoPersistenceTest {
     @Inject
     UserTransaction utx;
       /**
-     * Configuración inicial de la prueba.
+     * ConfiguraciÃ³n inicial de la prueba.
      *
      *
      */
@@ -83,7 +83,7 @@ public class PagoPersistenceTest {
         }
     }
     /**
-     * Limpia las tablas que están implicadas en la prueba.
+     * Limpia las tablas que estÃ¡n implicadas en la prueba.
      *
      *
      */
