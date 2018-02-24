@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.manda2.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.CityEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.List;
 import java.util.logging.Level;
