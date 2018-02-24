@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -17,12 +18,18 @@ import javax.persistence.TypedQuery;
  *
  * @author m.moreno
  */
+@Stateless
 public class BilleteraPersistence {
-     private static final Logger LOGGER = Logger.getLogger(PagoPersistence.class.getName());
+     private static final Logger LOGGER = Logger.getLogger(BilleteraPersistence.class.getName());
 
     @PersistenceContext(unitName = "Manda2PU")
     protected EntityManager em;
   
+     /**
+     *
+     * @param entity billetera que se crearÃ¡ en la base de datos
+     * @return devuelve la entidad creada con un id dado por la base de datos.
+     */
     public BilleteraEntity create(BilleteraEntity entity) {
         LOGGER.info("Creando una billetera nueva");
         em.persist(entity);
@@ -36,8 +43,8 @@ public class BilleteraPersistence {
     }
   
     public List<BilleteraEntity> findAll() {
-        LOGGER.info("Consultando todas las cities");
-        TypedQuery query = em.createQuery("select u from CityEntity u", BilleteraEntity.class);
+        LOGGER.info("Consultando todas las billeteras");
+        TypedQuery query = em.createQuery("select u from BilleteraEntity u", BilleteraEntity.class);
         return query.getResultList();
     }
 

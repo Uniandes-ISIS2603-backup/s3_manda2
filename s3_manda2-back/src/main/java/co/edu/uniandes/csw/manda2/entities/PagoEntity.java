@@ -17,7 +17,7 @@ import javax.persistence.MappedSuperclass;
  * @author m.moreno
  */
 
-@MappedSuperclass
+@Entity
 public class PagoEntity extends BaseEntity implements Serializable {
     
  /**

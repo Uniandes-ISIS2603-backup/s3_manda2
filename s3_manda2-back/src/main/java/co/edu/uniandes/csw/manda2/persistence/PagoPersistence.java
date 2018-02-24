@@ -39,8 +39,8 @@ public class PagoPersistence {
     }
   
     public List<PagoEntity> findAll() {
-        LOGGER.info("Consultando todas las cities");
-        TypedQuery query = em.createQuery("select u from CityEntity u", PagoEntity.class);
+        LOGGER.info("Consultando todos los pagos");
+        TypedQuery query = em.createQuery("select u from PagoEntity u", PagoEntity.class);
         return query.getResultList();
     }
 

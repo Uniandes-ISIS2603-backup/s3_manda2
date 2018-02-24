@@ -6,14 +6,15 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author m.moreno
  */
-@MappedSuperclass
-public class BilleteraEntity extends BaseEntity implements Serializable {
+@Entity
+public class BilleteraEntity extends UsuarioEntity implements Serializable {
     
      /**
      * Indica el saldo disponible en la billetera.
@@ -23,6 +24,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      * Indica los puntos de fidelidad acumulados.
      */
     private Integer puntosDeFidelidad;
+    
     
     /**
      * Retorna el saldo en la billetera.

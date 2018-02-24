@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
-import co.edu.uniandes.csw.manda2.persistence.ComprasEnTiendaPersistence;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.persistence.EntregasDeDocumentosPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -29,50 +29,48 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author dv.gonzalez10
  */
 @RunWith(Arquillian.class)
-public class ComprasEnTiendaPersistenceTest {
-    
+public class EntregasDeDocumentosPersistenceTest {
     
     @Deployment
-    public static JavaArchive createDeployement (){
-         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ComprasEnTiendaEntity.class.getPackage())
-                .addPackage(ComprasEnTiendaPersistence.class.getPackage())
+    public static JavaArchive createDeployment (){
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(EntregasDeDocumentosEntity.class.getPackage())
+                .addPackage(EntregasDeDocumentosPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
-               
-        
     }
     
     
     @Inject
-    private ComprasEnTiendaPersistence comprasEnTiendaPersistence;
+    private EntregasDeDocumentosPersistence entregasDeDocumentosPersistence;
     
     @PersistenceContext
     private EntityManager em;
     
+    
     @Inject
     UserTransaction utx;
+    
+        private List<EntregasDeDocumentosEntity> data = new ArrayList<EntregasDeDocumentosEntity>();
+    
     
      /**
      * Limpia las tablas que están implicadas en la prueba
      */
      private void clearData() {
-        em.createQuery("delete from ComprasEnTiendaEntity").executeUpdate();
+        em.createQuery("delete from EntregasDeDocumentosEntity").executeUpdate();
     }
-     
-     private List<ComprasEnTiendaEntity> data = new ArrayList<ComprasEnTiendaEntity>();
-     
-     
      
      private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            ComprasEnTiendaEntity entity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
+            EntregasDeDocumentosEntity entity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
             
             em.persist(entity);
             data.add(entity);
         }
     }
+     
      
      @Before
     public void configTest(){
@@ -94,17 +92,17 @@ public class ComprasEnTiendaPersistenceTest {
         }
     }
     
-    
     @Test
      public void createServicioTest(){
         PodamFactory factory = new PodamFactoryImpl();
-        ComprasEnTiendaEntity newEntity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
-        ComprasEnTiendaEntity result = comprasEnTiendaPersistence.create(newEntity);
+        EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
+        EntregasDeDocumentosEntity result = entregasDeDocumentosPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        ComprasEnTiendaEntity entity = em.find(ComprasEnTiendaEntity.class, result.getId());
-        Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        EntregasDeDocumentosEntity entity = em.find(EntregasDeDocumentosEntity.class, result.getId());
         
+         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+          Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
     }
 }
