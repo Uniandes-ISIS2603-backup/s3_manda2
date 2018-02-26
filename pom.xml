@@ -105,4 +105,8 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>s3_manda2-web</module>
+        <module>s3_manda2-back</module>
+    </modules>
 </project>
