@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.persistence;
 
 import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -43,10 +44,13 @@ public class PayPalPersistence {
     }
     
     public PayPalEntity update( PayPalEntity entity ){
+        LOGGER.log(Level.INFO, "Actualizando paypal con id={0}", entity.getId());
         return em.merge(entity);
     }
     
-    public void delete( PayPalEntity entity ){
+    public void delete( Long id ){
+        LOGGER.log(Level.INFO, "Borrando paypal con id={0}", id);
+        PayPalEntity entity = em.find(PayPalEntity.class, id);
         em.remove(entity);
     }
 }
