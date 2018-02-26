@@ -53,17 +53,17 @@ public class ComprasEnTiendaPersistenceTest {
     @Inject
     UserTransaction utx;
     
+    
+    private List<ComprasEnTiendaEntity> data = new ArrayList<ComprasEnTiendaEntity>();
+    
+    
      /**
      * Limpia las tablas que están implicadas en la prueba
      */
      private void clearData() {
         em.createQuery("delete from ComprasEnTiendaEntity").executeUpdate();
     }
-     
-     private List<ComprasEnTiendaEntity> data = new ArrayList<ComprasEnTiendaEntity>();
-     
-     
-     
+    
      private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -104,6 +104,8 @@ public class ComprasEnTiendaPersistenceTest {
         Assert.assertNotNull(result);
         
         ComprasEnTiendaEntity entity = em.find(ComprasEnTiendaEntity.class, result.getId());
+        
+        
         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
         
     }

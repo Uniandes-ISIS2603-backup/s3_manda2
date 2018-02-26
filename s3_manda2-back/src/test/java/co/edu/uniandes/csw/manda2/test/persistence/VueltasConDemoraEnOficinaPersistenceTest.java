@@ -109,9 +109,6 @@ public class VueltasConDemoraEnOficinaPersistenceTest {
     }
     
     
-    
-    
-    
     //Tests
     
     @Test
@@ -125,7 +122,7 @@ public class VueltasConDemoraEnOficinaPersistenceTest {
         VueltasConDemoraEnOficinaEntity entity = em.find(VueltasConDemoraEnOficinaEntity.class, result.getId());
         
         Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
-         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
     }
     
     
