@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -18,22 +20,26 @@ import javax.persistence.Id;
 @Entity
 public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializable {
     
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
      * La ruta de la imágen del artículo
      * */
+     @PodamExclude
+     
     private String rutaImagen;
     /**
      * Nombre del articulo
      * */
+      @PodamExclude
     private String nombre;
     
     /**
      * El precio del articulo
      * */
+       @PodamExclude
     private Double precio;
     
     /**

@@ -31,9 +31,9 @@ public class ComprasEnTiendaPersistence {
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public ComprasEnTiendaEntity create(ComprasEnTiendaEntity entity) {
-        LOGGER.info("Creando una entrega de documento nueva");
+        LOGGER.info("Creando una compra nueva");
         em.persist(entity);
-        LOGGER.info("Creando una entrega de documento nueva");
+        LOGGER.info("Creando una compra nueva");
         return entity;
     }
     
@@ -59,7 +59,7 @@ public class ComprasEnTiendaPersistence {
     public ComprasEnTiendaEntity findByName(String name) {
         LOGGER.log(Level.INFO, "Consultando city por nombre ", name);
 
-        // Se crea un query para buscar cities con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        // Se crea un query para buscar compras con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ComprasEnTiendaEntity e where e.name = :name", ComprasEnTiendaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("name", name);
@@ -80,7 +80,7 @@ public class ComprasEnTiendaPersistence {
      * datos
      */
     public List<ComprasEnTiendaEntity> findAll() {
-        LOGGER.info("Consultando todas las vueltas");
+        LOGGER.info("Consultando todas las compras");
         TypedQuery query = em.createQuery("select u from ComprasEnTiendaEntity u", ComprasEnTiendaEntity.class);
         return query.getResultList();
     }
