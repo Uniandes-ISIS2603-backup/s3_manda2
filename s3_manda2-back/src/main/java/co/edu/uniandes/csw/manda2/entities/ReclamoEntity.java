@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -28,6 +29,12 @@ public class ReclamoEntity implements Serializable{
     @PodamExclude
     @ManyToOne
     protected EmpleadoEntity empleado;
+    @PodamExclude
+    @ManyToOne
+    protected ServicioEntity servicio;
+    @PodamExclude
+    @ManyToOne
+    protected ClienteEntity cliente;
 
     public Long getId() {
         return id;
