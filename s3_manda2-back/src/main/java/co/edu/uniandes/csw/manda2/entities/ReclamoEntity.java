@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,6 +25,9 @@ public class ReclamoEntity implements Serializable{
     private String mensaje;
     
     private Integer numero;
+    @PodamExclude
+    @ManyToOne
+    protected EmpleadoEntity empleado;
 
     public Long getId() {
         return id;

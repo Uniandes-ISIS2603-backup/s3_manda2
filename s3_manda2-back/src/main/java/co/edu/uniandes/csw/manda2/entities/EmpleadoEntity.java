@@ -24,12 +24,12 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
     
     private String EPS;
     
-//    @ManyToOne
-//    private List<PagoEntity> pagos;
-//    @ManyToOne
-//    private List<ReclamoEntity> reclamos;
-//    @ManyToOne
-//    private List<ServicioEntity> servicios;
+    @ManyToOne
+    protected List<PagoEntity> pagos;
+    @ManyToOne
+    protected List<ReclamoEntity> reclamos;
+    @ManyToOne
+    protected List<ServicioEntity> servicios;
     
     public String getIdentificacio() {
         return identificacio;
