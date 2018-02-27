@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.manda2.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -30,9 +31,17 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el medio de pago de la billetera
      * 
      */
-      //@OneToOne
+    @OneToOne
     @PodamExclude
     private MedioPagoEntity medioPago;
+    
+    /**
+     *  Atributo que modela el cliente al que le pertenece la billetera
+     * 
+     */
+    @OneToOne
+    @PodamExclude
+    private ClienteEntity cliente;
     
     /**
      * Retorna el saldo en la billetera.

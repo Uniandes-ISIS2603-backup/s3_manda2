@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -41,9 +43,32 @@ public class PagoEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el medio de pago ddl pago
      * 
      */
-      //@OneToOne
     @PodamExclude
+    @OneToOne
     private MedioPagoEntity medioPago;
+    
+     /**
+     *  Atributo que modela el empleado conoce el pago
+     * 
+     */
+    @PodamExclude
+    @OneToMany
+    private EmpleadoEntity empleado;
+    
+       /**
+     *  Atributo que modela el empleado conoce el pago
+     * 
+     */
+    @PodamExclude
+    @OneToOne
+    private ServicioEntity servicio;
+       /**
+     *  Atributo que modela el empleado conoce el pago
+     * 
+     */
+    @PodamExclude
+    @OneToMany
+    private ClienteEntity cliente;
   /**
      * Retorna el id del pago.
      * @return id de pago.

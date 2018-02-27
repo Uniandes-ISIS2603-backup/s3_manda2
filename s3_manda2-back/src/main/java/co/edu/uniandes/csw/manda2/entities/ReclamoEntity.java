@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -25,6 +26,7 @@ public class ReclamoEntity implements Serializable{
     private String mensaje;
     
     private Integer numero;
+    
     @PodamExclude
     @ManyToOne
     protected EmpleadoEntity empleado;
