@@ -19,7 +19,7 @@ import javax.persistence.TypedQuery;
  * @author n.bello
  */
 @Stateless
-public abstract class UsuarioPersistence {
+public class UsuarioPersistence {
     private static final Logger LOGGER = Logger.getLogger(UsuarioPersistence.class.getName());
     
     @PersistenceContext(unitName = "Manda2PU")

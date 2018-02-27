@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
  * @author n.bello
  */
 @Entity
-public abstract class UsuarioEntity implements Serializable{
+public class UsuarioEntity implements Serializable{
    @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
