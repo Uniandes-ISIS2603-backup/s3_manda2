@@ -6,6 +6,9 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 
 /**
@@ -50,17 +53,14 @@ public class ServicioEntity extends BaseEntity{
      */
     protected String descripcion;
     
-    //@OneToOne
-    //@PodamExclude
-    //protected PagoEntity pago;
+    @OneToOne
+    protected PagoEntity pago;
     
-    //@OneToMany
-    //@PodamExclude
-    //protected ClienteEntity cliente;
+    @OneToMany
+    protected ClienteEntity cliente;
     
-    //@OneToMany
-    //@PodamExclude
-    //protected EmpleadoEntity empleado;
+    @OneToMany    
+    protected EmpleadoEntity empleado;
     
         /**
      * Retorna el nombre del servicio.
