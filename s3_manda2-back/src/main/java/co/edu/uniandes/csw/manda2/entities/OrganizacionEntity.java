@@ -26,6 +26,8 @@ public class OrganizacionEntity implements Serializable  {
    @PodamExclude
     private Long id;
     
+    
+    private OrganizacionEntity organizacion;
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
