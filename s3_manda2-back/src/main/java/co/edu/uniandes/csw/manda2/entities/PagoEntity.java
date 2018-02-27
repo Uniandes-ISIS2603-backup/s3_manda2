@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -36,7 +37,13 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * Fecha en que se realiza el pago
      */
     private Date fecha; 
-    
+     /**
+     *  Atributo que modela el medio de pago ddl pago
+     * 
+     */
+      //@OneToOne
+    @PodamExclude
+    private MedioPagoEntity medioPago;
   /**
      * Retorna el id del pago.
      * @return id de pago.
@@ -80,5 +87,18 @@ public class PagoEntity extends BaseEntity implements Serializable {
      */
     public void setFecha (Date pFecha){
         this.fecha = pFecha;
+    }
+     /**
+     * @return the medio pago
+     */
+    public MedioPagoEntity getMedioPago() {
+        return medioPago;
+    }
+
+    /**
+     * @param medio the medioPago to set
+     */
+    public void setMedioPago(MedioPagoEntity medio) {
+        this.medioPago =medio;
     }
 }

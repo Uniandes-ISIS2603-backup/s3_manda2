@@ -6,15 +6,16 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author m.moreno
  */
 @Entity
-public class BilleteraEntity extends UsuarioEntity implements Serializable {
+public class BilleteraEntity extends BaseEntity implements Serializable {
     
      /**
      * Indica el saldo disponible en la billetera.
@@ -25,6 +26,13 @@ public class BilleteraEntity extends UsuarioEntity implements Serializable {
      */
     private Integer puntosDeFidelidad;
     
+     /**
+     *  Atributo que modela el medio de pago de la billetera
+     * 
+     */
+      //@OneToOne
+    @PodamExclude
+    private MedioPagoEntity medioPago;
     
     /**
      * Retorna el saldo en la billetera.
@@ -56,5 +64,17 @@ public class BilleteraEntity extends UsuarioEntity implements Serializable {
         this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
     }
     
-    
+    /**
+     * @return the medio pago
+     */
+    public MedioPagoEntity getMedioPago() {
+        return medioPago;
+    }
+
+    /**
+     * @param medio the medioPago to set
+     */
+    public void setMedioPago(MedioPagoEntity medio) {
+        this.medioPago =medio;
+    }
 }
