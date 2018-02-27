@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -28,6 +29,8 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
     @PodamExclude
     private String nombre;
     
+    @ManyToMany
+    private ElementoBusquedaReservaEntity elementoBusquedaReserva;
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */

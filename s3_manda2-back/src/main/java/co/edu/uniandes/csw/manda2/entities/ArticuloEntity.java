@@ -35,6 +35,9 @@ public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializabl
      * */
       @PodamExclude
     private String nombre;
+      
+      @OneToMany
+      private ArticuloEntity articulo;
     
     /**
      * El precio del articulo

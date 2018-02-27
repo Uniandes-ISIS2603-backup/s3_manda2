@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -20,6 +23,17 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     *El costo del transporte del servicio
     */
     private Double costoDeTransporte;
+    
+    @PodamExclude
+    @OneToMany
+    /*
+    *Articulos
+    */
+    private List<ArticuloEntity>  articulo;
+    
+    
+  
+    
 
     //Metodos
     

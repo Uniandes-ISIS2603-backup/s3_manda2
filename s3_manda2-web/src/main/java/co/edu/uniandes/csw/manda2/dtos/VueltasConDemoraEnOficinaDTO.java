@@ -52,31 +52,9 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         
         
     public VueltasConDemoraEnOficinaDTO(){
-        this(0D, 0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
+       
     }
-        //Constructor
-    /**
-     * Constructor
-     * @param costoDuracion  costo relacionado con la duración del servicio 
-     * @param costoDeTransporte  costo relacionado al transporte del servicio 
-     * @param pago el pago que el cliente realiza por el servicio 
-     * @param cliente el cliente que obtiene el servicio 
-     * @param empleado empleado que realiza el servicio
-     * @param id id del servicio
-     * @param nombre nombre del servicio
-     * @param costo costo del servicio
-     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
-     * @param puntoDeRealizacion punto de realizacion del servicio
-     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
-     * @param calificacion calificación del servicio.
-     * @param descripcion descripción del servicio.
-     */
-    public VueltasConDemoraEnOficinaDTO(Double costoDuracion, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
-        super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
-        this.costoDuracion = costoDuracion;
-        this.costoDeTransporte = costoDeTransporte;
-    }
-    
+   
 
 
     /**
