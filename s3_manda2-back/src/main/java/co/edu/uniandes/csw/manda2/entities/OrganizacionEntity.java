@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -21,23 +22,29 @@ public class OrganizacionEntity implements Serializable  {
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+   @PodamExclude
     private Long id;
     
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
+    @PodamExclude
     private Double costoDeTransporte;
     
     /** 
      * Costo que se le cobra al usuario, por la duración que se tiene
      * al hacer el servicio.
      */
+    @PodamExclude
     private Double costoDeDuracion;
     
     /**
      * Representa si es necesario el desplazamiento de uno de nuestros trabajadores
      * con el fin de cumplir con la diligencia. 0
     */
+    
+   @PodamExclude
     private Boolean desplazamiento;
     
     /**

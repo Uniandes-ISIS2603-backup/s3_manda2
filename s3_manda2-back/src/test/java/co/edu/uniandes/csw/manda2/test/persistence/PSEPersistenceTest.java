@@ -125,7 +125,7 @@ public class PSEPersistenceTest {
      *
      */
     @Test
-    public void createEditorialTest() {
+    public void createPSETest() {
         PodamFactory factory = new PodamFactoryImpl();
         PSEEntity newEntity = factory.manufacturePojo(PSEEntity.class);
         PSEEntity result = editorialPersistence.create(newEntity);
@@ -133,7 +133,6 @@ public class PSEPersistenceTest {
         Assert.assertNotNull(result);
 
         PSEEntity entity = em.find(PSEEntity.class, result.getId());
-
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
 }

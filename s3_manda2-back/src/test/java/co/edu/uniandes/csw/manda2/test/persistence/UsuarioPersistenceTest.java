@@ -5,9 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import co.edu.uniandes.csw.manda2.entities.UsuarioEntity;
-import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import co.edu.uniandes.csw.manda2.persistence.UsuarioPersistence;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

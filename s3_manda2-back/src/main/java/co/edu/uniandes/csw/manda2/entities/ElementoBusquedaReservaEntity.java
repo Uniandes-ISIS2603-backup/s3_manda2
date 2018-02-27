@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -24,22 +25,26 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
       /**
      * nombre del elemento de busqueda
      * */
+    @PodamExclude
     private String nombre;
     
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */
-
+    @PodamExclude
     private String datosBusqueda;
     /**
      * Determina si la busqueda fue exitosa
      * */
+    
+    @PodamExclude
     private Boolean exitosa;
     
     /**
      * Obtener del nombre del elemento a buscar
      * @return nombre retorna el nombre del elemento.
      * */
+    
     public String getNombre()
     {
         return nombre;
