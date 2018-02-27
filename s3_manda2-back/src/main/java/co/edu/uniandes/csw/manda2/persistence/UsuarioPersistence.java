@@ -9,6 +9,7 @@ package co.edu.uniandes.csw.manda2.persistence;
 import co.edu.uniandes.csw.manda2.entities.UsuarioEntity;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -17,6 +18,7 @@ import javax.persistence.TypedQuery;
  *
  * @author n.bello
  */
+@Stateless
 public abstract class UsuarioPersistence {
     private static final Logger LOGGER = Logger.getLogger(UsuarioPersistence.class.getName());
     
