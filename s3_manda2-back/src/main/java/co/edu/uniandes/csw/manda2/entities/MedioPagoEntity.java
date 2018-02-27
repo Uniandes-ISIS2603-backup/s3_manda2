@@ -17,7 +17,7 @@ import javax.persistence.MappedSuperclass;
  * @author m.moreno
  */
 @Entity
-public class MedioPagoEntity extends UsuarioEntity  implements Serializable{
+public class MedioPagoEntity extends BaseEntity  implements Serializable{
  
      /**
      * Indica el id de medio pago.
