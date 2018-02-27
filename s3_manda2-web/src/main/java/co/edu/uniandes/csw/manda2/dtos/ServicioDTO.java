@@ -53,9 +53,9 @@ public abstract class ServicioDTO {
     protected String puntoDeRealizacion;
     
     /**
-     * Indica si la diligencia tuvo éxito.
+     * Indica estado del servicio.
      */
-    protected Boolean exitoDiligencia;
+    private String estado;
     
     /**
      * Calificación del servicio.
@@ -68,31 +68,10 @@ public abstract class ServicioDTO {
     protected String descripcion;
     
     public ServicioDTO(){
-        this(0L, "", 0D, "", "", false, 0D, "");
+            
     }
     
-    /**
-     * Crea un nuevo servicio.
-     * @param id id del servicio
-     * @param nombre noombre del servicio
-     * @param costo costo del servicio
-     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
-     * @param puntoDeRealizacion punto de realizacion del servicio
-     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
-     * @param calificacion calificación del servicio.
-     * @param descripcion descripción del servicio.
-     */
-    public ServicioDTO(Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.costo = costo;
-        this.puntoDeEncuentro = puntoDeEncuentro;
-        this.puntoDeRealizacion = puntoDeRealizacion;
-        this.exitoDiligencia = exitoDiligencia;
-        this.calificacion = calificacion;
-        this.descripcion = descripcion;
-    }
-    
+        
      /**
      * Retorna el id.
      * @return Id
@@ -174,22 +153,6 @@ public abstract class ServicioDTO {
     }
 
     /**
-     * Indica si la diligencia tuvo éxito.
-     * @return true si la diligencia tuvo éxito, false de lo contrario.
-     */
-    public Boolean isExitoDiligencia() {
-        return exitoDiligencia;
-    }
-
-    /**
-     * Asigna el exito de la diligencia al dado por parámetro.
-     * @param exitoDiligencia exito de la diligencia.
-     */
-    public void setExitoDiligencia(Boolean exitoDiligencia) {
-        this.exitoDiligencia = exitoDiligencia;
-    }
-
-    /**
      * Retorna la calificación del servicio.
      * @return Calificación del servicio.
      */
@@ -219,5 +182,21 @@ public abstract class ServicioDTO {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    /**
+     * Retorna el estado del servicio
+     * @return estado del servicio 
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * Asigna el estado del servicio al dado por parámetro.
+     * @param estado nuevo estado del servicio.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
