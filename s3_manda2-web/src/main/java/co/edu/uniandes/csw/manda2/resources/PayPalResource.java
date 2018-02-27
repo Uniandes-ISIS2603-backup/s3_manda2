@@ -1,11 +1,13 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.PayPalDTO;
+import co.edu.uniandes.csw.manda2.ejb.PayPalLogic;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
@@ -27,6 +29,9 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @RequestScoped
 public class PayPalResource {
+    
+    @Inject
+    PayPalLogic payPalLogic;
     
 
     /**

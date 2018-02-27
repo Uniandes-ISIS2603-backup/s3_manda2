@@ -12,10 +12,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import static javax.ws.rs.client.Entity.entity;
 
 /**
  *
- * @author cv.trujillo
+ * @Articulo cv.trujillo
  */
 public class ArticuloLogic {
      private static final Logger LOGGER = Logger.getLogger(ArticuloLogic.class.getName());
@@ -23,7 +24,10 @@ public class ArticuloLogic {
     @Inject
     private ArticuloPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
-    public ArticuloEntity createArticulo(ArticuloEntity entity) throws BusinessLogicException {
+    @Inject
+    private ArticuloLogic articuloLogic;
+    
+   /* public ArticuloEntity createArticulo(ArticuloEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Articulo");
         // Verifica la regla de negocio que dice que no puede haber dos cities con el mismo nombre
         if (persistence.findByNombre(entity.getName()) != null) {
@@ -34,8 +38,14 @@ public class ArticuloLogic {
         LOGGER.info("Termina proceso de creación de Articulo");
         return entity;
     }
-
-    public List<ArticuloEntity> getCities() {
+*/
+     public ArticuloEntity createArticulo(ArticuloEntity entity) {
+        LOGGER.log(Level.INFO, "Inicia proceso de crear un autor ");
+        
+        return persistence.create(entity);
+    }
+    
+    public List<ArticuloEntity> getArticulos() {
         LOGGER.info("Inicia proceso de consultar todas las cities");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<ArticuloEntity> editorials = persistence.findAll();
@@ -53,6 +63,7 @@ public class ArticuloLogic {
         }
         return persistence.update(entity);
     }
+   
     
     public void deleteArticulo(ArticuloEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar ciudad con id={0}", entity.getId());    
