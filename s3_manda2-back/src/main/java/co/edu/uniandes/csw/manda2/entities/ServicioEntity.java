@@ -39,9 +39,9 @@ public class ServicioEntity extends BaseEntity{
     protected String puntoDeRealizacion;
     
     /**
-     * Indica si la diligencia tuvo éxito.
+     * Estado del servicio.
      */
-    protected Boolean exitoDiligencia;
+    private String estado;
     
     /**
      * Calificación del servicio.
@@ -54,13 +54,13 @@ public class ServicioEntity extends BaseEntity{
     protected String descripcion;
     
     @OneToOne
-    protected PagoEntity pago;
+    private PagoEntity pago;
     
     @OneToMany
-    protected ClienteEntity cliente;
+    private ClienteEntity cliente;
     
     @OneToMany    
-    protected EmpleadoEntity empleado;
+    private EmpleadoEntity empleado;
     
         /**
      * Retorna el nombre del servicio.
@@ -127,22 +127,6 @@ public class ServicioEntity extends BaseEntity{
     }
 
     /**
-     * Indica si la diligencia tuvo éxito.
-     * @return true si la diligencia tuvo éxito, false de lo contrario.
-     */
-    public Boolean isExitoDiligencia() {
-        return exitoDiligencia;
-    }
-
-    /**
-     * Asigna el exito de la diligencia al dado por parámetro.
-     * @param exitoDiligencia exito de la diligencia.
-     */
-    public void setExitoDiligencia(Boolean exitoDiligencia) {
-        this.exitoDiligencia = exitoDiligencia;
-    }
-
-    /**
      * Retorna la calificación del servicio.
      * @return Calificación del servicio.
      */
@@ -172,5 +156,69 @@ public class ServicioEntity extends BaseEntity{
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    /**
+     * Retorna el estado del servicio
+     * @return estado del servicio 
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * Asigna el estado del servicio al dado por parámetro.
+     * @param estado nuevo estado del servicio.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Retorna el pago asociado al servicio.
+     * @return pago asociado al servicio.
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
+
+    /**
+     * Asigna el pago al dado por parámetro
+     * @param pago nuevo pago
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
+
+    /**
+     * Retorna el cliente asociado al servicio.
+     * @return cliente asociado al servicio.
+     */
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    /**
+     * Asigna el cliente al dado por parámetro.
+     * @param cliente nuevo cliente del servicio.
+     */
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
+
+    /**
+     * Retorna el empleado asociado al servicio.
+     * @return empleado asociado al servicio.
+     */
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * Asigna el empleado al dado por parámetro.
+     * @param empleado nuevo empleado del servicio.
+     */
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
     }
 }
