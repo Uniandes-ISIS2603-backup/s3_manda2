@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,8 +19,8 @@ import javax.persistence.TemporalType;
  *
  * @author n.bello
  */
-@MappedSuperclass
-public class UsuarioEntity implements Serializable{
+@Entity
+public abstract class UsuarioEntity implements Serializable{
    @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
