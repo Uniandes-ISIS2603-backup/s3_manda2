@@ -31,16 +31,18 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el medio de pago de la billetera
      * 
      */
+     @PodamExclude
     @OneToOne
-    @PodamExclude
+   
     private MedioPagoEntity medioPago;
     
     /**
      *  Atributo que modela el cliente al que le pertenece la billetera
      * 
      */
+      @PodamExclude
     @OneToOne
-    @PodamExclude
+    
     private ClienteEntity cliente;
     
     /**

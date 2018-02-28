@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -29,7 +31,23 @@ public class MedioPagoEntity extends BaseEntity  implements Serializable{
      * Indica el nombre del cliente que realiza pago.
      */
     private String nombreCliente;
+      /**
+     *  Atributo que modela el medio de pago
+     * 
+     */
+     @PodamExclude
+    @OneToOne
+   
+    private PagoEntity pago;
     
+    /**
+     *  Atributo que modela la billetera relacionada al pago
+     * 
+     */
+      @PodamExclude
+    @OneToOne
+    
+    private BilleteraEntity billetera;
      /**
      * Retorna el nombre el cliente.
      * @return nombre cliente
