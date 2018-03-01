@@ -11,12 +11,14 @@ import co.edu.uniandes.csw.manda2.persistence.ElementoBusquedaReservaPersistence
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author cv.trujillo
  */
+@Stateless
 public class ElementoBusquedaReservaLogic {
     
      private static final Logger LOGGER = Logger.getLogger(ElementoBusquedaReservaLogic.class.getName());

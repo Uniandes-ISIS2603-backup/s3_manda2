@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.manda2.persistence.ArticuloPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import static javax.ws.rs.client.Entity.entity;
 
@@ -18,6 +19,7 @@ import static javax.ws.rs.client.Entity.entity;
  *
  * @Articulo cv.trujillo
  */
+@Stateless
 public class ArticuloLogic {
      private static final Logger LOGGER = Logger.getLogger(ArticuloLogic.class.getName());
 
