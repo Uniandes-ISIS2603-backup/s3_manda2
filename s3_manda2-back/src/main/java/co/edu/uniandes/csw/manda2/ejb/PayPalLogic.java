@@ -93,7 +93,7 @@ public class PayPalLogic {
             throw new BusinessLogicException("El link no es válido");
         }
         PayPalEntity newEntity = payPalPersistence.update(entity);
-        LOGGER.log(Level.INFO, "Inicia proceso de actualización de paypal con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Termina proceso de actualización de paypal con id={0}", entity.getId());
         return newEntity;
     }
     

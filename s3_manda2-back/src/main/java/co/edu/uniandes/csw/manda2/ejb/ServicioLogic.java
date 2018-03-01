@@ -9,8 +9,10 @@ import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -35,21 +37,94 @@ public class ServicioLogic {
     }
     
     public ServicioEntity getServicio(Long id){
-        
+     LOGGER.log(Level.INFO, "Inicia el proceso de consultar el servicio con id={0}", id);   
+     ServicioEntity servicio = servicioPersistence.find(id);
+     if( servicio == null ){
+         LOGGER.log(Level.SEVERE, "El servicio con el id {0} no existe", id);
+     }
+     LOGGER.log(Level.INFO, "Termina el proceso de consultar el servicio con id={0}", id);
+     return servicio;
     }
     
+    public ServicioEntity createServicio( ServicioEntity entity ) throws BusinessLogicException{
+        LOGGER.info("Inicia el proceso de creación de servicio");
+        
+        if( !validateCalificacion(entity.getCalificacion()) ){
+            throw new BusinessLogicException("La calificación del servicio no es válida");
+        }
+        else if( !validateCliente(entity.getCliente()) ){
+            throw new BusinessLogicException("El cliente asociado al servicio no es válido");
+        }
+        else if( !validateCosto(entity.getCosto()) ){
+            throw new BusinessLogicException("El costo del servicio no es válido");
+        }
+        else if( !validateDescripcion(entity.getDescripcion()) ){
+            throw new BusinessLogicException("La descripción del servicio no es válida");
+        }
+        else if( !validateEmpleado(entity.getEmpleado()) ){
+            throw new BusinessLogicException("El empleado asociado al servicio no es válido");
+        }
+        else if( !validateEstado(entity.getEstado())){
+            throw new BusinessLogicException("El estado del servicio no es válido");
+        }
+        else if( !validateNombre(entity.getNombre()) ){
+            throw new BusinessLogicException("El nombre del servicio no es válido");
+        }
+        else if( !validatePago(entity.getPago()) ){
+            throw new BusinessLogicException("El pago asociado al servicio no es válido");
+        }
+        else if( !validatePuntoDeEncuentro(entity.getPuntoDeEncuentro()) ){
+            throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
+        }
+        else if( !validatePuntoDeRealizacion(entity.getPuntoDeRealizacion()) ){
+            throw new BusinessLogicException("El punto de realización del servicio no es válido");
+        }
+        servicioPersistence.create(entity);
+        LOGGER.info("Termina proceso de creación de servicio");
+        return entity;
+    }
     
-    private boolean validateServicio( String nombre, Double costo, String estado, String puntoDeEncuentro, String puntoDeRealizacion, String descripcion, Double calificacion, EmpleadoEntity empleado, ClienteEntity cliente, PagoEntity pago){
-        return (validateCalificacion(calificacion)
-                && validateCliente(cliente)
-                && validateCosto(costo)
-                && validateDescripcion(descripcion)
-                && validateEmpleado(empleado)
-                && validateEstado(estado)
-                && validateNombre(nombre)
-                && validatePago(pago)
-                && validatePuntoDeEncuentro(puntoDeEncuentro)
-                && validatePuntoDeRealizacion(puntoDeRealizacion));
+    public ServicioEntity updateServicio( Long id, ServicioEntity entity ) throws BusinessLogicException{
+        LOGGER.log(Level.INFO, "Inicia proceso de actualización del servicio con id={0}", id);
+                if( !validateCalificacion(entity.getCalificacion()) ){
+            throw new BusinessLogicException("La calificación del servicio no es válida");
+        }
+        else if( !validateCliente(entity.getCliente()) ){
+            throw new BusinessLogicException("El cliente asociado al servicio no es válido");
+        }
+        else if( !validateCosto(entity.getCosto()) ){
+            throw new BusinessLogicException("El costo del servicio no es válido");
+        }
+        else if( !validateDescripcion(entity.getDescripcion()) ){
+            throw new BusinessLogicException("La descripción del servicio no es válida");
+        }
+        else if( !validateEmpleado(entity.getEmpleado()) ){
+            throw new BusinessLogicException("El empleado asociado al servicio no es válido");
+        }
+        else if( !validateEstado(entity.getEstado())){
+            throw new BusinessLogicException("El estado del servicio no es válido");
+        }
+        else if( !validateNombre(entity.getNombre()) ){
+            throw new BusinessLogicException("El nombre del servicio no es válido");
+        }
+        else if( !validatePago(entity.getPago()) ){
+            throw new BusinessLogicException("El pago asociado al servicio no es válido");
+        }
+        else if( !validatePuntoDeEncuentro(entity.getPuntoDeEncuentro()) ){
+            throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
+        }
+        else if( !validatePuntoDeRealizacion(entity.getPuntoDeRealizacion()) ){
+            throw new BusinessLogicException("El punto de realización del servicio no es válido");
+        }
+        ServicioEntity newEntity = servicioPersistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualización de servicio con id={0}", id);
+        return newEntity;
+    }
+    
+    public void deleteServicio( Long id ){
+        LOGGER.log( Level.INFO, "Inicia proceso de borrado de servicio con id={0}", id );
+        servicioPersistence.delete(id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrado de servicio con id={0]", id);
     }
     
     private boolean validateNombre( String nombre ){
