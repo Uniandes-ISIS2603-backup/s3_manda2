@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -24,11 +26,16 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
     
     private String EPS;
     
-    @ManyToOne
+    @OneToMany(mappedBy = "empleado")
+    @PodamExclude
     protected List<PagoEntity> pagos;
-    @ManyToOne
+    
+    @OneToMany(mappedBy="empleado")
+    @PodamExclude
     protected List<ReclamoEntity> reclamos;
-    @ManyToOne
+    
+    @OneToMany(mappedBy="empleado")
+    @PodamExclude
     protected List<ServicioEntity> servicios;
     
     public String getIdentificacio() {

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -52,7 +53,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * 
      */
     @PodamExclude
-    @OneToMany
+    @ManyToOne
     private EmpleadoEntity empleado;
     
        /**
@@ -67,7 +68,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * 
      */
     @PodamExclude
-    @OneToMany
+    @ManyToOne
     private ClienteEntity cliente;
   /**
      * Retorna el id del pago.

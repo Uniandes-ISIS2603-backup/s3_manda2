@@ -29,8 +29,9 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
     @PodamExclude
     private String nombre;
     
-    @ManyToMany
-    private ElementoBusquedaReservaEntity elementoBusquedaReserva;
+    //@ManyToMany
+    //private ElementoBusquedaReservaEntity elementoBusquedaReserva;
+    
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */
