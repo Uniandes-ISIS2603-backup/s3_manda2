@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -33,24 +35,28 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * Atributo que representa la billetera que tiene cada usuario.
      */
     @PodamExclude
+    @OneToOne(mappedBy = "cliente")
     private BilleteraEntity billetera;
     /**
      *  Atributo que modela una lista con todos los servicios contratados por un
      * usuario.
      */
     @PodamExclude
+    @OneToMany(mappedBy = "cliente")
     private List<ServicioEntity> servicios;
     /**
      *  Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
     @PodamExclude
+    @OneToMany(mappedBy = "cliente")
     private List<PagoEntity> pagos;
     /**
      * Atributo que modela una lista con todos los reclamos hechos por un
      * usuario.
      */
     @PodamExclude
+    @OneToMany(mappedBy = "cliente")
     private List<ReclamoEntity> quejasYReclamos;
 
     //Metodos

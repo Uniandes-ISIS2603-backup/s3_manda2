@@ -73,7 +73,11 @@ public class ClientePersistence {
          return em.merge(entity);
     }
     
-    public void delete(ClienteEntity entity) {
-        em.remove(entity);
+    public void delete(Long id) {
+        ClienteEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
     }
 }

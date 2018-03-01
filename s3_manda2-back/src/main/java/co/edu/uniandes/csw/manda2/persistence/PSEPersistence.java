@@ -73,7 +73,11 @@ public class PSEPersistence {
          return em.merge(entity);
     }
     
-    public void delete(PSEEntity entity) {
-        em.remove(entity);
+    public void delete(Long id) {
+        PSEEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
     }
 }

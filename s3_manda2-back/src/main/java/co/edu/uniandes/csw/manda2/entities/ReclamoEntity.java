@@ -30,9 +30,11 @@ public class ReclamoEntity implements Serializable{
     @PodamExclude
     @ManyToOne
     protected EmpleadoEntity empleado;
+    
     @PodamExclude
     @ManyToOne
     protected ServicioEntity servicio;
+    
     @PodamExclude
     @ManyToOne
     protected ClienteEntity cliente;

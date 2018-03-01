@@ -35,19 +35,19 @@ public class MedioPagoEntity extends BaseEntity  implements Serializable{
      *  Atributo que modela el medio de pago
      * 
      */
-     @PodamExclude
-    @OneToOne
+     //@PodamExclude
+    //@OneToOne
    
-    private PagoEntity pago;
+    //private PagoEntity pago;
     
     /**
      *  Atributo que modela la billetera relacionada al pago
      * 
      */
-      @PodamExclude
-    @OneToOne
+      //@PodamExclude
+    //@OneToOne
     
-    private BilleteraEntity billetera;
+    //private BilleteraEntity billetera;
      /**
      * Retorna el nombre el cliente.
      * @return nombre cliente
