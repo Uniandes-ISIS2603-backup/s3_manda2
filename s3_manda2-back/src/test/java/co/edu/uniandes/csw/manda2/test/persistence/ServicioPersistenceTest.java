@@ -33,7 +33,8 @@ public class ServicioPersistenceTest {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(ServicioEntity.class.getPackage())
                 .addPackage(ServicioPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml" );
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml" )
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
     @Inject
@@ -58,4 +59,6 @@ public class ServicioPersistenceTest {
         Assert.assertEquals(newEntity.getPuntoDeEncuentro(), result.getPuntoDeEncuentro());
         Assert.assertEquals(newEntity.getPuntoDeRealizacion(), result.getPuntoDeRealizacion());
     }
+    
+    
 }
