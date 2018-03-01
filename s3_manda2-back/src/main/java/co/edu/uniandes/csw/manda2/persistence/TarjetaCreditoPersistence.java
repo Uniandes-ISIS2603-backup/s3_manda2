@@ -73,7 +73,11 @@ public class TarjetaCreditoPersistence {
          return em.merge(entity);
     }
     
-    public void delete(TarjetaCreditoEntity entity) {
-        em.remove(entity);
+    public void delete(Long id) {
+        TarjetaCreditoEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
     }
 }
