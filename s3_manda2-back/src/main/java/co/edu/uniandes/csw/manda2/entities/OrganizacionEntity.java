@@ -18,7 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 
-public class OrganizacionEntity implements Serializable  {
+public class OrganizacionEntity extends ServicioEntity implements Serializable  {
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

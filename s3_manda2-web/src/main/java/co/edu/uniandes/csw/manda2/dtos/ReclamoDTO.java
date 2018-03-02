@@ -113,4 +113,9 @@ public class ReclamoDTO {
     public void setNumero(Long id) {
         this.id = id;
     }
+
+    ReclamoEntity toEntity() {
+        //Pendiente por hacer
+        return null;
+    }
 }

@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import java.io.Serializable;
 
 /**
@@ -69,6 +71,10 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
         this.costoDeTransporte = costoDeTransporte;
     }
 
+    public ComprasEnTiendaDTO(ServicioEntity entityServicio) {
+        //Completar
+    }
+
     
     //METODOS
       /**
@@ -85,5 +91,11 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
-    }   
+    } 
+    @Override
+    public ComprasEnTiendaEntity toEntity()
+    {
+        // pendiente por completar.
+        return null;
+    }
 }

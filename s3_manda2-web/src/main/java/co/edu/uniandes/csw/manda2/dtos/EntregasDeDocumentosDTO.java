@@ -6,6 +6,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 
 
@@ -124,5 +125,9 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     public void setPorcentajeExtra(Double porcentajeExtra) {
         this.porcentajeExtra = porcentajeExtra;
     }
-    
+    @Override
+    public EntregasDeDocumentosEntity toEntity() {
+        //PendientePorHacer
+        return null;
+    }
 }

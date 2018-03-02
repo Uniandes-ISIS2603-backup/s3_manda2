@@ -92,6 +92,11 @@ public class BilleteraDTO {
     public void setPuntosFidelidad(Integer pPuntos){
         this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
     }
+
+    public BilleteraEntity toEntity() {
+        //PendientePorHacer
+        return null;
+    }
     
    
 }
