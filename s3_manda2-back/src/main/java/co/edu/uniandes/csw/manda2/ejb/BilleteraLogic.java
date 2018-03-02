@@ -56,7 +56,7 @@ public class BilleteraLogic {
      * Eliminar una billetera
      * @param id El ID de la  billetera a eliminar
      */
-    public void deleteBilletera(Long id) throws BusinessLogicException {
+    public void deleteBilletera(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar billetera con id={0}", id);
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar billetera con id={0}", id);

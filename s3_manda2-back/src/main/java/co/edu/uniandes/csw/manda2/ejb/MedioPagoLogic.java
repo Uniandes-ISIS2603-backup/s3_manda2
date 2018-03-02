@@ -34,12 +34,12 @@ public class MedioPagoLogic {
      * Devuelve todos los medios de pago que hay en la base de datos.
      * @return Lista de entidades de tipo medioPago.
      */
-    public List<MedioPagoEntity> getMedioPago() {
+    public List<MedioPagoEntity> getMedioPagos() {
         LOGGER.info("Inicia proceso de consultar todos los medios de pago");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<MedioPagoEntity> editorials = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todos los medios de ppag");
-        return editorials;
+        List<MedioPagoEntity> medios = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todos los medios de pago");
+        return medios;
     }
     
     
@@ -56,7 +56,7 @@ public class MedioPagoLogic {
      * Eliminar un medio de pago
      * @param id El ID del medio de pago a eliminar
      */
-    public void deleteMedioPago(Long id) throws BusinessLogicException {
+    public void deleteMedioPago(Long id)  {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar medio pago con id={0}", id);
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar medio pago con id={0}", id);
