@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
- *
+ * Clase que implementa la conexión con la persistencia de la entidad paypal.
  * @author da.ramos
  */
 @Stateless
@@ -26,6 +26,10 @@ public class PayPalLogic {
     @Inject
     PayPalPersistence payPalPersistence;
     
+    /**
+     * Retorna todos los paypals de la base de datos.
+     * @return todos los paypals de la base de datos.
+     */
     public List<PayPalEntity> getPayPals(){
         LOGGER.info("Inicia proceso de consultar payPals");
         List<PayPalEntity> list = payPalPersistence.findAll();
@@ -33,6 +37,11 @@ public class PayPalLogic {
         return list;
     }
     
+    /**
+     * Retorna el paypal con el id dado por parámetro.
+     * @param id id del paypal
+     * @return paypal con el id dado por parámetro
+     */
     public PayPalEntity getPayPal(Long id){
         LOGGER.log(Level.INFO, "Inicia proceso de consultar el payPal con id={0}", id);
         PayPalEntity paypal = payPalPersistence.find(id);
@@ -43,6 +52,12 @@ public class PayPalLogic {
         return paypal;
     }
     
+    /**
+     * Guarda un nuevo paypal 
+     * @param entity entidad del paypal 
+     * @return paypal guardado
+     * @throws BusinessLogicException si el nombre del cliente o el link del paypal no son strins válidos
+     */
     public PayPalEntity createPayPal( PayPalEntity entity ) throws BusinessLogicException{
         LOGGER.info("Inicia proceso de creación de paypal");
         String nombreCliente = entity.getNombreCliente();
@@ -59,6 +74,13 @@ public class PayPalLogic {
         return entity;
     }
     
+    /**
+     * Actualiza la información del paypal con el id dado
+     * @param id id del paypal 
+     * @param entity entidad del nuevo paypal
+     * @return paypal actualizado 
+     * @throws BusinessLogicException si el nombre del cliente o el link del paypal no son strins válidos
+     */
     public PayPalEntity updatePayPal(Long id, PayPalEntity entity) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de actualización de paypal con id={0}", id);
         String nombreCliente = entity.getNombreCliente();
@@ -71,21 +93,35 @@ public class PayPalLogic {
             throw new BusinessLogicException("El link no es válido");
         }
         PayPalEntity newEntity = payPalPersistence.update(entity);
-        LOGGER.log(Level.INFO, "Inicia proceso de actualización de paypal con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Termina proceso de actualización de paypal con id={0}", entity.getId());
         return newEntity;
     }
     
+    /**
+     * Elimina el paypal con el id dado
+     * @param id id del paypal
+     */
     public void deletePayPal(Long id){
         LOGGER.log(Level.INFO, "Inicia proceso de borrado de de paypal con id={0}", id);
         payPalPersistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrado de de paypal con id={0}", id);
     }
     
+    /**
+     * Retorna true si el nombre del cliente es un string válido, false de lo contrario.
+     * @param nombreCliente nombre del cliente
+     * @return true si el nombre del cliente es un string válido, false de lo contrario.
+     */
     private boolean validateNombreCliente( String nombreCliente ){
-        return !(nombreCliente == null || nombreCliente.isEmpty());
+        return (nombreCliente != null && !nombreCliente.isEmpty());
     }
     
+     /**
+     * Retorna true si el link del paypal es un string válido, false de lo contrario.
+     * @param link link del paypal
+     * @return true si el link del paypal es un string válido, false de lo contrario.
+     */
     private boolean validateLink( String link ){
-        return !( link == null || link.isEmpty());
+        return ( link != null && !link.isEmpty());
     }
 }
