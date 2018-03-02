@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
+
 /**
  * BilleteraDTO Objeto de transferencia de datos de Billeteras. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
@@ -56,6 +58,10 @@ public class BilleteraDTO {
     public BilleteraDTO(){
      this(0D,0);
     
+    }
+    public BilleteraDTO(BilleteraEntity entity)
+    {
+        //Completar
     }
     /**
      * Retorna el saldo en la billetera.

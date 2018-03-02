@@ -70,6 +70,7 @@ public class ClienteDTO extends UsuarioDTO {
      * @param cliente: Es la entidad que se va a convertir a DTO
      */
     public ClienteDTO(ClienteEntity cliente) {
+        super();
         if (cliente != null) {
             this.id = cliente.getId();
             this.nombre = cliente.getNombre();
@@ -115,6 +116,7 @@ public class ClienteDTO extends UsuarioDTO {
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public ClienteEntity toEntity() {
         ClienteEntity entity = new ClienteEntity();
         entity.setId(this.id);

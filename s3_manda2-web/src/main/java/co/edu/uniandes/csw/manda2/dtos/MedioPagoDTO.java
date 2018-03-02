@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
+
 /**
  * * MedioPagoDTO Objeto de transferencia de datos de Medio Pago. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
@@ -83,5 +85,10 @@ public class MedioPagoDTO {
      */
     public void setId(Long id){
         this.id = id;
+    }
+    public MedioPagoEntity toEntity()
+    {
+        //Completar.
+        return null;
     }
 }

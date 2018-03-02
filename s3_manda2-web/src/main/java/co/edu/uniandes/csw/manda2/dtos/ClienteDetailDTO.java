@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
@@ -26,6 +27,7 @@ import java.util.List;
  *      "calificacion": Double,
  *      "pagoAnticipado": boolean,
  *      "horasDeServicioSemanal": number,
+ *
  *      "quejasYReclamos": [{
  *      "mensaje": string,
  *      "numero": number,
@@ -121,7 +123,7 @@ public class ClienteDetailDTO extends ClienteDTO {
      * Constructor por defecto
      */
     public ClienteDetailDTO() {
-
+        super();
     }
 
     /**
@@ -134,30 +136,35 @@ public class ClienteDetailDTO extends ClienteDTO {
 
         super(entity);
         if (entity != null) {
-//            if (entity.getBilletera() != null) {
-//                this.billetera = new BilleteraDTO(entity.getBilletera());
-//            }
-//            //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
-//
-//            if (entity.getServicios() != null) {
-//                this.servicios = new ArrayList<>();
-//                for (ServicioEntity entityServicio : entity.getServicios()) {
-//                    servicios.add(new ServicioDTO(entityServicio));
-//                }
-//            }
-//
-//            if (entity.getPagos() != null) {
-//                this.pagos = new ArrayList<>();
-//                for (PagoEntity entityPago : entity.getPagos()) {
-//                    servicios.add(new PagoDTO(entityPago));
-//                }
-//            }
-//            if (entity.getQuejasYReclamos()!= null) {
-//                this.quejasYReclamos = new ArrayList<>();
-//                for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
-//                    servicios.add(new ReclamoDTO(entityReclamo));
-//                }
-//            }
+            if (entity.getBilletera() != null) {
+                this.billetera = new BilleteraDTO(entity.getBilletera());
+            }
+            //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
+
+            //if (entity.getServicios() != null) {
+              //  this.servicios = new ArrayList<>();
+                //for (ServicioEntity entityServicio : entity.getServicios()) {
+                  //  entityServicio.class()==EntregasDeDocumentosEntity.class();
+                   
+                   //{
+                     //   servicios.add(new EntregasDeDocumentosDTO(entityServicio));
+                   //}
+                    
+                //}
+           // }
+
+            if (entity.getPagos() != null) {
+                this.pagos = new ArrayList<>();
+                for (PagoEntity entityPago : entity.getPagos()) {
+                    pagos.add(new PagoDTO(entityPago));
+                }
+            }
+            if (entity.getQuejasYReclamos() != null) {
+                this.quejasYReclamos = new ArrayList<>();
+                for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
+                    quejasYReclamos.add(new ReclamoDTO(entityReclamo));
+                }
+            }
         }
     }
 
