@@ -32,39 +32,100 @@ public class BilleteraLogic {
     public List<BilleteraEntity> getBilleteras() {
         LOGGER.info("Inicia proceso de consultar todas las billeteras");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<BilleteraEntity> editorials = persistence.findAll();
+        List<BilleteraEntity> billeteras = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las billeteras");
-        return editorials;
+        return billeteras;
     }
 
+    /**
+     * Busca una billetera por ID
+     * @param id El id de la billetera a buscar
+     * @return La billetera encontrada, null si no lo encuentra.
+     */
     public BilleteraEntity getBilletera(Long id) {
-        return persistence.find(id);
-    }
-
-
-    
-    public void deleteBilletera(BilleteraEntity entity) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar billetera con id={0}", entity.getId());    
-        persistence.delete(entity);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar billetera con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar billetera con id={0}", id);
+        BilleteraEntity billetera = persistence.find(id);
+        if (billetera == null) {
+            LOGGER.log(Level.SEVERE, "La billetera con el id {0} no existe", id);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar billetera con id={0}", id);
+        return billetera;
     }
     
+     /**
+     * Eliminar una billetera
+     * @param id El ID de la  billetera a eliminar
+     */
+    public void deleteBilletera(Long id) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar billetera con id={0}", id);
+        persistence.delete(id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar billetera con id={0}", id);
+    }
     
-//    public BilleteraEntity createBilletera(BilleteraEntity entity) throws BusinessLogicException {
-//        LOGGER.info("Inicia proceso de creación de Billetera");
-//        // Verifica la regla de negocio que dice que no puede haber dos cities con el mismo nombre
-//        if (persistence.findByName(entity.getName()) != null) {
-//            throw new BusinessLogicException("Ya existe una Ciudad con el nombre \"" + entity.getName() + "\"");
-//        }
-//        // Invoca la persistencia para crear la Billetera
-//        persistence.create(entity);
-//        LOGGER.info("Termina proceso de creación de Billetera");
-//        return entity;
-//    }
-    //    public BilleteraEntity updateBilletera(BilleteraEntity entity) throws BusinessLogicException  {
-//        if (persistence.findByName(entity.getName()) != null) {
-//            throw new BusinessLogicException("Ya existe una Ciudad con el nombre \"" + entity.getName() + "\"");
-//        }
-//        return persistence.update(entity);
-//    }
+    
+    
+        /**
+     * Guardar una nueva billetera
+     * @param entity La entidad de la billetera a persistir
+     * @return La entidad  billetera luego de persistirla
+     * @throws BusinessLogicException Si la cedula del cliente o el saldo en la billetera son nulos o estaban vacios. 
+     */
+     public BilleteraEntity createBilletera(BilleteraEntity entity) throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de creación de la billetera");
+        if (!validateCedula(entity.getCliente().getCedula())) {
+            throw new BusinessLogicException("La cedula no puede ser vacia");
+        }
+        else if( !validateSaldo(entity.getSaldo()) ){
+            throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
+        }
+        persistence.create(entity);
+        LOGGER.info("Termina proceso de creación de la billetera");
+        return entity;
+         
+
+ }
+     
+     /**
+     * Actualizar billetera por iD
+     * @param id El ID de la billetera a actualizar
+     * @param entity La entidad de la billetera con los cambios deseados
+     * @return La entidad de la billetera despues de actualizarla
+     * @throws BusinessLogicException Si la cedula, saldo o puntos de fidelidad son nulos o estaban vacios, se intento cambiar el id 
+     *         que se iba a cambiar ya estaba en el sistema.
+     */
+    public BilleteraEntity updateBilletera(Long id, BilleteraEntity entity) throws BusinessLogicException  {
+        
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la billetera con id={0}", id);
+        if (!validateCedula(entity.getCliente().getCedula())) {
+                     throw new BusinessLogicException("La cedula no puede ser vacia");
+        }
+        else if( !validateSaldo(entity.getSaldo()) ){
+            throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
+        }
+        if(id!= entity.getId())
+        {
+            throw new BusinessLogicException("No se puede cambiar el id de  la billetera");
+        }
+        BilleteraEntity newEntity = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar pse con id={0}", entity.getId());
+        return newEntity;
+   }
+    
+     /**
+     * Retorna true si el saldo es un Double válido, false de lo contrario.
+     * @param saldo saldo de la billetera.
+     * @return true si el saldo de la billetera es un Double valido, false de lo contrario.
+     */
+     private boolean validateSaldo( Double saldo ){
+        return (saldo != null && saldo >0);
+    }
+     
+     /**
+     * Retorna true si la cedula del cliente es un string válido, false de lo contrario.
+     * @param cedula cedula del cliente
+     * @return true si la cedula del cliente es un string válido, false de lo contrario.
+     */
+    private boolean validateCedula( String cedula ){
+        return ( cedula != null && !cedula.isEmpty());
+    }
 }
