@@ -19,20 +19,20 @@ public class TarjetaCreditoEntity extends MedioPagoEntity implements Serializabl
     /**
      * Atributo que representa el numero de una tarjeta de credito.
      */
-    private Integer numeroTarjeta;
+    private String numeroTarjeta;
     //Metodos
 
     /**
      * @return the numeroTarjeta
      */
-    public Integer getNumeroTarjeta() {
+    public String getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
     /**
      * @param numeroTarjeta the numeroTarjeta to set
      */
-    public void setNumeroTarjeta(Integer numeroTarjeta) {
+    public void setNumeroTarjeta(String numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
 }

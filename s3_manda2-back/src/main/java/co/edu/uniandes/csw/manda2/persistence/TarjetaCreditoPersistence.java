@@ -43,7 +43,7 @@ public class TarjetaCreditoPersistence {
      * @return null si no existe ninguna tarjeta de credito con el numero del argumento. Si
      * existe alguna devuelve la primera.
      */
-    public TarjetaCreditoEntity findByNumero(Integer numeroTarjeta) {
+    public TarjetaCreditoEntity findByNumero(String numeroTarjeta) {
         LOGGER.log(Level.INFO, "Consultando Tarjeta de Credito por numero de tarjeta ", numeroTarjeta);
 
         // Se crea un query para buscar una tarjeta de credito con el numero que recibe el método como argumento. ":numeroTarjeta" es un placeholder que debe ser remplazado

@@ -166,7 +166,7 @@ public class TarjetaDeCreditoPersistenceTest {
         TarjetaCreditoEntity entity = data.get(0);
         TarjetaCreditoEntity newEntity = tarjetaCreditoPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombreCliente(), newEntity.getNombreCliente());
         Assert.assertEquals(entity.getNumeroTarjeta(), newEntity.getNumeroTarjeta());
     }
     /**
@@ -179,7 +179,7 @@ public class TarjetaDeCreditoPersistenceTest {
         TarjetaCreditoEntity entity = data.get(0);
         TarjetaCreditoEntity newEntity = tarjetaCreditoPersistence.findByNumero(entity.getNumeroTarjeta());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombreCliente(), newEntity.getNombreCliente());
         Assert.assertEquals(entity.getNumeroTarjeta(), newEntity.getNumeroTarjeta());
     }
 
@@ -213,7 +213,7 @@ public class TarjetaDeCreditoPersistenceTest {
 
         TarjetaCreditoEntity resp = em.find(TarjetaCreditoEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getNombreCliente(), resp.getNombreCliente());
         Assert.assertEquals(newEntity.getNumeroTarjeta(), resp.getNumeroTarjeta());
     }
 }

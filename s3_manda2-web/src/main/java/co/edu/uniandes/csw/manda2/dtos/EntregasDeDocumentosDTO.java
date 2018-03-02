@@ -6,6 +6,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+
 
 /**
  **Clase que representa el servicio de entrega de documentos
@@ -81,6 +83,10 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     public EntregasDeDocumentosDTO()
     {
         
+    }
+
+    public EntregasDeDocumentosDTO(ServicioEntity entityServicio) {
+        //Completar
     }
    
     

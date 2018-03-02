@@ -18,7 +18,7 @@ import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
  *   {
  *      "nombreCliente": string,
  *      "id": number,
- *      "numeroTarjeta": number
+ *      "numeroTarjeta": string
  *   }
  * </pre>
  * Por ejemplo una tarjeta de credito se representa asi:<br>
@@ -28,7 +28,7 @@ import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
  *   {
  *      "nombreCliente": "carlos bello",
  *      "id": 01234566789,
- *      "numeroTarjeta": 0123456987124568
+ *      "numeroTarjeta": "0123456987124568"
  *   }
  *
  * </pre>
@@ -43,7 +43,7 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     /**
      * Atributo que representa el numero de la tarjeta.
      */
-    private Integer numeroTarjeta;
+    private String numeroTarjeta;
     
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
@@ -52,9 +52,13 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      * @param tarjeta: Es la entidad que se va a convertir a DTO
      */
     public TarjetaCreditoDTO(TarjetaCreditoEntity tarjeta) {
+       super();
+        if(tarjeta != null)
+       {
         this.id = tarjeta.getId();
         this.nombreCliente = tarjeta.getNombreCliente();
         this.numeroTarjeta = tarjeta.getNumeroTarjeta();
+       }
 
     }
     //Constructor
@@ -70,14 +74,14 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     /**
      * @return the numeroTarjeta
      */
-    public Integer getNumeroTarjeta() {
+    public String getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
     /**
      * @param numeroTarjeta the numeroTarjeta to set
      */
-    public void setNumeroTarjeta(Integer numeroTarjeta) {
+    public void setNumeroTarjeta(String numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
     /**
@@ -85,6 +89,7 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public TarjetaCreditoEntity toEntity() {
         TarjetaCreditoEntity entity = new TarjetaCreditoEntity();
         entity.setId(this.id);

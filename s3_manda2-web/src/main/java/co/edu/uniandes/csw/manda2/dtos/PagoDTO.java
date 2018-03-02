@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import java.util.Date;
 
 /**
@@ -78,7 +79,10 @@ public class PagoDTO {
         this.estadoTransaccion = estado;
         this.fecha  = fecha;
     }
-    
+    public PagoDTO(PagoEntity entity)
+    {
+        
+    }
     /**
      * Retorna el id del pago.
      * @return id de pago.

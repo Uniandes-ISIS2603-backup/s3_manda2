@@ -55,9 +55,13 @@ public class PSEDTO extends MedioPagoDTO {
      * @param pse: Es la entidad que se va a convertir a DTO
      */
     public PSEDTO(PSEEntity pse) {
+        super();
+        if(pse!= null)
+        {
         this.id = pse.getId();
         this.nombreCliente = pse.getNombreCliente();
         this.linkPse = pse.getLinkPse();
+        }
 
     }
     
@@ -81,6 +85,7 @@ public class PSEDTO extends MedioPagoDTO {
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public PSEEntity toEntity() {
         PSEEntity entity = new PSEEntity();
         entity.setId(this.id);

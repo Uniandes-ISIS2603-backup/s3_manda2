@@ -164,7 +164,7 @@ public class PSEPersistenceTest {
         PSEEntity entity = data.get(0);
         PSEEntity newEntity = PSEPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombreCliente(), newEntity.getNombreCliente());
         Assert.assertEquals(entity.getLinkPse(), newEntity.getLinkPse());
     }
     /**
@@ -177,7 +177,7 @@ public class PSEPersistenceTest {
         PSEEntity entity = data.get(0);
         PSEEntity newEntity = PSEPersistence.findByLink(entity.getLinkPse());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombreCliente(), newEntity.getNombreCliente());
         Assert.assertEquals(entity.getLinkPse(), newEntity.getLinkPse());
     }
     /**
@@ -209,7 +209,7 @@ public class PSEPersistenceTest {
 
         PSEEntity resp = em.find(PSEEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getNombreCliente(), resp.getNombreCliente());
         Assert.assertEquals(newEntity.getLinkPse(), resp.getLinkPse());
     }
 }

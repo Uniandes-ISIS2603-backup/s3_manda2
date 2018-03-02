@@ -70,6 +70,10 @@ public class PSELogic {
         if (!validateNombreCliente(entity.getNombreCliente())||!validateLink(entity.getLinkPse())) {
             throw new BusinessLogicException("El nombre o el link no pueden ser vacios");
         }
+        if(persistence.find(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos pses con el mismo id");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de pse");
         return entity;
@@ -111,4 +115,5 @@ public class PSELogic {
     private boolean validateLink( String link ){
         return ( link != null && !link.isEmpty());
     }
+    
 }

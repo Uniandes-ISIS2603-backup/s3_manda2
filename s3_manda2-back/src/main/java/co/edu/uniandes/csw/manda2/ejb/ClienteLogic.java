@@ -40,7 +40,7 @@ public class ClienteLogic {
      * @param id El id del cl  a buscar
      * @return El cliente encontrado, null si no lo encuentra.
      */
-    public ClienteEntity getClienteCredito(Long id) {
+    public ClienteEntity getCliente(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar cliente de credito con id={0}", id);
         ClienteEntity cliente = persistence.find(id);
         if (cliente == null) {
@@ -68,6 +68,9 @@ public class ClienteLogic {
         LOGGER.info("Inicia proceso de creación del cliente");
         if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())) {
             throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
+        }
+        if (getCliente(entity.getId())!= null) {
+            throw new BusinessLogicException("No pueden haber dos clientes con el mismo id");
         }
         if(persistence.findByCedula(entity.getCedula())!= null)
         {

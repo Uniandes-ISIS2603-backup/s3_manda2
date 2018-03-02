@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.UsuarioEntity;
 import java.util.Date;
 
 /**
@@ -134,5 +135,10 @@ public abstract class UsuarioDTO  {
      */
     public void setID(Long  id) {
         this.id = id;
+    }
+    public UsuarioEntity toEntity()
+    {
+        //completar
+        return null;
     }
 }

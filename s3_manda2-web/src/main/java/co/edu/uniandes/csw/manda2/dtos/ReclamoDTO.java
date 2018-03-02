@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
+
 /**
  * 
  * Clase que representa los reclamos que se hacen.
@@ -63,6 +65,10 @@ public class ReclamoDTO {
       mensaje = pMensaje;
       numero = pNumero;
       id =pId;
+    }
+    public ReclamoDTO (ReclamoEntity entity)
+    {
+        //Completar
     }
     //METODOS
     /**
