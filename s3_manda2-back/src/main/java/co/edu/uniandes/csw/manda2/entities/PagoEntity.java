@@ -127,4 +127,19 @@ public class PagoEntity extends BaseEntity implements Serializable {
     public void setMedioPago(MedioPagoEntity medio) {
         this.medioPago =medio;
     }
+    
+     /**
+     * @return the Cliente
+     */
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param medio the medioPago to set
+     */
+    public void setCliente(ClienteEntity Cliente) {
+        this.cliente =cliente;
+    }
 }
+

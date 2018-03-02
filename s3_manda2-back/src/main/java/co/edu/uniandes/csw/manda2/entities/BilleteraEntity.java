@@ -31,7 +31,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el medio de pago de la billetera
      * 
      */
-     @PodamExclude
+    @PodamExclude
     @OneToOne
    
     private MedioPagoEntity medioPago;
@@ -40,7 +40,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el cliente al que le pertenece la billetera
      * 
      */
-      @PodamExclude
+    @PodamExclude
     @OneToOne
     
     private ClienteEntity cliente;
@@ -87,5 +87,19 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      */
     public void setMedioPago(MedioPagoEntity medio) {
         this.medioPago =medio;
+    }
+    
+     /**
+     * @return the cliente
+     */
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the pagos to set
+     */
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
     }
 }

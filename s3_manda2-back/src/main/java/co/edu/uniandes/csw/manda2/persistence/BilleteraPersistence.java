@@ -53,8 +53,11 @@ public class BilleteraPersistence {
         return em.merge(entity);
     }
 
-    public void delete(BilleteraEntity entity) {
-      
+    public void delete(Long id) {
+      BilleteraEntity entity = find(id);
+        if(entity!= null)
+        {
         em.remove(entity);
+        }
 }
 }
