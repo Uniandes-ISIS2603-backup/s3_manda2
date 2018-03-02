@@ -47,7 +47,7 @@ public class TarjetaCreditoPersistence {
         LOGGER.log(Level.INFO, "Consultando Tarjeta de Credito por numero de tarjeta ", numeroTarjeta);
 
         // Se crea un query para buscar una tarjeta de credito con el numero que recibe el método como argumento. ":numeroTarjeta" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From TarjetaDeCreditoEntity e where e.numeroTarjeta = :numeroTarjeta", TarjetaCreditoEntity.class);
+        TypedQuery query = em.createQuery("Select e From TarjetaCreditoEntity e where e.numeroTarjeta = :numeroTarjeta", TarjetaCreditoEntity.class);
         // Se remplaza el placeholder ":numeroTarjeta" con el valor del argumento 
         query = query.setParameter("numeroTarjeta", numeroTarjeta);
         // Se invoca el query se obtiene la lista resultado
@@ -61,7 +61,7 @@ public class TarjetaCreditoPersistence {
 
     public List<TarjetaCreditoEntity> findAll() {
         LOGGER.info("Consultando todas las tarjetas de credito");
-        TypedQuery query = em.createQuery("select u from TarjetaDeCreditoEntity u", TarjetaCreditoEntity.class);
+        TypedQuery query = em.createQuery("select u from TarjetaCreditoEntity u", TarjetaCreditoEntity.class);
         return query.getResultList();
     }
 

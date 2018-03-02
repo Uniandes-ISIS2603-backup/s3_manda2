@@ -135,4 +135,84 @@ public class ClientePersistenceTest {
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
+    /**
+     * Prueba para consultar la lista de clientes.
+     *
+     * 
+     */
+    @Test
+    public void getClientesTest() {
+        List<ClienteEntity> list = clientePersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (ClienteEntity ent : list) {
+            boolean found = false;
+            for (ClienteEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    /**
+     * Prueba para consultar un cliente.
+     *
+     * 
+     */
+    @Test
+    public void getClienteTest() {
+        ClienteEntity entity = data.get(0);
+        ClienteEntity newEntity = clientePersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getCedula(), newEntity.getCedula());
+        Assert.assertEquals(entity.getCalificacion(), newEntity.getCalificacion());
+    }
+    /**
+     * Prueba para consultar un cliente.
+     *
+     * 
+     */
+    @Test
+    public void getClienteByCedulaTest() {
+        ClienteEntity entity = data.get(0);
+        ClienteEntity newEntity = clientePersistence.findByCedula(entity.getCedula());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getCedula(), newEntity.getCedula());
+        Assert.assertEquals(entity.getCalificacion(), newEntity.getCalificacion());
+    }
+    /**
+     * Prueba para eliminar un cliente.
+     *
+     * 
+     */
+    @Test
+    public void deleteClienteTest() {
+        ClienteEntity entity = data.get(0);
+        clientePersistence.delete(entity.getId());
+        ClienteEntity deleted = em.find(ClienteEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para actualizar un cliente.
+     *
+     * 
+     */
+    @Test
+    public void updateClienteTest() {
+        ClienteEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        ClienteEntity newEntity = factory.manufacturePojo(ClienteEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        clientePersistence.update(newEntity);
+
+        ClienteEntity resp = em.find(ClienteEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
+        Assert.assertEquals(newEntity.getCedula(), resp.getCedula());
+        Assert.assertEquals(newEntity.getCalificacion(), resp.getCalificacion());
+    }
 }

@@ -50,7 +50,7 @@ public class PSEPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private PSEPersistence editorialPersistence;
+    private PSEPersistence PSEPersistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -128,11 +128,88 @@ public class PSEPersistenceTest {
     public void createPSETest() {
         PodamFactory factory = new PodamFactoryImpl();
         PSEEntity newEntity = factory.manufacturePojo(PSEEntity.class);
-        PSEEntity result = editorialPersistence.create(newEntity);
+        PSEEntity result = PSEPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
         PSEEntity entity = em.find(PSEEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
+    }
+     /**
+     * Prueba para consultar la lista de PSEs.
+     *
+     * 
+     */
+    @Test
+    public void getPSEsTest() {
+        List<PSEEntity> list = PSEPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (PSEEntity ent : list) {
+            boolean found = false;
+            for (PSEEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    /**
+     * Prueba para consultar un pse.
+     *
+     * 
+     */
+    @Test
+    public void getPSETest() {
+        PSEEntity entity = data.get(0);
+        PSEEntity newEntity = PSEPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getLinkPse(), newEntity.getLinkPse());
+    }
+    /**
+     * Prueba para consultar un pse.
+     *
+     * 
+     */
+    @Test
+    public void getPSEByLinkTest() {
+        PSEEntity entity = data.get(0);
+        PSEEntity newEntity = PSEPersistence.findByLink(entity.getLinkPse());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getLinkPse(), newEntity.getLinkPse());
+    }
+    /**
+     * Prueba para eliminar un pse.
+     *
+     * 
+     */
+    @Test
+    public void deletePSETest() {
+        PSEEntity entity = data.get(0);
+        PSEPersistence.delete(entity.getId());
+        PSEEntity deleted = em.find(PSEEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para actualizar un PSE.
+     *
+     * 
+     */
+    @Test
+    public void updatePSETest() {
+        PSEEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        PSEEntity newEntity = factory.manufacturePojo(PSEEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        PSEPersistence.update(newEntity);
+
+        PSEEntity resp = em.find(PSEEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getLinkPse(), resp.getLinkPse());
     }
 }

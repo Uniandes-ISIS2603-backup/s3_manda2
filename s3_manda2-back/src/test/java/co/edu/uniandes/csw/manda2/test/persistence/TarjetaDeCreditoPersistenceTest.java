@@ -50,7 +50,7 @@ public class TarjetaDeCreditoPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private TarjetaCreditoPersistence editorialPersistence;
+    private TarjetaCreditoPersistence tarjetaCreditoPersistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -94,7 +94,7 @@ public class TarjetaDeCreditoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from ClienteEntity").executeUpdate();
+        em.createQuery("delete from TarjetaCreditoEntity").executeUpdate();
     }
 
     /**
@@ -128,12 +128,92 @@ public class TarjetaDeCreditoPersistenceTest {
     public void createEditorialTest() {
         PodamFactory factory = new PodamFactoryImpl();
         TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
-        TarjetaCreditoEntity result = editorialPersistence.create(newEntity);
+        TarjetaCreditoEntity result = tarjetaCreditoPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
         TarjetaCreditoEntity entity = em.find(TarjetaCreditoEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
+    }
+    /**
+     * Prueba para consultar la lista de tarjetas de credito.
+     *
+     * 
+     */
+    @Test
+    public void getTarjetasCreditosTest() {
+        List<TarjetaCreditoEntity> list = tarjetaCreditoPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (TarjetaCreditoEntity ent : list) {
+            boolean found = false;
+            for (TarjetaCreditoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Prueba para consultar una tarjeta de credito.
+     *
+     * 
+     */
+    @Test
+    public void getTarjetaCreditoTest() {
+        TarjetaCreditoEntity entity = data.get(0);
+        TarjetaCreditoEntity newEntity = tarjetaCreditoPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNumeroTarjeta(), newEntity.getNumeroTarjeta());
+    }
+    /**
+     * Prueba para consultar una tarjeta de credito por su numero.
+     *
+     * 
+     */
+    @Test
+    public void getTarjetaCreditoByNumeroTest() {
+        TarjetaCreditoEntity entity = data.get(0);
+        TarjetaCreditoEntity newEntity = tarjetaCreditoPersistence.findByNumero(entity.getNumeroTarjeta());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNumeroTarjeta(), newEntity.getNumeroTarjeta());
+    }
+
+    /**
+     * Prueba para eliminar una tarjeta de credito.
+     *
+     * 
+     */
+    @Test
+    public void deleteTarjetaCreditoTest() {
+        TarjetaCreditoEntity entity = data.get(0);
+        tarjetaCreditoPersistence.delete(entity.getId());
+        TarjetaCreditoEntity deleted = em.find(TarjetaCreditoEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+
+    /**
+     * Prueba para actualizar una tarjeta de credito.
+     *
+     * 
+     */
+    @Test
+    public void updateTarjetaCreditoTest() {
+        TarjetaCreditoEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        tarjetaCreditoPersistence.update(newEntity);
+
+        TarjetaCreditoEntity resp = em.find(TarjetaCreditoEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getNumeroTarjeta(), resp.getNumeroTarjeta());
     }
 }
