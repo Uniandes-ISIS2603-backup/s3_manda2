@@ -127,4 +127,9 @@ public class PagoDTO {
     public void setFecha (Date pFecha){
         this.fecha = pFecha;
     }
+
+    PagoEntity toEntity() {
+        //Pendiente por hacer
+        return null;
+    }
 }

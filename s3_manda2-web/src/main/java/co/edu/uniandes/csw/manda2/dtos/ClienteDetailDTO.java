@@ -6,10 +6,13 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,17 +144,27 @@ public class ClienteDetailDTO extends ClienteDTO {
             }
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
 
-            //if (entity.getServicios() != null) {
-              //  this.servicios = new ArrayList<>();
-                //for (ServicioEntity entityServicio : entity.getServicios()) {
-                  //  entityServicio.class()==EntregasDeDocumentosEntity.class();
-                   
-                   //{
-                     //   servicios.add(new EntregasDeDocumentosDTO(entityServicio));
-                   //}
-                    
-                //}
-           // }
+            if (entity.getServicios() != null) {
+               this.servicios = new ArrayList<>();
+                for (ServicioEntity entityServicio : entity.getServicios()) {
+                   if( entityServicio instanceof EntregasDeDocumentosEntity)
+                   {
+                        servicios.add(new EntregasDeDocumentosDTO(entityServicio));
+                   }
+                   else if( entityServicio instanceof ComprasEnTiendaEntity)
+                   {
+                        servicios.add(new ComprasEnTiendaDTO(entityServicio));
+                   }
+                   else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
+                   {
+                        servicios.add(new VueltasConDemoraEnOficinaDTO(entityServicio));
+                   }
+                   else if( entityServicio instanceof OrganizacionEntity)
+                   {
+                        servicios.add(new OrganizacionDTO(entityServicio));
+                   }
+                }
+            }
 
             if (entity.getPagos() != null) {
                 this.pagos = new ArrayList<>();
@@ -233,31 +246,30 @@ public class ClienteDetailDTO extends ClienteDTO {
     @Override
     public ClienteEntity toEntity() {
         ClienteEntity clienteE = super.toEntity();
-//        if (billetera != null) {
-//            clienteE.setBilletera(billetera.toEntity());
-//        }
-//        //Mismo problema que en el constructor que hago¿?
-//        if (servicios != null) {
-//            List<ServicioEntity> serviciosEntity = new ArrayList<>();
-//            for (ServicioDTO dtoServicio : servicios) {
-//                serviciosEntity.add(dtoServicio.toEntity());
-//            }
-//            clienteE.setServicios(serviciosEntity);
-//        }
-//        if (pagos != null) {
-//            List<PagoEntity> pagosEntity = new ArrayList<>();
-//            for (PagoDTO dtoPago : pagos) {
-//                pagosEntity.add(dtoPago.toEntity());
-//            }
-//            clienteE.setPagos(pagosEntity);
-//        }
-//        if (quejasYReclamos != null) {
-//            List<ReclamoEntity> reclamosEntity = new ArrayList<>();
-//            for (ReclamoDTO dtoReclamo : quejasYReclamos) {
-//                reclamosEntity.add(dtoReclamo.toEntity());
-//            }
-//            clienteE.setQuejasYReclamos(reclamosEntity);
-//        }
+        if (billetera != null) {
+            clienteE.setBilletera(billetera.toEntity());
+        }
+        if (servicios != null) {
+            List<ServicioEntity> serviciosEntity = new ArrayList<>();
+            for (ServicioDTO dtoServicio : servicios) {
+                serviciosEntity.add(dtoServicio.toEntity());
+            }
+            clienteE.setServicios(serviciosEntity);
+        }
+        if (pagos != null) {
+            List<PagoEntity> pagosEntity = new ArrayList<>();
+            for (PagoDTO dtoPago : pagos) {
+                pagosEntity.add(dtoPago.toEntity());
+            }
+            clienteE.setPagos(pagosEntity);
+        }
+        if (quejasYReclamos != null) {
+            List<ReclamoEntity> reclamosEntity = new ArrayList<>();
+            for (ReclamoDTO dtoReclamo : quejasYReclamos) {
+                reclamosEntity.add(dtoReclamo.toEntity());
+            }
+            clienteE.setQuejasYReclamos(reclamosEntity);
+        }
         return clienteE;
     }
 }

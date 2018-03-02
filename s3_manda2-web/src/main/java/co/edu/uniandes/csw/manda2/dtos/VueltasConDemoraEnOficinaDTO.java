@@ -5,6 +5,9 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
+
 
 /**
  * Clase que representa el servicio de vueltas con demora en oficina, como filas para bancos, etc ... 
@@ -54,6 +57,10 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
     public VueltasConDemoraEnOficinaDTO(){
        
     }
+
+    public VueltasConDemoraEnOficinaDTO(ServicioEntity entityServicio) {
+        //completar
+    }
    
 
 
@@ -89,5 +96,10 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         this.costoDeTransporte = costoDeTransporte;
     }
   
-            
+    @Override
+    public VueltasConDemoraEnOficinaEntity toEntity()
+    {
+        // pendiente por completar.
+        return null;
+    }     
 }

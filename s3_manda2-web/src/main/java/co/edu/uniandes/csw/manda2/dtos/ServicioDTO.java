@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+
 /**
  * Clase abstracta que representa un servicio de la aplicación.
  * @author da.ramos
@@ -198,5 +200,10 @@ public abstract class ServicioDTO {
      */
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public ServicioEntity toEntity() {
+       //pendiente por hacer
+       return null;
     }
 }

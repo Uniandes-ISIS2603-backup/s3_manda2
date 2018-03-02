@@ -5,6 +5,9 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+
 /**
 *
  * OrganizacionDTO Servicios de tipo organización. Los DTO contienen las
@@ -69,6 +72,10 @@ public class OrganizacionDTO extends ServicioDetailDTO
      * Identificacion del servicio de Organizacion
      */
     private Long id;
+
+    public OrganizacionDTO(ServicioEntity entityServicio) {
+        //Completar
+    }
     /**
      * Retorna el costo del transporte del servicio
      * @return costoDeTransporte el costo del transporte.
@@ -135,5 +142,11 @@ public class OrganizacionDTO extends ServicioDetailDTO
     public void setDesplazamiento(Boolean desplazamiento)
     {
         this.desplazamiento=desplazamiento;
+    }
+    @Override
+    public OrganizacionEntity toEntity()
+    {
+        // pendiente por completar.
+        return null;
     }
 }
