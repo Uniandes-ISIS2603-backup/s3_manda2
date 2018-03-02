@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.persistence;
 
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -46,7 +47,9 @@ public class ServicioPersistence {
         return em.merge(entity);
     }
     
-    public void delete( ServicioEntity entity ){
+    public void delete( Long id ){
+        LOGGER.log(Level.INFO, "Borrando servicio con id={0}", id);
+        ServicioEntity entity = em.find(ServicioEntity.class, id);
         em.remove(entity);
     }
 }
