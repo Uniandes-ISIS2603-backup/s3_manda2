@@ -16,9 +16,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import co.edu.uniandes.csw.manda2.dtos.PSEDTO;
+import co.edu.uniandes.csw.manda2.ejb.PSELogic;
+import co.edu.uniandes.csw.manda2.entities.PSEEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.WebApplicationException;
 /**
  *
  * <pre>Clase que implementa el recurso "pses".
@@ -40,7 +44,8 @@ import javax.enterprise.context.RequestScoped;
 @Consumes("application/json")
 @RequestScoped
 public class PSEResource {
-    
+    @Inject
+    private PSELogic pseLogic;
      /**
      * <h1>GET /api/pses : Obtener todas los pses.</h1>
      * 
@@ -54,7 +59,7 @@ public class PSEResource {
      */
     @GET
     public List<PSEDTO> getPSEs() {
-        return new ArrayList<>();
+        return listPSEEntityDTO(pseLogic.getPSEs());
     }
  /**
      * <h1>GET /api/pses/{id} : Obtener pse por id.</h1>
@@ -75,7 +80,11 @@ public class PSEResource {
     @GET
     @Path("{id : \\d+}")
     public PSEDTO getPSE(@PathParam("id") Long id) {
-        return null;
+        PSEEntity entity = pseLogic.getPSE(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /pses/" + id + " no existe.", 404);
+        }
+        return new PSEDTO(entity);
     }
 /**
      * <h1>POST /api/pses : Crear un pse.</h1>
@@ -99,7 +108,7 @@ public class PSEResource {
      */
     @POST
     public PSEDTO createPSE(PSEDTO pse) throws BusinessLogicException{
-        return pse;
+        return new PSEDTO(pseLogic.createPSE(pse.toEntity()));
     }
 /**
      * <h1>PUT /api/pses/{id} : Actualizar pse con el id dado.</h1>
@@ -122,7 +131,12 @@ public class PSEResource {
     @PUT
     @Path("{id : \\d+}")
     public PSEDTO updatePSE(@PathParam("id") Long id, PSEDTO pse) throws BusinessLogicException {
-        return pse;
+        pse.setId(id);
+        PSEEntity entity = pseLogic.getPSE(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /pses/" + id + " no existe.", 404);
+        }
+        return new PSEDTO(pseLogic.updatePSE(id, pse.toEntity()));
     }
 /**
      * <h1>DELETE /api/pses/{id} : Borrar un pse por id.</h1>
@@ -141,6 +155,17 @@ public class PSEResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deletePSE(@PathParam("id") Long id) {
-
+        PSEEntity entity = pseLogic.getPSE(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /pses/" + id + " no existe.", 404);
+        }
+        pseLogic.deletePSE(id);
+    }
+    private List<PSEDTO> listPSEEntityDTO(List<PSEEntity> entityList) {
+        List<PSEDTO> list = new ArrayList<>();
+        for (PSEEntity entity : entityList) {
+            list.add(new PSEDTO(entity));
+        }
+        return list;
     }
 }

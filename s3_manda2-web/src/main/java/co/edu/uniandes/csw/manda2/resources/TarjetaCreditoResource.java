@@ -14,9 +14,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import co.edu.uniandes.csw.manda2.dtos.TarjetaCreditoDTO;
+import co.edu.uniandes.csw.manda2.ejb.TarjetaCreditoLogic;
+import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.WebApplicationException;
+
 /**
  *
  * <pre>Clase que implementa el recurso "tarjetascreditos".
@@ -40,6 +45,8 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 
 public class TarjetaCreditoResource {
+    @Inject
+    private TarjetaCreditoLogic tarjetaCreditoLogic;
     /**
      * <h1>GET /api/tarjetascreditos : Obtener todas las tarjetas de credito.</h1>
      * 
@@ -53,7 +60,7 @@ public class TarjetaCreditoResource {
      */
    @GET
     public List<TarjetaCreditoDTO> getTarjetasCreditos() {
-        return new ArrayList<>();
+        return listTarjetaCreditoEntityDTO(tarjetaCreditoLogic.getTarjetasCreditos());
     }
 /**
      * <h1>GET /api/tarjetascreditos/{id} : Obtener una tarjeta de credito por id.</h1>
@@ -74,7 +81,11 @@ public class TarjetaCreditoResource {
     @GET
     @Path("{id : \\d+}")
     public TarjetaCreditoDTO getTarjetaCredito(@PathParam("id") long id) {
-        return null;
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /tarjetascreditos/" + id + " no existe.", 404);
+        }
+        return new TarjetaCreditoDTO(entity);
     }
 /**
      * <h1>POST /api/tarjetascreditos : Crear una tarjeta de credito.</h1>
@@ -98,7 +109,7 @@ public class TarjetaCreditoResource {
      */
     @POST
     public TarjetaCreditoDTO createTarjetaCredito(TarjetaCreditoDTO tarjetaCredito) throws BusinessLogicException {
-        return tarjetaCredito;
+        return new TarjetaCreditoDTO(tarjetaCreditoLogic.createTarjetaCredito(tarjetaCredito.toEntity()));
     }
 /**
      * <h1>PUT /api/tarjetascreditos/{id} : Actualizar la tarjeta de credito con el id dado.</h1>
@@ -121,7 +132,12 @@ public class TarjetaCreditoResource {
     @PUT
     @Path("{id : \\d+}")
     public TarjetaCreditoDTO updateTarjetaCredito (@PathParam("id") long id, TarjetaCreditoDTO tarjetaCredito) throws BusinessLogicException {
-        return null;
+        tarjetaCredito.setId(id);
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /tarjetascreditos/" + id + " no existe.", 404);
+        }
+        return new TarjetaCreditoDTO(tarjetaCreditoLogic.updateTarjetaCredito(id, tarjetaCredito.toEntity()));
     }
 /**
      * <h1>DELETE /api/tarjetascreditos/{id} : Borrar una tarjeta de credito por id.</h1>
@@ -140,6 +156,17 @@ public class TarjetaCreditoResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deleteTarjetaCredito(@PathParam("id") long id) {
-
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /tarjetascreditos/" + id + " no existe.", 404);
+        }
+        tarjetaCreditoLogic.deleteTarjetaCredito(id);
     } 
+    private List<TarjetaCreditoDTO> listTarjetaCreditoEntityDTO(List<TarjetaCreditoEntity> entityList) {
+        List<TarjetaCreditoDTO> list = new ArrayList<>();
+        for (TarjetaCreditoEntity entity : entityList) {
+            list.add(new TarjetaCreditoDTO(entity));
+        }
+        return list;
+    }
 }
