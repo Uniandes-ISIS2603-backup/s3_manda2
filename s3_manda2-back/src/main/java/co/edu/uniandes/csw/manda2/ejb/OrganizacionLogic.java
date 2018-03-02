@@ -11,12 +11,14 @@ import co.edu.uniandes.csw.manda2.persistence.OrganizacionPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author cv.trujillo
  */
+@Stateless
 public class OrganizacionLogic {
      private static final Logger LOGGER = Logger.getLogger(OrganizacionLogic.class.getName());
 
