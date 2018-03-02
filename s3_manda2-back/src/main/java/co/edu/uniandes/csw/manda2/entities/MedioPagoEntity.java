@@ -19,7 +19,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author m.moreno
  */
 @Entity
-public class MedioPagoEntity extends BaseEntity  implements Serializable{
+public class MedioPagoEntity extends BaseEntityAlternativo  implements Serializable{
  
      /**
      * Indica el id de medio pago.
