@@ -95,8 +95,8 @@ public class PayPalLogic {
         else if( !validateLink(link) ){
             throw new BusinessLogicException("El link no es válido");
         }
-        else if( entity.getId().equals(id) ){
-            throw new BusinessLogicException("El id del paypal no debe cambiar");
+        else if( !entity.getId().equals(id) ){
+            throw new BusinessLogicException("El id del paypal no debe cambiar.");
         }
         PayPalEntity newEntity = payPalPersistence.update(entity);
         LOGGER.log(Level.INFO, "Termina proceso de actualización de paypal con id={0}", entity.getId());

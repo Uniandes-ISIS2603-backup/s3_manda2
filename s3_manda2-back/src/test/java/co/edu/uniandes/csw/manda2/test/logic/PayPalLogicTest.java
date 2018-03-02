@@ -156,7 +156,6 @@ public class PayPalLogicTest {
     @Test
     public void updatePayPalTest(){
         PayPalEntity entity = data.get(0);
-        PodamFactory factory = new PodamFactoryImpl();
         PayPalEntity newEntity = factory.manufacturePojo(PayPalEntity.class);
         
         newEntity.setId(entity.getId());
@@ -164,6 +163,7 @@ public class PayPalLogicTest {
         try{
             paypalLogic.updatePayPal(newEntity.getId(), newEntity);
         }catch(BusinessLogicException e){
+            System.out.println(e.getMessage());
             Assert.fail();
         }
         
