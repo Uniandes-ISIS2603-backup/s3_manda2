@@ -70,6 +70,10 @@ public class TarjetaCreditoLogic {
         if (!validateNombreCliente(entity.getNombreCliente())||!validateNum(entity.getNumeroTarjeta())) {
             throw new BusinessLogicException("El nombre no puede ser vacio, o el numero de la tarjeta  no es valido");
         }
+        if(getTarjetaCredito(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos tarjetas con el mismo id");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de la tarjeta de credito");
         return entity;
@@ -109,7 +113,7 @@ public class TarjetaCreditoLogic {
      * @param num num de la tarjeta de credito
      * @return true si el numero de la tarjeta es un nuemero valifoo, false de lo contrario.
      */
-    private boolean validateNum( Integer num ){
-        return ( Integer.toString(num).length()<=18);
+    private boolean validateNum( String num ){
+        return num.length()<=18;
     }
 }

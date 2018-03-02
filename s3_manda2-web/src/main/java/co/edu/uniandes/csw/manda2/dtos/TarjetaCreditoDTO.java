@@ -43,7 +43,7 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     /**
      * Atributo que representa el numero de la tarjeta.
      */
-    private Integer numeroTarjeta;
+    private String numeroTarjeta;
     
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
@@ -70,14 +70,14 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     /**
      * @return the numeroTarjeta
      */
-    public Integer getNumeroTarjeta() {
+    public String getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
     /**
      * @param numeroTarjeta the numeroTarjeta to set
      */
-    public void setNumeroTarjeta(Integer numeroTarjeta) {
+    public void setNumeroTarjeta(String numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
     /**

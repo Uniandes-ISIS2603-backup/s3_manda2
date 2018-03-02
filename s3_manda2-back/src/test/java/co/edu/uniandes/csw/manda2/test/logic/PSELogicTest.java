@@ -34,19 +34,20 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class PSELogicTest {
+
     private PodamFactory factory = new PodamFactoryImpl();
-    
+
     @Inject
     private PSELogic PSELogic;
-    
+
     @PersistenceContext
     private EntityManager em;
 
     @Inject
     private UserTransaction utx;
-    
+
     private List<PSEEntity> data = new ArrayList<PSEEntity>();
-    
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -56,6 +57,7 @@ public class PSELogicTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
+
     /**
      * Configuración inicial de la prueba.
      *
@@ -86,6 +88,7 @@ public class PSELogicTest {
     private void clearData() {
         em.createQuery("delete from PSEEntity").executeUpdate();
     }
+
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
@@ -100,7 +103,8 @@ public class PSELogicTest {
             data.add(entity);
         }
     }
-     /**
+
+    /**
      * Prueba para crear un PSE
      *
      *
@@ -114,36 +118,117 @@ public class PSELogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombreCliente(), entity.getNombreCliente());
         Assert.assertEquals(newEntity.getLinkPse(), entity.getLinkPse());
-        try
-        {
+        try {
             PSELogic.createPSE(newEntity);
             fail();
+        } catch (BusinessLogicException e) {
+
         }
-        catch(BusinessLogicException e)
-        {
-            
-        }
-        try
-        {
+        try {
             PSEEntity newEntity2 = factory.manufacturePojo(PSEEntity.class);
             newEntity2.setNombreCliente(null);
             PSELogic.createPSE(newEntity2);
             fail();
+        } catch (BusinessLogicException e) {
+
         }
-        catch(BusinessLogicException e)
-        {
-            
-        }
-        try
-        {
+        try {
             PSEEntity newEntity3 = factory.manufacturePojo(PSEEntity.class);
             newEntity3.setLinkPse(null);
             PSEEntity result4 = PSELogic.createPSE(newEntity3);
             fail();
+        } catch (BusinessLogicException e) {
+
         }
-        catch(BusinessLogicException e)
-        {
-            
+    }
+
+    /**
+     * Prueba para actualizar un Pse
+     *
+     *
+     */
+    @Test
+    public void updatePSETest() throws BusinessLogicException {
+        PSEEntity entity = data.get(0);
+        PSEEntity pojoEntity = factory.manufacturePojo(PSEEntity.class);
+
+        pojoEntity.setId(entity.getId());
+
+        PSELogic.updatePSE(pojoEntity.getId(), pojoEntity);
+
+        PSEEntity resp = em.find(PSEEntity.class, entity.getId());
+
+        Assert.assertEquals(pojoEntity.getId(), resp.getId());
+        Assert.assertEquals(pojoEntity.getNombreCliente(), resp.getNombreCliente());
+        Assert.assertEquals(pojoEntity.getLinkPse(), resp.getLinkPse());
+        try {
+            PSELogic.updatePSE(pojoEntity.getId(), data.get(1));
+            fail();
+        } catch (BusinessLogicException e) {
+
         }
+        try {
+
+            pojoEntity.setNombreCliente(null);
+            PSELogic.updatePSE(pojoEntity.getId(), pojoEntity);
+            fail();
+        } catch (BusinessLogicException e) {
+
+        }
+        try {
+            pojoEntity.setNombreCliente("Alberto");
+            pojoEntity.setLinkPse(null);
+            PSELogic.updatePSE(pojoEntity.getId(), pojoEntity);
+            fail();
+        } catch (BusinessLogicException e) {
+
+        }
+    }
+
+    /**
+     * Prueba para eliminar un Pse
+     *
+     *
+     */
+    @Test
+    public void deletePSETest() {
+        PSEEntity entity = data.get(0);
+        PSELogic.deletePSE(entity.getId());
+        PSEEntity deleted = em.find(PSEEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para consultar la lista de Pses
+     *
+     *
+     */
+    @Test
+    public void getPSEsTest() {
+        List<PSEEntity> list = PSELogic.getPSEs();
+        Assert.assertEquals(data.size(), list.size());
+        for (PSEEntity entity : list) {
+            boolean found = false;
+            for (PSEEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Prueba para consultar un PSE
+     *
+     *
+     */
+    @Test
+    public void getPSETest() {
+        PSEEntity entity = data.get(0);
+        PSEEntity resultEntity = PSELogic.getPSE(entity.getId());
+        Assert.assertNotNull(resultEntity);
+        Assert.assertEquals(entity.getId(), resultEntity.getId());
+        Assert.assertEquals(entity.getNombreCliente(), resultEntity.getNombreCliente());
+        Assert.assertEquals(entity.getLinkPse(), resultEntity.getLinkPse());
     }
 }
