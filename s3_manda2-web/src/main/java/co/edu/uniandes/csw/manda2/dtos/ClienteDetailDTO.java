@@ -161,21 +161,6 @@ public class ClienteDetailDTO extends ClienteDTO {
         }
     }
 
-    /**
-     * Constructor por defecto
-     *
-     * @param saldo representa el saldo que tiene el usuario.
-     * @param puntosFidelidad representa los puntos de fidelidad de cada
-     * usuario.
-     */
-    public ClienteDetailDTO(Double saldo, Integer puntosFidelidad) {
-        super();
-        billetera = new BilleteraDTO(saldo, puntosFidelidad);
-        servicios = new ArrayList<>();
-        pagos = new ArrayList<>();
-        quejasYReclamos = new ArrayList<>();
-    }
-
     //Metodos
     /**
      * @return the billetera
