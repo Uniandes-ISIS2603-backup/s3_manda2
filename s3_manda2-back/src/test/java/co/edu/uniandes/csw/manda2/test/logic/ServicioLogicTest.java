@@ -6,11 +6,15 @@
 package co.edu.uniandes.csw.manda2.test.logic;
 
 import co.edu.uniandes.csw.manda2.ejb.ServicioLogic;
+import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJBException;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -80,6 +84,25 @@ public class ServicioLogicTest {
     private void insertData() {
         for (int i = 0; i < 3; i++) {
             ServicioEntity entity = factory.manufacturePojo(ServicioEntity.class);
+
+            ClienteEntity cliente = factory.manufacturePojo(ClienteEntity.class);
+            EmpleadoEntity empleado = factory.manufacturePojo(EmpleadoEntity.class);
+            PagoEntity pago = factory.manufacturePojo(PagoEntity.class);
+
+            entity.setCliente(cliente);
+            entity.setPago(pago);
+            entity.setEmpleado(empleado);
+            entity.setEstado(ServicioEntity.EN_DESARROLLO);
+            
+            ArrayList<ServicioEntity> servicios = new ArrayList<>();
+            servicios.add(entity);
+            cliente.setServicios(servicios);
+            empleado.setServicios(servicios);
+            pago.setServicio(entity);
+            
+            em.persist(cliente);
+            em.persist(empleado);
+            em.persist(pago);
             em.persist(entity);
             data.add(entity);
         }
@@ -87,8 +110,27 @@ public class ServicioLogicTest {
 
     @Test
     public void createServicioTest() {
-        PodamFactory factory = new PodamFactoryImpl();
         ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        
+        ClienteEntity cliente = factory.manufacturePojo(ClienteEntity.class);
+        EmpleadoEntity empleado = factory.manufacturePojo(EmpleadoEntity.class);
+        PagoEntity pago = factory.manufacturePojo(PagoEntity.class);
+
+        newEntity.setCliente(cliente);
+        newEntity.setPago(pago);
+        newEntity.setEmpleado(empleado);
+        newEntity.setEstado(ServicioEntity.FINALIZADO);
+        
+        ArrayList<ServicioEntity> servicios = new ArrayList<>();
+        servicios.add(newEntity);
+        cliente.setServicios(servicios);
+        empleado.setServicios(servicios);
+        pago.setServicio(newEntity);
+        
+        em.persist(cliente);
+        em.persist(empleado);
+        em.persist(pago);
+
 
         //Prueba que cree un servicio normalmente
         try {
@@ -105,7 +147,11 @@ public class ServicioLogicTest {
             Assert.assertEquals(newEntity.getEstado(), entity.getEstado());
             Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
         } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
             Assert.fail();
+        } catch (EJBException e ){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         //Prueba que el servicio no pueda ser agregado más de una vez.
@@ -192,7 +238,7 @@ public class ServicioLogicTest {
             Assert.fail();
         } catch (BusinessLogicException e) {
         }
-        //Prueba que el cliente asociado al servicio sea válido.
+//        Prueba que el cliente asociado al servicio sea válido.
         try {
             newEntity.setCliente(null);
             servicioLogic.createServicio(newEntity);
@@ -214,27 +260,27 @@ public class ServicioLogicTest {
         } catch (BusinessLogicException e) {
         }
     }
-    
+
     @Test
-    public void getServiciosTest(){
+    public void getServiciosTest() {
         List<ServicioEntity> list = servicioLogic.getServicios();
         Assert.assertEquals(data.size(), list.size());
-        for( ServicioEntity entity : list ){
+        for (ServicioEntity entity : list) {
             boolean found = false;
-            for( ServicioEntity entity2 : data ){
-                if (entity.getId().equals(entity2.getId())){
+            for (ServicioEntity entity2 : data) {
+                if (entity.getId().equals(entity2.getId())) {
                     found = true;
                 }
             }
             Assert.assertTrue(found);
         }
     }
-    
+
     @Test
-    public void getServiciotest(){
+    public void getServiciotest() {
         ServicioEntity entity = data.get(0);
         ServicioEntity newEntity = servicioLogic.getServicio(entity.getId());
-        
+
         Assert.assertEquals(newEntity.getCalificacion(), entity.getCalificacion());
         Assert.assertEquals(newEntity.getCosto(), entity.getCosto());
         Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
@@ -243,35 +289,54 @@ public class ServicioLogicTest {
         Assert.assertEquals(newEntity.getEstado(), entity.getEstado());
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
-    
+
     @Test
-    public void deleteServicioTest(){
+    public void deleteServicioTest() {
         ServicioEntity entity = data.get(0);
         servicioLogic.deleteServicio(entity.getId());
         ServicioEntity deleted = em.find(ServicioEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
-    
+
     @Test
     public void updateServicioTest() {
         ServicioEntity entity = data.get(0);
+        
         ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        ClienteEntity cliente = factory.manufacturePojo(ClienteEntity.class);
+        EmpleadoEntity empleado = factory.manufacturePojo(EmpleadoEntity.class);
+        PagoEntity pago = factory.manufacturePojo(PagoEntity.class);
+
+        newEntity.setCliente(cliente);
+        newEntity.setPago(pago);
+        newEntity.setEmpleado(empleado);
+        newEntity.setEstado(ServicioEntity.FINALIZADO);
+        
+        ArrayList<ServicioEntity> servicios = new ArrayList<>();
+        servicios.add(newEntity);
+        cliente.setServicios(servicios);
+        empleado.setServicios(servicios);
+        pago.setServicio(newEntity);
+        
+        em.persist(cliente);
+        em.persist(empleado);
+        em.persist(pago);
         
         newEntity.setId(entity.getId());
 
         //Prueba que cree un servicio normalmente
         try {
-        servicioLogic.updateServicio(newEntity.getId(), newEntity);
-        
-        ServicioEntity resp = em.find(ServicioEntity.class, entity.getId());
-        
-        Assert.assertEquals(newEntity.getCalificacion(), resp.getCalificacion());
-        Assert.assertEquals(newEntity.getCosto(), resp.getCosto());
-        Assert.assertEquals(newEntity.getDescripcion(), resp.getDescripcion());
-        Assert.assertEquals(newEntity.getPuntoDeEncuentro(), resp.getPuntoDeEncuentro());
-        Assert.assertEquals(newEntity.getPuntoDeRealizacion(), resp.getPuntoDeRealizacion());
-        Assert.assertEquals(newEntity.getEstado(), resp.getEstado());
-        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
+            servicioLogic.updateServicio(newEntity.getId(), newEntity);
+
+            ServicioEntity resp = em.find(ServicioEntity.class, entity.getId());
+
+            Assert.assertEquals(newEntity.getCalificacion(), resp.getCalificacion());
+            Assert.assertEquals(newEntity.getCosto(), resp.getCosto());
+            Assert.assertEquals(newEntity.getDescripcion(), resp.getDescripcion());
+            Assert.assertEquals(newEntity.getPuntoDeEncuentro(), resp.getPuntoDeEncuentro());
+            Assert.assertEquals(newEntity.getPuntoDeRealizacion(), resp.getPuntoDeRealizacion());
+            Assert.assertEquals(newEntity.getEstado(), resp.getEstado());
+            Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
         } catch (BusinessLogicException e) {
             Assert.fail();
         }
@@ -354,7 +419,7 @@ public class ServicioLogicTest {
             Assert.fail();
         } catch (BusinessLogicException e) {
         }
-        //Prueba que el cliente asociado al servicio sea válido.
+//        Prueba que el cliente asociado al servicio sea válido.
         try {
             newEntity.setCliente(null);
             servicioLogic.updateServicio(newEntity.getId(), newEntity);
