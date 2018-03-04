@@ -1,0 +1,235 @@
+{
+	"info": {
+		"name": "Pruebas Clase TarjetaCredito",
+		"_postman_id": "5ac88a53-3b58-4d6e-aba1-3b2bea4ca4b7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear TarjetaCredito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c2b6c7fa-1e38-4efb-9c50-bb0f3aa22e8e",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_tarjetaCredito\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"nombreCliente\": \"carlos bello\",\r\n       \"id\": 01234566789,\r\n       \"numeroTarjeta\": \"0123456987124568\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/tarjetascreditos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"tarjetascreditos"
+					]
+				},
+				"description": "Crear TarjetaCredito"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos las tarjetaCredito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e748751f-ddd2-46f2-b9cd-2ae4af59bd8d",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"tarjetaCredito count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/tarjetascreditos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"tarjetascreditos"
+					]
+				},
+				"description": "Obtener todos las tarjetaCredito"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una tarjetaCredito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/tarjetascreditos/{{new_id_tarjetaCredito}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"tarjetascreditos",
+						"{{new_id_tarjetaCredito}}"
+					]
+				},
+				"description": "Obtener una tarjetaCredito"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una tarjetaCredito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1846e7b0-8873-4f0f-a6fa-b6fadfbbefcb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nombreCliente\": \"Nicolas Caceres\",      \r\n     \"id\": 01234566789,\r\n     \"numeroTarjeta\": \"0123456987124568\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/tarjetascreditos/{{new_id_tarjetaCredito}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"tarjetascreditos",
+						"{{new_id_tarjetaCredito}}"
+					]
+				},
+				"description": "Actualizar una tarjetaCredito"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una tarjetaCredito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f261b8e6-752f-4626-b0d2-0904ebce77bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/tarjetascreditos/{{new_id_tarjetaCredito}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"tarjetascreditos",
+						"{{new_id_tarjetaCredito}}"
+					]
+				},
+				"description": "Borrar una tarjetaCredito"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b4877f9a-39b3-4a04-a2ad-5106f96ae846",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c66c1b5-f58c-4545-b561-08a2f31dd7e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
