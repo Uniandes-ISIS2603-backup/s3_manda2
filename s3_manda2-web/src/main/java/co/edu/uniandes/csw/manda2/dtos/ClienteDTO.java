@@ -30,8 +30,8 @@ import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
  *
  *   {
  *      "id": 084156584,
- *      "nombre": Nicolas Bello,
- *      "cedula": 1020839175,
+ *      "nombre": "Nicolas Bello",
+ *      "cedula": "1020839175",
  *      "fechaDeIngreso": 15/07/06,
  *      "calificacion": 5,
  *      "pagoAnticipado": false,
@@ -60,7 +60,7 @@ public class ClienteDTO extends UsuarioDTO {
      * Constructor por defecto
      */
     public ClienteDTO() {
-
+        super();
     }
 
     /**

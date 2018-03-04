@@ -123,7 +123,7 @@ public class ClienteResource {
     @PUT
     @Path("{id : \\d+}")
     public ClienteDetailDTO updateCliente (@PathParam("id") long id, ClienteDetailDTO cliente ) throws BusinessLogicException{
-        cliente.setID(id);
+        cliente.setId(id);
         ClienteEntity entity = clienteLogic.getCliente(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /clientes/" + id + " no existe.", 404);
