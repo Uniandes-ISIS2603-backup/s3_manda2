@@ -26,8 +26,8 @@ public class ArticuloLogic {
     @Inject
     private ArticuloPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
-    @Inject
-    private ArticuloLogic articuloLogic;
+    //@Inject
+    //private ArticuloLogic articuloLogic;
     
    /* public ArticuloEntity createArticulo(ArticuloEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Articulo");

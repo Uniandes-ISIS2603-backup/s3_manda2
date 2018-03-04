@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+import co.edu.uniandes.csw.manda2.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  *
@@ -29,6 +31,7 @@ public class UsuarioEntity implements Serializable{
    private String cedula;
    
    @Temporal(TemporalType.DATE)
+   @PodamStrategyValue(DateStrategy.class)
    private Date fechaIngreso;
    
    private Double calificacion;

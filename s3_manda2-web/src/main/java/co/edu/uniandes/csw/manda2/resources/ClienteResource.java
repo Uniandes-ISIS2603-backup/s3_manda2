@@ -6,9 +6,13 @@
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.ClienteDetailDTO;
 import co.edu.uniandes.csw.manda2.dtos.ClienteDTO;
+import co.edu.uniandes.csw.manda2.ejb.ClienteLogic;
+import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 /**
  *
@@ -33,6 +37,8 @@ import javax.ws.rs.*;
 @Produces("application/json")
 @RequestScoped
 public class ClienteResource {
+    @Inject
+    private ClienteLogic clienteLogic;
     /**
      * <h1>GET /api/clientes : Obtener todos los clientes.</h1>
      * 
@@ -46,7 +52,7 @@ public class ClienteResource {
      */
     @GET
     public List<ClienteDetailDTO> getClientes(){
-        return new ArrayList<>();
+        return listClienteEntityDetailDTO (clienteLogic.getClientes());
     }
     /**
      * <h1>GET /api/clientes/{id} : Obtener un cliente por id.</h1>
@@ -67,7 +73,11 @@ public class ClienteResource {
     @GET
     @Path("{id : \\d+}")
     public ClienteDetailDTO getCliente(@PathParam ("id") long id){
-        return null;
+        ClienteEntity entity = clienteLogic.getCliente(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /clientes/" + id + " no existe.", 404);
+        }
+        return new ClienteDetailDTO(entity);
     }
     
     /**
@@ -90,8 +100,8 @@ public class ClienteResource {
      * @return JSON {@link ClienteDTO} - El cliente guardado con el atributo id autogenerado.
      */
     @POST
-    public ClienteDetailDTO createCliente( ClienteDetailDTO cliente){
-        return cliente;
+    public ClienteDetailDTO createCliente( ClienteDetailDTO cliente) throws BusinessLogicException{
+        return new ClienteDetailDTO(clienteLogic.createCliente(cliente.toEntity()));
     }
     /**
      * <h1>PUT /api/clientes/{id} : Actualizar el cliente con el id dado.</h1>
@@ -112,8 +122,13 @@ public class ClienteResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public ClienteDetailDTO updateCliente (@PathParam("id") long id, ClienteDetailDTO cliente ){
-        return null;
+    public ClienteDetailDTO updateCliente (@PathParam("id") long id, ClienteDetailDTO cliente ) throws BusinessLogicException{
+        cliente.setID(id);
+        ClienteEntity entity = clienteLogic.getCliente(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /clientes/" + id + " no existe.", 404);
+        }
+        return new ClienteDetailDTO(clienteLogic.updateCliente(id, cliente.toEntity()));
     }
     /**
      * <h1>DELETE /api/clientes/{id} : Borrar un cliente por id.</h1>
@@ -132,6 +147,20 @@ public class ClienteResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deleteCliente( @PathParam("id") long id ){
-        
+        ClienteEntity entity = clienteLogic.getCliente(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /clientes/" + id + " no existe.", 404);
+        }
+        clienteLogic.deleteCliente(id);
+    }
+    /**
+     * Metodo utilizado para convertir una lista de entidades en una lista de detail DTO´s.
+    */
+    private List<ClienteDetailDTO> listClienteEntityDetailDTO(List<ClienteEntity> entityList) {
+        List<ClienteDetailDTO> list = new ArrayList<>();
+        for (ClienteEntity entity : entityList) {
+            list.add(new ClienteDetailDTO(entity));
+        }
+        return list;
     }
 }
