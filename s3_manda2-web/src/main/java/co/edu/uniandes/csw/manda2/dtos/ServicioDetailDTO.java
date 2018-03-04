@@ -15,6 +15,7 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 public abstract class ServicioDetailDTO extends ServicioDTO {
 
     public ServicioDetailDTO() {
+        super();
     }
 
     public ServicioDetailDTO(ServicioEntity entity) {

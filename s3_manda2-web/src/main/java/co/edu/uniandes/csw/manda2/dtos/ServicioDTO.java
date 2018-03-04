@@ -73,14 +73,16 @@ public abstract class ServicioDTO {
     }
 
     public ServicioDTO(ServicioEntity entity) {
-        this.calificacion = entity.getCalificacion();
-        this.costo = entity.getCosto();
-        this.descripcion = entity.getDescripcion();
-        this.estado = entity.getEstado();
-        this.id = entity.getId();
-        this.nombre = entity.getNombre();
-        this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
-        this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
+        if( entity != null){
+            this.calificacion = entity.getCalificacion();
+            this.costo = entity.getCosto();
+            this.descripcion = entity.getDescripcion();
+            this.estado = entity.getEstado();
+            this.id = entity.getId();
+            this.nombre = entity.getNombre();
+            this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
+        }
     }
 
     public ServicioEntity toEntity() {

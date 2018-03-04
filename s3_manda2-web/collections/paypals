@@ -8,6 +8,18 @@
 	"item": [
 		{
 			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e0534b7-55ba-46d1-bd94-bc42be199f0d",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -31,6 +43,18 @@
 		},
 		{
 			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "145085c5-a9de-42df-9dd6-3e2b28587a19",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -55,6 +79,18 @@
 		},
 		{
 			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "128aa4ea-4143-4042-a564-40a66ffc523c",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -86,6 +122,18 @@
 		},
 		{
 			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e86f41d-381c-4648-bd35-0f35e130df15",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -118,6 +166,18 @@
 		},
 		{
 			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cfeea039-9e7c-4a71-ad6c-d559b239fd5f",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [

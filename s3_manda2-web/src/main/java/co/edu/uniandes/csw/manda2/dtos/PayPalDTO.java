@@ -35,9 +35,11 @@ public class PayPalDTO extends MedioPagoDTO {
     }
 
     public PayPalDTO(PayPalEntity entity) {
-        this.id = entity.getId();
-        this.linkPayPal = entity.getLinkPayPal();
-        this.nombreCliente = entity.getNombreCliente();
+        if( entity != null){
+            this.id = entity.getId();
+            this.linkPayPal = entity.getLinkPayPal();
+            this.nombreCliente = entity.getNombreCliente();
+        }
     }
 
     @Override
