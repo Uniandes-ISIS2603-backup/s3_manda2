@@ -39,7 +39,7 @@ public class MedioPagoLogicTest {
     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private MedioPagoLogic MedioPagoLogic;
+    private MedioPagoLogic medioPagoLogic;
 
     @PersistenceContext
     private EntityManager em;
@@ -113,13 +113,13 @@ public class MedioPagoLogicTest {
     @Test
     public void createMedioPagoTest() throws BusinessLogicException {
         MedioPagoEntity newEntity = factory.manufacturePojo(MedioPagoEntity.class);
-        MedioPagoEntity result = MedioPagoLogic.createMedioPago(newEntity);
+        MedioPagoEntity result = medioPagoLogic.createMedioPago(newEntity);
         Assert.assertNotNull(result);
         MedioPagoEntity entity = em.find(MedioPagoEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombreCliente(), entity.getNombreCliente());
         try {
-            MedioPagoLogic.createMedioPago(newEntity);
+            medioPagoLogic.createMedioPago(newEntity);
             fail();
         } catch (BusinessLogicException e) {
 
@@ -127,7 +127,7 @@ public class MedioPagoLogicTest {
         try {
             MedioPagoEntity newEntity2 = factory.manufacturePojo(MedioPagoEntity.class);
             newEntity2.setNombreCliente(null);
-            MedioPagoLogic.createMedioPago(newEntity2);
+            medioPagoLogic.createMedioPago(newEntity2);
             fail();
         } catch (BusinessLogicException e) {
 
@@ -146,14 +146,14 @@ public class MedioPagoLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        MedioPagoLogic.updateMedioPago(pojoEntity.getId(), pojoEntity);
+        medioPagoLogic.updateMedioPago(pojoEntity.getId(), pojoEntity);
 
         MedioPagoEntity resp = em.find(MedioPagoEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getNombreCliente(), resp.getNombreCliente());
         try {
-            MedioPagoLogic.updateMedioPago(pojoEntity.getId(), data.get(1));
+            medioPagoLogic.updateMedioPago(pojoEntity.getId(), data.get(1));
             fail();
         } catch (BusinessLogicException e) {
 
@@ -161,7 +161,7 @@ public class MedioPagoLogicTest {
         try {
 
             pojoEntity.setNombreCliente(null);
-            MedioPagoLogic.updateMedioPago(pojoEntity.getId(), pojoEntity);
+            medioPagoLogic.updateMedioPago(pojoEntity.getId(), pojoEntity);
             fail();
         } catch (BusinessLogicException e) {
 
@@ -177,7 +177,7 @@ public class MedioPagoLogicTest {
     @Test
     public void deleteMedioPagoTest() {
         MedioPagoEntity entity = data.get(0);
-        MedioPagoLogic.deleteMedioPago(entity.getId());
+        medioPagoLogic.deleteMedioPago(entity.getId());
         MedioPagoEntity deleted = em.find(MedioPagoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -187,8 +187,8 @@ public class MedioPagoLogicTest {
      *
      */
     @Test
-    public void getMedioPagosTest() {
-        List<MedioPagoEntity> list = MedioPagoLogic.getMedioPagos();
+    public void getMediosPagosTest() {
+        List<MedioPagoEntity> list = medioPagoLogic.getMediosPagos();
         Assert.assertEquals(data.size(), list.size());
         for (MedioPagoEntity entity : list) {
             boolean found = false;
@@ -209,7 +209,7 @@ public class MedioPagoLogicTest {
     @Test
     public void getMedioPagoTest() {
         MedioPagoEntity entity = data.get(0);
-        MedioPagoEntity resultEntity = MedioPagoLogic.getMedioPago(entity.getId());
+        MedioPagoEntity resultEntity = medioPagoLogic.getMedioPago(entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getNombreCliente(), resultEntity.getNombreCliente());

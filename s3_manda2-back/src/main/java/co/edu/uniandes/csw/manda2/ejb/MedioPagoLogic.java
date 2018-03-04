@@ -34,7 +34,7 @@ public class MedioPagoLogic {
      * Devuelve todos los medios de pago que hay en la base de datos.
      * @return Lista de entidades de tipo medioPago.
      */
-    public List<MedioPagoEntity> getMedioPagos() {
+    public List<MedioPagoEntity> getMediosPagos() {
         LOGGER.info("Inicia proceso de consultar todos los medios de pago");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<MedioPagoEntity> medios = persistence.findAll();
@@ -90,6 +90,8 @@ public class MedioPagoLogic {
     public MedioPagoEntity updateMedioPago(Long id, MedioPagoEntity entity) throws BusinessLogicException {
         
        LOGGER.log(Level.INFO, "Inicia proceso de actualizar medio de pago con id={0}", id);
+       
+       
         if (!validateNombreCliente(entity.getNombreCliente())) {
             throw new BusinessLogicException("El nombre no puede ser vacio");
         }
