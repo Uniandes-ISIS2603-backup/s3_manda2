@@ -32,17 +32,17 @@ public class ReclamoPersistence {
         return em.find(ReclamoEntity.class, id);
     }
 
-    public ReclamoEntity findByName(String numero) {
+    public ReclamoEntity findByNumero(Integer numero) {
         LOGGER.log(Level.INFO, "Consultando reclamo con numero= ", numero);
         TypedQuery<ReclamoEntity> q
                 = em.createQuery("select u from ReclamoEntity u where u.numero = :numero", ReclamoEntity.class);
-        q = q.setParameter("nombre", numero);
+        q = q.setParameter("numero", numero);
         return q.getSingleResult();
     }
 
     public List<ReclamoEntity> findAll() {
         LOGGER.info("Consultando todos los reclamos");
-        Query q = em.createQuery("select u from ReclamoEntity u");
+        Query q = em.createQuery("select u from ReclamoEntity u", ReclamoEntity.class);
         return q.getResultList();
     }
 
