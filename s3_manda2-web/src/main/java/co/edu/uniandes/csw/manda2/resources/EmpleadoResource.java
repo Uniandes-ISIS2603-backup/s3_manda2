@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.EmpleadoDetailDTO;
+import co.edu.uniandes.csw.manda2.ejb.EmpleadoLogic;
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -17,6 +19,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.ArrayList;
+import javax.inject.Inject;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *  <pre>Clase que implementa el recurso "empleados".
@@ -36,7 +40,8 @@ import java.util.ArrayList;
 @Consumes("application/json")
 @Produces("application/json")
 public class EmpleadoResource {
-
+    @Inject
+    private EmpleadoLogic logic;
     /**
      * <h1>GET /api/empleados : Obtener todos los empleados.</h1>
      * 
@@ -50,7 +55,7 @@ public class EmpleadoResource {
      */
     @GET
     public List<EmpleadoDetailDTO> getEmpleados(){
-        return new ArrayList<>();
+        return listEmpleafoEntityDTO (logic.getEmpleados());
     }
      /**
      * <h1>GET /api/empleados/{cedula} : Obtener empleado por cedula.</h1>
@@ -69,9 +74,14 @@ public class EmpleadoResource {
      * @return JSON {@link EmpleadoDetailDTO} - El empleado buscado
      */
     @GET
-    @Path("{cedula : \\d+}")
-    public EmpleadoDetailDTO getEmpleado(@PathParam ("cedula") String cedula){
-        return null;
+    @Path("{id : \\d+}")
+    public EmpleadoDetailDTO getEmpleado(@PathParam ("id") Long id){
+        EmpleadoEntity entity = logic.getEmpleado(id);
+        if(entity == null)
+        {
+            throw new WebApplicationException("El recurso /empleados/" + id + " no existe.", 404);
+        }
+        return new EmpleadoDetailDTO(entity);
     }
     
     /**
@@ -119,7 +129,7 @@ public class EmpleadoResource {
     @PUT
     @Path("{cedula : \\d+}")
     public EmpleadoDetailDTO updateEmpleado (@PathParam("cedula") String cedula, EmpleadoDetailDTO empleado )throws BusinessLogicException{
-        return empleado;
+        return  empleado;
     }
     /**
      * <h1>DELETE /api/empleados/{cedula} : Borrar empleado por cedula.</h1>
@@ -139,5 +149,9 @@ public class EmpleadoResource {
     @Path("{cedula : \\d+}")
     public void deleteEmpleado( @PathParam("cedula") String cedula ){
         
+    }
+
+    private List<EmpleadoDetailDTO> listEmpleafoEntityDTO(List<EmpleadoEntity> empleados) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
