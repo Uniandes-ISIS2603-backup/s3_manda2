@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.manda2.ejb;
 import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ReclamoPersistence;
+import java.time.Clock;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,8 +68,9 @@ public class ReclamoLogic {
      */
     public ReclamoEntity createReclamo(ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
-        if (!validateNumero(entity.getNumero())) {
-            throw new BusinessLogicException("El numero no pueden ser vacios");
+        System.out.println(entity.getNumero());
+        if (!(entity.getNumero()>=0)) {
+            throw new BusinessLogicException("El numero tiene que ser mayor a cero");
         }
         if(persistence.find(entity.getId())!= null)
         {
@@ -87,8 +89,9 @@ public class ReclamoLogic {
      */
     public ReclamoEntity updateReclamo(Long id, ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar reclamo con id={0}", id);
-        if (!validateNumero(entity.getNumero())) {
-            throw new BusinessLogicException("El numero debe ser mayor a 0 y no nulo");
+        System.out.println(entity.getNumero());
+        if (!(entity.getNumero()>=0)) {
+            throw new BusinessLogicException("El numero debe ser mayor a 0 ");
         }
         if(id!= entity.getId())
         {
