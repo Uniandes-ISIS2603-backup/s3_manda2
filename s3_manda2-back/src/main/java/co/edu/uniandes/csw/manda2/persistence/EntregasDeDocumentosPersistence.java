@@ -105,7 +105,9 @@ public class EntregasDeDocumentosPersistence {
      * Borra la entrega de documento recibida como argumento
      * @param entity 
      */
-    public void delete(EntregasDeDocumentosEntity entity) {
+    public void delete(Long id) {
+         LOGGER.log(Level.INFO, "Borrando paypal con id={0}", id);
+        EntregasDeDocumentosEntity entity = em.find(EntregasDeDocumentosEntity.class, id);
         em.remove(entity);
     }
 }

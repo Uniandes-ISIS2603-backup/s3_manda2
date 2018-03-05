@@ -5,8 +5,12 @@
  */
 package co.edu.uniandes.csw.manda2.ejb;
 
+import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.manda2.persistence.ComprasEnTiendaPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,5 +27,73 @@ public class ComprasEnTiendaLogic {
     @Inject
     private ComprasEnTiendaPersistence persistence;
     
-    public List<ComprasEnTiendaEntity> getCompras ();
+    
+    /**
+     * Devuelve las compras que hay en la base de datos
+     * @return 
+     */
+    public List<ComprasEnTiendaEntity> getCompras (){
+        LOGGER.info("Inicia proceso de consultar todas las compras");
+        List<ComprasEnTiendaEntity> compras = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todas las compras");
+        return compras;
+    }
+    
+    /**
+     * Buscar un libro por el id dado 
+     * @param id el id de la compra a buscar    
+     * @return La compra encontrada, si no se encuentra retorna null
+     */
+    public ComprasEnTiendaEntity getCompra (Long id ) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar compras con id={0}", id);
+        ComprasEnTiendaEntity compras = persistence.find(id);
+        if (compras == null) {
+            LOGGER.log(Level.SEVERE, "Las compras con el id {0} no existe", id);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar compras con id={0}", id);
+        return compras;
+    }
+    
+    
+    /**
+     * 
+     * @param entity
+     * @return 
+     */
+    public ComprasEnTiendaEntity createCompras(ComprasEnTiendaEntity entity ) throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de creación de compra");
+        //if (!validateArticulo(entity.getArticulo()!= null)) {
+           // throw new BusinessLogicException("La calificación del servicio no es válida");
+        //}
+        persistence.create(entity);
+        LOGGER.info("Termina proceso de creación de compra");
+        return entity;
+    }
+    
+    
+    public ComprasEnTiendaEntity updateCompra (Long id, ComprasEnTiendaEntity entity ) {
+         LOGGER.log(Level.INFO, "Inicia proceso de actualizar una compra con id={0}", id);
+        //if (!validateISBN(entity.getIsbn())) {
+          //  throw new BusinessLogicException("El ISBN es inválido");
+        //}
+        ComprasEnTiendaEntity newEntity = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar una compra con id={0}", entity.getId());
+        return newEntity;
+    }
+    
+    /**
+     * Elimina la compra dada por el id 
+     * @param id el id de la compra a eliminar
+     */
+    public void deleteCompra (Long id ){
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una compra con id={0}", id);
+        persistence.delete(id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar una compra con id={0}", id);
+    }
+    
+    private boolean validateArticulo (ArticuloEntity articulo){
+        return articulo !=null ; 
+    }
+   
+    
 }

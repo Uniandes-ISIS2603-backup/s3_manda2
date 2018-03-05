@@ -97,9 +97,11 @@ public class VueltasConDemoraEnOficinaPersistence {
     
      /**
      * Borra la entrega de documento recibida como argumento
-     * @param entity 
+     * @param id 
      */
-    public void delete(VueltasConDemoraEnOficinaEntity entity) {
+    public void delete(Long id) {
+        LOGGER.log(Level.INFO, "Borrando paypal con id={0}", id);
+        VueltasConDemoraEnOficinaEntity entity = em.find(VueltasConDemoraEnOficinaEntity.class, id);
         em.remove(entity);
     }
 }
