@@ -110,10 +110,6 @@ public class ComprasEnTiendaPersistenceTest {
         
     }
      
-     @Test
-     public void getComprasTest()
-     {
-         
-     }
+     
     
 }

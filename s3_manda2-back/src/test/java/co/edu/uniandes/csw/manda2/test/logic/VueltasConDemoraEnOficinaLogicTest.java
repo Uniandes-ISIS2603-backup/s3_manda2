@@ -23,6 +23,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -94,11 +95,11 @@ public class VueltasConDemoraEnOficinaLogicTest {
         }
     }
     
-    
+    @Test
     public void createVueltaTest() throws BusinessLogicException
     {
         VueltasConDemoraEnOficinaEntity newEntity = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
-        VueltasConDemoraEnOficinaEntity result = vueltasConDemoraEnOficinaLogic.createVueltas(newEntity);
+        VueltasConDemoraEnOficinaEntity result = vueltasConDemoraEnOficinaLogic.createVuelta(newEntity);
         
         Assert.assertNotNull (result);
         

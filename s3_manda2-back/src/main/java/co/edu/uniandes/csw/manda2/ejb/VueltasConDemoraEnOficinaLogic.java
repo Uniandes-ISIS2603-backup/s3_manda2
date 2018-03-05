@@ -57,7 +57,7 @@ public class VueltasConDemoraEnOficinaLogic {
      * @param entity
      * @return 
      */
-    public VueltasConDemoraEnOficinaEntity createVueltas (VueltasConDemoraEnOficinaEntity entity ) {
+    public VueltasConDemoraEnOficinaEntity createVuelta (VueltasConDemoraEnOficinaEntity entity ) {
         LOGGER.info("Inicia proceso de creación de vuelta");
        // if (!validateISBN(entity.getIsbn())) {
          //   throw new BusinessLogicException("El ISBN es inválido");
