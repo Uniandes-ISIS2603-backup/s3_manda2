@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.manda2.test.persistence;
 
 
-import co.edu.uniandes.csw.manda2.entities.PSEEntity;
 import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.persistence.ReclamoPersistence;
 import java.util.ArrayList;
