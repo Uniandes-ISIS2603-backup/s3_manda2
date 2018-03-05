@@ -9,73 +9,98 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 
 /**
  * Clase abstracta que representa un servicio de la aplicación.
+ *
  * @author da.ramos
  */
 public abstract class ServicioDTO {
-    
-    
-     /**
+
+    /**
      * Id del objeto
      */
     private Long id;
-    
+
     /**
      * Constante que indica que el estado del servicio es "en espera".
      */
     public static String EN_ESPERA = "EN_ESPERA";
-    
+
     /**
      * Constante que indica que el estado del servicio es "en desarrollo".
      */
     public static String EN_DESARROLLO = "EN_DESARROLLO";
-    
+
     /**
      * Constante que indica que el estado del servicio es "finalizado".
      */
     public static String FINALIZADO = "FINALIZADO";
-    
+
     /**
      * Nombre del servicio.
      */
     protected String nombre;
-    
+
     /**
      * Costo del servicio.
      */
     protected Double costo;
-    
+
     /**
      * Punto de encuentro del empleado con el cliente.
      */
     protected String puntoDeEncuentro;
-    
+
     /**
      * Punto donde se tiene que hacer el servicio.
      */
     protected String puntoDeRealizacion;
-    
+
     /**
      * Indica estado del servicio.
      */
     private String estado;
-    
+
     /**
      * Calificación del servicio.
      */
     protected Double calificacion;
-    
+
     /**
      * Descripción del servicio.
      */
     protected String descripcion;
-    
-    public ServicioDTO(){
-            
+
+    public ServicioDTO() {
     }
-    
-        
-     /**
+
+    public ServicioDTO(ServicioEntity entity) {
+        if( entity != null){
+            this.calificacion = entity.getCalificacion();
+            this.costo = entity.getCosto();
+            this.descripcion = entity.getDescripcion();
+            this.estado = entity.getEstado();
+            this.id = entity.getId();
+            this.nombre = entity.getNombre();
+            this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
+        }
+    }
+
+    public ServicioEntity toEntity() {
+        ServicioEntity entity = new ServicioEntity();
+        entity.setCalificacion(calificacion);
+        entity.setCosto(costo);
+        entity.setDescripcion(descripcion);
+        entity.setEstado(estado);
+        entity.setId(id);
+        entity.setNombre(nombre);
+        entity.setPuntoDeEncuentro(puntoDeEncuentro);
+        entity.setPuntoDeRealizacion(puntoDeRealizacion);
+        return entity;
+    }
+
+    /**
      * Retorna el id.
+     *
      * @return Id
      */
     public Long getId() {
@@ -84,6 +109,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el id al dado por parámetro.
+     *
      * @param id Nuevo id.
      */
     public void setId(Long id) {
@@ -92,6 +118,7 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna el nombre del servicio.
+     *
      * @return nombre del servicio.
      */
     public String getNombre() {
@@ -100,6 +127,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el nombre del servicio al dado por parámetro.
+     *
      * @param nombre Nuevo nombre del servicio.
      */
     public void setNombre(String nombre) {
@@ -108,6 +136,7 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna el costo del servicio.
+     *
      * @return Costo del servicio.
      */
     public Double getCosto() {
@@ -116,6 +145,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el costo del servicio al dado por parámetro.
+     *
      * @param costo Nuevo costo.
      */
     public void setCosto(Double costo) {
@@ -124,6 +154,7 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna el punto de encuentro del servicio.
+     *
      * @return Punto de encuentro del servicio.
      */
     public String getPuntoDeEncuentro() {
@@ -132,6 +163,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el punto de encuentro del servicio al dado por parámetro.
+     *
      * @param puntoDeEncuentro Nuevo punto de encuentro.
      */
     public void setPuntoDeEncuentro(String puntoDeEncuentro) {
@@ -139,7 +171,8 @@ public abstract class ServicioDTO {
     }
 
     /**
-     * Retorna el punto de realización del servicio. 
+     * Retorna el punto de realización del servicio.
+     *
      * @return Punto de realización del servicio.
      */
     public String getPuntoDeRealizacion() {
@@ -148,6 +181,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el punto de realización del servicio al dado por parámetro.
+     *
      * @param puntoDeRealizacion Nuevo punto de realización del servicio.
      */
     public void setPuntoDeRealizacion(String puntoDeRealizacion) {
@@ -156,6 +190,7 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna la calificación del servicio.
+     *
      * @return Calificación del servicio.
      */
     public Double getCalificacion() {
@@ -164,6 +199,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna la calificación del sevicio a la dada por parámetro.
+     *
      * @param calificacion Nueva calificación del servicio.
      */
     public void setCalificacion(Double calificacion) {
@@ -172,6 +208,7 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna la descripción del servicio.
+     *
      * @return Descripción del servicio.
      */
     public String getDescripcion() {
@@ -180,6 +217,7 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna la descripción del servicio a la dada por parámetro.
+     *
      * @param descripcion Nueva descripción del servicio.
      */
     public void setDescripcion(String descripcion) {
@@ -188,7 +226,8 @@ public abstract class ServicioDTO {
 
     /**
      * Retorna el estado del servicio
-     * @return estado del servicio 
+     *
+     * @return estado del servicio
      */
     public String getEstado() {
         return estado;
@@ -196,14 +235,10 @@ public abstract class ServicioDTO {
 
     /**
      * Asigna el estado del servicio al dado por parámetro.
+     *
      * @param estado nuevo estado del servicio.
      */
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public ServicioEntity toEntity() {
-       //pendiente por hacer
-       return null;
     }
 }

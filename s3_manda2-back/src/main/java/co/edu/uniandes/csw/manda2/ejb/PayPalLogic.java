@@ -69,6 +69,9 @@ public class PayPalLogic {
         else if( !validateLink(link) ){
             throw new BusinessLogicException("El link no es válido");
         }
+        else if( payPalPersistence.find(entity.getId()) != null ){
+            throw new BusinessLogicException("Ya hay un PayPal con el id dado");
+        }
         payPalPersistence.create(entity);
         LOGGER.info("Termina proceso de creación de paypal.");
         return entity;
@@ -91,6 +94,9 @@ public class PayPalLogic {
         }
         else if( !validateLink(link) ){
             throw new BusinessLogicException("El link no es válido");
+        }
+        else if( !entity.getId().equals(id) ){
+            throw new BusinessLogicException("El id del paypal no debe cambiar.");
         }
         PayPalEntity newEntity = payPalPersistence.update(entity);
         LOGGER.log(Level.INFO, "Termina proceso de actualización de paypal con id={0}", entity.getId());

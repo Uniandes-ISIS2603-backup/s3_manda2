@@ -99,6 +99,8 @@ public class ServicioPersistenceTest {
         Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
         Assert.assertEquals(newEntity.getPuntoDeEncuentro(), entity.getPuntoDeEncuentro());
         Assert.assertEquals(newEntity.getPuntoDeRealizacion(), entity.getPuntoDeRealizacion());
+        Assert.assertEquals(newEntity.getEstado(), entity.getEstado());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
     
     @Test
@@ -121,12 +123,13 @@ public class ServicioPersistenceTest {
         ServicioEntity entity = data.get(0);
         ServicioEntity newEntity = servicioPersistence.find(entity.getId());
         
-        Assert.assertNotNull(newEntity);
         Assert.assertEquals(newEntity.getCalificacion(), entity.getCalificacion());
         Assert.assertEquals(newEntity.getCosto(), entity.getCosto());
         Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
         Assert.assertEquals(newEntity.getPuntoDeEncuentro(), entity.getPuntoDeEncuentro());
         Assert.assertEquals(newEntity.getPuntoDeRealizacion(), entity.getPuntoDeRealizacion());
+        Assert.assertEquals(newEntity.getEstado(), entity.getEstado());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
     
     @Test
@@ -154,5 +157,7 @@ public class ServicioPersistenceTest {
         Assert.assertEquals(newEntity.getDescripcion(), resp.getDescripcion());
         Assert.assertEquals(newEntity.getPuntoDeEncuentro(), resp.getPuntoDeEncuentro());
         Assert.assertEquals(newEntity.getPuntoDeRealizacion(), resp.getPuntoDeRealizacion());
+        Assert.assertEquals(newEntity.getEstado(), resp.getEstado());
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 }

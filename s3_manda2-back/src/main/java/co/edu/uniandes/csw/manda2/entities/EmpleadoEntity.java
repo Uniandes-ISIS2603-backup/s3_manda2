@@ -62,6 +62,17 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
         this.EPS = EPS;
     }
 
+//    public void addServicio( ServicioEntity servicio ){
+//        servicios.add(servicio);
+//    }
+    
+    public List<ServicioEntity> getServicios(){
+        return servicios;
+    }
+    
+    public void setServicios( List<ServicioEntity> servicios ){
+        this.servicios = servicios;
+    }
   
    
 }
