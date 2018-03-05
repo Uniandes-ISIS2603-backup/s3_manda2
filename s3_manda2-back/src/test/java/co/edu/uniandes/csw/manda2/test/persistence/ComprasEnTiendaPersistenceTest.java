@@ -96,7 +96,7 @@ public class ComprasEnTiendaPersistenceTest {
     
     
     @Test
-     public void createServicioTest(){
+     public void createCompraTest(){
         PodamFactory factory = new PodamFactoryImpl();
         ComprasEnTiendaEntity newEntity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
         ComprasEnTiendaEntity result = comprasEnTiendaPersistence.create(newEntity);
@@ -109,4 +109,11 @@ public class ComprasEnTiendaPersistenceTest {
         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
         
     }
+     
+     @Test
+     public void getComprasTest()
+     {
+         
+     }
+    
 }

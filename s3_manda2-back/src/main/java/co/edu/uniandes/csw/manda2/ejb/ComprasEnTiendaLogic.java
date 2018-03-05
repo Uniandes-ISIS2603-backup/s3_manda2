@@ -24,7 +24,7 @@ import javax.inject.Inject;
 public class ComprasEnTiendaLogic {
     private static final Logger LOGGER = Logger.getLogger(ComprasEnTiendaLogic.class.getName());
     
-<<<<<<< HEAD
+
     @Inject
     private ComprasEnTiendaPersistence persistence;
     
@@ -61,10 +61,10 @@ public class ComprasEnTiendaLogic {
      * @param entity
      * @return 
      */
-    public ComprasEnTiendaEntity createCompras(ComprasEnTiendaEntity entity ) throws BusinessLogicException {
+    public ComprasEnTiendaEntity createCompra(ComprasEnTiendaEntity entity ) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de compra");
         //if (!validateArticulo(entity.getArticulo()!= null)) {
-           // throw new BusinessLogicException("La calificación del servicio no es válida");
+         //throw new BusinessLogicException("La calificación del servicio no es válida");
         //}
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de compra");
@@ -93,14 +93,9 @@ public class ComprasEnTiendaLogic {
     }
     
     private boolean validateArticulo (ArticuloEntity articulo){
-        return articulo !=null ; 
+        return articulo != null ; 
     }
    
     
-=======
-//    @Inject
-//    private ComprasEnTiendaPersistence persistence;
-//    
-//    public List<ComprasEnTiendaEntity> getCompras ();
->>>>>>> cb6cd420923eec7da1daadd927cbeddb31e64fd2
+
 }

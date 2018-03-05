@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.test.logic;
 
 import co.edu.uniandes.csw.manda2.ejb.ComprasEnTiendaLogic;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ComprasEnTiendaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -51,5 +55,56 @@ public class ComprasEnTiendaLogicTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-     
+    
+     @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Limpia las tablas que están implicadas en la prueba.
+     *
+     *
+     */
+    private void clearData() {
+        em.createQuery("delete from ComprasEnTiendaEntity").executeUpdate();
+    }
+
+    
+    private void insertData (){
+        for (int i = 0; i < 3; i++) {
+            ComprasEnTiendaEntity entity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
+    
+    @Test
+    public void createCompraTest() throws BusinessLogicException
+    {
+        ComprasEnTiendaEntity newEntity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
+        ComprasEnTiendaEntity result = comprasEnTiendaLogic.createCompra(newEntity);
+        
+        Assert.assertNotNull (result);
+        
+        ComprasEnTiendaEntity entity = em.find (ComprasEnTiendaEntity.class, result.getId());
+        
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getArticulo(), entity.getArticulo());
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        
+   
+    }
 }

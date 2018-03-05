@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.manda2.test.logic;
 
 import co.edu.uniandes.csw.manda2.ejb.VueltasConDemoraEnOficinaLogic;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.VueltasConDemoraEnOficinaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -90,5 +92,22 @@ public class VueltasConDemoraEnOficinaLogicTest {
             em.persist(entity);
             data.add(entity);
         }
+    }
+    
+    
+    public void createVueltaTest() throws BusinessLogicException
+    {
+        VueltasConDemoraEnOficinaEntity newEntity = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        VueltasConDemoraEnOficinaEntity result = vueltasConDemoraEnOficinaLogic.createVueltas(newEntity);
+        
+        Assert.assertNotNull (result);
+        
+        VueltasConDemoraEnOficinaEntity entity = em.find (VueltasConDemoraEnOficinaEntity.class, result.getId());
+        
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
+        
+   
     }
 }
