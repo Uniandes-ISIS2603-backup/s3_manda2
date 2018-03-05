@@ -69,7 +69,7 @@ public class ReclamoLogic {
     public ReclamoEntity createReclamo(ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
         System.out.println(entity.getNumero());
-        if (!(entity.getNumero()>=0)) {
+        if ((entity.getNumero()>=0)== false) {
             throw new BusinessLogicException("El numero tiene que ser mayor a cero");
         }
         if(persistence.find(entity.getId())!= null)
@@ -90,7 +90,7 @@ public class ReclamoLogic {
     public ReclamoEntity updateReclamo(Long id, ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar reclamo con id={0}", id);
         System.out.println(entity.getNumero());
-        if (!(entity.getNumero()>=0)) {
+        if ((entity.getNumero()>=0)== false) {
             throw new BusinessLogicException("El numero debe ser mayor a 0 ");
         }
         if(id!= entity.getId())
