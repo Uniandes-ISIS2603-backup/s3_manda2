@@ -166,6 +166,13 @@ public class MedioPagoLogicTest {
         } catch (BusinessLogicException e) {
 
         }
+//                try {
+//            pojoEntity.setNombreCliente("Lola");
+//            medioPagoLogic.updateMedioPago(pojoEntity.getId(), pojoEntity);
+//            fail();
+//        } catch (BusinessLogicException e){
+//            
+//        }
    
     }
 

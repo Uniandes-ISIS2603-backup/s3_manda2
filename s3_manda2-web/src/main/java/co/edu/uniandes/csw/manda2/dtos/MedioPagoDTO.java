@@ -46,15 +46,22 @@ public class MedioPagoDTO {
     public MedioPagoDTO(){
         
     }
+    
      /**
-     * Constructor de un nuevo MedioPago.
-     *  @param id id de medio
-     * @param nombreCliente nombre del cliente que realiza pago.
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param entity: Es la entidad que se va a convertir a DTO
      */
-    public MedioPagoDTO(Long id, String nombreCliente){
-        this.id = id;
-        this.nombreCliente = nombreCliente;
+    public MedioPagoDTO(MedioPagoEntity entity)
+    {
+        if(entity != null){
+            this.id = entity.getId();
+            this.nombreCliente= entity.getNombreCliente();
+            
+        }
     }
+    
     /**
      * Retorna el nombre el cliente.
      * @return nombre cliente
@@ -88,7 +95,9 @@ public class MedioPagoDTO {
     }
     public MedioPagoEntity toEntity()
     {
-        //Completar.
-        return null;
+        MedioPagoEntity medioPago = new MedioPagoEntity();
+        medioPago.setId(this.id);
+        medioPago.setNombreCliente(this.nombreCliente);
+        return medioPago;
     }
 }

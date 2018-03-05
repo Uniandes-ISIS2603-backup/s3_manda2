@@ -5,6 +5,12 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
+import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Clase que extiende de {@link BilleteraDTO} para manejar la transformacion entre
  * los objetos JSON y las Entidades de la base de datos. Para conocer el
@@ -12,44 +18,65 @@ package co.edu.uniandes.csw.manda2.dtos;
  * @author m.moreno
  */
 public class BilleteraDetailDTO extends BilleteraDTO {
-    
-    
-    
-    /**
-     * Constructor de la billetera.
-     * @param medioPago Medio de pago para realizar la transaccion
-     * @param saldo saldo disponible en billetera
-     * @param puntosFidelidad puntos acumulados en billetera
-     */
-    
-   public BilleteraDetailDTO(MedioPagoDTO medioPago, Double saldo, Integer puntosFidelidad)
-     {
-         super(saldo,puntosFidelidad);
-         this.medioPago = medioPago;
-     }
-    
-    public BilleteraDetailDTO()
-    {
-        
-    }
+     
     /**
      * Medio de pago para realizar la transaccion
      */
-    private MedioPagoDTO medioPago;
+    private List<MedioPagoDTO> medioPago;
     
+    //Constructor
+    /**
+     * Constructor por defecto
+     */
+    public BilleteraDetailDTO() {
+        super();
+    }
+    
+    /**
+     * Constructor para transformar un Entity a un DTO
+     *
+     * @param entity La entidad de ciudad a partir de la cual se construye el
+     * objeto
+     */
+    
+   public BilleteraDetailDTO(BilleteraEntity entity)
+     {
+   super(entity);
+        if (entity != null) {
+              if (entity.getMedioPago() != null) {
+                this.medioPago = new ArrayList<>();
+                for (MedioPagoEntity entityMedio : entity.getMedioPago()) {
+                    medioPago.add(new MedioPagoDTO(entityMedio));
+                }
+            }
+        }
+     }
+    
+
      /**
      * Retorna el medio de pago.
      * @return Medio de pago con el que se realizara la transaccion.
      */
-    public MedioPagoDTO getMedioPago(){
+    public List<MedioPagoDTO> getMedioPago(){
         return medioPago;
     }
     /**
      * Asigna el medio de pago con el que se realizara la transaccion.
      * @param pMedioPago con el que se realizara la transaccion.
      */
-    public void setMedioPago(MedioPagoDTO pMedioPago){
+    public void setMedioPago(List<MedioPagoDTO> pMedioPago){
         this.medioPago = pMedioPago;
     }
     
+     public BilleteraEntity toEntity() {
+        BilleteraEntity billeteraEntity = super.toEntity();
+          if (medioPago != null) {
+            List<MedioPagoEntity> medioPagoEntity = new ArrayList<>();
+            for (MedioPagoDTO dtoMedioPago : medioPago) {
+                medioPagoEntity.add(dtoMedioPago.toEntity());
+            }
+            billeteraEntity.setMedioPago(medioPagoEntity);
+        }
+        return billeteraEntity;
+      }
 }

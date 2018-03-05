@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.dtos;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import java.util.Date;
 
 /**
@@ -24,22 +25,27 @@ public class PagoDetailDTO extends PagoDTO {
      */
     private MedioPagoDTO medioPago;
     
-     /**
-     * Constructor de un nuevo Pago.
-     * @param servicio servicio asociado al pago
-     *  @param medio Medio de pago para realizar la transaccion
-     *  @param id id del pago
-     *  @param estado estado en que se encuentra el pago
-     * @param fecha fecha de pago
+    /**
+     * Constructor para transformar un Entity a un DTO
+     *
+     * @param entity La entidad de ciudad a partir de la cual se construye el
+     * objeto
      */
-    public PagoDetailDTO (ServicioDTO servicio, MedioPagoDTO medio, Long id, String estado, Date fecha){
-        super(id, estado, fecha);
-        this.medioPago = medio;
-        this.servicio = servicio;
+    public PagoDetailDTO (PagoEntity entity){
+      super(entity);
+      
+         if(entity !=  null){
+             if(entity.getMedioPago()!= null){
+                 this.medioPago = new MedioPagoDTO(entity.getMedioPago());
+             }         
+         }
+        
+        
     }
+    
     public PagoDetailDTO()
     {
-        
+        super();
     }
     /**
      * Retorna el servicio relacionado al pago.
@@ -70,5 +76,17 @@ public class PagoDetailDTO extends PagoDTO {
     public void setMedioPago(MedioPagoDTO pMedioPago){
         this.medioPago = pMedioPago;
     }
-    
+     /**
+     * Transformar un DTO a un Entity
+     *
+     * @return La entidad construida a partir del DTO.
+     */
+    @Override
+    public PagoEntity toEntity() {
+        PagoEntity pagoE = super.toEntity();
+        if (medioPago != null) {
+            pagoE.setMedioPago(medioPago.toEntity());
+        }
+        return pagoE;
+    }
 }

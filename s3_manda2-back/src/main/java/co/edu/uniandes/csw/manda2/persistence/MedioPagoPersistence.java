@@ -46,7 +46,7 @@ public class MedioPagoPersistence {
   
     public List<MedioPagoEntity> findAll() {
         LOGGER.info("Consultando todos los medios de pago");
-        TypedQuery query = em.createQuery("select u from CityEntity u", MedioPagoEntity.class);
+        TypedQuery query = em.createQuery("select u from MedioPagoEntity u", MedioPagoEntity.class);
         return query.getResultList();
     }
 

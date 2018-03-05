@@ -78,14 +78,19 @@ public class PagoLogic {
     public PagoEntity createPago(PagoEntity entity) throws BusinessLogicException {
 
         LOGGER.info("Inicia proceso de creación del pago");
-        if (!validateNombreCliente(entity.getCliente().getNombre())) {
-            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
-        } else if (!validateFecha(entity.getFecha())) {
+//        if (!validateNombreCliente(entity.getCliente().getNombre())) {
+//            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
+//        } else
+            if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
             throw new BusinessLogicException("El estaod del pago no puede ser vacio");
         }
 
+         if(getPago(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos pagos con el mismo id");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del pago");
         return entity;
@@ -104,9 +109,11 @@ public class PagoLogic {
     public PagoEntity updatePago(Long id, PagoEntity entity) throws BusinessLogicException {
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar pago con id={0}", id);
-        if (!validateNombreCliente(entity.getCliente().getNombre())) {
-            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
-        } else if (!validateFecha(entity.getFecha())) {
+//        if (!validateNombreCliente(entity.getCliente().getNombre())) {
+//            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
+//        } else
+            
+         if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
             throw new BusinessLogicException("El estaDd del pago no puede ser vacio");

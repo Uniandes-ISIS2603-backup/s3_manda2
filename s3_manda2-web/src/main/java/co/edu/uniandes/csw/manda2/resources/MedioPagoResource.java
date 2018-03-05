@@ -5,8 +5,13 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.MedioPagoDTO;
+import co.edu.uniandes.csw.manda2.ejb.MedioPagoLogic;
+import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
@@ -28,12 +33,32 @@ import javax.ws.rs.*;
  @Path("mediospago")
 @Produces("application/json")
 @Consumes("application/json")
+ @RequestScoped
 public class MedioPagoResource {
     
+    @Inject
+    private MedioPagoLogic medioPagoLogic; 
     
+    
+         /**
+     * <h1>GET /api/MedioPagos : Obtener todos los MedioPagos.</h1>
+     * 
+     * <pre>Busca y devuelve todos los MedioPagos que existen en la aplicacion.
+     * 
+     * Codigos de respuesta:
+     * <code style="color: mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Devuelve todas las ciudades de la aplicacion.</code> 
+     * </pre>
+     * @return JSONArray {@link MedioPagoDTO} - Los MedioPagos encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     */
+    @GET
+    public List<MedioPagoDTO> getMediosPagos() {
+        return listMedioPagoEntityDTO(medioPagoLogic.getMediosPagos());
+    }
+  
 
         /**
-     * <h1>GET /api/mediospago/{id} : Obtener ciudad por id.</h1>
+     * <h1>GET /api/mediospago/{id} : Obtener todos los medios de pago.</h1>
      * 
      * <pre>Busca el medio de pago con el id asociado recibido en la URL y la devuelve.
      * 
@@ -50,24 +75,12 @@ public class MedioPagoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public MedioPagoDTO getMedioPago(@PathParam("id") long id){
-        return null;
-    }
-    
-      /**
-     * <h1>GET /api/mediospago : Obtener todos los medios de pago.</h1>
-     * 
-     * <pre>Busca y devuelve todos los medios de pago que existen en la aplicacion.
-     * 
-     * Codigos de respuesta:
-     * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve todos los medios de pago de la aplicacion.</code> 
-     * </pre>
-     * @return JSONArray {@link MedioPagoDTO} - Los medios de pago encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
-     */
-    @GET
-    public List<MedioPagoDTO> getMediosPago(){
-        return new ArrayList<>();
+    public MedioPagoDTO getMedioPago(@PathParam("id") Long id){
+        MedioPagoEntity entity = medioPagoLogic.getMedioPago(id);
+        if(entity == null){
+            throw new WebApplicationException("El recurso /mediospago/" + id + " no existe.", 404);
+        }
+        return new MedioPagoDTO(entity);
     }
     
       /**
@@ -91,8 +104,8 @@ public class MedioPagoResource {
      * @return JSON {@link MedioPagoDTO}  - El medio de pago guardado con el atributo id autogenerado.
      */
     @POST
-    public MedioPagoDTO createMedioPago(MedioPagoDTO medioPago){
-        return medioPago;
+    public MedioPagoDTO createMedioPago(MedioPagoDTO medioPago) throws BusinessLogicException{
+        return new MedioPagoDTO(medioPagoLogic.createMedioPago(medioPago.toEntity()));
     }
     
     
@@ -115,8 +128,14 @@ public class MedioPagoResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public MedioPagoDTO updateMedioPago(@PathParam("id") long id, MedioPagoDTO medioPago){
-        return null;
+    public MedioPagoDTO updateMedioPago(@PathParam("id") long id, MedioPagoDTO medioPago) throws BusinessLogicException{
+        
+        medioPago.setId(id);
+        MedioPagoEntity medioEntity  = medioPagoLogic.getMedioPago(id);
+        if(medioEntity == null){
+            throw new WebApplicationException("El recurso /mediospago/" + id + " no existe.", 404);
+        }
+        return new MedioPagoDTO(medioPagoLogic.updateMedioPago(id, medioEntity));
     }
     
     
@@ -138,6 +157,19 @@ public class MedioPagoResource {
     @Path("{id : \\d+}")
     public void deleteMedioPago(@PathParam("id") long id){
         
+        MedioPagoEntity entity = medioPagoLogic.getMedioPago(id);
+        if(entity == null){
+            throw new WebApplicationException("El recurso /mediospago/" + id + " no existe.", 404);
+        }
+        medioPagoLogic.deleteMedioPago(id);
+        
     }
  
+        private List<MedioPagoDTO> listMedioPagoEntityDTO(List<MedioPagoEntity> entityList) {
+        List<MedioPagoDTO> list = new ArrayList<>();
+        for (MedioPagoEntity entity : entityList) {
+            list.add(new MedioPagoDTO(entity));
+        }
+        return list;
+    }
 }

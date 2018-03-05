@@ -75,18 +75,23 @@ public class BilleteraLogic {
      */
     public BilleteraEntity createBilletera(BilleteraEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de la billetera");
-        if (!validateCedula(entity.getCliente().getCedula())) {
-            throw new BusinessLogicException("La cedula no puede ser vacia");
-        } else if (!validateSaldo(entity.getSaldo())) {
+//        if (!validateCedula(entity.getCliente().getCedula())) {
+//            throw new BusinessLogicException("La cedula no puede ser vacia");
+//        } else 
+             if (!validateSaldo(entity.getSaldo())) {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
-        BilleteraEntity billeteraAntes = persistence.find(id);
-        if (billeteraAntes != null) {
-            if (!billeteraAntes.getCliente().getCedula().equals(entity.getCliente().getCedula())) {
-                if (persistence.findByCedula(entity.getCliente().getCedula()) != null) {
-                    throw new BusinessLogicException("No se puede cambiar la cedula a una ya existente");
-                }
-            }
+//        BilleteraEntity billeteraAntes = persistence.find(id);
+//        if (billeteraAntes != null) {
+//            if (!billeteraAntes.getCliente().getCedula().equals(entity.getCliente().getCedula())) {
+//                if (persistence.findByCedula(entity.getCliente().getCedula()) != null) {
+//                    throw new BusinessLogicException("No se puede cambiar la cedula a una ya existente");
+//                }
+//            }
+//        }
+         if(getBilletera(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos billeteras con el mismo id");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de la billetera");
@@ -107,9 +112,10 @@ public class BilleteraLogic {
     public BilleteraEntity updateBilletera(Long id, BilleteraEntity entity) throws BusinessLogicException {
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la billetera con id={0}", id);
-        if (!validateCedula(entity.getCliente().getCedula())) {
-            throw new BusinessLogicException("La cedula no puede ser vacia");
-        } else if (!validateSaldo(entity.getSaldo())) {
+//        if (!validateCedula(entity.getCliente().getCedula())) {
+//            throw new BusinessLogicException("La cedula no puede ser vacia");
+//        } else
+            if (!validateSaldo(entity.getSaldo())) {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
         if (id != entity.getId()) {
