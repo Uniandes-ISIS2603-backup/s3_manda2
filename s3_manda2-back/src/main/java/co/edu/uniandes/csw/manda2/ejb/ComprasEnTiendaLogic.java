@@ -24,6 +24,7 @@ import javax.inject.Inject;
 public class ComprasEnTiendaLogic {
     private static final Logger LOGGER = Logger.getLogger(ComprasEnTiendaLogic.class.getName());
     
+<<<<<<< HEAD
     @Inject
     private ComprasEnTiendaPersistence persistence;
     
@@ -96,4 +97,10 @@ public class ComprasEnTiendaLogic {
     }
    
     
+=======
+//    @Inject
+//    private ComprasEnTiendaPersistence persistence;
+//    
+//    public List<ComprasEnTiendaEntity> getCompras ();
+>>>>>>> cb6cd420923eec7da1daadd927cbeddb31e64fd2
 }

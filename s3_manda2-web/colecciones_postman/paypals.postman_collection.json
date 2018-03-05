@@ -7,54 +7,22 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/paypals",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"paypals"
-					]
-				},
-				"description": "GET paypals"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"paypals",
-						"1"
-					]
-				},
-				"description": "GET paypal"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"name": "Crear PayPal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c44f1ed-c723-43bd-9766-7f6bca0a6c85",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_paypal\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -85,7 +53,96 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+			"name": "Obtener paypals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "942e91d3-ab40-4f92-9726-d418fb79d661",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals"
+					]
+				},
+				"description": "GET paypals"
+			},
+			"response": []
+		},
+		{
+			"name": "Obener paypal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0200b1a9-40bd-47ea-921c-8cefa5890b50",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/{{new_id_paypal}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"paypals",
+						"{{new_id_paypal}}"
+					]
+				},
+				"description": "GET paypal"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar paypal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c62fc88d-9aec-4088-b0a4-538fcd326fb1",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -96,10 +153,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 19846, \r\n  \"nombreCliente\": \"Juan Perez\",\r\n  \"linkPayPal\": \"http://www.paypal.com/users/juanperez\"\r\n}"
+					"raw": "{\r\n  \"id\": 19846, \r\n  \"nombreCliente\": \"Juan Peres\",\r\n  \"linkPayPal\": \"http://www.paypal.com/users/juanperez\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/{{new_id_paypal}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -109,7 +166,7 @@
 						"s3_manda2-web",
 						"api",
 						"paypals",
-						"1"
+						"{{new_id_paypal}}"
 					]
 				},
 				"description": "PUT paypal"
@@ -117,7 +174,19 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s3_manda2-web/api/paypals",
+			"name": "Eliminar paypal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb59cfc8-8c5e-44f0-b979-5581d279d43d",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -131,7 +200,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/1",
+					"raw": "http://localhost:8080/s3_manda2-web/api/paypals/{{new_id_paypal}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,7 +210,7 @@
 						"s3_manda2-web",
 						"api",
 						"paypals",
-						"1"
+						"{{new_id_paypal}}"
 					]
 				},
 				"description": "DELETE paypal"

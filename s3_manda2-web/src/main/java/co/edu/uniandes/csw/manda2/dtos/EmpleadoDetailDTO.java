@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +78,10 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
         super();
         pagos = new ArrayList<PagoDTO>();
         servicios = new ArrayList<ServicioDetailDTO>();
+    }
+
+    public EmpleadoDetailDTO(EmpleadoEntity entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     /**

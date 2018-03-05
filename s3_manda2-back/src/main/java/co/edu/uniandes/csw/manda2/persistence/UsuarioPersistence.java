@@ -26,9 +26,9 @@ public class UsuarioPersistence {
     protected EntityManager em;
     
     public UsuarioEntity create(UsuarioEntity entity){
-        LOGGER.info("Creando un servicio nuevo");
+        LOGGER.info("Creando un usuario nuevo");
         em.persist(entity);
-        LOGGER.info("Creando un servicio nuevo");
+        LOGGER.info("Creando un usuario nuevo");
         return entity;
     }
     
@@ -37,8 +37,8 @@ public class UsuarioPersistence {
     }
     
     public List<UsuarioEntity> findAll(){
-        LOGGER.info("Consultando todos los servicios");
-        TypedQuery query = em.createQuery("select u from ServicioEnity u", UsuarioEntity.class);
+        LOGGER.info("Consultando todos los usuarios");
+        TypedQuery query = em.createQuery("select u from UsuarioEntity u", UsuarioEntity.class);
         return query.getResultList();
     }
     
@@ -46,7 +46,11 @@ public class UsuarioPersistence {
         return em.merge(entity);
     }
     
-    public void delete( UsuarioEntity entity ){
-        em.remove(entity);
+    public void delete( Long id ){
+        UsuarioEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
     }
 }
