@@ -42,28 +42,9 @@ public abstract class UsuarioDTO  {
      */
     public UsuarioDTO()
     {
-        nombre = "";
-        cedula = "";
-        fechaIngreso = null;
-        calificacion = 5.0;
-        id = new Long(0);
+        
     }
-   /**
-    * genera un usuario 
-    * @param pNombre nombre para asignarle al usuario 
-    * @param pCedula cedula para asignarle al usuario
-    * @param pFechaingreso fecha de ingreso del usuario
-    * @param pId id que se le asigna al ususario
-    */
-    
-    public UsuarioDTO(String pNombre, String pCedula, Date pFechaingreso, Long pId)
-    {
-        nombre = pNombre;
-        cedula = pCedula;
-        fechaIngreso = pFechaingreso;
-        calificacion = 5.0;
-        id = pId;
-    }
+   
     //METODOS
     /**
      * retorna el nombre del ususario
@@ -133,7 +114,7 @@ public abstract class UsuarioDTO  {
      * asigna el id que llega por parametro
      * @param id llega el id que se le asignara al ususario por parametro 
      */
-    public void setID(Long  id) {
+    public void setId(Long  id) {
         this.id = id;
     }
     public UsuarioEntity toEntity()

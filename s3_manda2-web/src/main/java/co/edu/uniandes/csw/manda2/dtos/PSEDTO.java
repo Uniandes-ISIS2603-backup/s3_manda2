@@ -18,7 +18,7 @@ import co.edu.uniandes.csw.manda2.entities.PSEEntity;
  *   {
  *      "nombreCliente": string,
  *      "id": number,
- *      "linkPSE": string
+ *      "linkPse": string
  *   }
  * </pre>
  * Por ejemplo un pse se representa asi:<br>
@@ -28,7 +28,7 @@ import co.edu.uniandes.csw.manda2.entities.PSEEntity;
  *   {
  *      "nombreCliente": "carlos bello",
  *      "id": 01234566789,
- *      "linkPSE": "https://www.pse.com.co/inicio"
+ *      "linkPse": "https://www.pse.com.co/inicio"
  *   }
  *
  * </pre>

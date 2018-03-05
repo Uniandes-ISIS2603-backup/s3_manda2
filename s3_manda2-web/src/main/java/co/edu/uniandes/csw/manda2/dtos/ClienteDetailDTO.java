@@ -63,8 +63,8 @@ import java.util.List;
  *
  *   {
  *      "id": 084156584,
- *      "nombre": Nicolas Bello,
- *      "cedula": 1020839175,
+ *      "nombre": "Nicolas Bello",
+ *      "cedula": "1020839175",
  *      "fechaDeIngreso": 15/07/06,
  *      "calificacion": 5,
  *      "pagoAnticipado": false,
@@ -72,7 +72,6 @@ import java.util.List;
  *      "quejasYReclamos": [{
  *      "mensaje": "El servicio se demoro mucho",
  *      "numero": 001,
- *      "id": 001
  *   }],
  *      "servicios": [{
  *      "costoDeTransporte": 500,
