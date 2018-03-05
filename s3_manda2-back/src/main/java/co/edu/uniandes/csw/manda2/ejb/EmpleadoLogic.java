@@ -29,7 +29,7 @@ public class EmpleadoLogic {
      * Devuelve todos los empleados que hay en la base de datos.
      * @return Lista de entidades de tipo empleados.
      */
-    public List<EmpleadoEntity> getUsuarios() {
+    public List<EmpleadoEntity> getEmpleados() {
         LOGGER.info("Inicia proceso de consultar todos los usuarios");
         List<EmpleadoEntity> empleados = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todos los usuarios");
@@ -40,7 +40,7 @@ public class EmpleadoLogic {
      * @param id El id del empleado a buscar
      * @return El empleado encontrado, null si no lo encuentra.
      */
-    public EmpleadoEntity getUsuario(Long id) {
+    public EmpleadoEntity getEmpleado(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar empleado con id={0}", id);
         EmpleadoEntity empleado = persistence.find(id);
         if (empleado == null) {
@@ -54,7 +54,7 @@ public class EmpleadoLogic {
      * Eliminar un empleado
      * @param id El ID del empleado a eliminar
      */
-    public void deleteUsuario(Long id) {
+    public void deleteEmpleado(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar empleado con id={0}", id);
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar empleado con id={0}", id);
@@ -65,7 +65,7 @@ public class EmpleadoLogic {
      * @return La entidad luego de persistirla
      * @throws BusinessLogicException Si el nombre 
      */
-    public EmpleadoEntity createUsuario(EmpleadoEntity entity) throws BusinessLogicException {
+    public EmpleadoEntity createEmpleado(EmpleadoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
         if (!validateNombreEmpleado(entity.getNombre())|| !validateCedula(entity.getCedula())) {
             throw new BusinessLogicException("El nombre o cedula no pueden ser vacios");

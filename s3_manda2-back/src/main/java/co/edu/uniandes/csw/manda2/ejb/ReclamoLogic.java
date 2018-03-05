@@ -54,7 +54,7 @@ public class ReclamoLogic {
      * Eliminar un reclamo
      * @param id El ID del reclamo a eliminar
      */
-    public void deleteUsuario(Long id) {
+    public void deleteReclamo(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar reclamo con id={0}", id);
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar reclamo con id={0}", id);
@@ -65,7 +65,7 @@ public class ReclamoLogic {
      * @return La entidad luego de persistirla
      * @throws BusinessLogicException Si el reclamo no es valido 
      */
-    public ReclamoEntity createUsuario(ReclamoEntity entity) throws BusinessLogicException {
+    public ReclamoEntity createReclamo(ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
         if (!validateNumero(entity.getNumero())) {
             throw new BusinessLogicException("El numero no pueden ser vacios");
@@ -85,7 +85,7 @@ public class ReclamoLogic {
      * @return La entidad del reclamo luego de actualizarla
      * @throws BusinessLogicException Si el numero es nulos o estaban vacios o se intento cambiar el id.
      */
-    public ReclamoEntity updateEmpleado(Long id, ReclamoEntity entity) throws BusinessLogicException {
+    public ReclamoEntity updateReclamo(Long id, ReclamoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar reclamo con id={0}", id);
         if (!validateNumero(entity.getNumero())) {
             throw new BusinessLogicException("El numero debe ser mayor a 0 y no nulo");
@@ -104,7 +104,7 @@ public class ReclamoLogic {
      * @return true si el numero del reclamo es un string válido, false de lo contrario.
      */
     private boolean validateNumero( Integer numero ){
-        return (numero != null && numero>0);
+        return (numero>0);
     }
     
     
