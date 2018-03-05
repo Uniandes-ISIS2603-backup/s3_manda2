@@ -2,6 +2,7 @@ package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.PayPalDTO;
 import co.edu.uniandes.csw.manda2.ejb.PayPalLogic;
+import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.mappers.BusinessLogicExceptionMapper;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class PayPalResource {
      */
     @GET
     public List<PayPalDTO> getPayPals(){
-        return new ArrayList<>();
+        return listPayPalEntity2DTO(payPalLogic.getPayPals());
     }
     
      /**
@@ -69,7 +70,11 @@ public class PayPalResource {
     @GET
     @Path("{id: \\d+}")
     public PayPalDTO getPayPal(@PathParam("id") Long id){
-        return null;
+       PayPalEntity entity = payPalLogic.getPayPal(id);
+       if( entity == null ){
+          throw new WebApplicationException("El recurso /paypals/" + id + " no existe", 404);
+       }
+       return new PayPalDTO(entity);
     }
     
      /**
@@ -94,7 +99,7 @@ public class PayPalResource {
      */
     @POST
     public PayPalDTO createPayPal(PayPalDTO payPal) throws BusinessLogicException{
-        return payPal;
+        return new PayPalDTO(payPalLogic.createPayPal(payPal.toEntity()));
     }
     
      /**
@@ -118,7 +123,12 @@ public class PayPalResource {
     @PUT
     @Path("{id: \\d+}")
     public PayPalDTO updatePayPal(@PathParam("id") Long id, PayPalDTO payPal) throws BusinessLogicException{
-        return payPal;
+       payPal.setId(id);
+       PayPalEntity entity = payPalLogic.getPayPal(id);
+       if( entity == null ){
+           throw new WebApplicationException("El recurso /paypals/" + id + " no existe", 404);
+       }
+       return new PayPalDTO(payPalLogic.updatePayPal(id, payPal.toEntity()));
     }
     
     /**
@@ -138,6 +148,18 @@ public class PayPalResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deletePayPal(@PathParam("id") Long id){
-        
+        PayPalEntity entity = payPalLogic.getPayPal(id);
+        if( entity == null ){
+            throw new WebApplicationException("El recurso /paypals/" + id + " no existe", 404);
+        }
+        payPalLogic.deletePayPal(id);
+    }
+    
+    private List<PayPalDTO> listPayPalEntity2DTO( List<PayPalEntity> entityList){
+        List<PayPalDTO> list = new ArrayList<>();
+        for( PayPalEntity entity : entityList ){
+            list.add(new PayPalDTO(entity));
+        }
+        return list;
     }
 }
