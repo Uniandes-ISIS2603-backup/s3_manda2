@@ -123,6 +123,13 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     public void setServicios(List<ServicioEntity> servicios) {
         this.servicios = servicios;
     }
+    
+//    /**
+//     * @param servicio servicio a agregar
+//     */
+//    public void addServicio( ServicioEntity servicio ){
+//        servicios.add(servicio);
+//    }
 
     /**
      * @return the pagos

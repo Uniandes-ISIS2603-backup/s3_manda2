@@ -42,26 +42,59 @@ public class BilleteraDTO {
      */
     private Integer puntosDeFidelidad;
     
+    private Long id;
+    
      /**
      * Crea una billetera.
      * @param saldo saldo en la billetera
      * @param puntosFidelidad puntos de fidelidad acumulados
      */
-    public BilleteraDTO(Double saldo, Integer puntosFidelidad){
-        this.puntosDeFidelidad = puntosFidelidad;
-        this.saldo = saldo;
+//    public BilleteraDTO(Double saldo, Integer puntosFidelidad){
+//        this.puntosDeFidelidad = puntosFidelidad;
+//        this.saldo = saldo;
+//        
+//    }
+//    /**
+//     * Constructor por defecto
+//     */
+//    public BilleteraDTO(){
+//     this(0D,0);
+//    
+//    }
+    public BilleteraDTO(){
         
     }
-    /**
-     * Constructor por defecto
-     */
-    public BilleteraDTO(){
-     this(0D,0);
     
-    }
+     /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param entity: Es la entidad que se va a convertir a DTO
+     */
     public BilleteraDTO(BilleteraEntity entity)
     {
-        //Completar
+        if(entity != null){
+            this.id = entity.getId();
+            this.puntosDeFidelidad = entity.getPuntosFidelidad();
+            this.saldo = entity.getSaldo();
+            
+        }
+    }
+    
+    /**
+     * Retorna el id de la billetera.
+     * @return id de la billetera.
+     */
+    
+    public Long getId(){
+        return id;
+    }
+    /**
+     * Establece el id de la billetera.
+     * @param pSaldo.
+     */
+    public void setId(Long id){
+        this.id = id;
     }
     /**
      * Retorna el saldo en la billetera.
@@ -93,9 +126,18 @@ public class BilleteraDTO {
         this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
     }
 
+     /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
     public BilleteraEntity toEntity() {
         //PendientePorHacer
-        return null;
+        BilleteraEntity billetera = new BilleteraEntity();
+        billetera.setId(this.id);
+        billetera.setPuntosFidelidad(this.puntosDeFidelidad);
+        billetera.setSaldo(this.saldo);
+        return billetera;
     }
     
    

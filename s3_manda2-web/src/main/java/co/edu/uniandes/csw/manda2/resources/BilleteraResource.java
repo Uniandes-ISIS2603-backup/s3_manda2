@@ -5,8 +5,13 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.BilleteraDetailDTO;
+import co.edu.uniandes.csw.manda2.ejb.BilleteraLogic;
+import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 /**
  * <pre>Clase que implementa el recurso "billeteras".
@@ -27,31 +32,38 @@ import javax.ws.rs.*;
 @Path("billeteras")
 @Produces("application/json")
 @Consumes("application/json")
-
+@RequestScoped
 public class BilleteraResource {
     
+    @Inject
+    private BilleteraLogic billeteraLogic;
     
     
         /**
-     * <h1>GET /api/billeteras/{cedula} : Obtener billetera por cedula.</h1>
+     * <h1>GET /api/billeteras/{id} : Obtener billetera por id.</h1>
      * 
-     * <pre>Busca la billetera con la cedula asociado recibido en la URL y la devuelve.
+     * <pre>Busca la billetera con el id asociado recibido en la URL y la devuelve.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve la billetera correspondiente a la cedula.
+     * 200 OK Devuelve la billetera correspondiente al id.
      * </code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found No existe una billetera con la cedula dada.
+     * 404 Not Found No existe una billetera con el id dado.
      * </code> 
      * </pre>
-     * @param cedula cedula de la persona
-     * @return JSON {@link BilleteraDetailDTO} - La ciudad buscada
+     * @param id id  de la billetera
+     * @return JSON {@link BilleteraDetailDTO} - La billetera buscada
      */
     @GET
-    @Path("{cedula: \\d+}")
-    public BilleteraDetailDTO getSaldo(@PathParam("cedula") String cedula){
-        return null;
+    @Path("{id: \\d+}")
+    public BilleteraDetailDTO getBilletera(@PathParam("id") Long id){
+        BilleteraEntity entity = billeteraLogic.getBilletera(id);
+        
+        if(entity == null){
+            throw new WebApplicationException("El recurso /billeteras/" + id + " no existe.", 404);
+        }
+        return new BilleteraDetailDTO(entity);
     }
     
       /**
@@ -67,7 +79,7 @@ public class BilleteraResource {
      */
     @GET
     public List<BilleteraDetailDTO> getBilletera(){
-        return new ArrayList<>();
+        return listBilleteraEntityDetailDTO (billeteraLogic.getBilleteras());
     }
     
       /**
@@ -91,8 +103,8 @@ public class BilleteraResource {
      * @return JSON {@link BilleteraDetailDTO}  - La billetera guardada con el atributo id autogenerado.
      */
     @POST
-    public BilleteraDetailDTO createBilletera(BilleteraDetailDTO billetera){
-        return null;
+    public BilleteraDetailDTO createBilletera(BilleteraDetailDTO billetera) throws BusinessLogicException{
+        return new BilleteraDetailDTO(billeteraLogic.createBilletera(billetera.toEntity()));
     }
     
     
@@ -109,34 +121,53 @@ public class BilleteraResource {
      * 404 Not Found. No existe una billetera con el id dado.
      * </code> 
      * </pre>
-     * @param cedula cedula de la persona
+     * @param id id de la persona
      * @param billetera {@link BilleteraDetailDTO} La billetera que se desea guardar.
      * @return JSON {@link BilleteraDetailDTO} - La billetera guardada.
      */
     @PUT
-    @Path("{cedula : \\d+}")
-    public BilleteraDetailDTO updateBilletera(@PathParam("cedula") String cedula, BilleteraDetailDTO billetera){
-        return null;
+    @Path("{id : \\d+}")
+    public BilleteraDetailDTO updateBilletera(@PathParam("id") Long id, BilleteraDetailDTO billetera) throws BusinessLogicException{
+        billetera.setId(id);
+        BilleteraEntity entity = billeteraLogic.getBilletera(id);
+        if(entity == null)
+        {
+            throw new WebApplicationException("El recurso /billeteras/" + id + " no existe.", 404);
+        }
+        return new BilleteraDetailDTO(billeteraLogic.updateBilletera(id, billetera.toEntity()));
     }
     
        /**
-     * <h1>DELETE /api/billeteras/{cedula} : Borrar billetera por cedula.</h1>
+     * <h1>DELETE /api/billeteras/{id} : Borrar billetera por id.</h1>
      * 
-     * <pre>Borra la billetera con el cedula asociado recibido en la URL.
+     * <pre>Borra la billetera con el id asociado recibido en la URL.
      * 
      * Códigos de respuesta:<br>
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Elimina la billetera correspondiente al cedula dado.</code>
+     * 200 OK Elimina la billetera correspondiente al id dado.</code>
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found. No existe una billetera con el cedula dado.
+     * 404 Not Found. No existe una billetera con el id dado.
      * </code>
      * </pre>
-     * @param cedula cedula de la persona
+     * @param id de la billetera
      */
     @DELETE
-    @Path("{cedula : \\d+}")
-    public void deleteBilletera(@PathParam("cedula") String cedula){
+    @Path("{id : \\d+}")
+    public void deleteBilletera(@PathParam("id") Long id){
+         BilleteraEntity entity = billeteraLogic.getBilletera(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /billeteras/" + id + " no existe.", 404);
+        }
+        billeteraLogic.deleteBilletera(id);
+    }
         
+
+    private List<BilleteraDetailDTO> listBilleteraEntityDetailDTO(List<BilleteraEntity> billeteraList) {
+        List<BilleteraDetailDTO> list = new ArrayList<>();
+        for (BilleteraEntity entity : billeteraList) {
+            list.add(new BilleteraDetailDTO(entity));
+        }
+        return list;
     }
  
 }

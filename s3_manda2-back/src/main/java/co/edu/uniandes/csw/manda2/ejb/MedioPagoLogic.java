@@ -34,7 +34,7 @@ public class MedioPagoLogic {
      * Devuelve todos los medios de pago que hay en la base de datos.
      * @return Lista de entidades de tipo medioPago.
      */
-    public List<MedioPagoEntity> getMedioPagos() {
+    public List<MedioPagoEntity> getMediosPagos() {
         LOGGER.info("Inicia proceso de consultar todos los medios de pago");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<MedioPagoEntity> medios = persistence.findAll();
@@ -49,7 +49,13 @@ public class MedioPagoLogic {
      * @return El medio pago  encontrado, null si no lo encuentra.
      */
     public MedioPagoEntity getMedioPago(Long id) {
-        return persistence.find(id);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar el medio de pago con id={0}", id);
+        MedioPagoEntity tarjeta = persistence.find(id);
+        if (tarjeta == null) {
+            LOGGER.log(Level.SEVERE, "El medio de pago con el id {0} no existe", id);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar el  medio con id={0}", id);
+        return tarjeta;
     }
 
      /**
@@ -75,6 +81,10 @@ public class MedioPagoLogic {
         if (!validateNombreCliente(entity.getNombreCliente())) {
             throw new BusinessLogicException("El nombre no puede ser vacio");
         }
+        if(getMedioPago(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos medios de pago con el mismo id");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del medio de pago");
         return entity;
@@ -90,6 +100,8 @@ public class MedioPagoLogic {
     public MedioPagoEntity updateMedioPago(Long id, MedioPagoEntity entity) throws BusinessLogicException {
         
        LOGGER.log(Level.INFO, "Inicia proceso de actualizar medio de pago con id={0}", id);
+       
+       
         if (!validateNombreCliente(entity.getNombreCliente())) {
             throw new BusinessLogicException("El nombre no puede ser vacio");
         }

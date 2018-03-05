@@ -72,7 +72,6 @@ import java.util.List;
  *      "quejasYReclamos": [{
  *      "mensaje": "El servicio se demoro mucho",
  *      "numero": 001,
- *      "id": 001
  *   }],
  *      "servicios": [{
  *      "costoDeTransporte": 500,

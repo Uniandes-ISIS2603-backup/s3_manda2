@@ -65,23 +65,17 @@ public class PagoDTO {
     private Date fecha; 
     
     public PagoDTO(){
-     this(0L,"",null);
-    
-    }
-     /**
-     * Constructor de un nuevo Pago.
-     * @param id id del pago
-     * @param estado estado en que se encuentra el pago
-     * @param fecha fecha de pago
-     */
-    public PagoDTO(Long id, String estado, Date fecha){
-        this.id  =id;
-        this.estadoTransaccion = estado;
-        this.fecha  = fecha;
+        
     }
     public PagoDTO(PagoEntity entity)
     {
-        
+         if(entity != null){
+            this.id = entity.getId();
+            this.estadoTransaccion= entity.getEstadoTransaccion();
+            this.fecha= entity.getFecha();
+            
+            
+        }
     }
     /**
      * Retorna el id del pago.
@@ -129,7 +123,10 @@ public class PagoDTO {
     }
 
     PagoEntity toEntity() {
-        //Pendiente por hacer
-        return null;
+       PagoEntity pago = new PagoEntity();
+        pago.setId(this.id);
+        pago.setEstadoTransaccion(this.estadoTransaccion);
+        pago.setFecha(this.fecha);
+        return pago;
     }
 }

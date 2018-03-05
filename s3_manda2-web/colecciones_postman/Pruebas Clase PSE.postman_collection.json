@@ -1,0 +1,235 @@
+{
+	"info": {
+		"name": "Pruebas Clase PSE",
+		"_postman_id": "7bd8aebb-e059-4066-9616-93e00dae40e7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear PSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c60fddc9-2571-47f7-990f-cdbcce9dabad",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_pse\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nombreCliente\": \"carlos bello\",      \r\n     \"id\": 01234566789,\r\n     \"linkPse\": \"https://www.pse.com.co/inicio\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pses"
+					]
+				},
+				"description": "Crear PSE"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los pse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db224c92-e511-4e27-a408-42931b567a64",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"pse count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pses"
+					]
+				},
+				"description": "Obtener todos los pse"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un pse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pses/{{new_id_pse}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pses",
+						"{{new_id_pse}}"
+					]
+				},
+				"description": "Obtener un pse"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un pse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1846e7b0-8873-4f0f-a6fa-b6fadfbbefcb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nombreCliente\": \"Nicolas Caceres\",      \r\n     \"id\": 01234566789,\r\n     \"linkPse\": \"https://www.pse.com.co/inicio\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pses/{{new_id_pse}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pses",
+						"{{new_id_pse}}"
+					]
+				},
+				"description": "Actualizar un pse"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un pse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f261b8e6-752f-4626-b0d2-0904ebce77bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pses/{{new_id_pse}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pses",
+						"{{new_id_pse}}"
+					]
+				},
+				"description": "Borrar un pse"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b4877f9a-39b3-4a04-a2ad-5106f96ae846",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c66c1b5-f58c-4545-b561-08a2f31dd7e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

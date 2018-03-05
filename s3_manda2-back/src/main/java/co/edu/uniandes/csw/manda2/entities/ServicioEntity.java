@@ -57,6 +57,7 @@ public class ServicioEntity extends BaseEntity{
     /**
      * Estado del servicio.
      */
+    @PodamExclude
     private String estado;
     
     /**
