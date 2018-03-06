@@ -82,7 +82,9 @@ public class ComprasEnTiendaLogicTest {
         em.createQuery("delete from ComprasEnTiendaEntity").executeUpdate();
     }
 
-    
+    /**
+     * Inserta información a las tablas
+     */
     private void insertData (){
         for (int i = 0; i < 3; i++) {
             ComprasEnTiendaEntity entity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
@@ -91,6 +93,11 @@ public class ComprasEnTiendaLogicTest {
         }
     }
     
+    
+    /**
+     * Test del meotdo  crear una compra
+     * @throws BusinessLogicException 
+     */
     @Test
     public void createCompraTest() throws BusinessLogicException
     {
@@ -107,4 +114,21 @@ public class ComprasEnTiendaLogicTest {
         
    
     }
+    
+    @Test
+    public void deleteCompraTest() {
+        ComprasEnTiendaEntity entity = data.get(0);
+        comprasEnTiendaLogic.deleteCompra(entity.getId());
+        ComprasEnTiendaEntity deleted = em.find(ComprasEnTiendaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    @Test
+     public void getCompraTest(){
+         ComprasEnTiendaEntity entity = data.get(0);
+         ComprasEnTiendaEntity newEntity = comprasEnTiendaLogic.getCompra(entity.getId());
+         Assert.assertNotNull (newEntity);
+         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+         Assert.assertEquals(newEntity.getArticulo(), entity.getArticulo());
+     }
 }

@@ -109,4 +109,39 @@ public class EntregasDeDocumentosLogicTest {
    
     }
     
+      
+    // @Test
+     //public void getEntregaTest(){
+       //  EntregasDeDocumentosEntity entity = data.get(0);
+        // EntregasDeDocumentosEntity newEntity = entregasDeDocumentosLogic.getEntrega(entity.getId());
+         //Assert.assertNotNull (newEntity);
+        // Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        // Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
+         
+    // }
+     
+    // @Test
+    //public void deleteEntregaTest() {
+      //  EntregasDeDocumentosEntity entity = data.get(0);
+        //entregasDeDocumentosLogic.deleteEntrega(entity.getId());
+       // EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+       // Assert.assertNull(deleted);
+    //}
+    
+   //* @Test
+    //public void updateEntregaTest(){
+      //  EntregasDeDocumentosEntity entity = data.get(0);
+        //EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
+        
+       // newEntity.setId(entity.getId());             
+        
+      
+        //entregasDeDocumentosLogic.updateEntrega(newEntity.getId(), newEntity);
+        
+        
+        //EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        
+       // Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+       // Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
+    //}
 }

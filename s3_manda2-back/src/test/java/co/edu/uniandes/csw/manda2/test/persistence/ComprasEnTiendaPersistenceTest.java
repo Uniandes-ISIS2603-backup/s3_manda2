@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
+import co.edu.uniandes.csw.manda2.ejb.ComprasEnTiendaLogic;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.persistence.ComprasEnTiendaPersistence;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ComprasEnTiendaPersistenceTest {
-    
+    PodamFactory factory = new PodamFactoryImpl();
     
     @Deployment
     public static JavaArchive createDeployement (){
@@ -46,6 +47,9 @@ public class ComprasEnTiendaPersistenceTest {
     
     @Inject
     private ComprasEnTiendaPersistence comprasEnTiendaPersistence;
+    
+   // @Inject
+    //private ComprasEnTiendaLogic comprasLogic;
     
     @PersistenceContext
     private EntityManager em;
@@ -65,7 +69,7 @@ public class ComprasEnTiendaPersistenceTest {
     }
     
      private void insertData() {
-        PodamFactory factory = new PodamFactoryImpl();
+        
         for (int i = 0; i < 3; i++) {
             ComprasEnTiendaEntity entity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
             
@@ -107,9 +111,56 @@ public class ComprasEnTiendaPersistenceTest {
         
         
         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getArticulo(), entity.getArticulo());
         
     }
      
-     
+     @Test
+     public void getCompraTest(){
+         ComprasEnTiendaEntity entity = data.get(0);
+         ComprasEnTiendaEntity newEntity = comprasEnTiendaPersistence.find(entity.getId());
+         Assert.assertNotNull (newEntity);
+         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+         Assert.assertEquals(newEntity.getArticulo(), entity.getArticulo());
+     }
     
+     
+     //@Test
+    //public void getComprasTest() {
+      //  List<ComprasEnTiendaEntity> list = comprasLogic.getCompras();
+        //Assert.assertEquals(data.size(), list.size());
+        //for (ComprasEnTiendaEntity entity : list) {
+          //  boolean found = false;
+            //for (ComprasEnTiendaEntity storedEntity : data) {
+              //  if (entity.getId().equals(storedEntity.getId())) {
+                //    found = true;
+                //}
+            //}
+            //Assert.assertTrue(found);
+       // }
+    //}
+     
+     @Test
+    public void deleteCompraTest(){
+        ComprasEnTiendaEntity entity = data.get(0);
+        comprasEnTiendaPersistence.delete(entity.getId());
+        ComprasEnTiendaEntity deleted = em.find(ComprasEnTiendaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    @Test
+    public void updatePayPalTest(){
+        ComprasEnTiendaEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        ComprasEnTiendaEntity newEntity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
+        
+        newEntity.setId(entity.getId());
+        
+        comprasEnTiendaPersistence.update(newEntity);
+        
+        ComprasEnTiendaEntity resp = em.find(ComprasEnTiendaEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getArticulo(), resp.getArticulo());
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+    }
 }

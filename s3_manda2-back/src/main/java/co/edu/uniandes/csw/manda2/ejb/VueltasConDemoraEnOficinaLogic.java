@@ -26,7 +26,7 @@ public class VueltasConDemoraEnOficinaLogic {
     
     
     /**
-     * Devuelve las compras que hay en la base de datos
+     * Devuelve las vueltas que hay en la base de datos
      * @return 
      */
     public List<VueltasConDemoraEnOficinaEntity> getVueltas (){
@@ -37,7 +37,7 @@ public class VueltasConDemoraEnOficinaLogic {
     }
     
     /**
-     * Buscar un libro por el id dado 
+     * Buscar una vuellta por el id dado 
      * @param id el id de la compra a buscar    
      * @return La compra encontrada, si no se encuentra retorna null
      */

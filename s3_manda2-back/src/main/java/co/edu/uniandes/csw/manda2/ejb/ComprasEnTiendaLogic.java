@@ -41,7 +41,7 @@ public class ComprasEnTiendaLogic {
     }
     
     /**
-     * Buscar un libro por el id dado 
+     * Buscar una compra por el id dado 
      * @param id el id de la compra a buscar    
      * @return La compra encontrada, si no se encuentra retorna null
      */

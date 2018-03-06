@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
+import co.edu.uniandes.csw.manda2.ejb.VueltasConDemoraEnOficinaLogic;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.persistence.VueltasConDemoraEnOficinaPersistence;
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class VueltasConDemoraEnOficinaPersistenceTest {
     @Inject
     private VueltasConDemoraEnOficinaPersistence vueltasConDemoraEnOfcinaPersistence;
     
+    //@Inject
+    //private VueltasConDemoraEnOficinaLogic vueltasLogic;
     
     @PersistenceContext
     private EntityManager em;
@@ -125,6 +128,52 @@ public class VueltasConDemoraEnOficinaPersistenceTest {
         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
     }
     
+     @Test
+     public void getVueltaTest(){
+         VueltasConDemoraEnOficinaEntity entity = data.get(0);
+         VueltasConDemoraEnOficinaEntity newEntity = vueltasConDemoraEnOfcinaPersistence.find(entity.getId());
+         Assert.assertNotNull (newEntity);
+         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+         Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
+     }
     
+     // @Test
+  // public void getVueltasTest() {
+    //    List<VueltasConDemoraEnOficinaEntity> list = vueltasLogic.getVueltas();
+      //  Assert.assertEquals(data.size(), list.size());
+        //for (VueltasConDemoraEnOficinaEntity entity : list) {
+          //  boolean found = false;
+            //for (VueltasConDemoraEnOficinaEntity storedEntity : data) {
+              //  if (entity.getId().equals(storedEntity.getId())) {
+                //    found = true;
+                //}
+            //}
+            //Assert.assertTrue(found);
+       // }
+    //}
+     
+     
+     @Test
+    public void deleteVueltaTest(){
+        VueltasConDemoraEnOficinaEntity entity = data.get(0);
+        vueltasConDemoraEnOfcinaPersistence.delete(entity.getId());
+        VueltasConDemoraEnOficinaEntity deleted = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
     
+    @Test
+    public void updatePayPalTest(){
+        VueltasConDemoraEnOficinaEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        VueltasConDemoraEnOficinaEntity newEntity = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        
+        newEntity.setId(entity.getId());
+        
+        vueltasConDemoraEnOfcinaPersistence.update(newEntity);
+        
+        VueltasConDemoraEnOficinaEntity resp = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getCostoDuracion(), resp.getCostoDuracion());
+    }
 }

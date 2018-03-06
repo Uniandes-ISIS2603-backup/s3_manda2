@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
+import co.edu.uniandes.csw.manda2.ejb.EntregasDeDocumentosLogic;
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.persistence.EntregasDeDocumentosPersistence;
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public class EntregasDeDocumentosPersistenceTest {
     
     @Inject
     private EntregasDeDocumentosPersistence entregasDeDocumentosPersistence;
+    
+   // @Inject
+    //private EntregasDeDocumentosLogic entregasLogic;
     
     @PersistenceContext
     private EntityManager em;
@@ -104,5 +108,55 @@ public class EntregasDeDocumentosPersistenceTest {
         
          Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
           Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
+    }
+     
+     
+     @Test
+     public void getEntregaTest(){
+         EntregasDeDocumentosEntity entity = data.get(0);
+         EntregasDeDocumentosEntity newEntity = entregasDeDocumentosPersistence.find(entity.getId());
+         Assert.assertNotNull (newEntity);
+         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+         Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
+     }
+     
+     // @Test
+    //public void getEntregasTest() {
+      //  List<EntregasDeDocumentosEntity> list = entregasLogic.getEntregas();
+        //Assert.assertEquals(data.size(), list.size());
+       // for (EntregasDeDocumentosEntity entity : list) {
+         //   boolean found = false;
+           // for (EntregasDeDocumentosEntity storedEntity : data) {
+             //   if (entity.getId().equals(storedEntity.getId())) {
+               //     found = true;
+                //}
+           // }
+            //Assert.assertTrue(found);
+       // }
+    //}
+     
+      @Test
+    public void deleteEntregaTest(){
+        EntregasDeDocumentosEntity entity = data.get(0);
+        entregasDeDocumentosPersistence.delete(entity.getId());
+        EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    
+    @Test
+    public void updatePayPalTest(){
+        EntregasDeDocumentosEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
+        
+        newEntity.setId(entity.getId());
+        
+        entregasDeDocumentosPersistence.update(newEntity);
+        
+        EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
     }
 }

@@ -109,6 +109,21 @@ public class VueltasConDemoraEnOficinaLogicTest {
         Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
         Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
         
-   
     }
+    
+  //  @Test
+   // public void deleteCompraTest() {
+     //   VueltasConDemoraEnOficinaEntity entity = data.get(0);
+       // vueltasConDemoraEnOficinaLogic.deleteVuelta(entity.getId());
+       // VueltasConDemoraEnOficinaEntity deleted = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
+       // Assert.assertNull(deleted);
+    //}
+    
+   // @Test
+   //  public void getCompraTest(){
+     //    VueltasConDemoraEnOficinaEntity entity = data.get(0);
+       //  VueltasConDemoraEnOficinaEntity newEntity = vueltasConDemoraEnOficinaLogic.getVuelta(entity.getId());
+       //  Assert.assertNotNull (newEntity);
+        // Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+     //}
 }
