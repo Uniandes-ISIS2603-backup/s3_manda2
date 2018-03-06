@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
+
 /**
  * Clase que representa el empleado.
  * 
@@ -42,15 +44,15 @@ public class EmpleadoDTO extends UsuarioDTO{
     /**
      * Atributo que identifica a un empleado
      */
-    private String identificacion;
+    public String identificacion;
     /**
      * Atributo que muestra la foto del empleado
      */
-    private String  foto;
+    public String  foto;
     /**
      * Atributo quemuestra la EPS a la que esta afiliado el empleado
      */
-    private String EPS;
+    public String EPS;
     //CONSTRUCTOR
     /**
      * Genera un empleado
@@ -73,6 +75,12 @@ public class EmpleadoDTO extends UsuarioDTO{
         identificacion = pIdentificacion;
         foto = pFoto;
         EPS = PEPS;
+    }
+    public EmpleadoDTO(EmpleadoEntity entity){
+        super(entity);
+        identificacion = entity.getIdentificacio();
+        foto = entity.getFoto();
+        EPS = entity.getEPS();
     }
     //METODOS
      /**

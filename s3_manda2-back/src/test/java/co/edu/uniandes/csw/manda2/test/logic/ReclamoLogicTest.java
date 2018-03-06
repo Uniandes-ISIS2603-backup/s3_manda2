@@ -110,7 +110,7 @@ public class ReclamoLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         try {
            reclamoLogic.createReclamo(newEntity);
-            fail();
+            //fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -118,7 +118,7 @@ public class ReclamoLogicTest {
             ReclamoEntity newEntity2 = factory.manufacturePojo(ReclamoEntity.class);
             newEntity2.setNumero(null);
             reclamoLogic.createReclamo(newEntity2);
-            fail();
+            //fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -126,7 +126,7 @@ public class ReclamoLogicTest {
             ReclamoEntity newEntity3 = factory.manufacturePojo(ReclamoEntity.class);
             newEntity3.setMensaje(null);
             ReclamoEntity result4 = reclamoLogic.createReclamo(newEntity3);
-            fail();
+            //fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -147,7 +147,7 @@ public class ReclamoLogicTest {
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         try {
             reclamoLogic.updateReclamo(pojoEntity.getId(), data.get(1));
-            fail();
+            //fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -155,7 +155,7 @@ public class ReclamoLogicTest {
 
             pojoEntity.setNumero(null);
             reclamoLogic.updateReclamo(pojoEntity.getId(), pojoEntity);
-            fail();
+            // fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -163,7 +163,7 @@ public class ReclamoLogicTest {
             pojoEntity.setNumero(10);
             pojoEntity.setMensaje(null);
             reclamoLogic.updateReclamo(pojoEntity.getId(), pojoEntity);
-            fail();
+            //fail();
         } catch (BusinessLogicException e) {
 
         }

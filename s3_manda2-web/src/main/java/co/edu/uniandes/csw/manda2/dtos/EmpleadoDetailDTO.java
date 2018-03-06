@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +83,15 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     }
 
     public EmpleadoDetailDTO(EmpleadoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super(entity);
+        if(entity !=null)
+        {
+            this.id = entity.getId();
+            this.nombre = entity.getNombre();
+            this.cedula = entity.getCedula();
+            this.calificacion = entity.getCalificacion();
+            this.fechaIngreso = entity.getFechaIngreso();
+        }
     }
    
     /**
@@ -114,6 +124,36 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     public void setServicios(List<ServicioDetailDTO> servicios) {
         this.servicios = servicios;
     }
-    
+    public List<ServicioEntity> servicioListToEntity()
+    {
+        ArrayList<ServicioEntity> lista = new ArrayList<ServicioEntity>();
+        for (ServicioDetailDTO servicio : servicios) {
+            lista.add(servicio.toEntity());
+        }
+        return lista;
+    }
+     public List<PagoEntity> pagoListToEntity()
+    {
+        ArrayList<PagoEntity> lista = new ArrayList<PagoEntity>();
+        for (PagoDTO pago : pagos) {
+            lista.add(pago.toEntity());
+        }
+        return lista;
+    }
+     @Override
+    public EmpleadoEntity toEntity() {
+     EmpleadoEntity entity = new EmpleadoEntity();
+     entity.setNombre(nombre);
+     entity.setCedula(cedula);
+     entity.setFechaIngreso(fechaIngreso);
+     entity.setCedula(cedula);
+     entity.setId(id);
+     entity.setIdentificacio(identificacion);
+     entity.setFoto(foto);
+     entity.setEPS(EPS);
+     entity.setServicios(servicioListToEntity());
+     entity.setPagos(pagoListToEntity());
+     return entity;
+    }
     
 }

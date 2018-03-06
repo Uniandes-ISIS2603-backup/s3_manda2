@@ -68,7 +68,9 @@ public class ReclamoDTO {
     }
     public ReclamoDTO (ReclamoEntity entity)
     {
-        //Completar
+       mensaje = entity.getMensaje();
+       numero = entity.getNumero();
+       id = entity.getId();
     }
     //METODOS
     /**
@@ -114,8 +116,11 @@ public class ReclamoDTO {
         this.id = id;
     }
 
-    ReclamoEntity toEntity() {
-        //Pendiente por hacer
-        return null;
+    public ReclamoEntity toEntity() {
+        ReclamoEntity entity = new ReclamoEntity();
+        entity.setId(id);
+        entity.setMensaje(mensaje);
+        entity.setNumero(numero);
+        return entity;
     }
 }

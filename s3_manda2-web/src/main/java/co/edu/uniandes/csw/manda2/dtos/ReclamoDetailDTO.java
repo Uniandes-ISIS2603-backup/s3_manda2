@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
+
 /**
  *Clase que representa el reclamo. 
  * 
@@ -68,6 +70,12 @@ public class ReclamoDetailDTO extends ReclamoDTO {
     public ReclamoDetailDTO()
     {
         super();
+        empleado = null;
+        servicio = null;
+    }
+
+    public ReclamoDetailDTO(ReclamoEntity entity) {
+        super(entity);
         empleado = null;
         servicio = null;
     }

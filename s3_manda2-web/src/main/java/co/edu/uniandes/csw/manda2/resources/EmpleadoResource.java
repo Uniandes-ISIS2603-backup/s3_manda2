@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.manda2.dtos.EmpleadoDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -18,8 +19,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import java.util.ArrayList;
 import javax.inject.Inject;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.WebApplicationException;
 
 /**
@@ -39,6 +40,7 @@ import javax.ws.rs.WebApplicationException;
 @Path("empleados")
 @Consumes("application/json")
 @Produces("application/json")
+@RequestScoped
 public class EmpleadoResource {
     @Inject
     private EmpleadoLogic logic;
@@ -106,7 +108,7 @@ public class EmpleadoResource {
      */
     @POST
     public EmpleadoDetailDTO createEmpleado( EmpleadoDetailDTO empleado)throws BusinessLogicException{
-        return empleado;
+        return new EmpleadoDetailDTO (logic.createEmpleado(empleado.toEntity()));
     }
     /**
      * <h1>PUT /api/empleados/{cedula} : Actualizar empleado con la cedula dada.</h1>
@@ -121,15 +123,20 @@ public class EmpleadoResource {
      * 404 Not Found. No existe un PayPal con el id dado.
      * </code> 
      * </pre>
-     * @param cedula Identificador del empleado que se desea actualizar. Este debe ser una cadena de dígitos.
+     * @param id Identificador del empleado que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param empleado {@link EmpleadoDetailDTO} El empleado que se desea guardar.
      * @return JSON {@link EmpleadoDetailDTO} - El empleado guardado.
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
-    @Path("{cedula : \\d+}")
-    public EmpleadoDetailDTO updateEmpleado (@PathParam("cedula") String cedula, EmpleadoDetailDTO empleado )throws BusinessLogicException{
-        return  empleado;
+    @Path("{id : \\d+}")
+    public EmpleadoDetailDTO updateEmpleado (@PathParam("id") Long id, EmpleadoDetailDTO empleado )throws BusinessLogicException{
+       empleado.setId(id);
+       EmpleadoEntity entity = logic.getEmpleado(id);
+       if (entity == null) {
+           throw new WebApplicationException("El recurso /empleados/" + id + " no existe.", 404);
+       }
+        return  new EmpleadoDetailDTO(logic.updateEmpleado(id, empleado.toEntity()));
     }
     /**
      * <h1>DELETE /api/empleados/{cedula} : Borrar empleado por cedula.</h1>
@@ -146,12 +153,21 @@ public class EmpleadoResource {
      * @param cedula Identificador del empleado que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
-    @Path("{cedula : \\d+}")
-    public void deleteEmpleado( @PathParam("cedula") String cedula ){
-        
+    @Path("{id : \\d+}")
+    public void deleteEmpleado( @PathParam("id") Long id ){
+        EmpleadoEntity entity = logic.getEmpleado(id);
+        if (entity == null) {
+           throw new WebApplicationException("El recurso /empleados/" + id + " no existe.", 404);
+       }
+        logic.deleteEmpleado(id);
     }
 
     private List<EmpleadoDetailDTO> listEmpleafoEntityDTO(List<EmpleadoEntity> empleados) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<EmpleadoDetailDTO> list = new ArrayList<EmpleadoDetailDTO>();
+        for (EmpleadoEntity entity : empleados)
+        {
+            list.add( new EmpleadoDetailDTO(entity));
+        }
+        return list;
     }
 }

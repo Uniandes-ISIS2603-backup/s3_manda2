@@ -73,6 +73,22 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
     public void setServicios( List<ServicioEntity> servicios ){
         this.servicios = servicios;
     }
+
+    public List<PagoEntity> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<PagoEntity> pagos) {
+        this.pagos = pagos;
+    }
+
+    public List<ReclamoEntity> getReclamos() {
+        return reclamos;
+    }
+
+    public void setReclamos(List<ReclamoEntity> reclamos) {
+        this.reclamos = reclamos;
+    }
   
    
 }

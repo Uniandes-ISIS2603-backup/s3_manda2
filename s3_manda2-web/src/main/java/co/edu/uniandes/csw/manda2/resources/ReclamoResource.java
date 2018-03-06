@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ReclamoDetailDTO;
+import co.edu.uniandes.csw.manda2.ejb.ReclamoLogic;
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -17,6 +19,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.ArrayList;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * <pre>Clase que implementa el recurso "reclamos".
@@ -35,7 +40,10 @@ import java.util.ArrayList;
 @Path("reclamos")
 @Consumes("application/json")
 @Produces("application/json")
+@RequestScoped
 public class ReclamoResource {
+    @Inject
+    private ReclamoLogic logic;
      /**
      * <h1>GET /api/reclamos : Obtener todos los reclamos.</h1>
      * 
@@ -49,7 +57,7 @@ public class ReclamoResource {
      */
     @GET
     public List<ReclamoDetailDTO> getReclamos(){
-        return new ArrayList<>();
+        return ListReclamoEntityDTO(logic.getReclamos());
     }
     /**
      * <h1>GET /api/reclamos/{numero} : Obtener reclamo por numero.</h1>
@@ -64,13 +72,17 @@ public class ReclamoResource {
      * 404 Not Found No existe un reclamo con el numero dado.
      * </code> 
      * </pre>
-     * @param numero Identificador del reclamo que se está buscando. Este debe ser una cadena de dígitos.
+     * @param id Identificador del reclamo que se está buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link ReclamoDetailDTO} - El reclamo buscado
      */
     @GET
-    @Path("{numero : \\d+}")
-    public ReclamoDetailDTO getReclamo (@PathParam ("numero") String numero){
-        return null;
+    @Path("{id : \\d+}")
+    public ReclamoDetailDTO getReclamo (@PathParam ("id") Long id){
+        ReclamoEntity entity = logic.getReclamo(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /reclamos/" + id + " no existe.", 404);
+        }
+        return new ReclamoDetailDTO(entity);
     }
      /**
      * <h1>POST /api/reclamos : Crear un reclamo.</h1>
@@ -95,7 +107,7 @@ public class ReclamoResource {
     
     @POST
     public ReclamoDetailDTO createReclamo( ReclamoDetailDTO reclamo) throws BusinessLogicException{
-        return reclamo;
+        return new ReclamoDetailDTO(logic.createReclamo(reclamo.toEntity()));
     }
     /**
      * <h1>PUT /api/reclamos/{numero} : Actualizar reclamos con el numero dado.</h1>
@@ -116,9 +128,13 @@ public class ReclamoResource {
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
      */
     @PUT
-    @Path("{numero : \\d+}")
-    public ReclamoDetailDTO updateReclamo (@PathParam("numero") String numero, ReclamoDetailDTO reclamo ) throws BusinessLogicException{
-        return reclamo;
+    @Path("{id : \\d+}")
+    public ReclamoDetailDTO updateReclamo (@PathParam("id") Long id, ReclamoDetailDTO reclamo ) throws BusinessLogicException{
+        ReclamoEntity entity = logic.getReclamo(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /reclamo/" + id + " no existe.", 404);
+        }
+       return new ReclamoDetailDTO (logic.updateReclamo(id, reclamo.toEntity()));
     }
      
     /**
@@ -136,8 +152,20 @@ public class ReclamoResource {
      * @param numero Identificador del PayPal que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
-    @Path("{numero : \\d+}")
-    public void deleteReclamo( @PathParam("numero") String numero ){
-        
+    @Path("{id : \\d+}")
+    public void deleteReclamo( @PathParam("id") Long id ){
+        ReclamoEntity entity = logic.getReclamo(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /reclamo/" + id + " no existe.", 404);
+        }
+        logic.deleteReclamo(id);
+    }
+
+    private List<ReclamoDetailDTO> ListReclamoEntityDTO(List<ReclamoEntity> reclamos) {
+      List<ReclamoDetailDTO> list = new ArrayList<>();
+      for (ReclamoEntity entity : reclamos) {
+          list.add(new ReclamoDetailDTO(entity));
+      }
+      return list;
     }
 }

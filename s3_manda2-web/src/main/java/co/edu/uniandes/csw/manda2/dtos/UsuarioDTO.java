@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.entities.UsuarioEntity;
 import java.util.Date;
 
@@ -43,6 +44,13 @@ public abstract class UsuarioDTO  {
     public UsuarioDTO()
     {
         
+    }
+    public UsuarioDTO(EmpleadoEntity entity){
+        nombre = entity.getNombre();
+        cedula = entity.getCedula();
+        fechaIngreso = entity.getFechaIngreso();
+        calificacion = entity.getCalificacion();
+        id = entity.getId();
     }
    
     //METODOS
