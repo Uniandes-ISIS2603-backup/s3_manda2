@@ -23,22 +23,19 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-   @PodamExclude
     private Long id;
-    
     
     private OrganizacionEntity organizacion;
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
-    @PodamExclude
+    
     private Double costoDeTransporte;
     
     /** 
      * Costo que se le cobra al usuario, por la duración que se tiene
      * al hacer el servicio.
      */
-    @PodamExclude
     private Double costoDeDuracion;
     
     /**
@@ -46,7 +43,6 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      * con el fin de cumplir con la diligencia. 0
     */
     
-   @PodamExclude
     private Boolean desplazamiento;
     
     /**
@@ -74,7 +70,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      * Obtener el id del servicio organizacion
      * @return id el id de la organizacion
      */
-    public Long getId()
+   /** public Long getId()
     {
         return id;
     }
@@ -100,7 +96,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      *
      * @param id el id de la organizacion
      */
-    public void setId(Long id)
+    /**public void setId(Long id)
     {
         this.id=id;
     }
@@ -108,7 +104,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      * Verifica si el sericio requiere de un desplazamiento
      * @return desplazamiento true si desplazo, false lo contrario
      */
-    public Boolean isDesplazamiento()
+   /** public Boolean isDesplazamiento()
     {
         return desplazamiento;
     }

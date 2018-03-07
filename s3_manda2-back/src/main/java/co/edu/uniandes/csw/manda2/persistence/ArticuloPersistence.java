@@ -76,7 +76,12 @@ public class ArticuloPersistence  {
          return em.merge(entity);
     }
     
-    public void delete(ArticuloEntity entity) {
-        em.remove(entity);
+    public void delete(Long id) {
+        ArticuloEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
+     
     }
 }

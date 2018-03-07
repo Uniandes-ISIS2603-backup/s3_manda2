@@ -39,19 +39,19 @@ public class ElementoBusquedaReservaPersistence {
     }
 
     /**
-     * Busca si hay algun ElementoBusquedaReserva con el link que se envía de argumento
+     * Busca si hay algun ElementoBusquedaReserva con el nombre que se envía de argumento
      *
-     * @param link: Link del ElementoBusquedaReserva que se está buscando
-     * @return null si no existe ninguna ElementoBusquedaReserva con el link del argumento. Si
+     * @param nombre: Link del ElementoBusquedaReserva que se está buscando
+     * @return null si no existe ninguna ElementoBusquedaReserva con el nombre del argumento. Si
      * existe alguna devuelve la primera.
      */
-    public ElementoBusquedaReservaEntity findByLink(String link) {
-        LOGGER.log(Level.INFO, "Consultando ElementoBusquedaReserva por link ", link);
+    public ElementoBusquedaReservaEntity findByNombre(String nombre) {
+        LOGGER.log(Level.INFO, "Consultando ElementoBusquedaReserva por nombre ", nombre);
 
-        // Se crea un query para buscar ElementoBusquedaReserva con el link que recibe el método como argumento. ":link" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From ElementoBusquedaReservaEntity e where e.linkElementoBusquedaReserva = :link", ElementoBusquedaReservaEntity.class);
-        // Se remplaza el placeholder ":link" con el valor del argumento 
-        query = query.setParameter("link", link);
+        // Se crea un query para buscar ElementoBusquedaReserva con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From ElementoBusquedaReservaEntity e where e.nombreElementoBusquedaReserva = :nombre", ElementoBusquedaReservaEntity.class);
+        // Se remplaza el placeholder ":nombre" con el valor del argumento 
+        query = query.setParameter("nombre", nombre);
         // Se invoca el query se obtiene la lista resultado
         List<ElementoBusquedaReservaEntity> sameLink = query.getResultList();
         if (sameLink.isEmpty()) {
@@ -67,15 +67,18 @@ public class ElementoBusquedaReservaPersistence {
         return query.getResultList();
     }
 
-    public ElementoBusquedaReservaEntity find(String nombre) {
-        return em.find(ElementoBusquedaReservaEntity.class, nombre);
+    public ElementoBusquedaReservaEntity find(Long id) {
+        return em.find(ElementoBusquedaReservaEntity.class, id);
     }
 
     public ElementoBusquedaReservaEntity update(ElementoBusquedaReservaEntity entity) {
          return em.merge(entity);
     }
     
-    public void delete(ElementoBusquedaReservaEntity entity) {
-        em.remove(entity);
-    }
+    public void delete(Long id) {
+   ElementoBusquedaReservaEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }    }
 }

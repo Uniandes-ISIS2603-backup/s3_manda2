@@ -20,14 +20,12 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements Serializable {
  
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  
       /**
      * nombre del elemento de busqueda
      * */
-    @PodamExclude
-    private String nombre;
+    
+    private String nombreBusquedaReserva;
     
     //@ManyToMany
     //private ElementoBusquedaReservaEntity elementoBusquedaReserva;
@@ -35,13 +33,11 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer
      * */
-    @PodamExclude
     private String datosBusqueda;
     /**
      * Determina si la busqueda fue exitosa
      * */
     
-    @PodamExclude
     private Boolean exitosa;
     
     /**
@@ -49,9 +45,9 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
      * @return nombre retorna el nombre del elemento.
      * */
     
-    public String getNombre()
+    public String getNombreElementoBusquedaReserva()
     {
-        return nombre;
+        return nombreBusquedaReserva;
     }
     /**
      * Obtener los datos del elemento a buscar
@@ -68,9 +64,9 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
      * @param nombre a establecer
      * */
     
-    public void setNombre(String nombre)
+    public void setNombreBusquedaReserva(String nombre)
     {
-        this.nombre=nombre;
+        this.nombreBusquedaReserva=nombre;
     }
     /**
      * Establecer los datos del elemento

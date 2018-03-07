@@ -29,22 +29,29 @@ public class OrganizacionPersistence  {
     protected EntityManager em;
     
     public OrganizacionEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando employee con id={0}", id);
         return em.find(OrganizacionEntity.class, id);
     }
 
-    public OrganizacionEntity findByName(String numero) {
-        LOGGER.log(Level.INFO, "Consultando Organizacion con numero= ", numero);
-        TypedQuery<OrganizacionEntity> q
-                = em.createQuery("select u from OrganizacionEntity u where u.numero = :numero", OrganizacionEntity.class);
-        q = q.setParameter("nombre", numero);
-        return q.getSingleResult();
+    public OrganizacionEntity findByName(String name) {
+     LOGGER.log(Level.INFO, "Consultando Organizacion por nombre ", name);
+
+        // Se crea un query para buscar pse con el link que recibe el método como argumento. ":link" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From OrganizacionEntity e where e.nombre= :link", OrganizacionEntity.class);
+        // Se remplaza el placeholder ":link" con el valor del argumento 
+        query = query.setParameter("nombre", name);
+        // Se invoca el query se obtiene la lista resultado
+        List<OrganizacionEntity> nombre = query.getResultList();
+        if (nombre.isEmpty()) {
+            return null;
+        } else {
+            return nombre.get(0);
+        }
     }
 
     public List<OrganizacionEntity> findAll() {
         LOGGER.info("Consultando todos los Organizacions");
-        Query q = em.createQuery("select u from OrganizacionEntity u");
-        return q.getResultList();
+        TypedQuery query = em.createQuery("select u from OrganizacionEntity u", OrganizacionEntity.class);
+        return query.getResultList();
     }
 
     public OrganizacionEntity create(OrganizacionEntity entity) {
@@ -55,13 +62,14 @@ public class OrganizacionPersistence  {
     }
 
     public OrganizacionEntity update(OrganizacionEntity entity) {
-        LOGGER.log(Level.INFO, "Actualizando Organizacion con id={0}", entity.getId());
         return em.merge(entity);
     }
 
     public void delete(Long id) {
-        LOGGER.log(Level.INFO, "Borrando Organizacion con id={0}", id);
-        OrganizacionEntity entity = em.find(OrganizacionEntity.class, id);
-        em.remove(entity);
+       OrganizacionEntity entidad = find(id);
+        if(entidad!= null)
+        {
+        em.remove(entidad);
+        }
 }
 }

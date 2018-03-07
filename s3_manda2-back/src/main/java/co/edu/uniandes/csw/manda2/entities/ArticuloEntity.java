@@ -21,28 +21,18 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializable {
     
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    /**
-     * La ruta de la imágen del artículo
-     * */
-     @PodamExclude
-     
     private String rutaImagen;
     /**
      * Nombre del articulo
      * */
-      @PodamExclude
-    private String nombre;
+    private String nombreArticulo;
       
-      @OneToMany
-      private ArticuloEntity articulo;
+     // @OneToMany
+   // private ArticuloEntity articulo;
     
     /**
      * El precio del articulo
      * */
-       @PodamExclude
     private Double precio;
     
     /**
@@ -58,9 +48,9 @@ public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializabl
      * @return nombre
      * */
     
-    public String getNombre()
+    public String getNombreArticulo()
     {
-        return nombre;
+        return nombreArticulo;
     }
     
     /**
@@ -87,7 +77,7 @@ public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializabl
      * */
     public void setNombreArticulo(String pNombre)
     {
-      this.nombre=pNombre;  
+      this.nombreArticulo=pNombre;  
     }
     
     /**
