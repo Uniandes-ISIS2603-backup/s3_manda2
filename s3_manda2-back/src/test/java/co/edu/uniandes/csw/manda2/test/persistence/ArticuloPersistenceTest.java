@@ -48,9 +48,15 @@ public class ArticuloPersistenceTest {
     
     @PersistenceContext
     private EntityManager em;
+   
+    
+    @Inject
+    UserTransaction utx;
+    
+    private List <ArticuloEntity> data= new ArrayList<>();
     
     @Test
-    public void createServicioTest(){
+    public void createArticuloTest(){
         PodamFactory factory = new PodamFactoryImpl();
         ArticuloEntity newEntity = factory.manufacturePojo(ArticuloEntity.class);
         ArticuloEntity result = ArticuloPersistence.create(newEntity);
@@ -59,7 +65,92 @@ public class ArticuloPersistenceTest {
         
         ArticuloEntity entity = em.find(ArticuloEntity.class, result.getId());
         
-        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+        Assert.assertEquals(newEntity.getNombreArticulo(), entity.getNombreArticulo());
     }
+     /**
+     * Prueba para eliminar un artículo.
+     *
+     * 
+     */
+    @Test
+    public void deleteArticuloTest() {
+        ArticuloEntity entity = data.get(0);
+        ArticuloPersistence.delete(entity.getId());
+        ArticuloEntity deleted = em.find(ArticuloEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    private void insertData(){
+        PodamFactory factory = new PodamFactoryImpl();
+        for( int i = 0; i < 3; i++ ){
+           ArticuloEntity articulo = factory.manufacturePojo(ArticuloEntity.class);
+            
+            em.persist(articulo);
+            data.add(articulo);
+        }
+    }
+    @Before
+    public void configTest(){
+        try{
+            utx.begin();
+            em.joinTransaction();
+            clearData();
+            insertData();
+            utx.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            try{
+                utx.rollback();
+            }catch (Exception e1){
+                e1.printStackTrace();
+            }
+        }
+    }
+    
+    private void clearData(){
+        em.createQuery("delete from ArticuloEntity").executeUpdate();
+    }
+    
+     @Test
+    public void getArticulosTest(){
+        List<ArticuloEntity> list = ArticuloPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for( ArticuloEntity entity : list ){
+            boolean found = false;
+            for( ArticuloEntity entity2 : data ){
+                if (entity.getId().equals(entity2.getId())){
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    
+    @Test
+    public void getArticulotest(){
+        ArticuloEntity entity = data.get(0);
+        ArticuloEntity newEntity = ArticuloPersistence.find(entity.getId());
+        
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(newEntity.getNombreArticulo(), entity.getNombreArticulo());
+   
+    }
+    
+      @Test
+    public void updateArticuloTest(){
+        ArticuloEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        ArticuloEntity newEntity = factory.manufacturePojo(ArticuloEntity.class);
+        
+        newEntity.setId(entity.getId());
+        
+        ArticuloPersistence.update(newEntity);
+        
+        ArticuloEntity resp = em.find(ArticuloEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getNombreArticulo(), resp.getNombreArticulo());
+    
+    
      
+    }
 }
