@@ -67,7 +67,7 @@ public class ArticuloLogic {
      */
     public ArticuloEntity createArticulo(ArticuloEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación del articulo");
-        if (!validateNombreArticulo(entity.getNombreArticulo())) {
+        if (validateNombreArticulo(entity.getNombreArticulo())) {
             throw new BusinessLogicException("El nombre o el link no pueden ser vacios");
         }
        
@@ -84,8 +84,8 @@ public class ArticuloLogic {
      */
     public ArticuloEntity updateArticulo(Long id, ArticuloEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar articulo con id={0}", id);
-        if (!validateNombreArticulo(entity.getNombreArticulo())) {
-            throw new BusinessLogicException("El nombre pueden ser vacios");
+        if (validateNombreArticulo(entity.getNombreArticulo())) {
+            throw new BusinessLogicException("El nombre no puede ser vacio");
         }
         if(id!= entity.getId())
         {

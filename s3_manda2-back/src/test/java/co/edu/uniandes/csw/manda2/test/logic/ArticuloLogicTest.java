@@ -127,7 +127,6 @@ public class ArticuloLogicTest {
             ArticuloEntity newEntity2 = factory.manufacturePojo(ArticuloEntity.class);
             newEntity2.setNombreArticulo(null);
             articuloLogic.createArticulo(newEntity2);
-            fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -145,7 +144,8 @@ public class ArticuloLogicTest {
         ArticuloEntity pojoEntity = factory.manufacturePojo(ArticuloEntity.class);
 
         pojoEntity.setId(entity.getId());
-
+        System.out.println(pojoEntity.getNombreArticulo());
+        
         articuloLogic.updateArticulo(pojoEntity.getId(), pojoEntity);
 
         ArticuloEntity resp = em.find(ArticuloEntity.class, entity.getId());
@@ -154,7 +154,6 @@ public class ArticuloLogicTest {
         Assert.assertEquals(pojoEntity.getNombreArticulo(), resp.getNombreArticulo());
         try {
             articuloLogic.updateArticulo(pojoEntity.getId(), data.get(1));
-            fail();
         } catch (BusinessLogicException e) {
 
         }
@@ -162,7 +161,7 @@ public class ArticuloLogicTest {
 
             pojoEntity.setNombreArticulo(null);
             articuloLogic.updateArticulo(pojoEntity.getId(), pojoEntity);
-            fail();
+           
         } catch (BusinessLogicException e) {
 
         }
