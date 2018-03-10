@@ -41,15 +41,14 @@ public class OrganizacionDTO extends ServicioDetailDTO
 {
 
     public OrganizacionDTO(){
-        this(0D, 0D, false, 0L);
     }
     
-    public OrganizacionDTO(Double costoDeTransporte, Double costoDeDuracion, Boolean desplazamiento, Long id) {
-        this.costoDeTransporte = costoDeTransporte;
-        this.costoDeDuracion = costoDeDuracion;
-        this.desplazamiento = desplazamiento;
-        this.id = id;
-    }
+//    public OrganizacionDTO(OrganizacionEntity entityServicio) {
+//        this.costoDeTransporte = entityServicio.getCostoTransporte();
+//        this.costoDeDuracion = entityServicio.getCostoDuracion();
+//        this.desplazamiento = entityServicio.getDesplazamiento();
+//        this.id = id;
+//    }
     
     /**
      * Costo del transporte para hacer el mandado de éste tipo
@@ -71,10 +70,21 @@ public class OrganizacionDTO extends ServicioDetailDTO
     /**
      * Identificacion del servicio de Organizacion
      */
-    private Long id;
+    protected Long id;
 
-    public OrganizacionDTO(ServicioEntity entityServicio) {
+    public OrganizacionDTO(OrganizacionEntity entityServicio) {
         //Completar
+        
+         super();
+        if(entityServicio!= null)
+        {
+        this.id = entityServicio.getId();
+        this.costoDeDuracion=  entityServicio.getCostoDuracion();
+        this.costoDeTransporte=  entityServicio.getCostoTransporte();
+
+       
+    
+        }
     }
     /**
      * Retorna el costo del transporte del servicio
@@ -143,10 +153,17 @@ public class OrganizacionDTO extends ServicioDetailDTO
     {
         this.desplazamiento=desplazamiento;
     }
+       /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
     @Override
-    public OrganizacionEntity toEntity()
-    {
-        // pendiente por completar.
-        return null;
+    public OrganizacionEntity toEntity() {
+        OrganizacionEntity entity = new OrganizacionEntity();
+        entity.setId(this.id);
+        entity.setCostoDuracion(this.costoDeDuracion);
+        entity.setCostoTransporte(this.costoDeTransporte);
+        return entity;
     }
 }

@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
+
 /**
  *
  * ArticuloDTO Encargado de guardar los articulos a pedir por el usuario. Los DTO contienen las
@@ -37,17 +39,26 @@ package co.edu.uniandes.csw.manda2.dtos;
 public class ArticuloDTO extends ComprasEnTiendaDTO
 {
     
-    public ArticuloDTO(){
-        this("", "", 0D);
-    }
 
-    public ArticuloDTO(String rutaImagen, String nombre, Double precio) {
-        this.rutaImagen = rutaImagen;
-        this.nombre = nombre;
-        this.precio = precio;
-    }    
     
-    
+       public ArticuloDTO(){
+       
+    }
+    /**
+     * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param articulo: Es la entidad que se va a convertir a DTO
+     */
+    public ArticuloDTO(ArticuloEntity articulo) {
+        super();
+        if(articulo!= null)
+        {
+        this.id = articulo.getId();
+        this.nombreArticulo= articulo.getNombreArticulo();
+        }
+
+    }
     /**
      * La ruta de la imágen del artículo
      * */
@@ -55,7 +66,7 @@ public class ArticuloDTO extends ComprasEnTiendaDTO
     /**
      * Nombre del articulo
      * */
-    private String nombre;
+    private String nombreArticulo;
     
     /**
      * El precio del articulo
@@ -75,9 +86,9 @@ public class ArticuloDTO extends ComprasEnTiendaDTO
      * @return nombre
      * */
     
-    public String getNombre()
+    public String getNombreArticulo()
     {
-        return nombre;
+        return nombreArticulo;
     }
     
     /**
@@ -104,7 +115,7 @@ public class ArticuloDTO extends ComprasEnTiendaDTO
      * */
     public void setNombreArticulo(String pNombre)
     {
-      this.nombre=pNombre;  
+      this.nombreArticulo=pNombre;  
     }
     
     /**
@@ -116,5 +127,16 @@ public class ArticuloDTO extends ComprasEnTiendaDTO
         this.precio=pPrecio;
     }
     
-    
+       /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    @Override
+    public ArticuloEntity toEntity() {
+        ArticuloEntity entity = new ArticuloEntity();
+        entity.setId(this.id);
+        entity.setNombreArticulo(this.nombreArticulo);
+        return entity;
+    }
 }

@@ -160,7 +160,7 @@ public class ClienteDetailDTO extends ClienteDTO {
                    }
                    else if( entityServicio instanceof OrganizacionEntity)
                    {
-                        servicios.add(new OrganizacionDTO(entityServicio));
+                        servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
                    }
                 }
             }

@@ -7,9 +7,14 @@ package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
 import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
+import co.edu.uniandes.csw.manda2.ejb.ElementoBusquedaReservaLogic;
+import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -29,6 +35,8 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class ElementoBusquedaReservaResource {
     
+    @Inject
+    private ElementoBusquedaReservaLogic elementoLogic;
        /**
      * <h1>GET /api/elementoBusqueda : Obtener todas los elementoBusqueda.</h1>
      * 
@@ -42,7 +50,9 @@ public class ElementoBusquedaReservaResource {
      */
     @GET
     public List<ElementoBusquedaReservaDTO> getElementoBusquedas() {
-        return new ArrayList<>();
+        
+        return listElementos(elementoLogic.getElementoBusquedaReservas()) ;
+                
     }
  /**
      * <h1>GET /api/elementoBusqueda/{id} : Obtener elementoBusqueda por id.</h1>
@@ -62,8 +72,16 @@ public class ElementoBusquedaReservaResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public ElementoBusquedaReservaDTO getElementoBusquedas(@PathParam("id") long id) {
-        return null;
+    public ElementoBusquedaReservaDTO getElementoBusquedas(@PathParam("id") Long id) {
+        ElementoBusquedaReservaDTO nuevo= new ElementoBusquedaReservaDTO(elementoLogic.getElementoBusquedaReserva(id));
+        return nuevo;
+       
+    }
+    
+     private List<ElementoBusquedaReservaDTO> listElementos(List<ElementoBusquedaReservaEntity> entityList) {
+         
+         return entityList.stream().map(a -> new ElementoBusquedaReservaDTO(a)).collect(Collectors.toList());
+
     }
 /**
      * <h1>POST /api/elementoBusqueda : Crear un elementoBusqueda.</h1>
@@ -85,8 +103,8 @@ public class ElementoBusquedaReservaResource {
      * @return JSON {@link ElementoBusquedaReservaDTO} - El elemetoBusqueda guardado con el atributo id autogenerado.
      */
     @POST
-    public ElementoBusquedaReservaDTO createElementoBusquedas(ElementoBusquedaReservaDTO ElementoBusquedas) {
-        return ElementoBusquedas;
+    public ElementoBusquedaReservaDTO createElementoBusquedas(ElementoBusquedaReservaDTO elementoBusquedas) throws BusinessLogicException {
+        return new ElementoBusquedaReservaDTO(elementoLogic.createElementoBusquedaReserva(elementoBusquedas.toEntity()));   
     }
 /**
      * <h1>PUT /api/elemetoBusqueda/{id} : Actualizar ElementoBusqueda con el id dado.</h1>
@@ -107,8 +125,13 @@ public class ElementoBusquedaReservaResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public ElementoBusquedaReservaDTO updateElementoBusquedas(@PathParam("id") long id, ElementoBusquedaReservaDTO ElementoBusqueda) {
-        return ElementoBusqueda;
+    public ElementoBusquedaReservaDTO updateElementoBusquedaReserva(@PathParam("id") Long id, ElementoBusquedaReservaDTO elemento) throws BusinessLogicException {
+        elemento.setId(id);
+        ElementoBusquedaReservaEntity entity = elementoLogic.getElementoBusquedaReserva(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /elementos/" + id + " no existe.", 404);
+        }
+        return new ElementoBusquedaReservaDTO(elementoLogic.updateElementoBusquedaReserva(id, elemento.toEntity()));
     }
 /**
      * <h1>DELETE /api/elemetoBusqueda/{id} : Borrar un ElementoBusqueda por id.</h1>
@@ -124,9 +147,14 @@ public class ElementoBusquedaReservaResource {
      * </pre>
      * @param id Identificador del elemetoBusquedaque se desea borrar. Este debe ser una cadena de dígitos.
      */
+    
     @DELETE
     @Path("{id : \\d+}")
-    public void deleteElementoBusquedas(@PathParam("id") long id) {
-
+    public void deleteElementoBusquedaReserva(@PathParam("id") Long id) {
+        ElementoBusquedaReservaEntity entity = elementoLogic.getElementoBusquedaReserva(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /elementos/" + id + " no existe.", 404);
+        }
+        elementoLogic.deleteElementoBusquedaReserva(id);
     }
 }

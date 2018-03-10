@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,10 +7,18 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ArticuloDTO;
-import co.edu.uniandes.csw.manda2.dtos.ArticuloDTO;
+import co.edu.uniandes.csw.manda2.ejb.ArticuloLogic;
+import co.edu.uniandes.csw.manda2.ejb.ComprasEnTiendaLogic;
+import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +27,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -29,6 +39,14 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @RequestScoped
 public class ArticuloResource {
+    
+    @Inject
+    private ArticuloLogic articuloLogic;
+    
+    @Inject
+    private ComprasEnTiendaLogic comprasLogic;
+    
+    
       /**
      * <h1>GET /api/articulos : Obtener todas los articulos.</h1>
      * 
@@ -42,7 +60,7 @@ public class ArticuloResource {
      */
     @GET
     public List<ArticuloDTO> getArticulos() {
-        return new ArrayList<>();
+        return listElementos(articuloLogic.getArticulos());
     }
  /**
      * <h1>GET /api/articulos/{id} : Obtener articulos por id.</h1>
@@ -62,8 +80,9 @@ public class ArticuloResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public ArticuloDTO getArticulos(@PathParam("id") long id) {
-        return null;
+    public ArticuloDTO getArticulo(@PathParam("id") Long id) {
+        ArticuloDTO nuevo= new ArticuloDTO(articuloLogic.getArticulo(id));
+        return nuevo;
     }
 /**
      * <h1>POST /api/articulo : Crear un articulos.</h1>
@@ -85,8 +104,17 @@ public class ArticuloResource {
      * @return JSON {@link ArticuloDTO} - El articuloguardado con el atributo id autogenerado.
      */
     @POST
-    public ArticuloDTO createArticulos(ArticuloDTO articulos) {
-        return articulos;
+    public ArticuloDTO createArticulos(ArticuloDTO articulos)throws BusinessLogicException {
+        //ComprasEnTiendaEntity c = comprasLogic.createCompra(articulos.toEntity());
+        //articulos.setId(c.getId());
+        return new ArticuloDTO(articuloLogic.createArticulo(articulos.toEntity()));   
+        
+    }
+    
+    private List<ArticuloDTO> listElementos(List<ArticuloEntity> entityList) {
+         
+       return entityList.stream().map(a -> new ArticuloDTO(a)).collect(Collectors.toList());
+
     }
 /**
      * <h1>PUT /api/articulo/{id} : Actualizar articulo con el id dado.</h1>
@@ -107,8 +135,13 @@ public class ArticuloResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public ArticuloDTO updateArticulos(@PathParam("id") long id, ArticuloDTO articulo) {
-        return articulo;
+    public ArticuloDTO updateArticulos(@PathParam("id") Long id, ArticuloDTO articulo) throws BusinessLogicException {
+        articulo.setId(id);
+        ArticuloEntity entity = articuloLogic.getArticulo(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /articulos/" + id + " no existe.", 404);
+        }
+        return new ArticuloDTO(articuloLogic.updateArticulo(id, articulo.toEntity()));
     }
 /**
      * <h1>DELETE /api/articulo/{id} : Borrar un articulo por id.</h1>
@@ -117,7 +150,7 @@ public class ArticuloResource {
      * 
      * Códigos de respuesta:<br>
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Elimina el articulo correspondiente al id dado.</code>
+     * 200 OK Elimina el articulo correspondiente al id dado.</code>          
      * <code style="color: #c7254e; background-color: #f9f2f4;">
      * 404 Not Found. No existe el articulo con el id dado.
      * </code>
@@ -127,7 +160,11 @@ public class ArticuloResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deleteArticulos(@PathParam("id") long id) {
-
+        ArticuloEntity entity = articuloLogic.getArticulo(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /pses/" + id + " no existe.", 404);
+        }
+        articuloLogic.deleteArticulo(id);
     }
-    
+
 }

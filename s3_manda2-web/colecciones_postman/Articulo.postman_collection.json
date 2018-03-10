@@ -1,0 +1,213 @@
+{
+	"info": {
+		"name": "Articulo",
+		"_postman_id": "761e08d3-399f-4ea2-9396-c4eda62f0f77",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Artículo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51dffda1-c3a4-4177-96fa-21782a3306f2",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_art\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"rutaImagen\": \"ruta\",\r\n      \"nombre\": \"morcilla\",\r\n      \"precio\": 5000\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"articulos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los artículos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6df112f4-82cf-4684-a9db-fed81750beb2",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"pse count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"articulos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un artículo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99cdbca0-f399-4620-ad78-8587cce58656",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulo/{{new_id_articulo}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"articulo",
+						"{{new_id_articulo}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar artículo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af2cb16b-e44f-41ce-b8ee-eda1c2b48f16",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{     \r\n\t  \"rutaImagen\": \"comida\",\r\n      \"nombre\": \"morcilla\",\r\n      \"precio\": 5000\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos/{{new_id_art}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"articulos",
+						"{{new_id_art}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar artículo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ee0f8d6-d090-430f-baae-14faceb7bb15",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos/{{new_id_articulos}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"articulos",
+						"{{new_id_articulos}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

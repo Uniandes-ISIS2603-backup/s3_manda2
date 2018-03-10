@@ -70,10 +70,7 @@ public class ArticuloLogic {
         if (!validateNombreArticulo(entity.getNombreArticulo())) {
             throw new BusinessLogicException("El nombre o el link no pueden ser vacios");
         }
-       if(persistence.find(entity.getId())!= null)
-        {
-            throw new BusinessLogicException("No pueden existir dos articulos con el mismo id");
-        }
+       
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de articulo");
         return entity;
@@ -104,12 +101,7 @@ public class ArticuloLogic {
      * @return true si el nombre del cliente es un string válido, false de lo contrario.
      */
     private boolean validateNombreArticulo( String nombreArticulo ){
-       if(nombreArticulo==null || nombreArticulo.isEmpty())
-       {
-           return false;
-       }
-       return true;
-        
+       return nombreArticulo==null || nombreArticulo.isEmpty();
     }
     
  

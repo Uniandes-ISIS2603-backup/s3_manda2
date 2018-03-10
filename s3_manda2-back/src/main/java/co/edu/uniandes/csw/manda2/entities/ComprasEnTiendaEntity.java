@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.manda2.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -16,6 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author dv.gonzalez10
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializable{
 
     //Atributos    

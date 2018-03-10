@@ -78,7 +78,7 @@ public class OrganizacionLogic {
      * @return La entidad del organizacion luego de actualizarla
      * @throws BusinessLogicException Si el nombre o el link son nulos o estaban vacios o se intento cambiar el id.
      */
-    public OrganizacionEntity updateOrganizacion( OrganizacionEntity entity) throws BusinessLogicException {
+    public OrganizacionEntity updateOrganizacion(Long id, OrganizacionEntity entity) throws BusinessLogicException {
         return persistence.update(entity);
     }
     

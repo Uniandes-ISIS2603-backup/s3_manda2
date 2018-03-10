@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -18,6 +21,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author cv.trujillo
  */
 @Entity
+@PrimaryKeyJoinColumn( referencedColumnName = "id" )
 public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializable {
     
 

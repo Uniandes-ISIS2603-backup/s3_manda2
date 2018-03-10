@@ -5,6 +5,9 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
+import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
+
 /**
  ** ElementoBusqudReservaDTO servicios de tipo reserva. Los DTO contienen las
  * represnetaciones de los JSON que se transfieren entre el cliente y el
@@ -32,17 +35,20 @@ package co.edu.uniandes.csw.manda2.dtos;
  * </pre>
  * @author cv.trujillo
  */
-public class  ElementoBusquedaReservaDTO 
+public class  ElementoBusquedaReservaDTO extends OrganizacionDTO
 {
 
     public ElementoBusquedaReservaDTO(){
-        this("", "", false);
+ 
     }
     
-    public ElementoBusquedaReservaDTO(String nombre, String datosBusqueda, Boolean exitosa) {
-        this.nombre = nombre;
-        this.datosBusqueda = datosBusqueda;
-        this.exitosa = exitosa;
+    public ElementoBusquedaReservaDTO(ElementoBusquedaReservaEntity entity) {
+        super();
+        if(entity!= null)
+        {
+        this.id = entity.getId();
+        this.nombre= entity.getNombreElementoBusquedaReserva();
+        }
     }
     
  
@@ -113,5 +119,17 @@ public class  ElementoBusquedaReservaDTO
     public void setExitosa(Boolean exitosa)
     {
         this.exitosa=exitosa;
+    }
+     /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    @Override
+    public ElementoBusquedaReservaEntity toEntity() {
+        ElementoBusquedaReservaEntity entity = new ElementoBusquedaReservaEntity();
+        entity.setId(this.id);
+        entity.setNombreBusquedaReserva(this.getNombre());
+        return entity;
     }
 }

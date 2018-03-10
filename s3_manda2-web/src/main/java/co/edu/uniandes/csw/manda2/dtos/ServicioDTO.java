@@ -17,7 +17,7 @@ public abstract class ServicioDTO {
     /**
      * Id del objeto
      */
-    private Long id;
+   protected Long id;
 
     /**
      * Constante que indica que el estado del servicio es "en espera".

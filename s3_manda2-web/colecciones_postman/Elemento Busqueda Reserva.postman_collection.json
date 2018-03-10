@@ -1,0 +1,213 @@
+{
+	"info": {
+		"name": "Elemento Busqueda Reserva",
+		"_postman_id": "15c67611-d215-4eb2-9d1c-0e09d47e1eaa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Elemento Busqueda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62ae47af-7bca-49dd-a1dd-1b28f827a811",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"nombre\": \"concierto Carrangueros de Ráquira\",\r\n      \"exitosa\": true,\r\n      \"datosBusqueda\": \"primera fila con meet and greet\"\r\n     \r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"busquedaselementos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener los elementos busqueda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f2e82c9-e0bb-494e-830b-d8e5bf620cb1",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"pse count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"busquedaselementos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los elementos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7933b396-77ba-4009-9859-930510538d6f",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"authors count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos/{{new_id_elemento}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"busquedaselementos",
+						"{{new_id_elemento}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un elemento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c45a367a-ad4d-4cf7-a10b-ef3a97466d44",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"nombre\": \"concierto Carrangueros de Ráquiradadsadsasd\",\r\n      \"exitosa\": true,\r\n      \"datosBusqueda\": \"locación general\"\r\n     \r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos/{{new_id_elemento}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"busquedaselementos",
+						"{{new_id_elemento}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un elemento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "637c4846-0da7-4ba7-8f17-2e49556b7759",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos/{{new_id_elemento}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"busquedaselementos",
+						"{{new_id_elemento}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

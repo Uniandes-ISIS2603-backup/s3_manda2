@@ -136,13 +136,13 @@ public class OrganizacionLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        organizacionLogic.updateOrganizacion( pojoEntity);
+        organizacionLogic.updateOrganizacion(entity.getId(), pojoEntity);
 
         OrganizacionEntity resp = em.find(OrganizacionEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         try {
-            organizacionLogic.updateOrganizacion( data.get(1));
+            organizacionLogic.updateOrganizacion( entity.getId(), data.get(1));
             
         } catch (BusinessLogicException e) {
 

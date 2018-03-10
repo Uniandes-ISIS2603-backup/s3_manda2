@@ -104,7 +104,8 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      * Verifica si el sericio requiere de un desplazamiento
      * @return desplazamiento true si desplazo, false lo contrario
      */
-   /** public Boolean isDesplazamiento()
+   
+    public Boolean getDesplazamiento()
     {
         return desplazamiento;
     }
