@@ -5,10 +5,8 @@
  */
 package co.edu.uniandes.csw.manda2.ejb;
 
-import co.edu.uniandes.csw.manda2.entities.CityEntity;
 import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.manda2.persistence.CityPersistence;
 import co.edu.uniandes.csw.manda2.persistence.MedioPagoPersistence;
 import java.util.List;
 import java.util.logging.Level;

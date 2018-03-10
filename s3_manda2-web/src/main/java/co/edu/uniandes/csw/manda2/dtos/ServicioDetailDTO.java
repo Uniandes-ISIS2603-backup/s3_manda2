@@ -14,26 +14,6 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  */
 public abstract class ServicioDetailDTO extends ServicioDTO {
 
-    public ServicioDetailDTO() {
-        super();
-    }
-
-    public ServicioDetailDTO(ServicioEntity entity) {
-        super(entity);
-        this.cliente = new ClienteDTO(entity.getCliente());
-//        this.empleado = new EmpleadoDTO(entity.getEmpleado());
-        this.pago = new PagoDTO(entity.getPago());
-    }
-
-    @Override
-    public ServicioEntity toEntity() {
-        ServicioEntity entity = super.toEntity();
-        entity.setCliente(this.cliente.toEntity());
-//        entity.setEmpleado(this.empleado.toEntity());
-        entity.setPago(this.pago.toEntity());
-        return entity;
-    }
-
     /**
      * Pago asociado al servicio.
      */
@@ -48,6 +28,24 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
      * Empleado que realiza el servicio.
      */
     private EmpleadoDTO empleado;
+
+    public ServicioDetailDTO() {
+        super();
+    }
+
+    public ServicioDetailDTO(ServicioEntity entity) {
+        super(entity);
+        this.cliente = new ClienteDTO(entity.getCliente());
+        this.pago = new PagoDTO(entity.getPago());
+    }
+
+    @Override
+    public ServicioEntity toEntity() {
+        ServicioEntity entity = super.toEntity();
+        entity.setCliente(this.cliente.toEntity());
+        entity.setPago(this.pago.toEntity());
+        return entity;
+    }
 
     /**
      * Retorna el pago del servicio.

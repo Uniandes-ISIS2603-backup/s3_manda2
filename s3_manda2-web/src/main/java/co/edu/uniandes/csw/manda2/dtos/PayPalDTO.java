@@ -31,8 +31,17 @@ import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
  */
 public class PayPalDTO extends MedioPagoDTO {
 
+    /**
+     * Constructor vacío.
+     */
     public PayPalDTO() {
     }
+    
+    
+    /**
+     * Link de PayPal.
+     */
+    private String linkPayPal;
 
     public PayPalDTO(PayPalEntity entity) {
         if( entity != null){
@@ -50,11 +59,6 @@ public class PayPalDTO extends MedioPagoDTO {
         entity.setNombreCliente(nombreCliente);
         return entity;
     }
-
-    /**
-     * Link de PayPal.
-     */
-    private String linkPayPal;
 
     /**
      * Retorna el link de PayPal.

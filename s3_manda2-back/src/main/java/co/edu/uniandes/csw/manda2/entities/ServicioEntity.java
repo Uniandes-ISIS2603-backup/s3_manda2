@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -22,17 +21,17 @@ public class ServicioEntity extends BaseEntity{
     /**
      * Constante que indica que el estado del servicio es "en espera".
      */
-    public static String EN_ESPERA = "EN_ESPERA";
+    public final static String EN_ESPERA = "EN_ESPERA";
     
     /**
      * Constante que indica que el estado del servicio es "en desarrollo".
      */
-    public static String EN_DESARROLLO = "EN_DESARROLLO";
+    public final static String EN_DESARROLLO = "EN_DESARROLLO";
     
     /**
      * Constante que indica que el estado del servicio es "finalizado".
      */
-    public static String FINALIZADO = "FINALIZADO";
+    public final static String FINALIZADO = "FINALIZADO";
     
      /**
      * Nombre del servicio.

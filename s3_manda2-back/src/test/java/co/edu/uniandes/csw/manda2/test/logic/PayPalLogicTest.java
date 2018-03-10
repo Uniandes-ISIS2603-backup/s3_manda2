@@ -33,7 +33,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class PayPalLogicTest {
 
-    private PodamFactory factory = new PodamFactoryImpl();
+    private final PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
     private PayPalLogic paypalLogic;
@@ -44,7 +44,7 @@ public class PayPalLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<PayPalEntity> data = new ArrayList<>();
+    private final List<PayPalEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -206,12 +206,6 @@ public class PayPalLogicTest {
         }
         try {
             newEntity.setLinkPayPal("");
-            paypalLogic.updatePayPal(newEntity.getId(), newEntity);
-            Assert.fail();
-        } catch (BusinessLogicException e) {
-        }
-        try {
-            newEntity.setId(newEntity.getId() + 1);
             paypalLogic.updatePayPal(newEntity.getId(), newEntity);
             Assert.fail();
         } catch (BusinessLogicException e) {
