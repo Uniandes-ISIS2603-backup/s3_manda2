@@ -22,17 +22,17 @@ public abstract class ServicioDTO {
     /**
      * Constante que indica que el estado del servicio es "en espera".
      */
-    public static String EN_ESPERA = "EN_ESPERA";
+    public static final String EN_ESPERA = "EN_ESPERA";
 
     /**
      * Constante que indica que el estado del servicio es "en desarrollo".
      */
-    public static String EN_DESARROLLO = "EN_DESARROLLO";
+    public static final String EN_DESARROLLO = "EN_DESARROLLO";
 
     /**
      * Constante que indica que el estado del servicio es "finalizado".
      */
-    public static String FINALIZADO = "FINALIZADO";
+    public static final String FINALIZADO = "FINALIZADO";
 
     /**
      * Nombre del servicio.
