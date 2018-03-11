@@ -1,0 +1,244 @@
+{
+	"info": {
+		"name": "Pruebas Clase Empleado",
+		"_postman_id": "99a6dab0-870f-5b29-74dc-27d22d0c97de",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3b5a482-b133-4827-8758-caa7fbcc7724",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_cliente\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Nicolas Caceres\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"clientes"
+					]
+				},
+				"description": "Crear Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los Empleados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cea12c0c-53f8-4f60-8d77-f116e0d12146",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"cliente count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"clientes"
+					]
+				},
+				"description": "Obtener todos los Clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"clientes",
+						"{{new_id_cliente}}"
+					]
+				},
+				"description": "Obtener un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un Cliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1846e7b0-8873-4f0f-a6fa-b6fadfbbefcb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"clientes",
+						"{{new_id_cliente}}"
+					]
+				},
+				"description": "Actualizar un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un cliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f261b8e6-752f-4626-b0d2-0904ebce77bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"clientes",
+						"{{new_id_cliente}}"
+					]
+				},
+				"description": "Borrar un cliente"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b4877f9a-39b3-4a04-a2ad-5106f96ae846",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c66c1b5-f58c-4545-b561-08a2f31dd7e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
