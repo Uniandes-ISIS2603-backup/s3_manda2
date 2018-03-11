@@ -105,7 +105,7 @@ public class PagoResource {
     public PagoDTO getPagoId(@PathParam("id") Long id){
          PagoEntity entity = pagoLogic.getPago(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /clientes/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /pagos/" + id + " no existe.", 404);
         }
         return new PagoDetailDTO(entity);
     }

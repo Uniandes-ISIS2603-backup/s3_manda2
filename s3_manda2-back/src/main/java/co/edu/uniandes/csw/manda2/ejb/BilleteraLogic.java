@@ -28,7 +28,6 @@ public class BilleteraLogic {
     @Inject
     private BilleteraPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 //
-    private Long id;
 
     public List<BilleteraEntity> getBilleteras() {
         LOGGER.info("Inicia proceso de consultar todas las billeteras");
@@ -75,20 +74,11 @@ public class BilleteraLogic {
      */
     public BilleteraEntity createBilletera(BilleteraEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de la billetera");
-//        if (!validateCedula(entity.getCliente().getCedula())) {
-//            throw new BusinessLogicException("La cedula no puede ser vacia");
-//        } else 
-             if (!validateSaldo(entity.getSaldo())) {
+
+         if (!validateSaldo(entity.getSaldo())) {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
-//        BilleteraEntity billeteraAntes = persistence.find(id);
-//        if (billeteraAntes != null) {
-//            if (!billeteraAntes.getCliente().getCedula().equals(entity.getCliente().getCedula())) {
-//                if (persistence.findByCedula(entity.getCliente().getCedula()) != null) {
-//                    throw new BusinessLogicException("No se puede cambiar la cedula a una ya existente");
-//                }
-//            }
-//        }
+
          if(getBilletera(entity.getId())!= null)
         {
             throw new BusinessLogicException("No pueden existir dos billeteras con el mismo id");

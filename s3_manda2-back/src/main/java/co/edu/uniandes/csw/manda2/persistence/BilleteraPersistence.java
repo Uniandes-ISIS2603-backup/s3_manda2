@@ -62,22 +62,22 @@ public class BilleteraPersistence {
         }
     }
 
-    public BilleteraEntity findByCedula(String cedula) {
-        
-        LOGGER.log(Level.INFO, "Consultando cliente por numero de cedula ", cedula);
-
-        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":cedula" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From ClienteEntity e where e.cedula = :cedula", BilleteraEntity.class);
-        // Se remplaza el placeholder ":cedula" con el valor del argumento 
-        query = query.setParameter("cedula", cedula);
-        // Se invoca el query se obtiene la lista resultado
-        List<BilleteraEntity> sameCedula = query.getResultList();
-        if (sameCedula.isEmpty()) {
-            return null;
-        } else {
-            return sameCedula.get(0);
-        }
-    }
+//    public BilleteraEntity findByCedula(String cedula) {
+//        
+//        LOGGER.log(Level.INFO, "Consultando cliente por numero de cedula ", cedula);
+//
+//        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":cedula" es un placeholder que debe ser remplazado
+//        TypedQuery query = em.createQuery("Select e From ClienteEntity e where e.cedula = :cedula", BilleteraEntity.class);
+//        // Se remplaza el placeholder ":cedula" con el valor del argumento 
+//        query = query.setParameter("cedula", cedula);
+//        // Se invoca el query se obtiene la lista resultado
+//        List<BilleteraEntity> sameCedula = query.getResultList();
+//        if (sameCedula.isEmpty()) {
+//            return null;
+//        } else {
+//            return sameCedula.get(0);
+//        }
+//    }
 
     public BilleteraEntity find(SingularAttribute<BaseEntity, Long> id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

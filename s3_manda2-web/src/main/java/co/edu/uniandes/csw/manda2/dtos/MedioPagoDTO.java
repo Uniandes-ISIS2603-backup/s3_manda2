@@ -16,7 +16,7 @@ import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
  * <pre>
  *   {
  *      "id": Long,
- *      "nombreCliente: string
+ *      "nombreCliente": string
  *   }
  * </pre>
  * Por ejemplo una ciudad se representa asi:<br>
@@ -25,7 +25,7 @@ import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
  * 
  *   {
  *      "id": 91852,
- *      "nombreCliente: "Pepito Perez"
+ *      "nombreCliente": "Pepito Perez"
  *   }
  *
  * </pre>

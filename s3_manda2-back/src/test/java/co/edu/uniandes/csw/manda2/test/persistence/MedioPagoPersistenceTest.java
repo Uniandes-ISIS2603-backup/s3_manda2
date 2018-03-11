@@ -123,16 +123,88 @@ public class MedioPagoPersistenceTest {
         }
     }
     
+  /**
+     * Prueba para crear un MedioPago.
+     *
+     *
+     */
     @Test
-    public void createServicioTest(){
+    public void createMedioPagoTest() {
         PodamFactory factory = new PodamFactoryImpl();
         MedioPagoEntity newEntity = factory.manufacturePojo(MedioPagoEntity.class);
         MedioPagoEntity result = medioPagoPersistence.create(newEntity);
-        
+
         Assert.assertNotNull(result);
-        
+
         MedioPagoEntity entity = em.find(MedioPagoEntity.class, result.getId());
-        
+
         Assert.assertEquals(newEntity.getId(), entity.getId());
-    } 
+    }
+    /**
+     * Prueba para consultar la lista de MedioPagos.
+     *
+     * 
+     */
+    @Test
+    public void getMedioPagosTest() {
+        List<MedioPagoEntity> list = medioPagoPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (MedioPagoEntity ent : list) {
+            boolean found = false;
+            for (MedioPagoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    /**
+     * Prueba para consultar un MedioPago.
+     *
+     * 
+     */
+    @Test
+    public void getMedioPagoTest() {
+        MedioPagoEntity newEntity = data.get(0);
+        MedioPagoEntity resp= medioPagoPersistence.find(newEntity.getId());
+        Assert.assertNotNull(newEntity);
+         Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getNombreCliente(), resp.getNombreCliente());
+        
+    }
+   
+    /**
+     * Prueba para eliminar un MedioPago.
+     *
+     * 
+     */
+    @Test
+    public void deleteMedioPagoTest() {
+        MedioPagoEntity entity = data.get(0);
+        medioPagoPersistence.delete(entity.getId());
+        MedioPagoEntity deleted = em.find(MedioPagoEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para actualizar un MedioPago.
+     *
+     * 
+     */
+    @Test
+    public void updateMedioPagoTest() {
+        MedioPagoEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        MedioPagoEntity newEntity = factory.manufacturePojo(MedioPagoEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        medioPagoPersistence.update(newEntity);
+
+        MedioPagoEntity resp = em.find(MedioPagoEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getNombreCliente(), resp.getNombreCliente());
+        
+    }
 }

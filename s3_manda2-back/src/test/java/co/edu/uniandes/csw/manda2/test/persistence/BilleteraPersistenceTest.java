@@ -116,21 +116,88 @@ public class BilleteraPersistenceTest {
         }
     }
     /**
-     * Prueba para crear una Billetera.
+     * Prueba para crear un Billetera.
      *
      *
      */
-    
     @Test
-    public void createServicioTest(){
+    public void createBilleteraTest() {
         PodamFactory factory = new PodamFactoryImpl();
         BilleteraEntity newEntity = factory.manufacturePojo(BilleteraEntity.class);
         BilleteraEntity result = BilleteraPersistence.create(newEntity);
-        
+
         Assert.assertNotNull(result);
-        
+
         BilleteraEntity entity = em.find(BilleteraEntity.class, result.getId());
-        
-        Assert.assertEquals(newEntity.getSaldo(), entity.getSaldo());
+
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+    }
+    /**
+     * Prueba para consultar la lista de Billeteras.
+     *
+     * 
+     */
+    @Test
+    public void getBilleterasTest() {
+        List<BilleteraEntity> list = BilleteraPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (BilleteraEntity ent : list) {
+            boolean found = false;
+            for (BilleteraEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    /**
+     * Prueba para consultar un Billetera.
+     *
+     * 
+     */
+    @Test
+    public void getBilleteraTest() {
+        BilleteraEntity newEntity = data.get(0);
+        BilleteraEntity resp= BilleteraPersistence.find(newEntity.getId());
+        Assert.assertNotNull(newEntity);
+         Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getSaldo(), resp.getSaldo());
+        Assert.assertEquals(newEntity.getPuntosFidelidad(), resp.getPuntosFidelidad());
+    }
+   
+    /**
+     * Prueba para eliminar un Billetera.
+     *
+     * 
+     */
+    @Test
+    public void deleteBilleteraTest() {
+        BilleteraEntity entity = data.get(0);
+        BilleteraPersistence.delete(entity.getId());
+        BilleteraEntity deleted = em.find(BilleteraEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para actualizar un Billetera.
+     *
+     * 
+     */
+    @Test
+    public void updateBilleteraTest() {
+        BilleteraEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        BilleteraEntity newEntity = factory.manufacturePojo(BilleteraEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        BilleteraPersistence.update(newEntity);
+
+        BilleteraEntity resp = em.find(BilleteraEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getSaldo(), resp.getSaldo());
+        Assert.assertEquals(newEntity.getPuntosFidelidad(), resp.getPuntosFidelidad());
     }
 }
+

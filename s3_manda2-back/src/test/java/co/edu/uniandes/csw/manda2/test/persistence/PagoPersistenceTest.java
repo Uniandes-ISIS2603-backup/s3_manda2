@@ -115,16 +115,89 @@ public class PagoPersistenceTest {
     }
 
     
+  /**
+     * Prueba para crear un Pago.
+     *
+     *
+     */
     @Test
-    public void createPagoTest(){
+    public void createPagoTest() {
         PodamFactory factory = new PodamFactoryImpl();
         PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
         PagoEntity result = pagoPersistence.create(newEntity);
-        
+
         Assert.assertNotNull(result);
-        
+
         PagoEntity entity = em.find(PagoEntity.class, result.getId());
-        
+
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
+    /**
+     * Prueba para consultar la lista de Pagos.
+     *
+     * 
+     */
+    @Test
+    public void getPagosTest() {
+        List<PagoEntity> list = pagoPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (PagoEntity ent : list) {
+            boolean found = false;
+            for (PagoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    /**
+     * Prueba para consultar un Pago.
+     *
+     * 
+     */
+//    @Test
+//    public void getPagoTest() {
+//        PagoEntity newEntity = data.get(0);
+//        PagoEntity resp= pagoPersistence.find(newEntity.getId());
+//        Assert.assertNotNull(newEntity);
+//        Assert.assertEquals(newEntity.getId(), resp.getId());
+//        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
+//        Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+//    }
+//   
+//    /**
+//     * Prueba para eliminar un Pago.
+//     *
+//     * 
+//     */
+//    @Test
+//    public void deletePagoTest() {
+//        PagoEntity entity = data.get(0);
+//        pagoPersistence.delete(entity.getId());
+//        PagoEntity deleted = em.find(PagoEntity.class, entity.getId());
+//        Assert.assertNull(deleted);
+//    }
+//    /**
+//     * Prueba para actualizar un Pago.
+//     *
+//     * 
+//     */
+//    @Test
+//    public void updatePagoTest() {
+//        PagoEntity entity = data.get(0);
+//        PodamFactory factory = new PodamFactoryImpl();
+//        PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
+//
+//        newEntity.setId(entity.getId());
+//
+//        pagoPersistence.update(newEntity);
+//
+//        PagoEntity resp = em.find(PagoEntity.class, entity.getId());
+//
+//        Assert.assertEquals(newEntity.getId(), resp.getId());
+//        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
+//        Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+//    }
 }
+

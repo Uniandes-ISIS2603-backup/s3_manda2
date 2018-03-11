@@ -15,6 +15,7 @@ import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
+ *      "id": Long,
  *      "saldo": double,
  *      "puntosFidelidad": integer
  *   }
@@ -24,6 +25,7 @@ import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
  * <pre>
  * 
  *   {
+ *      "id": 12345,
  *      "saldo": 37000,
  *      "puntosFidelidad": "100"
  *   }
@@ -46,6 +48,7 @@ public class BilleteraDTO {
     
      /**
      * Crea una billetera.
+     * @param id id  de la billetera
      * @param saldo saldo en la billetera
      * @param puntosFidelidad puntos de fidelidad acumulados
      */
@@ -123,7 +126,7 @@ public class BilleteraDTO {
      * @param pPuntos puntos de fidelidad.
      */
     public void setPuntosFidelidad(Integer pPuntos){
-        this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
+        this.puntosDeFidelidad= pPuntos;
     }
 
      /**

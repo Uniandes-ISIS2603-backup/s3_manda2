@@ -18,7 +18,7 @@ import java.util.Date;
  * <pre>
  *   {
  *      "id": long,
- *      "estadoTransaccion: string,
+ *      "estadoTransaccion": string,
  *      "fecha": date
  *   }
  * </pre>
@@ -28,7 +28,7 @@ import java.util.Date;
  * 
  *   {
  *      "id": 91852,
- *      "estadoTransaccion: "cancelado",
+ *      "estadoTransaccion": "cancelado",
  *      "fecha": "02/06/2018"
  *   }
  *
@@ -77,11 +77,19 @@ public class PagoDTO {
             
         }
     }
+    
+    PagoEntity toEntity() {
+       PagoEntity pago = new PagoEntity();
+        pago.setId(this.id);
+        pago.setEstadoTransaccion(this.estadoTransaccion);
+        pago.setFecha(this.fecha);
+        return pago;
+    }
     /**
      * Retorna el id del pago.
      * @return id de pago.
      */
-    public Long getID(){
+    public Long getId(){
         return id;
     }
     
@@ -122,11 +130,5 @@ public class PagoDTO {
         this.fecha = pFecha;
     }
 
-    PagoEntity toEntity() {
-       PagoEntity pago = new PagoEntity();
-        pago.setId(this.id);
-        pago.setEstadoTransaccion(this.estadoTransaccion);
-        pago.setFecha(this.fecha);
-        return pago;
-    }
+
 }
