@@ -1,0 +1,41 @@
+{
+	"id": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+	"name": "Pruebas clase comprasEnTienda",
+	"description": "",
+	"order": [
+		"8820aa65-768b-4cf2-1d5d-b4e05999546f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1520275496224,
+	"owner": 0,
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "8820aa65-768b-4cf2-1d5d-b4e05999546f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+			"data": null,
+			"dataMode": "params",
+			"name": "get comprasentienda",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1520792001987,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null
+		}
+	]
+}
