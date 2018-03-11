@@ -33,7 +33,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Nicolas Caceres\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Nicolas Caceres\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [],\r\n       \r\n       \"billetera\": [],\r\n       \r\n       \"quejasYReclamos\": []\r\n    }"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/clientes",
@@ -153,7 +153,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [],\r\n       \r\n       \"billetera\": [],\r\n       \r\n       \"quejasYReclamos\": []\r\n    }"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
