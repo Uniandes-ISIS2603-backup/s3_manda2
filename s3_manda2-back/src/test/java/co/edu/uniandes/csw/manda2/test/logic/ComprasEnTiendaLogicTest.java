@@ -114,7 +114,9 @@ public class ComprasEnTiendaLogicTest {
         
    
     }
-    
+    /**
+     * prueba borrar el metodo delete de una commpra
+     */
     @Test
     public void deleteCompraTest() {
         ComprasEnTiendaEntity entity = data.get(0);
@@ -131,4 +133,9 @@ public class ComprasEnTiendaLogicTest {
          Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
          Assert.assertEquals(newEntity.getArticulo(), entity.getArticulo());
      }
+     
+    @Test 
+    public void getComprasTest(){
+        
+    }
 }

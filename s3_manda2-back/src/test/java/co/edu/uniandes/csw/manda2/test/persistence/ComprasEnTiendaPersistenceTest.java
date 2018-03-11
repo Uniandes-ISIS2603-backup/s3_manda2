@@ -125,20 +125,20 @@ public class ComprasEnTiendaPersistenceTest {
      }
     
      
-     //@Test
-    //public void getComprasTest() {
-      //  List<ComprasEnTiendaEntity> list = comprasLogic.getCompras();
-        //Assert.assertEquals(data.size(), list.size());
-        //for (ComprasEnTiendaEntity entity : list) {
-          //  boolean found = false;
-            //for (ComprasEnTiendaEntity storedEntity : data) {
-              //  if (entity.getId().equals(storedEntity.getId())) {
-                //    found = true;
-                //}
-            //}
-            //Assert.assertTrue(found);
-       // }
-    //}
+     @Test
+     public void getComprasTest() {
+        List<ComprasEnTiendaEntity> list = comprasEnTiendaPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (ComprasEnTiendaEntity entity : list) {
+            boolean found = false;
+            for (ComprasEnTiendaEntity storedEntity : data) {
+              if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
      
      @Test
     public void deleteCompraTest(){

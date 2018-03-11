@@ -35,25 +35,23 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  *      "calification": Double,
  *      "descripcion": String,
  *  </pre>
- * Por ejemplo una ciudad se representa asi:<br>
+ * Por ejemplo una entrega se representa asi:<br>
  * 
  * <pre>
  * 
  *   {
- *      "costoDeTransporte": 20000,
- *      "porcentajeExtra": 5000,
+ *      "costoDeTransporte": 10.000,
  *      "pago": PagoDTO,
- *      "cliente": ClienteDTO,
- *      "empleado": Empleado DTO,
- *      "id": Long,
- *      "nombre": String,
- *      "costo": Double,
- *      "puntoDeEncuentro": String,
- *      "puntoDeRealizacion": String,
- *      "puntoDeRealizacion": String,
- *      "exitoDiligencia": Boolean,
- *      "calification": Double,
- *      "descripcion": String,
+ *      "cliente": pedro,
+ *      "empleado": Empleado1,
+ *      "id": 345,
+ *      "nombre": compra1,
+ *      "costo": 30.000,
+ *      "puntoDeEncuentro":calle 44,
+ *      "puntoDeRealizacion": Exito ,
+ *      "exitoDiligencia": true,
+ *      "calification": 5,
+ *      "descripcion": estuvo bien ,
  *   }
  *
  * </pre>
@@ -77,17 +75,22 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     //Constructor
 
     
-    
-   
-
-    
+    /**
+     * Constructor vacio
+     */
     public EntregasDeDocumentosDTO()
     {
         
     }
 
-    public EntregasDeDocumentosDTO(ServicioEntity entityServicio) {
-        //Completar
+    public EntregasDeDocumentosDTO(EntregasDeDocumentosEntity entityServicio) {
+        super();
+        if(entityServicio!= null)
+        {
+        this.id = entityServicio.getId();
+        this.porcentajeExtra=  entityServicio.getPorcentajeExtra();
+        this.costoDeTransporte=  entityServicio.getCostoDeTransporte();
+        }
     }
    
     
@@ -125,9 +128,17 @@ public class EntregasDeDocumentosDTO  extends ServicioDetailDTO{
     public void setPorcentajeExtra(Double porcentajeExtra) {
         this.porcentajeExtra = porcentajeExtra;
     }
+    
+    /**
+     * Convierte un DTO a entity
+     * @return Un entity con los valores del DTO 
+     */
     @Override
     public EntregasDeDocumentosEntity toEntity() {
-        //PendientePorHacer
-        return null;
+        EntregasDeDocumentosEntity entity = new EntregasDeDocumentosEntity();
+        entity.setId(this.id);
+        entity.setCostoDeTransporte(this.getCostoDeTransporte());
+        entity.setPorcentajeExtra(this.getPorcentajeExtra());
+        return entity;
     }
 }

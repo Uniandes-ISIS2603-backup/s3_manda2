@@ -81,8 +81,8 @@ public class EntregasDeDocumentosLogic {
     }
     
     /**
-     * Elimina la compra dada por el id 
-     * @param id el id de la compra a eliminar
+     * Elimina la entrega dada por el id 
+     * @param id el id de la entrega a eliminar
      */
     public void deleteEntrega (Long id ){
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una entrega con id={0}", id);

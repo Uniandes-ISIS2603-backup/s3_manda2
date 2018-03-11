@@ -20,7 +20,7 @@ public class EntregasDeDocumentosEntity  extends ServicioEntity  implements Seri
     */
     private Double costoDeTransporte;
     /*
-    *El porcentaaje que se cobra extra por el servicio 
+    *El porcentaje que se cobra extra por el servicio 
     */
     private Double porcentajeExtra;
 
