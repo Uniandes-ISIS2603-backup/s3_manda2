@@ -30,9 +30,29 @@ import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
  *      "exitoDiligencia": Boolean,
  *      "calification": Double,
  *      "descripcion": String,
- *  </pre>
- * Por ejemplo una ciudad se representa asi:<br>
+ *   </pre>
+ * Por ejemplo una entrega se representa asi:<br>
+ * 
+ * <pre>
+ * 
+ *   {
+ *      "costoDeTransporte": 10.000,
+ *      "pago": PagoDTO,
+ *      "cliente": pedro,
+ *      "empleado": Empleado1,
+ *      "id": 345,
+ *      "nombre": compra1,
+ *      "costo": 30.000,
+ *      "puntoDeEncuentro":calle 44,
+ *      "puntoDeRealizacion": Exito ,
+ *      "exitoDiligencia": true,
+ *      "calification": 5,
+ *      "descripcion": estuvo bien ,
+ *   }
  *
+ * </pre>
+ * 
+ * }
  * @author dv.gonzalez10
  */
 public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
@@ -58,8 +78,14 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
        
     }
 
-    public VueltasConDemoraEnOficinaDTO(ServicioEntity entityServicio) {
-        //completar
+    public VueltasConDemoraEnOficinaDTO(VueltasConDemoraEnOficinaEntity entityServicio) {
+        super();
+        if(entityServicio!= null)
+        {
+        this.id = entityServicio.getId();
+        this.costoDuracion=  entityServicio.getCostoDuracion();
+        this.costoDeTransporte=  entityServicio.getCostoDeTransporte();
+        }
     }
    
 
@@ -96,10 +122,19 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         this.costoDeTransporte = costoDeTransporte;
     }
   
+      /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
     @Override
     public VueltasConDemoraEnOficinaEntity toEntity()
     {
-        // pendiente por completar.
-        return null;
+        VueltasConDemoraEnOficinaEntity entity = new VueltasConDemoraEnOficinaEntity();
+        entity.setId(this.id);
+        entity.setCostoDuracion(this.getCostoDuracion());
+        entity.setCostoDeTransporte(this.getCostoDeTransporte());
+        return entity;
+    
     }     
 }

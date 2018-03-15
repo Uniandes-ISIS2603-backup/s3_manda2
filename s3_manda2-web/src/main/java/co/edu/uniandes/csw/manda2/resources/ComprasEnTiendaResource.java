@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ComprasEnTiendaDTO;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.ws.rs.Consumes;

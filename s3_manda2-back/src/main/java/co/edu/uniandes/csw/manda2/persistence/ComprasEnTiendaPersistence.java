@@ -103,7 +103,7 @@ public class ComprasEnTiendaPersistence {
      * @param entity 
      */
     public void delete(Long id) {
-       LOGGER.log(Level.INFO, "Borrando paypal con id={0}", id);
+       LOGGER.log(Level.INFO, "Borrando compra con id={0}", id);
         ComprasEnTiendaEntity entity = em.find(ComprasEnTiendaEntity.class, id);
         em.remove(entity);
     }

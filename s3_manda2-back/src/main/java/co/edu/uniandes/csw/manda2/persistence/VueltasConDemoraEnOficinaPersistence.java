@@ -96,11 +96,11 @@ public class VueltasConDemoraEnOficinaPersistence {
     }
     
      /**
-     * Borra la entrega de documento recibida como argumento
+     * Borra la vuelta con demora recibida como argumento
      * @param id 
      */
     public void delete(Long id) {
-        LOGGER.log(Level.INFO, "Borrando paypal con id={0}", id);
+        LOGGER.log(Level.INFO, "Borrando vuelta con id={0}", id);
         VueltasConDemoraEnOficinaEntity entity = em.find(VueltasConDemoraEnOficinaEntity.class, id);
         em.remove(entity);
     }

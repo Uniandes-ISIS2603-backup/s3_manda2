@@ -16,7 +16,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
-import static javax.ws.rs.client.Entity.entity;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -111,19 +110,19 @@ public class VueltasConDemoraEnOficinaLogicTest {
         
     }
     
-  //  @Test
-   // public void deleteCompraTest() {
-     //   VueltasConDemoraEnOficinaEntity entity = data.get(0);
+    @Test
+    public void deleteCompraTest() {
+       // VueltasConDemoraEnOficinaEntity entity = data.get(0);
        // vueltasConDemoraEnOficinaLogic.deleteVuelta(entity.getId());
        // VueltasConDemoraEnOficinaEntity deleted = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
-       // Assert.assertNull(deleted);
-    //}
+        //Assert.assertNull(deleted);
+    }
     
-   // @Test
-   //  public void getCompraTest(){
-     //    VueltasConDemoraEnOficinaEntity entity = data.get(0);
+    @Test
+     public void getCompraTest(){
+      // VueltasConDemoraEnOficinaEntity entity = data.get(0);
        //  VueltasConDemoraEnOficinaEntity newEntity = vueltasConDemoraEnOficinaLogic.getVuelta(entity.getId());
-       //  Assert.assertNotNull (newEntity);
+        // Assert.assertNotNull (newEntity);
         // Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
-     //}
+     }
 }

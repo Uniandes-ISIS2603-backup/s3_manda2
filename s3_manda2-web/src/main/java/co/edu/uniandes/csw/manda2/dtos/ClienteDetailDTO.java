@@ -148,15 +148,15 @@ public class ClienteDetailDTO extends ClienteDTO {
                 for (ServicioEntity entityServicio : entity.getServicios()) {
                    if( entityServicio instanceof EntregasDeDocumentosEntity)
                    {
-                        servicios.add(new EntregasDeDocumentosDTO(entityServicio));
+                        servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
                    }
                    else if( entityServicio instanceof ComprasEnTiendaEntity)
                    {
-                        servicios.add(new ComprasEnTiendaDTO(entityServicio));
+                        servicios.add(new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
                    }
                    else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
                    {
-                        servicios.add(new VueltasConDemoraEnOficinaDTO(entityServicio));
+                        servicios.add(new VueltasConDemoraEnOficinaDTO((VueltasConDemoraEnOficinaEntity) entityServicio));
                    }
                    else if( entityServicio instanceof OrganizacionEntity)
                    {

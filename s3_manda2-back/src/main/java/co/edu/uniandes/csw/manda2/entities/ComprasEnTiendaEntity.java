@@ -34,16 +34,23 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     */
     private List<ArticuloEntity>  articulo;
 
+    /**
+     * Retorna los articulos de la compra
+     * @return atiuclo(s) de la compra
+     */
     public List<ArticuloEntity> getArticulo() {
         return articulo;
     }
 
+    /**
+     * Asigna los articulos a la compra
+     * @param articulo 
+     */
     public void setArticulo(List<ArticuloEntity> articulo) {
         this.articulo = articulo;
     }
     
     
-  
     
 
     //Metodos

@@ -5,9 +5,10 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -29,13 +30,29 @@ import java.io.Serializable;
  *      "costo": Double,
  *      "puntoDeEncuentro": String,
  *      "puntoDeRealizacion": String,
- *      "puntoDeRealizacion": String,
  *      "exitoDiligencia": Boolean,
  *      "calification": Double,
  *      "descripcion": String,
+ * }
+ *  </pre> Por ejemplo un servico de tipo Compras ent tienda se presenta asi : <br>
  *  </pre>
+ * {
+ *    "costoDeTransporte": 10.000,
+ *      "pago": PagoDTO,
+ *      "cliente": pedro,
+ *      "empleado": Empleado1,
+ *      "id": 345,
+ *      "nombre": compra1,
+ *      "costo": 30.000,
+ *      "puntoDeEncuentro":calle 44,
+ *      "puntoDeRealizacion": Exito ,
+ *      "exitoDiligencia": true,
+ *      "calification": 5,
+ *      "descripcion": estuvo bien ,
  *   }
- * +
+ * 
+ * </pre>
+ * 
  * @author dv.gonzalez10
  */
 public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializable{
@@ -45,6 +62,8 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
     *El costo del transporte del servicio
     */
     private Double costoDeTransporte;
+    
+    private ArticuloDTO articulo;
   
 
     public ComprasEnTiendaDTO(){
@@ -71,8 +90,14 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
         this.costoDeTransporte = costoDeTransporte;
     }
 
-    public ComprasEnTiendaDTO(ServicioEntity entityServicio) {
-        //Completar
+    public ComprasEnTiendaDTO(ComprasEnTiendaEntity entityServicio) {
+       
+        super();
+        if(entityServicio!= null)
+        {
+        this.id = entityServicio.getId();
+        this.costoDeTransporte=  entityServicio.getCostoDeTransporte();
+    }
     }
 
     
@@ -91,11 +116,18 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
-    } 
+    }
+    
+    /**
+     * COnvierte el DTO en entity
+     * @return 
+     */
     @Override
     public ComprasEnTiendaEntity toEntity()
     {
-        // pendiente por completar.
-        return null;
+        ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
+        entity.setCostoDeTransporte(costoDeTransporte);
+        entity.setArticulo((List<ArticuloEntity>) articulo);
+        return entity;
     }
 }
