@@ -1,9 +1,9 @@
 {
-	"id": "09fd2e5f-80a2-4817-8e70-b9a0d7145f84",
-	"name": "mediopago",
+	"id": "22553735-1d3c-41d1-a8a7-0e4a8af7e337",
+	"name": "pago",
 	"allTests": [],
-	"timestamp": "2018-03-15T18:04:16.231Z",
-	"collection_id": "bcce9136-6344-3985-677a-b511014db727",
+	"timestamp": "2018-03-15T18:02:09.220Z",
+	"collection_id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
 	"folder_id": 0,
 	"target_type": "collection",
 	"environment_id": "no-environment",
@@ -11,15 +11,15 @@
 	"delay": 0,
 	"count": 1,
 	"collection": {
-		"id": "bcce9136-6344-3985-677a-b511014db727",
-		"name": "mediopago",
+		"id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
+		"name": "pago",
 		"description": "",
 		"order": [
-			"596d6ec2-db65-59a5-f8a8-28d9ead05dbf",
-			"c4c93db2-a876-a4f7-ca70-14e13d966561",
-			"54055c4a-3314-5f33-7848-70b731fe4cd1",
-			"90f8a680-17f6-8c03-07f5-261337ab66d7",
-			"92c10233-eca2-331f-dd97-ac1843d6b01d"
+			"b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"90b90c61-01e2-a2d9-2234-d969405ed202",
+			"a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"7ee0dc78-3037-255a-6dad-f0162f27f386"
 		],
 		"folders": [],
 		"folders_order": [],
@@ -29,17 +29,17 @@
 		"owner": "3682665",
 		"sharedWithTeam": false,
 		"subscribed": false,
-		"remoteLink": "",
+		"remoteLink": null,
 		"remoteLinkUpdatedAt": null,
 		"public": false,
-		"createdAt": "2018-03-06T00:31:35.000Z",
-		"updatedAt": 1521137034481,
+		"createdAt": "2018-03-05T19:56:56.000Z",
+		"updatedAt": 1520791403185,
 		"write": true,
 		"published": false,
 		"favorite": true,
 		"permissions": {},
 		"syncedPermissions": {},
-		"events": [],
+		"events": null,
 		"variables": [],
 		"auth": null
 	},
@@ -48,7 +48,7 @@
 	"globals": [
 		{
 			"key": "new_id",
-			"value": "15",
+			"value": "16",
 			"enabled": true,
 			"type": "text"
 		},
@@ -67,9 +67,9 @@
 	],
 	"results": [
 		{
-			"name": "create medio pago",
-			"id": "596d6ec2-db65-59a5-f8a8-28d9ead05dbf",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
+			"name": "create pago",
+			"id": "b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -89,21 +89,21 @@
 				}
 			},
 			"times": [
-				"222"
+				"110"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true
 				}
 			],
-			"time": "222",
-			"totalRequestTime": "222",
+			"time": "110",
+			"totalRequestTime": "110",
 			"iterationResults": {}
 		},
 		{
-			"name": "Obtener todos los medios de pago",
-			"id": "c4c93db2-a876-a4f7-ca70-14e13d966561",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
+			"name": "Obtener todos los pagos",
+			"id": "90b90c61-01e2-a2d9-2234-d969405ed202",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -128,7 +128,7 @@
 				}
 			},
 			"times": [
-				"49"
+				"33"
 			],
 			"allTests": [
 				{
@@ -136,14 +136,14 @@
 					"authors count": true
 				}
 			],
-			"time": "49",
-			"totalRequestTime": "49",
+			"time": "33",
+			"totalRequestTime": "33",
 			"iterationResults": {}
 		},
 		{
-			"name": "Obtener un medio de pago",
-			"id": "54055c4a-3314-5f33-7848-70b731fe4cd1",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago/15",
+			"name": "Obtener un pago",
+			"id": "a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -163,21 +163,21 @@
 				}
 			},
 			"times": [
-				"32"
+				"47"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true
 				}
 			],
-			"time": "32",
-			"totalRequestTime": "32",
+			"time": "47",
+			"totalRequestTime": "47",
 			"iterationResults": {}
 		},
 		{
-			"name": "borrar un medio pago",
-			"id": "90f8a680-17f6-8c03-07f5-261337ab66d7",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago/15",
+			"name": "borrar un pago",
+			"id": "30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 204,
@@ -197,53 +197,53 @@
 				}
 			},
 			"times": [
-				"74"
+				"41"
 			],
 			"allTests": [
 				{
 					"Status code is 204": true
 				}
 			],
-			"time": "74",
-			"totalRequestTime": "74",
+			"time": "41",
+			"totalRequestTime": "41",
 			"iterationResults": {}
 		},
 		{
 			"name": "Update",
-			"id": "92c10233-eca2-331f-dd97-ac1843d6b01d",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
+			"id": "7ee0dc78-3037-255a-6dad-f0162f27f386",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
 			"totalTime": 0,
 			"responseCode": {
-				"code": 405,
-				"name": "Method Not Allowed",
+				"code": 404,
+				"name": "Not Found",
 				"detail": {
-					"name": "Method Not Allowed",
-					"detail": "A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource."
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
 				}
 			},
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				"41"
+				"46"
 			],
 			"allTests": [
 				{}
 			],
-			"time": "41",
-			"totalRequestTime": "41",
+			"time": "46",
+			"totalRequestTime": "46",
 			"iterationResults": {}
 		}
 	],
 	"totalPass": 5,
 	"totalFail": 0,
-	"totalTime": 418,
+	"totalTime": 277,
 	"lifecycle": "done",
 	"requests": [
 		{
-			"name": "create medio pago",
-			"id": "596d6ec2-db65-59a5-f8a8-28d9ead05dbf",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
-			"time": "2018-03-15T18:04:16.231Z",
+			"name": "create pago",
+			"id": "b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"time": "2018-03-15T18:02:09.220Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -260,10 +260,10 @@
 			}
 		},
 		{
-			"name": "Obtener todos los medios de pago",
-			"id": "c4c93db2-a876-a4f7-ca70-14e13d966561",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
-			"time": "2018-03-15T18:04:16.231Z",
+			"name": "Obtener todos los pagos",
+			"id": "90b90c61-01e2-a2d9-2234-d969405ed202",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"time": "2018-03-15T18:02:09.220Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -284,10 +284,10 @@
 			}
 		},
 		{
-			"name": "Obtener un medio de pago",
-			"id": "54055c4a-3314-5f33-7848-70b731fe4cd1",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago/15",
-			"time": "2018-03-15T18:04:16.231Z",
+			"name": "Obtener un pago",
+			"id": "a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -304,10 +304,10 @@
 			}
 		},
 		{
-			"name": "borrar un medio pago",
-			"id": "90f8a680-17f6-8c03-07f5-261337ab66d7",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago/15",
-			"time": "2018-03-15T18:04:16.231Z",
+			"name": "borrar un pago",
+			"id": "30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
 			"responseCode": {
 				"code": 204,
 				"name": "No Content",
@@ -325,15 +325,15 @@
 		},
 		{
 			"name": "Update",
-			"id": "92c10233-eca2-331f-dd97-ac1843d6b01d",
-			"url": "http://localhost:8080/s3_manda2-web/api/mediospago",
-			"time": "2018-03-15T18:04:16.231Z",
+			"id": "7ee0dc78-3037-255a-6dad-f0162f27f386",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
 			"responseCode": {
-				"code": 405,
-				"name": "Method Not Allowed",
+				"code": 404,
+				"name": "Not Found",
 				"detail": {
-					"name": "Method Not Allowed",
-					"detail": "A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource."
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
 				}
 			},
 			"testPassFailCounts": {}

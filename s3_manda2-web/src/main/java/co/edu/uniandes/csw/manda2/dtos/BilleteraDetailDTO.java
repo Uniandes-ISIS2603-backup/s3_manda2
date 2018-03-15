@@ -22,7 +22,7 @@ public class BilleteraDetailDTO extends BilleteraDTO {
     /**
      * Medio de pago para realizar la transaccion
      */
-    private MedioPagoDTO medioPago;
+    private List<MedioPagoDTO> medioPago;
     
     //Constructor
     /**
@@ -42,19 +42,19 @@ public class BilleteraDetailDTO extends BilleteraDTO {
    public BilleteraDetailDTO(BilleteraEntity entity)
      {
    super(entity);
-//        if (entity != null) {
-//              if (entity.getMedioPago() != null) {
-//                this.medioPago = new ArrayList<>();
-//                for (MedioPagoEntity entityMedio : entity.getMedioPago()) {
-//                    medioPago.add(new MedioPagoDTO(entityMedio));
-//                }
-//            }
-//        }
-if(entity !=  null){
-             if(entity.getMedioPago()!= null){
-                 this.medioPago = new MedioPagoDTO(entity.getMedioPago());
-             }         
-         }
+        if (entity != null) {
+              if (entity.getMedioPago() != null) {
+                this.medioPago = new ArrayList<>();
+                for (MedioPagoEntity entityMedio : entity.getMedioPago()) {
+                    medioPago.add(new MedioPagoDTO(entityMedio));
+                }
+            }
+        }
+//if(entity !=  null){
+//             if(entity.getMedioPago()!= null){
+//                 this.medioPago = new MedioPagoDTO(entity.getMedioPago());
+//             }         
+//         }
         
        
      }
@@ -64,29 +64,32 @@ if(entity !=  null){
      * Retorna el medio de pago.
      * @return Medio de pago con el que se realizara la transaccion.
      */
-//    public List<MedioPagoDTO> getMedioPago(){
-//        return medioPago;
-//    }
+ public List<MedioPagoDTO> getMedioPago(){
+        return medioPago;
+    }
     /**
      * Asigna el medio de pago con el que se realizara la transaccion.
      * @param pMedioPago con el que se realizara la transaccion.
      */
-//    public void setMedioPago(List<MedioPagoDTO> pMedioPago){
-//        this.medioPago = pMedioPago;
-//    }
+    public void setMedioPago(List<MedioPagoDTO> pMedioPago){
+        this.medioPago = pMedioPago;
+    }
     
      public BilleteraEntity toEntity() {
         BilleteraEntity billeteraEntity = super.toEntity();
-//          if (medioPago != null) {
-//            List<MedioPagoEntity> medioPagoEntity = new ArrayList<>();
-//            for (MedioPagoDTO dtoMedioPago : medioPago) {
-//                medioPagoEntity.add(dtoMedioPago.toEntity());
-//            }
-//            billeteraEntity.setMedioPago(medioPagoEntity);
-//        }
-if (medioPago != null) {
-            billeteraEntity.setMedioPago(medioPago.toEntity());
+          if (medioPago != null) {
+            List<MedioPagoEntity> medioPagoEntity = new ArrayList<>();
+            for (MedioPagoDTO dtoMedioPago : medioPago) {
+                medioPagoEntity.add(dtoMedioPago.toEntity());
+            }
+            billeteraEntity.setMedioPago(medioPagoEntity);
         }
-        return billeteraEntity;
-      }
-}
+          return billeteraEntity;
+//if (medioPago != null) {
+//            billeteraEntity.setMedioPago(medioPago.toEntity());
+//        }
+//        return billeteraEntity;
+//      }
+
+
+     }}
