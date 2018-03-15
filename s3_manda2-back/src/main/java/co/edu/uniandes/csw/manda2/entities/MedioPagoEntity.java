@@ -44,10 +44,11 @@ public class MedioPagoEntity extends BaseEntityAlternativo  implements Serializa
      *  Atributo que modela la billetera relacionada al pago
      * 
      */
-      //@PodamExclude
-    //@OneToOne
+    @PodamExclude
+    @OneToOne
     
-    //private BilleteraEntity billetera;
+    private BilleteraEntity billetera;
+//    m
      /**
      * Retorna el nombre el cliente.
      * @return nombre cliente

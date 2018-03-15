@@ -156,48 +156,46 @@ public class PagoPersistenceTest {
      *
      * 
      */
-//    @Test
-//    public void getPagoTest() {
-//        PagoEntity newEntity = data.get(0);
-//        PagoEntity resp= pagoPersistence.find(newEntity.getId());
-//        Assert.assertNotNull(newEntity);
-//        Assert.assertEquals(newEntity.getId(), resp.getId());
-//        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
-//        Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
-//    }
-//   
-//    /**
-//     * Prueba para eliminar un Pago.
-//     *
-//     * 
-//     */
-//    @Test
-//    public void deletePagoTest() {
-//        PagoEntity entity = data.get(0);
-//        pagoPersistence.delete(entity.getId());
-//        PagoEntity deleted = em.find(PagoEntity.class, entity.getId());
-//        Assert.assertNull(deleted);
-//    }
-//    /**
-//     * Prueba para actualizar un Pago.
-//     *
-//     * 
-//     */
-//    @Test
-//    public void updatePagoTest() {
-//        PagoEntity entity = data.get(0);
-//        PodamFactory factory = new PodamFactoryImpl();
-//        PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
-//
-//        newEntity.setId(entity.getId());
-//
-//        pagoPersistence.update(newEntity);
-//
-//        PagoEntity resp = em.find(PagoEntity.class, entity.getId());
-//
-//        Assert.assertEquals(newEntity.getId(), resp.getId());
-//        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
-//        Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
-//    }
+    @Test
+    public void getPagoTest() {
+        PagoEntity newEntity = data.get(0);
+        PagoEntity resp= pagoPersistence.find(newEntity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
+        Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+    }
+   
+    /**
+     * Prueba para eliminar un Pago.
+     *
+     * 
+    */
+    @Test
+    public void deletePagoTest() {
+        PagoEntity entity = data.get(0);
+        pagoPersistence.delete(entity.getId());
+        PagoEntity deleted = em.find(PagoEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    /**
+     * Prueba para actualizar un Pago.
+     *
+     * 
+     */
+    @Test
+    public void updatePagoTest() {
+        PagoEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        pagoPersistence.update(newEntity);
+
+        PagoEntity resp = em.find(PagoEntity.class, entity.getId());
+        
+      Assert.assertEquals(newEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+  }
 }
 
