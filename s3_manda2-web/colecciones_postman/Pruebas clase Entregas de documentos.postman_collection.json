@@ -1,0 +1,81 @@
+{
+	"id": "0dbb65bd-4872-f213-bbaa-74c4f349b845",
+	"name": "Pruebas clase Entregas de documentos",
+	"description": "",
+	"order": [
+		"f9a61d8c-af0a-4c5c-841c-b36954198594",
+		"14d00303-deb7-2c7a-05a8-7a4cb0aa9f89"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1520791850065,
+	"owner": 0,
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "14d00303-deb7-2c7a-05a8-7a4cb0aa9f89",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "0dbb65bd-4872-f213-bbaa-74c4f349b845",
+			"data": [],
+			"dataMode": "raw",
+			"name": "postEntregaDedocumentos",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1521136974458,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"porcentajeExtra\": \"40\"\r\n       \r\n }"
+		},
+		{
+			"id": "f9a61d8c-af0a-4c5c-841c-b36954198594",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "0dbb65bd-4872-f213-bbaa-74c4f349b845",
+			"data": [],
+			"dataMode": "raw",
+			"name": "get ",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1520791966425,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": ""
+		}
+	]
+}

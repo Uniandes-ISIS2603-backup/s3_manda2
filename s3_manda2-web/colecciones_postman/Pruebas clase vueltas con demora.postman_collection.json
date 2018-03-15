@@ -1,0 +1,73 @@
+{
+	"id": "df763051-e04f-289f-490e-82b14042873a",
+	"name": "Pruebas clase vueltas con demora",
+	"description": "",
+	"order": [
+		"c5cb01e8-d866-b967-1b57-ab1310778c0a",
+		"9a75ac78-d89f-0a8a-25aa-30035f3dca36"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1520791868421,
+	"owner": 0,
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "9a75ac78-d89f-0a8a-25aa-30035f3dca36",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "postvueltascondemoraenoficina",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1521137334974,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }"
+		},
+		{
+			"id": "c5cb01e8-d866-b967-1b57-ab1310778c0a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
+			"data": null,
+			"dataMode": "params",
+			"name": "get vueltascondemoraenoficina",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1520792036284,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null
+		}
+	]
+}

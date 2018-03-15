@@ -136,6 +136,16 @@ public class ComprasEnTiendaLogicTest {
      
     @Test 
     public void getComprasTest(){
-        
+         List<ComprasEnTiendaEntity> list = comprasEnTiendaLogic.getCompras();
+        Assert.assertEquals(data.size(), list.size());
+        for (ComprasEnTiendaEntity entity : list) {
+            boolean found = false;
+            for (ComprasEnTiendaEntity entity2 : data) {
+                if (entity.getId().equals(entity2.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
     }
 }
