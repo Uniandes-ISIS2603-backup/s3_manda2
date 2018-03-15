@@ -122,41 +122,41 @@ public class EntregasDeDocumentosPersistenceTest {
      
      @Test
     public void getEntregasTest() {
-      //  List<EntregasDeDocumentosEntity> list = entregasLogic.getEntregas();
-        //Assert.assertEquals(data.size(), list.size());
-       // for (EntregasDeDocumentosEntity entity : list) {
-         //   boolean found = false;
-           // for (EntregasDeDocumentosEntity storedEntity : data) {
-             //   if (entity.getId().equals(storedEntity.getId())) {
-               //     found = true;
-                //}
-           // }
-            //Assert.assertTrue(found);
-       // }
+       List<EntregasDeDocumentosEntity> list = entregasDeDocumentosPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+       for (EntregasDeDocumentosEntity entity : list) {
+            boolean found = false;
+            for (EntregasDeDocumentosEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
     }
      
       @Test
     public void deleteEntregaTest(){
-       //EntregasDeDocumentosEntity entity = data.get(0);
-        //entregasDeDocumentosPersistence.delete(entity.getId());
-        //EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
-        //Assert.assertNull(deleted);
+       EntregasDeDocumentosEntity entity = data.get(0);
+        entregasDeDocumentosPersistence.delete(entity.getId());
+        EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
     
     
     @Test
     public void updatePayPalTest(){
-       // EntregasDeDocumentosEntity entity = data.get(0);
-       // PodamFactory factory = new PodamFactoryImpl();
-       // EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
+        EntregasDeDocumentosEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
         
-      //  newEntity.setId(entity.getId());
-      //  
-       // entregasDeDocumentosPersistence.update(newEntity);
+       newEntity.setId(entity.getId());
         
-        //EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        entregasDeDocumentosPersistence.update(newEntity);
         
-       // Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
-       // Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
+        EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
     }
 }

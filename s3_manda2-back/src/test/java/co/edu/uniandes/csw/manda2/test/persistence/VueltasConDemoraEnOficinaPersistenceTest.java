@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.manda2.test.persistence;
 
-import co.edu.uniandes.csw.manda2.ejb.VueltasConDemoraEnOficinaLogic;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.persistence.VueltasConDemoraEnOficinaPersistence;
 import java.util.ArrayList;
@@ -137,20 +136,20 @@ public class VueltasConDemoraEnOficinaPersistenceTest {
          Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
      }
     
-     // @Test
-  // public void getVueltasTest() {
-    //    List<VueltasConDemoraEnOficinaEntity> list = vueltasLogic.getVueltas();
-      //  Assert.assertEquals(data.size(), list.size());
-        //for (VueltasConDemoraEnOficinaEntity entity : list) {
-          //  boolean found = false;
-            //for (VueltasConDemoraEnOficinaEntity storedEntity : data) {
-              //  if (entity.getId().equals(storedEntity.getId())) {
-                //    found = true;
-                //}
-            //}
-            //Assert.assertTrue(found);
-       // }
-    //}
+      @Test
+     public void getVueltasTest() {
+        List<VueltasConDemoraEnOficinaEntity> list = vueltasConDemoraEnOfcinaPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (VueltasConDemoraEnOficinaEntity entity : list) {
+            boolean found = false;
+            for (VueltasConDemoraEnOficinaEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
      
      
      @Test
