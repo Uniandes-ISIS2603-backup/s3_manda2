@@ -52,7 +52,7 @@ public class ElementoBusquedaReservaPersistenceTest {
     
     private List <ElementoBusquedaReservaEntity> data= new ArrayList<>();
     @Test
-    public void createServicioTest(){
+    public void createeElementoReservaTest(){
         PodamFactory factory = new PodamFactoryImpl();
         ElementoBusquedaReservaEntity newEntity = factory.manufacturePojo(ElementoBusquedaReservaEntity.class);
         ElementoBusquedaReservaEntity result = ElementoBusquedaReservaPersistence.create(newEntity);
@@ -64,7 +64,7 @@ public class ElementoBusquedaReservaPersistenceTest {
         Assert.assertEquals(newEntity.getNombreElementoBusquedaReserva(), entity.getNombreElementoBusquedaReserva());
     }
      /**
-     * Prueba para eliminar un artículo.
+     * Prueba para eliminar un elemento búsqueda reserva.
      *
      * 
      */
