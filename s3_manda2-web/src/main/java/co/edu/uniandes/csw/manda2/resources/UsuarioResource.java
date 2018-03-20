@@ -22,6 +22,7 @@ import javax.ws.rs.PUT;
  *
  * @author n.bello
  */
+//TODO: Hay que hacer el recurso
 @Path("usuarios")
 @Consumes("application/json")
 @Produces("application/json")

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.resources;
-
+//TODO: Borrar los import que no se usan
 import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
 import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
 import co.edu.uniandes.csw.manda2.ejb.ElementoBusquedaReservaLogic;
@@ -73,6 +73,7 @@ public class ElementoBusquedaReservaResource {
     @GET
     @Path("{id : \\d+}")
     public ElementoBusquedaReservaDTO getElementoBusquedas(@PathParam("id") Long id) {
+        //TODO: Si no existe hayq ue disparar WebApplicationException
         ElementoBusquedaReservaDTO nuevo= new ElementoBusquedaReservaDTO(elementoLogic.getElementoBusquedaReserva(id));
         return nuevo;
        

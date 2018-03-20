@@ -13,11 +13,10 @@ import java.util.List;
 /**
  *
  * Clase que representa el servicio de compras en tienda
-
- * ComprasEnTiendaDTO. Los DTO contienen las
- * representaciones de los JSON que se transfieren entre el cliente y el
- * servidor.
- * 
+ *
+ * ComprasEnTiendaDTO. Los DTO contienen las representaciones de los JSON que se
+ * transfieren entre el cliente y el servidor.
+ *
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
@@ -34,47 +33,39 @@ import java.util.List;
  *      "calification": Double,
  *      "descripcion": String,
  * }
- *  </pre> Por ejemplo un servico de tipo Compras ent tienda se presenta asi : <br>
- *  </pre>
- * {
- *    "costoDeTransporte": 10.000,
- *      "pago": PagoDTO,
- *      "cliente": pedro,
- *      "empleado": Empleado1,
- *      "id": 345,
- *      "nombre": compra1,
- *      "costo": 30.000,
- *      "puntoDeEncuentro":calle 44,
- *      "puntoDeRealizacion": Exito ,
- *      "exitoDiligencia": true,
- *      "calification": 5,
- *      "descripcion": estuvo bien ,
- *   }
- * 
+ * </pre> Por ejemplo un servico de tipo Compras ent tienda se presenta asi :
+ * <br>
+ * </pre> { "costoDeTransporte": 10.000, "pago": PagoDTO, "cliente": pedro,
+ * "empleado": Empleado1, "id": 345, "nombre": compra1, "costo": 30.000,
+ * "puntoDeEncuentro":calle 44, "puntoDeRealizacion": Exito , "exitoDiligencia":
+ * true, "calification": 5, "descripcion": estuvo bien , }
+ *
  * </pre>
- * 
+ *
  * @author dv.gonzalez10
  */
-public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializable{
-    
+public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializable {
+
     //Atributos
     /*
     *El costo del transporte del servicio
-    */
+     */
     private Double costoDeTransporte;
-    
-    private ArticuloDTO articulo;
-  
 
-    public ComprasEnTiendaDTO(){
+    private ArticuloDTO articulo;
+    //TODO: Revisar por qué articulo extiende de 
+    // ComprasenTienda y ComprasenTienda tiene un atributo dela clase articulo
+
+    public ComprasEnTiendaDTO() {
         this(0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
     }
-    
+
     /**
      * Constructor
-     * @param costoDeTransporte costo relacionado con le costo del transporte 
-     * @param pago el pago que el cliente realiza por el servicio 
-     * @param cliente el cliente que obtiene el servicio 
+     *
+     * @param costoDeTransporte costo relacionado con le costo del transporte
+     * @param pago el pago que el cliente realiza por el servicio
+     * @param cliente el cliente que obtiene el servicio
      * @param empleado empleado que realiza el servicio
      * @param id id del servicio
      * @param nombre nombre del servicio
@@ -91,19 +82,18 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
     }
 
     public ComprasEnTiendaDTO(ComprasEnTiendaEntity entityServicio) {
-       
+
         super();
-        if(entityServicio!= null)
-        {
-        this.id = entityServicio.getId();
-        this.costoDeTransporte=  entityServicio.getCostoDeTransporte();
-    }
+        if (entityServicio != null) {
+            this.id = entityServicio.getId();
+            this.costoDeTransporte = entityServicio.getCostoDeTransporte();
+        }
     }
 
-    
     //METODOS
-      /**
-     *Retorna el valor asociado al transporte del servicio
+    /**
+     * Retorna el valor asociado al transporte del servicio
+     *
      * @return costoDeTransporte
      */
     public Double getCostoDeTransporte() {
@@ -112,21 +102,24 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO  implements Serializab
 
     /**
      * Asigna el valor del costo del transporte
-     *  @param costoDeTransporte valor del transporte a modificar
+     *
+     * @param costoDeTransporte valor del transporte a modificar
      */
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
-    
+
     /**
      * COnvierte el DTO en entity
-     * @return 
+     *
+     * @return
      */
     @Override
-    public ComprasEnTiendaEntity toEntity()
-    {
+    public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
         entity.setCostoDeTransporte(costoDeTransporte);
+        //TODO: Esto no puede ser un cast a List<ArticuloEntity>
+        // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
         entity.setArticulo((List<ArticuloEntity>) articulo);
         return entity;
     }

@@ -42,7 +42,7 @@ import javax.ws.rs.Produces;
  */
 public class EntregasDeDocumentosResource {
     
-    
+    //TODO: HAY QUE HACE EL RECURSO
     /**
      * <h1>GET /api/entregasDeDocumentos : Obtener todos las entregasDeDocumentos.</h1>
      * 

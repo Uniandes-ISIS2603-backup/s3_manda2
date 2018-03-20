@@ -39,8 +39,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 public class ComprasEnTiendaResource {
     
-    
-    
+    //TODO: HAY QUE HACE EL RECURSO
     /**
      * <h1>GET /api/comprasEnTiendaResource : Obtener todos las comprasEnTiendaResource.</h1>
      * 

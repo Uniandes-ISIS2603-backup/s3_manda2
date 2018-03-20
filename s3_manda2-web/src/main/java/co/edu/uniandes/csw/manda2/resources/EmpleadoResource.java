@@ -150,7 +150,7 @@ public class EmpleadoResource {
      * 404 Not Found. No existe un empelado con la cedula dad.
      * </code>
      * </pre>
-     * @param cedula Identificador del empleado que se desea borrar. Este debe ser una cadena de dígitos.
+     * @param id Identificador del empleado que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
     @Path("{id : \\d+}")
