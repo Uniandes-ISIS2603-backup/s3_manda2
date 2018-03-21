@@ -35,18 +35,24 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
 
     public ServicioDetailDTO(ServicioEntity entity) {
         super(entity);
-        //TODO: Qué pasa si entity es null? 
-        this.cliente = new ClienteDTO(entity.getCliente());
-        this.pago = new PagoDTO(entity.getPago());
+        //TODO: DONE Qué pasa si entity es null? 
+        if (entity != null) {
+            this.cliente = new ClienteDTO(entity.getCliente());
+            this.pago = new PagoDTO(entity.getPago());
+        }
     }
 
     @Override
     public ServicioEntity toEntity() {
         ServicioEntity entity = super.toEntity();
-        //TODO: Qué pasa si this.cliente es null? 
-        entity.setCliente(this.cliente.toEntity());
-           //TODO: Qué pasa si this.pago es null? 
-        entity.setPago(this.pago.toEntity());
+        //TODO: Qué pasa si this.cliente es null?
+        if(cliente != null){
+            entity.setCliente(this.cliente.toEntity());
+        }
+        //TODO: Qué pasa si this.pago es null? 
+        if(pago != null){
+            entity.setPago(this.pago.toEntity());
+        }
         return entity;
     }
 
