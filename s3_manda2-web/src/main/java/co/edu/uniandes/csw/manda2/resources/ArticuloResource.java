@@ -7,19 +7,15 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 //TODO: Quitar los import que no se usan
+//DONE
 import co.edu.uniandes.csw.manda2.dtos.ArticuloDTO;
 import co.edu.uniandes.csw.manda2.ejb.ArticuloLogic;
-import co.edu.uniandes.csw.manda2.ejb.ComprasEnTiendaLogic;
 import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
-import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -43,8 +39,9 @@ public class ArticuloResource {
     @Inject
     private ArticuloLogic articuloLogic;
     //TODO: Esta variable no se usa
-    @Inject
-    private ComprasEnTiendaLogic comprasLogic;
+    //DONE
+    
+   
 
     /**
      * <h1>GET /api/articulos : Obtener todas los articulos.</h1>
@@ -86,7 +83,11 @@ public class ArticuloResource {
     @Path("{id : \\d+}")
     public ArticuloDTO getArticulo(@PathParam("id") Long id) {
         //TODO: Si no existe hay que disparar WebApplicationException
+        //DONE
         ArticuloDTO nuevo = new ArticuloDTO(articuloLogic.getArticulo(id));
+        if (nuevo == null) {
+            throw new WebApplicationException("El recurso /articulos/" + id + " no existe.", 404);
+        }
         return nuevo;
     }
 

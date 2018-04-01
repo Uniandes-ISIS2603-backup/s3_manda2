@@ -4,9 +4,7 @@ package co.edu.uniandes.csw.manda2.resources;
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDTO;
 import co.edu.uniandes.csw.manda2.ejb.OrganizacionLogic;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
-import static co.edu.uniandes.csw.manda2.entities.OrganizacionEntity_.organizacion;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
@@ -60,6 +58,9 @@ public class OrganizacionResource {
     @Path("{id : \\d+}")
     public OrganizacionDTO getorganizacionBusquedas(@PathParam("id") long id) {
         OrganizacionDTO nuevo = new OrganizacionDTO(organizacionLogic.getOrganizacion(id));
+        if (nuevo == null) {
+            throw new WebApplicationException("El recurso /organizaciones/" + id + " no existe.", 404);
+        }
         return nuevo;
 
     }
@@ -90,6 +91,7 @@ public class OrganizacionResource {
 
     }
 //TODO: Revisar este código. De qué se trata?
+    //DONE: Es para tener una lista de las organizaciones, el código está escrito de forma acortada
     private List<OrganizacionDTO> listorganizacions(List<OrganizacionEntity> entityList) {
 
         return entityList.stream().map(a -> new OrganizacionDTO(a)).collect(Collectors.toList());

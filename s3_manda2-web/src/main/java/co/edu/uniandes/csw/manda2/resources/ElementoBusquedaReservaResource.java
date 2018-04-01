@@ -5,12 +5,11 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 //TODO: Borrar los import que no se usan
-import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
+//DONE
 import co.edu.uniandes.csw.manda2.dtos.ElementoBusquedaReservaDTO;
 import co.edu.uniandes.csw.manda2.ejb.ElementoBusquedaReservaLogic;
 import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
@@ -74,7 +73,11 @@ public class ElementoBusquedaReservaResource {
     @Path("{id : \\d+}")
     public ElementoBusquedaReservaDTO getElementoBusquedas(@PathParam("id") Long id) {
         //TODO: Si no existe hayq ue disparar WebApplicationException
+        //DONE
         ElementoBusquedaReservaDTO nuevo= new ElementoBusquedaReservaDTO(elementoLogic.getElementoBusquedaReserva(id));
+        if (nuevo == null) {
+            throw new WebApplicationException("El recurso /busquedaselementos/" + id + " no existe.", 404);
+        }
         return nuevo;
        
     }
