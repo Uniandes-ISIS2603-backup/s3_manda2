@@ -6,9 +6,12 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.VueltasConDemoraEnOficinaDTO;
+import co.edu.uniandes.csw.manda2.ejb.VueltasConDemoraEnOficinaLogic;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,6 +20,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 
 /**
@@ -34,27 +38,29 @@ import javax.ws.rs.Produces;
  * </pre>
  * @author dv.gonzalez10
  */
-//TODO: Hay que hacer el recurso
+//TODO:DONE Hay que hacer el recurso
 @Path("vueltascondemoraenoficina")
 @Produces("application/json")
 @Consumes("application/json")
 public class VueltasConDemoraEnOficinaResource {
     
+     @Inject
+    private VueltasConDemoraEnOficinaLogic vueltasConDemoraEnOficinaLogic;
     
     /**
-     * <h1>GET /api/vueltasConDemoraEnOficina : Obtener todos las vueltasConDemoraEnOFicina.</h1>
+     * <h1>GET /api/vueltasConDemoraEnOficina : Obtener todos las vueltas.</h1>
      * 
-     * <pre>Busca y devuelve todos las vueltasConDemoraEnOFicina que existen en la aplicación.
+     * <pre>Busca y devuelve todos las vueltas que existen en la aplicación.
      * 
      * Códigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve todos las vueltasConDemoraEnOFicina de la aplicacion.</code> 
+     * 200 OK Devuelve todos las vueltas de la aplicacion.</code> 
      * </pre>
      * @return JSONArray {@link VueltasConDemoraEnOficinaDTO} - Las vueltasConDemoraEnOFicina encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
     public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina(){
-        return new ArrayList <> ();
+        return listVueltas2DTO(vueltasConDemoraEnOficinaLogic.getVueltas());
     }
     
     /**
@@ -76,10 +82,13 @@ public class VueltasConDemoraEnOficinaResource {
     @GET
     @Path("{id : \\d+}")
     public VueltasConDemoraEnOficinaDTO getVueltaConDemoraEnOficina(@PathParam("id") long id){
-        return null;
+        VueltasConDemoraEnOficinaEntity entity = vueltasConDemoraEnOficinaLogic.getVuelta(id);
+       if( entity == null ){
+          throw new WebApplicationException("El recurso /vueltasConDemoraEnOficina/" + id + " no existe", 404);
+       }
+       return new VueltasConDemoraEnOficinaDTO(entity);
     }
-    
-    
+   
     /**
      * <h1>POST /api/vueltasConDemoraEnOficina: Crear una vueltasConDemoraEnOficina.</h1>
      * 
@@ -102,7 +111,7 @@ public class VueltasConDemoraEnOficinaResource {
      */
     @POST
     public VueltasConDemoraEnOficinaDTO createVueltaConDemoraEnOficina( VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina)throws BusinessLogicException{
-        return vueltaConDemoraEnOficina;
+        return new VueltasConDemoraEnOficinaDTO (vueltasConDemoraEnOficinaLogic.createVuelta(vueltaConDemoraEnOficina.toEntity()));
     }
     
     
@@ -127,8 +136,12 @@ public class VueltasConDemoraEnOficinaResource {
     @PUT
     @Path("{id : \\d+}")
     public VueltasConDemoraEnOficinaDTO  updateVueltaConDemoraEnOficina( @PathParam("id") long id, VueltasConDemoraEnOficinaDTO  vueltaConDemoraEnOficina ) throws BusinessLogicException{
-        return vueltaConDemoraEnOficina;
-
+        vueltaConDemoraEnOficina.setId(id);
+       VueltasConDemoraEnOficinaEntity entity = vueltasConDemoraEnOficinaLogic.getVuelta(id);
+       if( entity == null ){
+           throw new WebApplicationException("El recurso /compras /" + id + " no existe", 404);
+       }
+       return new VueltasConDemoraEnOficinaDTO(vueltasConDemoraEnOficinaLogic.updateVuelta(id, vueltaConDemoraEnOficina.toEntity()));
     }
     
     /**
@@ -148,7 +161,19 @@ public class VueltasConDemoraEnOficinaResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deleteVueltaConDemoraEnOficina( @PathParam("id") Long id ){
-        
+        VueltasConDemoraEnOficinaEntity entity = vueltasConDemoraEnOficinaLogic.getVuelta(id);
+        if( entity == null ){
+            throw new WebApplicationException("El recurso / comprasEnTienda/" + id + " no existe", 404);
+        }
+        vueltasConDemoraEnOficinaLogic.deleteVuelta(id);
+    }
+    
+    private List<VueltasConDemoraEnOficinaDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
+        List<VueltasConDemoraEnOficinaDTO> lista = new ArrayList<>();
+        for( VueltasConDemoraEnOficinaEntity entity : entityList ){
+            lista.add(new VueltasConDemoraEnOficinaDTO(entity));
+        }
+        return lista;
     }
     
 }

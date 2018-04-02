@@ -90,6 +90,14 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
         }
     }
 
+    public ArticuloDTO getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(ArticuloDTO articulo) {
+        this.articulo = articulo;
+    }
+
     //METODOS
     /**
      * Retorna el valor asociado al transporte del servicio
@@ -117,10 +125,12 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     @Override
     public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
+        ArticuloEntity aentity = new ArticuloEntity();
+        
         entity.setCostoDeTransporte(costoDeTransporte);
         //TODO: Esto no puede ser un cast a List<ArticuloEntity>
         // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
-        entity.setArticulo((List<ArticuloEntity>) articulo);
+        aentity.setArticulo((List<ArticuloEntity>) articulo);
         return entity;
     }
 }

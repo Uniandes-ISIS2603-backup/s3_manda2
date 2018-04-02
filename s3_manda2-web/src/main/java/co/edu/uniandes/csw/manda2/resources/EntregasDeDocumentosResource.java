@@ -6,9 +6,12 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.EntregasDeDocumentosDTO;
+import co.edu.uniandes.csw.manda2.ejb.EntregasDeDocumentosLogic;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,9 +20,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
- ** <pre>Clase que implementa el recurso "vueltasConDemoraEnOficina".
+ ** <pre>Clase que implementa el recurso "EntregasDeDocumentos".
  * URL: /api/entregasDeDocumentos
  * </pre>
  * <i>Note que la aplicación (definida en {@link RestConfig}) define la ruta "/api" y
@@ -42,7 +46,10 @@ import javax.ws.rs.Produces;
  */
 public class EntregasDeDocumentosResource {
     
-    //TODO: HAY QUE HACE EL RECURSO
+     @Inject
+    private EntregasDeDocumentosLogic entregasDeDocumentosLogic;
+    
+    //TODO:DONE HAY QUE HACE EL RECURSO
     /**
      * <h1>GET /api/entregasDeDocumentos : Obtener todos las entregasDeDocumentos.</h1>
      * 
@@ -56,29 +63,33 @@ public class EntregasDeDocumentosResource {
      */
      @GET
     public List<EntregasDeDocumentosDTO> getEntregasDeDocumentos(){
-        return new ArrayList <> ();
+        return listEntregas2DTO(entregasDeDocumentosLogic.getEntregas());
     }
     
     /**
-     * <h1>GET /api/entregasDeDocumentos/{id} : Obtener entregasDeDocumentos por id.</h1>
+     * <h1>GET /api/entregasDeDocumentos/{id} : Obtener una entrega por id.</h1>
      * 
-     * <pre>Busca la entregasDeDocumentos con el id asociado recibido en la URL y la devuelve.
+     * <pre>Busca la entrega con el id asociado recibido en la URL y la devuelve.
      * 
      * Codigos de respuesta:
      * <code style="color: mediumseagreen; background-color: #eaffe0;">
-     * 200 OK Devuelve la entregasDeDocumentos correspondiente al id.
+     * 200 OK Devuelve la entrega correspondiente al id.
      * </code> 
      * <code style="color: #c7254e; background-color: #f9f2f4;">
-     * 404 Not Found No existe un entregasDeDocumentos con el id dado.
+     * 404 Not Found No existe un entrega con el id dado.
      * </code> 
      * </pre>
-     * @param id Identificador de la entregasDeDocumentos que se está buscando. Este debe ser una cadena de dígitos.
+     * @param id Identificador de la entrega que se está buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link EntregasDeDocumentosDTO} - La entregasDeDocumentos buscada
      */
     @GET
     @Path("{id : \\d+}")
     public EntregasDeDocumentosDTO getEntregaDeDocumentos(@PathParam("id") long id){
-        return null;
+       EntregasDeDocumentosEntity entity = entregasDeDocumentosLogic.getEntrega(id);
+       if( entity == null ){
+          throw new WebApplicationException("El recurso / entregasDeDocumentos/" + id + " no existe", 404);
+       }
+       return new EntregasDeDocumentosDTO(entity);
     }
      
     /**
@@ -86,7 +97,7 @@ public class EntregasDeDocumentosResource {
      * 
      * <pre>Cuerpo de petición: JSON {@link EntregasDeDocumentosDTO}.
      * 
-     * Crea una nueva entregasDeDocumentos con la información que se recibe en el cuerpo de la petición
+     * Crea una nueva entrega con la información que se recibe en el cuerpo de la petición
      * y se regresa un objeto idéntico con un id auto-generado por la base de datos.
      * 
      * Códigos de respuesta:
@@ -103,7 +114,7 @@ public class EntregasDeDocumentosResource {
      */
      @POST
     public EntregasDeDocumentosDTO createEntregasDeDocumentos( EntregasDeDocumentosDTO entregasDeDocumentos) throws BusinessLogicException{
-        return entregasDeDocumentos;
+        return new EntregasDeDocumentosDTO (entregasDeDocumentosLogic.createEntrega(entregasDeDocumentos.toEntity()));
     }
     /**
      * <h1>PUT /api/entregasDeDocumentos/{id} : Actualizar entregasDeDocumentos con el id dado.</h1>
@@ -125,7 +136,12 @@ public class EntregasDeDocumentosResource {
     @PUT
     @Path("{id : \\d+}")
     public EntregasDeDocumentosDTO updateEntregasDeDocumentos( @PathParam("id") long id, EntregasDeDocumentosDTO  entregasDeDocumentos ){
-        return entregasDeDocumentos;
+        entregasDeDocumentos.setId(id);
+       EntregasDeDocumentosEntity entity = entregasDeDocumentosLogic.getEntrega(id);
+       if( entity == null ){
+           throw new WebApplicationException("El recurso /compras /" + id + " no existe", 404);
+       }
+       return new  EntregasDeDocumentosDTO(entregasDeDocumentosLogic.updateEntrega(id, entregasDeDocumentos.toEntity()));
 
     }
     /**
@@ -145,6 +161,19 @@ public class EntregasDeDocumentosResource {
     @DELETE
     @Path("{id : \\d+}")
     public void deleteEntregasDeDocumentos( @PathParam("id") Long id ){
-        
+        EntregasDeDocumentosEntity entity = entregasDeDocumentosLogic.getEntrega(id);
+        if( entity == null ){
+            throw new WebApplicationException("El recurso / comprasEnTienda/" + id + " no existe", 404);
+        }
+        entregasDeDocumentosLogic.deleteEntrega(id);
+    }
+    
+    
+    private List<EntregasDeDocumentosDTO> listEntregas2DTO( List<EntregasDeDocumentosEntity> entityList){
+        List<EntregasDeDocumentosDTO> lista = new ArrayList<>();
+        for( EntregasDeDocumentosEntity entity : entityList ){
+            lista.add(new EntregasDeDocumentosDTO(entity));
+        }
+        return lista;
     }
 }

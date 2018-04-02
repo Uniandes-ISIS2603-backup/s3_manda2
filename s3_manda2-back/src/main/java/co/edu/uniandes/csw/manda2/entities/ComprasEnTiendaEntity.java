@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
+
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -71,6 +72,10 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
+
+    public void setArticulo(ArticuloEntity articulo) {
+        this.articulo =(List<ArticuloEntity>) articulo;
+     }
     
     
     

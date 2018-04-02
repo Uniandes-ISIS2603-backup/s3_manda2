@@ -112,11 +112,12 @@ public class EntregasDeDocumentosLogicTest {
       
     @Test
      public void getEntregaTest(){
-       //  EntregasDeDocumentosEntity entity = data.get(0);
-        // EntregasDeDocumentosEntity newEntity = entregasDeDocumentosLogic.getEntrega(entity.getId());
-         //Assert.assertNotNull (newEntity);
-        // Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
-        // Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
+       // EntregasDeDocumentosEntity entity = data.get(0);
+       // EntregasDeDocumentosEntity newEntity = entregasDeDocumentosLogic.getEntrega(entity.getId());
+        //Assert.assertNotNull (newEntity);
+        
+        //Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+        //Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
          
      }
      
