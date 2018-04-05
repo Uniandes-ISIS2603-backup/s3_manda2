@@ -36,10 +36,13 @@ import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
  *
  * @author cv.trujillo
  */
-public class ArticuloDTO extends ComprasEnTiendaDTO {
+public class ArticuloDTO {
+    
+    
+    private Long id;
 
-    public ArticuloDTO() {
-
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -72,6 +75,14 @@ public class ArticuloDTO extends ComprasEnTiendaDTO {
      *
      */
     private Double precio;
+    
+        public ArticuloDTO() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     /**
      * Obtener la ruta de la imagen del articulo
@@ -140,7 +151,6 @@ public class ArticuloDTO extends ComprasEnTiendaDTO {
      *
      * @return Un Entity con los valores del DTO
      */
-    @Override
     public ArticuloEntity toEntity() {
         ArticuloEntity entity = new ArticuloEntity();
         entity.setId(this.id);
