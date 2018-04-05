@@ -40,6 +40,7 @@ import javax.ws.rs.WebApplicationException;
 @Path("entregasdedocumentos")
 @Produces("application/json")
 @Consumes("application/json")
+
 /**
  *
  * @author dv.gonzalez10
