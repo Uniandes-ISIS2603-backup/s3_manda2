@@ -35,8 +35,8 @@ public class OrganizacionPersistence  {
     public OrganizacionEntity findByName(String name) {
      LOGGER.log(Level.INFO, "Consultando Organizacion por nombre ", name);
 
-        // Se crea un query para buscar pse con el link que recibe el método como argumento. ":link" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From OrganizacionEntity e where e.nombre= :link", OrganizacionEntity.class);
+        // Se crea un query para buscar pse con el name que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From OrganizacionEntity e where e.nombre= :name", OrganizacionEntity.class);
         // Se remplaza el placeholder ":link" con el valor del argumento 
         query = query.setParameter("nombre", name);
         // Se invoca el query se obtiene la lista resultado
