@@ -7,6 +7,7 @@ import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.Path;
@@ -35,6 +36,7 @@ import javax.ws.rs.Path;
 @Path("organizaciones")
 @Consumes("application/json")
 @Produces("application/json")
+@RequestScoped
 public class OrganizacionResource {
 
     @Inject
