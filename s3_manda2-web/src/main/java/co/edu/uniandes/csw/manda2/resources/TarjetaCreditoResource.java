@@ -34,7 +34,6 @@ import javax.ws.rs.WebApplicationException;
  * <pre>
  * Path: indica la dirección después de "api" para acceder al recurso
  * Produces/Consumes: indica que los servicios definidos en este recurso reciben y devuelven objetos en formato JSON
- * RequestScoped: Inicia una transacción desde el llamado de cada método (servicio). 
  * </pre>
  *
  * @author na.caceres
