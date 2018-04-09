@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  ** Clase que extiende de {@link ComprasEnTiendaDTO} para manejar la transformacion entre
@@ -21,7 +22,7 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
      * 
     *Articulo que se quiere comprar en tienda
     */
-    private ArticuloDTO articulo;
+    private List<ArticuloDTO> articulo;
 
    //CONSTRUCTOR
    
@@ -42,8 +43,16 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
      * @param calificacion calificación del servicio.
      * @param descripcion descripción del servicio.
      */
-    public ComprasEnTiendaDetailsDTO(ArticuloDTO articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
+    public ComprasEnTiendaDetailsDTO(List<ArticuloDTO>  articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
         super(costoDeTransporte, pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
+        this.articulo = articulo;
+    }
+
+    public List<ArticuloDTO> getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(List<ArticuloDTO> articulo) {
         this.articulo = articulo;
     }
     
@@ -52,17 +61,14 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
      *Retorna el articulo 
      * @return costoDeTransporte
      */
-    public ArticuloDTO getArticulo() {
-        return articulo;
-    }
+    
+    
 
     /**
      * Asigna el articulo 
      * @param articulo articulo de la compra
      */
-    public void setArticulo(ArticuloDTO articulo) {
-        this.articulo = articulo;
-    }
+   
     
     
    

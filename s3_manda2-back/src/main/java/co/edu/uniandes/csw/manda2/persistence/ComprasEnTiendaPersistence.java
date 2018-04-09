@@ -94,7 +94,8 @@ public class ComprasEnTiendaPersistence {
      */
     
     public ComprasEnTiendaEntity update(ComprasEnTiendaEntity entity) {
-         return em.merge(entity);
+         LOGGER.log(Level.INFO, "Actualizando compra con id={0}", entity.getId());
+        return em.merge(entity);
     }
     
     

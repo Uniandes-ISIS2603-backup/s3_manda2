@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.manda2.dtos;
 import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,8 +53,8 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
      */
     private Double costoDeTransporte;
 
-    private ArticuloDTO articulo;
-    //TODO: Revisar por qué articulo extiende de 
+    private List<ArticuloDTO> articulo;
+    //TODO: DONE  Revisar por qué articulo extiende de 
     // ComprasenTienda y ComprasenTienda tiene un atributo dela clase articulo
 
     public ComprasEnTiendaDTO() {
@@ -90,13 +91,7 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
         }
     }
 
-    public ArticuloDTO getArticulo() {
-        return articulo;
-    }
-
-    public void setArticulo(ArticuloDTO articulo) {
-        this.articulo = articulo;
-    }
+    
 
     //METODOS
     /**
@@ -117,6 +112,15 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
         this.costoDeTransporte = costoDeTransporte;
     }
 
+    public List<ArticuloDTO> getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(List<ArticuloDTO> articulo) {
+        this.articulo = articulo;
+    }
+
+    
     /**
      * COnvierte el DTO en entity
      *
@@ -125,12 +129,17 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     @Override
     public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        ArticuloEntity aentity = new ArticuloEntity();
+        ArrayList<ArticuloEntity> aentity = new ArrayList<>();
         
+         
         entity.setCostoDeTransporte(costoDeTransporte);
-        //TODO: Esto no puede ser un cast a List<ArticuloEntity>
+        //TODO:DONE Esto no puede ser un cast a List<ArticuloEntity>
         // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
-        aentity.setArticulo((List<ArticuloEntity>) articulo);
+        
+       for (ArticuloDTO articulo : articulo){
+           aentity.add(articulo.toEntity());
+       }
+        entity.setArticulo(aentity);
         return entity;
     }
 }

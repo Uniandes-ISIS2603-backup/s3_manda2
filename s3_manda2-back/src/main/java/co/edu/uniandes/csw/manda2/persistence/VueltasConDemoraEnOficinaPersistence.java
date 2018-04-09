@@ -57,10 +57,10 @@ public class VueltasConDemoraEnOficinaPersistence {
     public VueltasConDemoraEnOficinaEntity findByName(String name) {
         LOGGER.log(Level.INFO, "Consultando vueltas por nombre ", name);
 
-        // Se crea un query para buscar vueltas con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From VueltasConDemoraEnOficinaEntity e where e.name = :name", VueltasConDemoraEnOficinaEntity.class);
+        // Se crea un query para buscar vueltas con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From VueltasConDemoraEnOficinaEntity e where e.name = :nombre", VueltasConDemoraEnOficinaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
+        query = query.setParameter("nombre", name);
         // Se invoca el query se obtiene la lista resultado
         List<VueltasConDemoraEnOficinaEntity> sameName = query.getResultList();
         if (sameName.isEmpty()) {
@@ -92,7 +92,8 @@ public class VueltasConDemoraEnOficinaPersistence {
      * @return la vuelta con demora en oficina con los cambios aplicados.
      */
      public VueltasConDemoraEnOficinaEntity update(VueltasConDemoraEnOficinaEntity entity) {
-     return em.merge(entity);
+     LOGGER.log(Level.INFO, "Actualizando vuelta con id={0}", entity.getId());
+        return em.merge(entity);
     }
     
      /**

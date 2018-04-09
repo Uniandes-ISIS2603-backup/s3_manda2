@@ -98,7 +98,8 @@ public class EntregasDeDocumentosPersistence {
      * @return la entrega de documento con los cambios aplicados.
      */
     public EntregasDeDocumentosEntity update(EntregasDeDocumentosEntity entity) {
-         return em.merge(entity);
+         LOGGER.log(Level.INFO, "Actualizando entrega con id={0}", entity.getId());
+        return em.merge(entity);
     }
     
     /**

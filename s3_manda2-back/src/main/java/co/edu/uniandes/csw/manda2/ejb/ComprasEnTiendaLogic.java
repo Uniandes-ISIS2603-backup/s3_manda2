@@ -64,7 +64,7 @@ public class ComprasEnTiendaLogic {
     public ComprasEnTiendaEntity createCompra(ComprasEnTiendaEntity entity ) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de compra");
         //if (!validateArticulo(entity.getArticulo()!= null)) {
-         //throw new BusinessLogicException("La calificación del servicio no es válida");
+        // throw new BusinessLogicException("El articulo no es valido");
         //}
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de compra");
