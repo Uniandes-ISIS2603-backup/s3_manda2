@@ -4,7 +4,6 @@
         'ui.router',
        
         // Internal modules dependencies       
-        'citiesModule',
         
 
     ]);
