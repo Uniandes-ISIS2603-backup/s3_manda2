@@ -63,6 +63,9 @@ public class EntregasDeDocumentosLogicTest {
             utx.begin();
             clearData();
             insertData();
+            
+            System.out.println(data);
+            
             utx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,8 +83,8 @@ public class EntregasDeDocumentosLogicTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from BookEntity").executeUpdate();
-        em.createQuery("delete from EditorialEntity").executeUpdate();
+        em.createQuery("delete from EntregasDeDocumentosEntity").executeUpdate();
+       
     }
 
     
@@ -112,37 +115,53 @@ public class EntregasDeDocumentosLogicTest {
       
     @Test
      public void getEntregaTest(){
-       // EntregasDeDocumentosEntity entity = data.get(0);
-       // EntregasDeDocumentosEntity newEntity = entregasDeDocumentosLogic.getEntrega(entity.getId());
-      //  Assert.assertNotNull (newEntity);
+        EntregasDeDocumentosEntity entity = data.get(0);
+        EntregasDeDocumentosEntity newEntity = entregasDeDocumentosLogic.getEntrega(entity.getId());
+        Assert.assertNotNull (newEntity);
         
-        //Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
-       // Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
+       Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+       Assert.assertEquals(newEntity.getPorcentajeExtra(), entity.getPorcentajeExtra());
          
      }
      
+     
+     
+    @Test
+    public void getComprasTest() {
+        List<EntregasDeDocumentosEntity> list = entregasDeDocumentosLogic.getEntregas();
+        Assert.assertEquals(data.size(), list.size());
+        for (EntregasDeDocumentosEntity entity : list) {
+            boolean found = false;
+            for (EntregasDeDocumentosEntity entity2 : data) {
+                if (entity.getId().equals(entity2.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+     
    @Test
     public void deleteCompraTest() {
-        //EntregasDeDocumentosEntity entity = data.get(0);
-       // entregasDeDocumentosLogic.deleteEntrega(entity.getId());
-       // EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
-       // Assert.assertNull(deleted);
+        EntregasDeDocumentosEntity entity = data.get(0);
+       entregasDeDocumentosLogic.deleteEntrega(entity.getId());
+        EntregasDeDocumentosEntity deleted = em.find(EntregasDeDocumentosEntity.class, entity.getId());
+       Assert.assertNull(deleted);
     }
     
-   // @Test
-    //public void updateEntregaTest(){
-      //  EntregasDeDocumentosEntity entity = data.get(0);
-        //EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
+   @Test
+    public void updateEntregaTest(){
+        EntregasDeDocumentosEntity entity = data.get(0);
+        EntregasDeDocumentosEntity newEntity = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
         
-       // newEntity.setId(entity.getId());             
+       newEntity.setId(entity.getId());             
         
       
-        //entregasDeDocumentosLogic.updateEntrega(newEntity.getId(), newEntity);
+        entregasDeDocumentosLogic.updateEntrega(newEntity.getId(), newEntity);
         
+        EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
         
-        //EntregasDeDocumentosEntity resp = em.find(EntregasDeDocumentosEntity.class, entity.getId());
-        
-       // Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
-       // Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
-    //}
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+       Assert.assertEquals(newEntity.getPorcentajeExtra(), resp.getPorcentajeExtra());
+    }
 }

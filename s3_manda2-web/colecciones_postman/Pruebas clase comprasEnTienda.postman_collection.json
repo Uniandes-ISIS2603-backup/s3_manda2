@@ -3,8 +3,9 @@
 	"name": "Pruebas clase comprasEnTienda",
 	"description": "",
 	"order": [
+		"34adaed9-a9dd-1d3e-9dc5-875fa5328a4f",
 		"8820aa65-768b-4cf2-1d5d-b4e05999546f",
-		"34adaed9-a9dd-1d3e-9dc5-875fa5328a4f"
+		"a990f1c3-2b40-6b87-1313-361ff20fc5e2"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -28,20 +29,116 @@
 			],
 			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
 			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c95c264-658a-425f-8704-10a0f504c3da",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
 			"pathVariables": {},
 			"pathVariableData": [],
-			"events": [],
-			"auth": null,
 			"method": "POST",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http:postCompraEntienda",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1521136769510,
 			"version": 2,
-			"responses": [],
+			"auth": null,
+			"time": 1523607910989,
+			"name": "postCompraEntienda",
+			"description": "",
+			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 97,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "258",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Mar 2018 18:20:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "GlassFish Server Open Source Edition  4.1 ",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"type\":\"comprasEnTiendaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10.0}",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 258,
+						"header": 269,
+						"total": 527
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, eyJ0eXBlIjoiY29tcHJhc0VuVGllbmRhRFRPIiwiY29zdG8iOjMwLjAsImRlc2NyaXBjaW9uIjoiZXN0dXZvIGJpZW4iLCJpZCI6MzQ1LCJub21icmUiOiJjb21wcmExIiwicHVudG9EZUVuY3VlbnRybyI6ImNhbGxlIDQ0IiwicHVudG9EZVJlYWxpemFjaW9uIjoiRXhpdG8gIiwiY2xpZW50ZSI6e30sImVtcGxlYWRvIjp7ImlkZW50aWZpY2FjaW9uIjoiIiwiZm90byI6IiIsIkVQUyI6IiJ9LCJwYWdvIjp7fSwiY29zdG9EZVRyYW5zcG9ydGUiOjEwLjB9",
+					"name": "postCompraEntienda",
+					"id": "29040511-83d8-61f7-47e1-754dd49622e2",
+					"request": {
+						"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
 			"currentHelper": null,
 			"helperAttributes": null,
 			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
@@ -60,10 +157,33 @@
 			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
 			"data": null,
 			"dataMode": "params",
-			"name": "get comprasentienda",
+			"name": "get Allcomprasentienda",
 			"description": "",
 			"descriptionFormat": "html",
 			"time": 1520792001987,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "a990f1c3-2b40-6b87-1313-361ff20fc5e2",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+			"data": null,
+			"dataMode": "params",
+			"name": "get compra",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523608363669,
 			"version": 2,
 			"responses": [],
 			"currentHelper": null,

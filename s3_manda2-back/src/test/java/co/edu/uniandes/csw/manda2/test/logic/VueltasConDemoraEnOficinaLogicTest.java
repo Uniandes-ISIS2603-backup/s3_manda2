@@ -81,9 +81,7 @@ public class VueltasConDemoraEnOficinaLogicTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from BookEntity").executeUpdate();
-        em.createQuery("delete from EditorialEntity").executeUpdate();
-    }
+        em.createQuery("delete from VueltasConDemoraEnOficinaEntity").executeUpdate();    }
 
     
     private void insertData (){
@@ -112,17 +110,50 @@ public class VueltasConDemoraEnOficinaLogicTest {
     
     @Test
     public void deleteCompraTest() {
-       // VueltasConDemoraEnOficinaEntity entity = data.get(0);
-       // vueltasConDemoraEnOficinaLogic.deleteVuelta(entity.getId());
-       // VueltasConDemoraEnOficinaEntity deleted = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
-        //Assert.assertNull(deleted);
+        VueltasConDemoraEnOficinaEntity entity = data.get(0);
+        vueltasConDemoraEnOficinaLogic.deleteVuelta(entity.getId());
+        VueltasConDemoraEnOficinaEntity deleted = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
     
     @Test
      public void getCompraTest(){
-      // VueltasConDemoraEnOficinaEntity entity = data.get(0);
-       //  VueltasConDemoraEnOficinaEntity newEntity = vueltasConDemoraEnOficinaLogic.getVuelta(entity.getId());
-        // Assert.assertNotNull (newEntity);
-        // Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
+       VueltasConDemoraEnOficinaEntity entity = data.get(0);
+       VueltasConDemoraEnOficinaEntity newEntity = vueltasConDemoraEnOficinaLogic.getVuelta(entity.getId());
+       Assert.assertNotNull (newEntity);
+       Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
      }
+     
+     
+      @Test 
+    public void getComprasTest(){
+         List<VueltasConDemoraEnOficinaEntity> list = vueltasConDemoraEnOficinaLogic.getVueltas();
+        Assert.assertEquals(data.size(), list.size());
+        for (VueltasConDemoraEnOficinaEntity entity : list) {
+            boolean found = false;
+            for (VueltasConDemoraEnOficinaEntity entity2 : data) {
+                if (entity.getId().equals(entity2.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    
+    @Test
+    public void updateCompraTest(){
+        VueltasConDemoraEnOficinaEntity entity = data.get(0);
+        VueltasConDemoraEnOficinaEntity newEntity = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        
+       newEntity.setId(entity.getId());             
+        
+      
+        vueltasConDemoraEnOficinaLogic.updateVuelta(newEntity.getId(), newEntity);
+        
+        VueltasConDemoraEnOficinaEntity resp = em.find(VueltasConDemoraEnOficinaEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+       Assert.assertEquals(newEntity.getCostoDuracion(), resp.getCostoDuracion());
+
+    }
 }

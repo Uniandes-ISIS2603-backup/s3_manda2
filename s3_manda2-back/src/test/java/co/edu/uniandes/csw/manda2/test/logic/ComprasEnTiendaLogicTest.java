@@ -148,4 +148,22 @@ public class ComprasEnTiendaLogicTest {
             Assert.assertTrue(found);
         }
     }
+    
+    
+     @Test
+    public void updateCompraTest(){
+        ComprasEnTiendaEntity entity = data.get(0);
+        ComprasEnTiendaEntity newEntity = factory.manufacturePojo(ComprasEnTiendaEntity.class);
+        
+       newEntity.setId(entity.getId());             
+        
+      
+        comprasEnTiendaLogic.updateCompra(newEntity.getId(), newEntity);
+        
+        ComprasEnTiendaEntity resp = em.find(ComprasEnTiendaEntity.class, entity.getId());
+        
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), resp.getCostoDeTransporte());
+        Assert.assertEquals(newEntity.getArticulo(), resp.getArticulo());
+
+    }
 }

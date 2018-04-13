@@ -3,8 +3,9 @@
 	"name": "Pruebas clase vueltas con demora",
 	"description": "",
 	"order": [
+		"9a75ac78-d89f-0a8a-25aa-30035f3dca36",
 		"c5cb01e8-d866-b967-1b57-ab1310778c0a",
-		"9a75ac78-d89f-0a8a-25aa-30035f3dca36"
+		"30024223-d940-fea7-894a-4c3275bbdf1e"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -15,6 +16,29 @@
 	"variables": [],
 	"auth": null,
 	"requests": [
+		{
+			"id": "30024223-d940-fea7-894a-4c3275bbdf1e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
+			"data": null,
+			"dataMode": "params",
+			"name": "get vuelta",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523608620917,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null
+		},
 		{
 			"id": "9a75ac78-d89f-0a8a-25aa-30035f3dca36",
 			"headers": "Content-Type: application/json\n",
@@ -41,7 +65,96 @@
 			"descriptionFormat": "html",
 			"time": 1521137334974,
 			"version": 2,
-			"responses": [],
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"time": 64,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "295",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Mar 2018 18:31:35 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "GlassFish Server Open Source Edition  4.1 ",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"type\":\"vueltasConDemoraEnOficinaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10000.0,\"costoDuracion\":10000.0}",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 295,
+						"header": 269,
+						"total": 564
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, eyJ0eXBlIjoidnVlbHRhc0NvbkRlbW9yYUVuT2ZpY2luYURUTyIsImNvc3RvIjozMC4wLCJkZXNjcmlwY2lvbiI6ImVzdHV2byBiaWVuIiwiaWQiOjM0NSwibm9tYnJlIjoiY29tcHJhMSIsInB1bnRvRGVFbmN1ZW50cm8iOiJjYWxsZSA0NCIsInB1bnRvRGVSZWFsaXphY2lvbiI6IkV4aXRvICIsImNsaWVudGUiOnt9LCJlbXBsZWFkbyI6eyJpZGVudGlmaWNhY2lvbiI6IiIsImZvdG8iOiIiLCJFUFMiOiIifSwicGFnbyI6e30sImNvc3RvRGVUcmFuc3BvcnRlIjoxMDAwMC4wLCJjb3N0b0R1cmFjaW9uIjoxMDAwMC4wfQ==",
+					"name": "postvueltascondemoraenoficina",
+					"id": "dc003450-9c7f-4a6a-c341-e4e70d09af8c",
+					"isSample": true,
+					"scrollToResult": false,
+					"runTests": false,
+					"request": {
+						"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "{{new_id}}",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nid: {{new_id}}\n",
+						"data": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
 			"currentHelper": null,
 			"helperAttributes": null,
 			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }"
@@ -50,21 +163,19 @@
 			"id": "c5cb01e8-d866-b967-1b57-ab1310778c0a",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/",
 			"queryParams": [],
+			"events": [],
 			"pathVariables": {},
 			"pathVariableData": [],
-			"events": [],
-			"auth": null,
 			"method": "GET",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
 			"data": null,
 			"dataMode": "params",
-			"name": "get vueltascondemoraenoficina",
+			"auth": null,
+			"time": 1523608531324,
+			"name": "get Allvueltascondemoraenoficina",
 			"description": "",
-			"descriptionFormat": "html",
-			"time": 1520792036284,
-			"version": 2,
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
 			"responses": [],
 			"currentHelper": null,
 			"helperAttributes": null
