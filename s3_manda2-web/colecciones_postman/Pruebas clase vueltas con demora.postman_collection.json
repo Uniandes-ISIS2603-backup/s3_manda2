@@ -5,7 +5,9 @@
 	"order": [
 		"9a75ac78-d89f-0a8a-25aa-30035f3dca36",
 		"c5cb01e8-d866-b967-1b57-ab1310778c0a",
-		"30024223-d940-fea7-894a-4c3275bbdf1e"
+		"30024223-d940-fea7-894a-4c3275bbdf1e",
+		"ccf3ec02-de4b-a560-f381-5e300c4b806e",
+		"206b49ae-9c43-d486-7841-14cf0e317ad2"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -16,6 +18,40 @@
 	"variables": [],
 	"auth": null,
 	"requests": [
+		{
+			"id": "206b49ae-9c43-d486-7841-14cf0e317ad2",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9decbf6-9769-4065-b59f-6a4d65c9404f",
+						"type": "text/javascript",
+						"exec": [
+							"http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}"
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"auth": null,
+			"time": 1523609916113,
+			"name": "delete vueltascondemoraenoficin con id",
+			"description": "",
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
 		{
 			"id": "30024223-d940-fea7-894a-4c3275bbdf1e",
 			"headers": "",
@@ -52,19 +88,32 @@
 			],
 			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
 			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb0e8830-54d0-4030-8a3f-5c694844bc84",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
 			"pathVariables": {},
 			"pathVariableData": [],
-			"events": [],
-			"auth": null,
 			"method": "POST",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
 			"data": [],
 			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1523609304466,
 			"name": "postvueltascondemoraenoficina",
 			"description": "",
-			"descriptionFormat": "html",
-			"time": 1521137334974,
-			"version": 2,
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
 			"responses": [
 				{
 					"status": "",
@@ -155,6 +204,8 @@
 					}
 				}
 			],
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
 			"currentHelper": null,
 			"helperAttributes": null,
 			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }"
@@ -179,6 +230,37 @@
 			"responses": [],
 			"currentHelper": null,
 			"helperAttributes": null
+		},
+		{
+			"id": "ccf3ec02-de4b-a560-f381-5e300c4b806e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "PUT",
+			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "update vueltascondemoraenoficina con id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523609545922,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n    \"type\": \"vueltasConDemoraEnOficinaDTO\",\n    \"id\": 10,\n    \"costoDeTransporte\": 10000,\n    \"costoDuracion\": 44000\n}"
 		}
 	]
 }

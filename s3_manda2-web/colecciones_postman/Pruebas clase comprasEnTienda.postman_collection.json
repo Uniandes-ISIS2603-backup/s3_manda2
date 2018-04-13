@@ -5,7 +5,9 @@
 	"order": [
 		"34adaed9-a9dd-1d3e-9dc5-875fa5328a4f",
 		"8820aa65-768b-4cf2-1d5d-b4e05999546f",
-		"a990f1c3-2b40-6b87-1313-361ff20fc5e2"
+		"a990f1c3-2b40-6b87-1313-361ff20fc5e2",
+		"93780349-a614-547d-631e-3d440a27ec64",
+		"6733e97b-282c-fa9f-8f1f-7609b719f626"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -144,6 +146,42 @@
 			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
 		},
 		{
+			"id": "6733e97b-282c-fa9f-8f1f-7609b719f626",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbc9bb3e-c374-43fe-9315-979fb3e85727",
+						"type": "text/javascript",
+						"exec": [
+							"http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}"
+						]
+					}
+				}
+			],
+			"auth": null,
+			"method": "DELETE",
+			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+			"data": null,
+			"dataMode": "params",
+			"name": "delete compra con id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523609680101,
+			"version": 2,
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
 			"id": "8820aa65-768b-4cf2-1d5d-b4e05999546f",
 			"headers": "",
 			"headerData": [],
@@ -165,6 +203,37 @@
 			"responses": [],
 			"currentHelper": null,
 			"helperAttributes": null
+		},
+		{
+			"id": "93780349-a614-547d-631e-3d440a27ec64",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "PUT",
+			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
+			"data": [],
+			"dataMode": "raw",
+			"name": "update  compra con id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523609168038,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"20.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
 		},
 		{
 			"id": "a990f1c3-2b40-6b87-1313-361ff20fc5e2",
