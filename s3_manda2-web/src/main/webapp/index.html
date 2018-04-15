@@ -12,13 +12,12 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         
+        <!-- Medios de pago -->
+        <script src="src/modules/mediodepago/mediodepago.mod.js" type="text/javascript"></script>
+        <script src="src/modules/mediodepago/mediodepago.ctrl.js" type="text/javascript"></script>
+        
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-        
-        <!-- Medios de pago -->
-        <script src="src/modules/mediosdepago/mediosdepago.mod.js" type="text/javascript"></script>
-        <script src="src/modules/mediosdepago/mediosdepago.ctrl.js" type="text/javascript"></script>
-      
     </head>
 
     <body style="padding-top: 20px;">
@@ -28,7 +27,7 @@
              <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs">
-                        <li><a ui-sref="mediosdepagoList">Medios de pago</a></li>
+                        <li><a ui-sref="mediodepagoList">Medios de pago</a></li>
                     </ul>
                 </div>
             </div>
