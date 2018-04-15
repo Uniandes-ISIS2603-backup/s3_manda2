@@ -9,7 +9,8 @@
             url: 'mediosdepago',
             abstract: true,
             views: {
-                'listView': {
+                //Cambiar el nombre por ListView!!!
+                'mainView': {
                     templateUrl: basePath + 'mediosdepago.list.html',
                     controller: 'mediodepagoCtrl',
                     controllerAs: 'ctrl'
@@ -17,4 +18,4 @@
             }
         });
     }]);
-})(window.angular)
+})(window.angular);
