@@ -1,7 +1,28 @@
 <div class="container-fluid">
+    <div class='row'>
+        <div class='col-md-3'>
+            <h3>Medios de pago</h3>
+        </div>
+        <div class='col-md-2'>
+            <button type="button" class="btn btn-primary">Agregar medio de pago</button>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-md-8">
-            <p>{{billeteraActual}}</p>
+        <div class="col-md-6">
+            <div class='col-md-2'>
+                <img class='thumbnail' style='max-height: 55px' ui-sref=".paypalDetail" ng-src='data/images/pp_cc_mark_74x46.jpg' alt='PayPal'/> 
+            </div>
+            <div class='col-md-2'>
+                <img class='thumbnail' style='max-height: 55px' ui-sref=".tarjetacreditoDetail" ng-src='data/images/shopping-credit-card-banking-3c43399ab2794dcb-512x512.png' alt='Tarjeta de crédito'/> 
+            </div>
+            <div class='col-md-2'>
+                <img class='thumbnail' style='max-height: 55px' ui-sref='.pseDetail' ng-src='data/images/logopsenuevo.png' alt='PSE'/> 
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-5'>
+            <div ui-view="mediodepagoDetail"></div>
         </div>
     </div>
 </div>
