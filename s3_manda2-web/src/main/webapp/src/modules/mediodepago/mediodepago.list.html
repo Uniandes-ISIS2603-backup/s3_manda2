@@ -10,34 +10,19 @@
     <div class="row">
         <div class="col-md-6">
             <div class='col-md-2'>
-                <!--                {{tienePayPal === true ? <a ui-sref="paypalDetail({paypalId: paypal.id})">
-                                        <img class="img-responsive" ng-src='data/images/pp_cc_mark_74x46.jpg' alt='PayPal'/> 
-                                        </a> : }}-->
-                <img class='thumbnail' style='max-height: 55px' ng-src='data/images/pp_cc_mark_74x46.jpg' alt='PayPal'/> 
+                <img class='thumbnail' style='max-height: 55px' ui-sref=".paypalDetail" ng-src='data/images/pp_cc_mark_74x46.jpg' alt='PayPal'/> 
             </div>
             <div class='col-md-2'>
-                <!--    
-                        {{tieneTarjetaCredito === true ? 
-                            <a ui-sref="tarjetaCreditoDetail({tarjetacreditoId: tarjetacredito.id})">
-                                <img class="img-responsive" ng-src='shopping-credit-card-banking-3c43399ab2794dcb-512x512' alt='Tarjeta de crédito'/> 
-                            </a>: }}-->
-
-                <img class='thumbnail' style='max-height: 55px' ng-src='data/images/shopping-credit-card-banking-3c43399ab2794dcb-512x512.png' alt='Tarjeta de crédito'/> 
+                <img class='thumbnail' style='max-height: 55px' ui-sref=".tarjetacreditoDetail" ng-src='data/images/shopping-credit-card-banking-3c43399ab2794dcb-512x512.png' alt='Tarjeta de crédito'/> 
             </div>
             <div class='col-md-2'>
-                <!--       
-                            {{tienePayPal === true ? 
-                                 <a ui-sref='pseDetail({pseId: pse.id})'>
-                                    <img class="img-responsive" ng-src='data/images/logopsenuevo' alt='PSE'/> 
-                                </a>: }}-->
-
-                <img class='thumbnail' style='max-height: 55px' ng-src='data/images/logopsenuevo.png' alt='PSE'/> 
+                <img class='thumbnail' style='max-height: 55px' ui-sref='.pseDetail' ng-src='data/images/logopsenuevo.png' alt='PSE'/> 
             </div>
         </div>
     </div>
     <div class='row'>
-        <div class='col-md-10'>
-            <div><a ui-view="mediodepagoDetail"></div>
+        <div class='col-md-5'>
+            <div ui-view="mediodepagoDetail"></div>
         </div>
     </div>
 </div>
