@@ -28,3 +28,4 @@ s3_manda2-web/target/jaxrs-analyzer/swagger\.json
 *.lst
 /s3_manda2-web/target/
 /target/
+/s3_manda2-web/src/main/webapp/bower_components/
