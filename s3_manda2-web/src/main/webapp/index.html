@@ -44,11 +44,11 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"> <a class="nav-link" href="#">Servicios <span class="sr-only">(current)</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Cuenta</a> </li>
+                    <li class="nav-item active"> <a class="nav-link" href="#">Cuenta <span class="sr-only">(current)</span></a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Nuestro Equipo</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Q & R</a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
                 </ul>
                 < <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item"><a class="nav-link" href="#">Sign up</a> </li>
@@ -56,19 +56,10 @@
                 </ul>
             </div>
         </nav>
-        <div class="container">
-           <img src="data/images/Manda2.png" class="rounded">
-        <div class="container">
-            <div class="row">
-                <div class="text-center col-sm-6">
-                    <h3>Lorem ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-                    <a class="btn btn-danger btn-lg" href="#" role="button">Tutorials</a></div>
-                <div class="text-center col-sm-6">
-                    <h3>Lorem ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-                    <a class="btn btn-info btn-lg" href="#" role="button">Documentation</a></div>
-            </div>
+        <div class="card">
+           <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
+        </div>
+        <div ui-view="mainView">
         </div>
         <hr>
         <div class="container">
@@ -292,8 +283,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-12">
                     <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, voluptates, soluta velit nostrum ut iste exercitationem vitae ipsum repellendus laudantium ab possimus nemo odio cumque illum nulla laborum blanditiis unde.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, voluptates, soluta velit nostrum ut iste exercitationem vitae ipsum repellendus laudantium ab possimus nemo odio cumque illum nulla laborum blanditiis unde.</p>
+                    <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
                 </div>
             </div>
         </div>
@@ -302,7 +292,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <p>Copyright © MyWebsite. All rights reserved.</p>
+                        <p>Copyright © Manda2. All rights reserved.</p>
                     </div>
                 </div>
             </div>
