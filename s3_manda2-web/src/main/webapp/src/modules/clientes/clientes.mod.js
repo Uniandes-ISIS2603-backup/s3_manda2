@@ -1,12 +1,12 @@
 (function (ng) {
     
     var mod = ng.module("clienteModule", ['ui.router']);
-    
+    mod.constant("clientesContext", "api/clientes");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             
             var basePath = 'src/modules/clientes/';
             
-            <!--$urlRouterProvider.otherwise("/clientesList");-->
+            $urlRouterProvider.otherwise("/clientesList");
             
             $stateProvider.state('clientesList', {
                 
@@ -18,7 +18,8 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('clienteDetail', {
+            });
+            $stateProvider.state('clienteDetail', {
                 url: '/clientes/list/detail',
                 views: {
                     'mainView': {
@@ -34,6 +35,16 @@
                 }
 
             });
-        }
-    ]);
+            $stateProvider.state('clienteDetail2', {
+                url: '/clientes/list/detail',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'cliente.detail.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+
+            });
+        }]);
 })(window.angular);

@@ -1,6 +1,19 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
-    <h1> hola aca estoy </h1>
+  <div class="row">
+      <div class="col-3">
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary btn-lg active">Datos Personales</button>
+            <button type="button" class="btn btn-primary btn-lg">Historial de Servicios</button>
+            <button type="button" class="btn btn-primary btn-lg">Billetera</button>
+            <button type="button" class="btn btn-primary btn-lg">Pagos</button>
+           </div>
+      </div>
+      <div class="col-9"ui-view="clienteView">
+          
+      </div>
+      
+  </div>
 </div>
 
 
