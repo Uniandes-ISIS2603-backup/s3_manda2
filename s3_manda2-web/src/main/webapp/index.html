@@ -7,26 +7,30 @@
         <title>Manda2</title>
 
         <!-- Dependencias Externas -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!--<script src="bower_components/popper.js/dist/popper.js"></script>-->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> 
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        
+
         <!-- Medios de pago -->
         <script src="src/modules/mediodepago/mediodepago.mod.js" type="text/javascript"></script>
         <script src="src/modules/mediodepago/mediodepago.ctrl.js" type="text/javascript"></script>
-        
+
         <!-- PayPal -->
         <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
         <script src="src/modules/paypal/paypal.detail.ctrl.js" type="text/javascript"></script>
-        
+
         <!-- PSE -->
         <script src="src/modules/pse/pse.mod.js" type="text/javascript"></script>
         <script src="src/modules/pse/pse.detail.ctrl.js" type="text/javascript"></script>
-        
+
         <!-- Tarjeta de crédito -->
         <script src="src/modules/tarjetacredito/tarjetacredito.mod.js" type="text/javascript"></script>
         <script src="src/modules/tarjetacredito/tarjetacredito.detail.ctrl.js" type="text/javascript"></script>
+<<<<<<< HEAD
         
         
         <!-- Compras en Tienda -->
@@ -38,10 +42,19 @@
         <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.ctrl.js" type="text/javascript"></script>
 
         
+=======
+
+        <!-- Cliente -->
+        <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/clienteDetail.ctrl.js" type="text/javascript"></script>
+
+>>>>>>> 5c84092c95d7a4b881f3e6ad138978974e0f8fc2
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
     </head>
 
+<<<<<<< HEAD
     <body style="padding-top: 20px;">
         <div class="container-fluid col-md-12">
             <h1>Manda2</h1>
@@ -51,9 +64,267 @@
                     <ul class="nav nav-tabs">
                         <li><a ui-sref="comprastiendaList">Compras</a></li>
                     </ul>
+=======
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="·">Manda2</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="clienteDetail">Cuenta</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Nuestro Equipo</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Q & R</a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
+                </ul>
+                < <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a class="nav-link" href="#">Sign up</a> </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a> </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="card">
+           <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
+        </div>
+        <div ui-view="mainView">
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis accusamus praesentium eveniet ad unde doloremque ex officia eius ab quibusdam.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span> Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, mollitia natus amet eligendi consequuntur. Veritatis ullam debitis voluptas repellat laboriosam.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, error, itaque non vel architecto ratione obcaecati doloribus delectus illum harum?</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, nam voluptate accusantium nulla distinctio odit aliquam voluptatem ab. Earum, voluptatibus.</p>
+>>>>>>> 5c84092c95d7a4b881f3e6ad138978974e0f8fc2
                 </div>
             </div>
-            <div ui-view="mainView"></div> 
         </div>
+
+        <section class="well">
+            <h2 class="text-center">Video Tutorial</h2>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lFqDM_YlXV8"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="thumbnail"> <img src="images/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
+                        <div class="caption">
+                            <h3>Feature</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, at.</p>
+                            <hr>
+                            <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="thumbnail"> <img src="images/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
+                        <div class="caption">
+                            <h3>Feature</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, atque.</p>
+                            <hr>
+                            <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h1>Pricing Table</h1>
+                <hr>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="panel panel-default panel-success"> 
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <h3>Free</h3>
+                        </div>
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum dolor sit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><p class="text-center"><a href="" class="btn-success btn"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Buy Now</a></p></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="panel panel-default panel-warning"> 
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <h3>Basic</h3>
+                        </div>
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum dolor sit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><p class="text-center"><a href="" class="btn-warning btn"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Buy Now</a></p>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="panel panel-default panel-info"> 
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <h3>Professional</h3>
+                        </div>
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum dolor sit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><p class="text-center"><a href="" class="btn-info btn"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Buy Now</a></p></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="panel panel-default panel-danger"> 
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <h3>Enterprise</h3>
+                        </div>
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum dolor sit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3 ......</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><p class="text-center"><a href="" class="btn-danger btn"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Buy Now</a></p></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <h2>Contact Us</h2>
+                    <address>
+                        <strong>MyCompany, Inc.</strong><br>
+                        Sunny Autumn Plaza, Grand Coulee,<br>
+                        CA, 91308-4075, US<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                    </address>
+                    <h4>Social</h4>
+                    <div class="row">
+                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
+                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
+                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
+                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <h2>Testimonials</h2>
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object" src="images/35X35.gif" alt="..."> </a> </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object" src="images/35X35.gif" alt="..."> </a> </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>Copyright © Manda2. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </body>
 </html>
