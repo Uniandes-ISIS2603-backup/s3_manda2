@@ -28,6 +28,16 @@
         <script src="src/modules/tarjetacredito/tarjetacredito.mod.js" type="text/javascript"></script>
         <script src="src/modules/tarjetacredito/tarjetacredito.detail.ctrl.js" type="text/javascript"></script>
         
+        
+        <!-- Compras en Tienda -->
+        <script src="src/modules/compraentienda/compraentienda.mod.js" type="text/javascript"></script>
+        <script src="src/modules/compraentienda/compraentienda.ctrl.js" type="text/javascript"></script>
+        
+        <!-- Vueltas con demora en oficina -->
+        <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.mod.js" type="text/javascript"></script>
+        <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.ctrl.js" type="text/javascript"></script>
+
+        
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
     </head>
@@ -39,6 +49,7 @@
              <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs">
+                        <li><a ui-sref="comprastiendaList">Compras</a></li>
                     </ul>
                 </div>
             </div>
