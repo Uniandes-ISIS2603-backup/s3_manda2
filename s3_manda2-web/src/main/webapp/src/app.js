@@ -4,7 +4,8 @@
         'ui.router',
         'ui.bootstrap',
         // Internal modules dependencies       
-        'mediodepagoModule'
+        'mediodepagoModule',
+        'clienteModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
