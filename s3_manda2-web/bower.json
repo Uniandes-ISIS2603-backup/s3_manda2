@@ -1,5 +1,5 @@
 {
-  "name": "manda2",
+  "name": "cities",
   "version": "1.0.0",
   "main": "src/main/webapp/index.html",
   "dependencies": {
