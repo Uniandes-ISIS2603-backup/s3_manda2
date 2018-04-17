@@ -1,7 +1,7 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
   <div class="row">
-      <div class="col-3">
+      <div class="col-2">
           <div class="btn-group-vertical">
             <button type="button" class="btn btn-primary btn-lg active">Datos Personales</button>
             <button type="button" class="btn btn-primary btn-lg">Historial de Servicios</button>
@@ -9,8 +9,19 @@
             <button type="button" class="btn btn-primary btn-lg">Pagos</button>
            </div>
       </div>
-      <div class="col-9"ui-view="clienteView">
-          
+      <div class="col-7"ui-view="clienteView">
+          <div class="row">
+              <div>  
+                  <img src="data/images/user_13230.png" align="left" class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
+              </div>
+              <div>  
+                  <ul>
+                    <li>Coffee</li>
+                    <li>Tea</li>
+                    <li>Milk</li>
+                  </ul>
+              </div>
+          </div>
       </div>
       
   </div>
