@@ -18,6 +18,16 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('clienteDetail', {
+                url: '/cliente/detail',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'cliente.detail.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+
             });
         }
     ]);
