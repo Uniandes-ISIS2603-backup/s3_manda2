@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"> <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" ui-sref="clienteDetail">Cuenta</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Cuenta</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Nuestro Equipo</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Q & R</a> </li>
@@ -61,7 +61,11 @@
         <div class="card">
            <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
         </div>
+        
         <div ui-view="mainView">
+         </div>
+        
+        <div ui-view="detailView">
         </div>
         <hr>
         <div class="container">

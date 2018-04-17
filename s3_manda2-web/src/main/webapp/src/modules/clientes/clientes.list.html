@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="cliente in clientesRecords">
-                    <td > {{cliente.id}}</td>
+                    <td > <a ui-sref="clienteDetail">{{cliente.id}}</a></td>
                     <td >{{cliente.nombre}}</td>  
                     <td >{{cliente.cedula}}</td>
                     <td >{{cliente.fechaDeIngreso}}</td>

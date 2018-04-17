@@ -6,7 +6,7 @@
             
             var basePath = 'src/modules/clientes/';
             
-            $urlRouterProvider.otherwise("/clientesList");
+            <!--$urlRouterProvider.otherwise("/clientesList");-->
             
             $stateProvider.state('clientesList', {
                 
@@ -19,9 +19,14 @@
                     }
                 }
             }).state('clienteDetail', {
-                url: '/cliente/detail',
+                url: '/clientes/list/detail',
                 views: {
                     'mainView': {
+                        templateUrl: basePath + 'clientes.list.html',
+                        controller: 'clienteCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
                         templateUrl: basePath + 'cliente.detail.html',
                         controller: 'clienteDetailCtrl',
                         controllerAs: 'ctrl'
