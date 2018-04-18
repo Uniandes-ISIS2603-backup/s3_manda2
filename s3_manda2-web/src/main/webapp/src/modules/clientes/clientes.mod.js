@@ -46,5 +46,18 @@
                 }
 
             });
+            $stateProvider.state('clienteSubDetail', {
+                url: '/clientes/list/detail/datosPersonales',
+                parent: 'clienteDetail',
+                views: {
+                    'clienteView': {
+                        templateUrl: basePath + 'cliente.SubDetail.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                    
+                }
+
+            });
         }]);
 })(window.angular);

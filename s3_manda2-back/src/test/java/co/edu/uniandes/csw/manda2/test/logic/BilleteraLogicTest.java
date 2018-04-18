@@ -46,7 +46,7 @@ public class BilleteraLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<BilleteraEntity> data = new ArrayList<BilleteraEntity>();
+    private List<BilleteraEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {

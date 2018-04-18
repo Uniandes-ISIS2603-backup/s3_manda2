@@ -1,0 +1,21 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+  <div class="row">
+              <div>  
+                  <img src="data/images/user_13230.png"  class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
+              </div>
+              <div>  
+                  <ul ng-repeat="cliente in clienteDetailRecords">
+                      <br>
+                    <li >Nombre: {{cliente.nombre}}</li>  
+                    <li >Cedula: {{cliente.cedula}}</li>
+                    <li >Fecha de Ingreso: {{cliente.fechaDeIngreso}}</li>
+                    <li >Calificacion: {{cliente.calificacion}}</li>
+                    <li >Pago Anticipado: {{cliente.pagoAnticipado}}</li>
+                    <li >Horas de Servicio Semanal: {{cliente.horasDeServicioSemanal}}</li>
+                  </ul>
+              </div>
+          </div>
+</div>
+
+
