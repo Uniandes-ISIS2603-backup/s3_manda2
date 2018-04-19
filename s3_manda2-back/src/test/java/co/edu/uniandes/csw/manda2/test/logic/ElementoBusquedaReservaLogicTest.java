@@ -44,7 +44,7 @@ public class ElementoBusquedaReservaLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<ElementoBusquedaReservaEntity> data = new ArrayList<ElementoBusquedaReservaEntity>();
+    private List<ElementoBusquedaReservaEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {

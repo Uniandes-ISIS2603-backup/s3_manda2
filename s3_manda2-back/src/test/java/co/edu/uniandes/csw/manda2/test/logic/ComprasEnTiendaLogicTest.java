@@ -43,7 +43,7 @@ public class ComprasEnTiendaLogicTest {
      @Inject
     private UserTransaction utx;
      
-    private List<ComprasEnTiendaEntity> data = new ArrayList<ComprasEnTiendaEntity>();
+    private List<ComprasEnTiendaEntity> data = new ArrayList<>();
     
     
     @Deployment

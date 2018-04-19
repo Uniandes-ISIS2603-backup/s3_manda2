@@ -72,7 +72,7 @@ public class EmpleadoResource {
      * 404 Not Found No existe un empleado con la cedula dada.
      * </code> 
      * </pre>
-     * @param cedula Identificador del cedula que se está buscando. Este debe ser una cadena de dígitos.
+     * @param id Identificador del cedula que se está buscando. Este debe ser una cadena de dígitos.
      * @return JSON {@link EmpleadoDetailDTO} - El empleado buscado
      */
     @GET

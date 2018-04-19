@@ -137,12 +137,13 @@ public class ClienteDetailDTO extends ClienteDTO {
     public ClienteDetailDTO(ClienteEntity entity) {
 
         super(entity);
+        
         if (entity != null) {
             if (entity.getBilletera() != null) {
                 this.billetera = new BilleteraDTO(entity.getBilletera());
             }
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
-
+            
             if (entity.getServicios() != null) {
                this.servicios = new ArrayList<>();
                 for (ServicioEntity entityServicio : entity.getServicios()) {
@@ -164,20 +165,23 @@ public class ClienteDetailDTO extends ClienteDTO {
                    }
                 }
             }
-
+            
             if (entity.getPagos() != null) {
                 this.pagos = new ArrayList<>();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
                 }
             }
+            
             if (entity.getQuejasYReclamos() != null) {
                 this.quejasYReclamos = new ArrayList<>();
                 for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
             }
+            
         }
+        
     }
 
     //Metodos

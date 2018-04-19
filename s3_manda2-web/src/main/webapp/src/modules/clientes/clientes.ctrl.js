@@ -3,7 +3,7 @@
     mod.constant("clienteContext", "api/clientes");
     mod.controller('clienteCtrl', ['$scope', '$http', 'clienteContext',
         function ($scope, $http, clienteContext) {
-            $http.get('data/clientes.json').then(function (response) {
+            $http.get('http://localhost:8080/s3_manda2-web/api/clientes').then(function (response) {
                 $scope.clientesRecords = response.data;
             });
         }

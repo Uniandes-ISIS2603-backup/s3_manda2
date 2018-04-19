@@ -44,7 +44,7 @@ public class EmpleadoLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<EmpleadoEntity> data = new ArrayList<EmpleadoEntity>();
+    private List<EmpleadoEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {

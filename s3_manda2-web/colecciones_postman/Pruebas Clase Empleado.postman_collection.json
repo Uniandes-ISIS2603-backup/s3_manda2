@@ -12,11 +12,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b3b5a482-b133-4827-8758-caa7fbcc7724",
+						"id": "c8d31c4c-0d80-4325-ab40-baa13f3b577b",
 						"type": "text/javascript",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_cliente\",data.id);",
+							"postman.setGlobalVariable(\"new_id_empleado\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"console.log(data.id);"
 						]
@@ -33,10 +33,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Nicolas Caceres\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+					"raw": "{\r\n       \"nombre\": \"nicolas_caceres\", \r\n       \"cedula\": \"1014563321\",\r\n       \"fechaingreso\": \"Mayo 21 2018\",\r\n       \"calificacion\": 5.0,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"eps\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"servicios\":[]\r\n}\r\n"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/clientes",
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -45,7 +45,7 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"clientes"
+						"empleados"
 					]
 				},
 				"description": "Crear Cliente"
@@ -58,12 +58,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cea12c0c-53f8-4f60-8d77-f116e0d12146",
+						"id": "c5c1d57b-d696-454f-8272-3d753719fff9",
 						"type": "text/javascript",
 						"exec": [
 							"var data= JSON.parse(responseBody);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"cliente count\"] = data.length >= 0;"
+							"tests[\"empleados count\"] = data.length >= 0;"
 						]
 					}
 				}
@@ -71,12 +71,9 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/clientes",
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -85,7 +82,7 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"clientes"
+						"empleados"
 					]
 				},
 				"description": "Obtener todos los Clientes"
@@ -111,12 +108,9 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,8 +119,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"clientes",
-						"{{new_id_cliente}}"
+						"empleados",
+						"{{new_id_empleado}}"
 					]
 				},
 				"description": "Obtener un Cliente"
@@ -134,7 +128,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar un Cliente",
+			"name": "Actualizar un Empleado",
 			"event": [
 				{
 					"listen": "test",
@@ -159,10 +153,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"billetera\": [{\r\n       \"saldo\": 37000,\r\n       \"puntosFidelidad\": \"100\"\r\n       }],\r\n       \r\n       \"quejasYReclamos\": [{\r\n       \"mensaje\": \"El servicio se demoro mucho\",\r\n       \"numero\": 001\r\n    }]\r\n    }"
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"servicios\":[{\"costoduracion\": 15000, \"costodetransporte\": 25000, \"pago\": \"paypal\", \r\n       \"cliente\":[{\"id\": 001,\r\n       \"nombre\": \"nicolascaceres\",\r\n       \"cedula\": \"2104565210\",\r\n       \"fechaDeIngreso\": \"Mayo 21,2017\",\r\n       \"calificacion\": 5.0,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 5}],\r\n       \"id\":100, \"puntodeencuentro\": \"usaquen\", \"puntoderealizacion\": \"usaquen\",\r\n       \"exitodiligencia\": true,\r\n       \"calificacion\":5.0, \"descripcion\": \"entregar documentos\"\r\n       }]\r\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -171,8 +165,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"clientes",
-						"{{new_id_cliente}}"
+						"empleados",
+						"{{new_id_empleado}}"
 					]
 				},
 				"description": "Actualizar un Cliente"
@@ -180,7 +174,7 @@
 			"response": []
 		},
 		{
-			"name": "Borrar un cliente",
+			"name": "Borrar un Empleado",
 			"event": [
 				{
 					"listen": "test",
@@ -201,7 +195,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/clientes/{{new_id_cliente}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -210,8 +204,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"clientes",
-						"{{new_id_cliente}}"
+						"empleados",
+						"{{new_id_empleado}}"
 					]
 				},
 				"description": "Borrar un cliente"

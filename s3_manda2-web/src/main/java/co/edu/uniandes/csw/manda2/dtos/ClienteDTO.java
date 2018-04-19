@@ -93,7 +93,7 @@ public class ClienteDTO extends UsuarioDTO {
     /**
      * @param pagoAnticipado the pagoAnticipado to set
      */
-    public void isPagoAnticipado(Boolean pagoAnticipado) {
+    public void setPagoAnticipado(Boolean pagoAnticipado) {
         this.pagoAnticipado = pagoAnticipado;
     }
 
