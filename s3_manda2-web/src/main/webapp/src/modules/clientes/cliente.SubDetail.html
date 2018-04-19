@@ -2,17 +2,17 @@
 <div class="container-fluid">
   <div class="row">
               <div>  
-                  <img src="data/images/user_13230.png"  class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
+                  <img src="data/images/user_13230.png" class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
               </div>
               <div>  
-                  <ul ng-repeat="cliente in clienteDetailRecords">
-                      <br>
-                    <li >Nombre: {{cliente.nombre}}</li>  
-                    <li >Cedula: {{cliente.cedula}}</li>
-                    <li >Fecha de Ingreso: {{cliente.fechaDeIngreso}}</li>
-                    <li >Calificacion: {{cliente.calificacion}}</li>
-                    <li >Pago Anticipado: {{cliente.pagoAnticipado}}</li>
-                    <li >Horas de Servicio Semanal: {{cliente.horasDeServicioSemanal}}</li>
+                  <ul>
+                    <br>
+                    <li >Nombre: {{clienteActual.nombre}}</li>  
+                    <li >Cedula: {{clienteActual.cedula}}</li>
+                    <li >Fecha de Ingreso: {{clienteActual.fechaDeIngreso| date:'yyyy-MM-dd'}}</li>
+                    <li >Calificacion: {{clienteActual.calificacion}}</li>
+                    <li >Pago Anticipado: {{clienteActual.pagoAnticipado}}</li>
+                    <li >Horas de Servicio Semanal: {{clienteActual.horasDeServicioSemanal}}</li>
                   </ul>
               </div>
           </div>
