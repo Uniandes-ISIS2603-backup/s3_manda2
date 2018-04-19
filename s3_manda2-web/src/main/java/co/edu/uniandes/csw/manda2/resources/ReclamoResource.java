@@ -122,7 +122,7 @@ public class ReclamoResource {
      * 404 Not Found. No existe un reclamo con el numero dado.
      * </code> 
      * </pre>
-     * @param numero Identificador del PayPal que se desea actualizar. Este debe ser una cadena de dígitos.
+     * @param id Identificador del reclamo que se desea actualizar. Este debe ser una cadena de dígitos.
      * @param reclamo {@link ReclamoDetailDTO} El reclamo que se desea guardar.
      * @return JSON {@link ReclamoDetailDTO} - El reclamo guardado.
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera al no poder actualizar el PayPal porque ya existe uno con ese nombre.
@@ -149,7 +149,7 @@ public class ReclamoResource {
      * 404 Not Found. No existe un reclamo con el numero dado.
      * </code>
      * </pre>
-     * @param numero Identificador del PayPal que se desea borrar. Este debe ser una cadena de dígitos.
+     * @param id Identificador del Reclamo que se desea borrar. Este debe ser una cadena de dígitos.
      */
     @DELETE
     @Path("{id : \\d+}")
