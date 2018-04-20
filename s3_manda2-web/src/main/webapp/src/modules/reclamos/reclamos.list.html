@@ -1,0 +1,12 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+    
+    <div class ="container-fluid">
+        <h2>Comentarios:</h2>
+        <ul class="list-group">
+            <li class="list-group-item" ui-sref="reclamoDetail" ng-repeat="reclamo in reclamosRecords">
+                <p> {{reclamo.mensaje}}</p>
+            </li>
+        </ul>
+    </div>
+</div>

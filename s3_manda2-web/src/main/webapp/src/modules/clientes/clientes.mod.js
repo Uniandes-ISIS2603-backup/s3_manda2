@@ -6,48 +6,48 @@
             
             var basePath = 'src/modules/clientes/';
             
-            $urlRouterProvider.otherwise("/clientesList");
-            
-            $stateProvider.state('clientesList', {
-                
-                url: '/clientes/list',
-                 views: {
+            $stateProvider.state('clientes', {
+                url: '/clientes',
+                abstract: true,
+                views: {
                     'mainView': {
-                        templateUrl: basePath + 'clientes.list.html',
+                        templateUrl: basePath + 'clientes.html',
                         controller: 'clienteCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
             });
+            
+            $stateProvider.state('clientesList', {
+                
+                url: '/list',
+                parent: 'clientes',
+                 views: {
+                    'listView': {
+                        templateUrl: basePath + 'clientes.list.html',
+                    }
+                }
+            });
             $stateProvider.state('clienteDetail', {
-                url: '/clientes/list/detail',
+                url: '/{clienteId:int}/detail',
+                parent: 'clientes',
+                param: {
+                    clienteId: null
+                },
                 views: {
-                    'mainView': {
+                    'listView': {
                         templateUrl: basePath + 'clientes.list.html',
                         controller: 'clienteCtrl',
                         controllerAs: 'ctrl'
                     },
                     'detailView': {
-                        templateUrl: basePath + 'cliente.detail.html',
-                        controller: 'clienteDetailCtrl',
-                        controllerAs: 'ctrl'
-                    }
-                }
-
-            });
-            $stateProvider.state('clienteDetail2', {
-                url: '/clientes/list/detail',
-                views: {
-                    'detailView': {
-                        templateUrl: basePath + 'cliente.detail.html',
-                        controller: 'clienteDetailCtrl',
-                        controllerAs: 'ctrl'
+                        templateUrl: basePath + 'cliente.detail.html'
                     }
                 }
 
             });
             $stateProvider.state('clienteSubDetail', {
-                url: '/clientes/list/detail/datosPersonales',
+                url: '/datosPersonales',
                 parent: 'clienteDetail',
                 views: {
                     'clienteView': {
