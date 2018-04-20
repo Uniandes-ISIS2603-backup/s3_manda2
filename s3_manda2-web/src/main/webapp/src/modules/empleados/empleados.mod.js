@@ -27,7 +27,7 @@
                         controller: 'empleadoCtrl',
                         controllerAs: 'ctrl'
                     },
-                    'empView': {
+                    'detailView': {
                         templateUrl: basePath + 'empleado.detail.html',
                         controller: 'empleadoDetailCtrl',
                         controllerAs: 'ctrl'
