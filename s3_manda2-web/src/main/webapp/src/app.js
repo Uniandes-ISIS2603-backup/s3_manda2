@@ -6,6 +6,8 @@
         // Internal modules dependencies       
         'mediodepagoModule',
         'clienteModule',
+        'empleadoModule',
+        'reclamoModule',
         'inicioModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
