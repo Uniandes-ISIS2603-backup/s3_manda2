@@ -65,7 +65,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * @return the pagoAnticipado
      */
     public Boolean isPagoAnticipado() {
-        return getPagoAnticipado();
+        return pagoAnticipado;
     }
 
     /**
@@ -87,13 +87,6 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      */
     public void setHorasDeServicioSemanal(Integer horasDeServicioSemanal) {
         this.horasDeServicioSemanal = horasDeServicioSemanal;
-    }
-
-    /**
-     * @return the pagoAnticipado
-     */
-    public Boolean getPagoAnticipado() {
-        return pagoAnticipado;
     }
 
     /**

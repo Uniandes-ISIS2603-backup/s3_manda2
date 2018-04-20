@@ -1,12 +1,14 @@
 (function (ng) {
     var mod = ng.module("clienteModule");
-    mod.constant("clienteContext2", "api/clientes");
-    mod.controller('clienteDetailCtrl', ['$scope', '$http', 'clienteContext2',
-        function ($scope, $http, clienteContext2) {
-            $http.get('data/clienteDetail.json').then(function (response) {
-                $scope.clienteDetailRecords = response.data;
+    mod.constant("clienteContext", "api/clientes");
+    mod.controller('clienteDetailCtrl', ['$scope', '$http', 'clienteContext', '$state',
+        function ($scope, $http, clienteContext, $state) {
+            if (($state.params.clienteId !== undefined)&& ($state.params.clienteId !== null)) {
+            $http.get(clienteContext + '/' + $state.params.clienteId).then(function (response) {
+                $scope.clienteActual = response.data;
             });
         }
+    }
     ]);
 }
 )(window.angular);
