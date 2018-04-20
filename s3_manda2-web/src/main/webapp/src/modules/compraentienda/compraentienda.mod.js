@@ -6,7 +6,7 @@
          //controlador
          //template
     var mod = ng.module("compraModule", ['ui.router']);
-    
+    mod.constant("compraentiendaContext", "api/compraentienda");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
            var basePath = 'src/modules/compraentienda/' ;
            
