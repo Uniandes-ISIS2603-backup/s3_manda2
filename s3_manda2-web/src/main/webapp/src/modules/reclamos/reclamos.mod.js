@@ -22,12 +22,12 @@
             $stateProvider.state('reclamoDetail', {
                 url: '/reclamos/list/detail',
                 views: {
-                    'mainView': {
+                    'detailView': {
                         templateUrl: basePath + 'reclamos.list.html',
                         controller: 'reclamoCtrl',
                         controllerAs: 'ctrl'
                     },
-                    'detailView': {
+                    'mainView': {
                         templateUrl: basePath + 'reclamo.detail.html',
                         controller: 'reclamoDetailCtrl',
                         controllerAs: 'ctrl'
@@ -38,7 +38,7 @@
             $stateProvider.state('reclamoDetail2', {
                 url: '/reclamos/list/detail',
                 views: {
-                    'detailView': {
+                    'mainView': {
                         templateUrl: basePath + 'reclamo.detail.html',
                         controller: 'reclamoDetailCtrl',
                         controllerAs: 'ctrl'

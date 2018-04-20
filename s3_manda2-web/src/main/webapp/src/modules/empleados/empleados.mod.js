@@ -22,12 +22,12 @@
             $stateProvider.state('empleadoDetail', {
                 url: '/empleados/list/detail',
                 views: {
-                    'mainView': {
+                    'detailView': {
                         templateUrl: basePath + 'empleados.list2.html',
                         controller: 'empleadoCtrl',
                         controllerAs: 'ctrl'
                     },
-                    'detailView': {
+                    'mainView': {
                         templateUrl: basePath + 'empleado.detail.html',
                         controller: 'empleadoDetailCtrl',
                         controllerAs: 'ctrl'
