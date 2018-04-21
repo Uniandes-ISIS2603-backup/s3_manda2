@@ -1,3 +1,30 @@
-{
-    "name": "dv.gonzalez10"
+[{
+    "costoDeTransporte": "10000",
+       "pago": "dasd",
+       "cliente": "pedro",
+       "empleado": "Empleado1",
+       "id": "345",
+       "nombre": "compra1",
+       "costo": "30.000",
+       "puntoDeEncuentro":"calle 44",
+       "puntoDeRealizacion": "Exito ",
+       "exitoDiligencia": "true",
+       "calification": "5",
+       "descripcion": "estuvo bien",
+       "costoDuracion": "10000"
+},{
+    "costoDeTransporte": 5560,
+       "pago": "sddfsdfdf",
+       "cliente": "JUAAAAN",
+       "empleado": "Empleado1",
+       "id": "345",
+       "nombre": "compra1",
+       "costo": "30.000",
+       "puntoDeEncuentro":"calle 45",
+       "puntoDeRealizacion": "Exito ",
+       "exitoDiligencia": "true",
+       "calification": "5",
+       "descripcion": "estuvo MUY BIEN",
+       "costoDuracion": "10000"
 }
+    ]

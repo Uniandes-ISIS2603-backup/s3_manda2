@@ -1,6 +1,6 @@
 (function (ng) {
     var mod = ng.module("vueltaModule", ['ui.router']);
-     mod.constant("vueltaContext", "api/vueltascondemoraenoficina");
+     mod.constant("vueltaContext", "data/vueltas.json");
    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/vueltascondemoraenoficina/';
             
@@ -31,6 +31,18 @@
                    views: { 
                        'detailView': {
                           templateUrl: basePath + 'vueltascondemora.list3.html',
+                          controller: 'vueltaCtrl',
+                          controllerAs: 'ctrl'
+                           
+                       }
+                   }
+             })
+                     
+             $stateProvider.state('vueltacondemoraLista',{
+                  url: '/vueltascondemoraenoficina/list',
+                   views: { 
+                       'mainView': {
+                          templateUrl: basePath + 'vueltascondemora.lista.html',
                           controller: 'vueltaCtrl',
                           controllerAs: 'ctrl'
                            
