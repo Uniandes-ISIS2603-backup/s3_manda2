@@ -6,13 +6,24 @@
 
             $urlRouterProvider.otherwise('tarjetacredito');
 
-            $stateProvider.state('mediodepagoList.tarjetacreditoDetail', {
-                url: 'tarjetacredito',
+            $stateProvider.state('tarjetacreditoList', {
+                url: 'tarjetascredito',
                 views: {
-                    'mediodepagoDetail': {
-                        templateUrl: basePath + 'tarjetacredito.detail.html',
-                        controller: 'tarjetacreditoDetailCtrl',
+                    'mainView' : {
+                        templateUrl: basePath + 'tarjetacredito.list.html',
+                        controller: 'tarjetacreditoListCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('tarjetacreditoDelete', {
+                url: '/delete/{idTarjetacredito:int}',
+                param: {
+                    idTarjetacredito: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/tarjetacredito.delete.html',
+                        controller: 'tarjetacreditoDeleteCtrl'
                     }
                 }
             });

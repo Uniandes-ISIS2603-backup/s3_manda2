@@ -6,13 +6,24 @@
 
             $urlRouterProvider.otherwise('pse');
 
-            $stateProvider.state('mediodepagoList.pseDetail', {
-                url: 'pse',
+            $stateProvider.state('pseList', {
+                url: 'pses',
                 views: {
-                    'mediodepagoDetail': {
-                        templateUrl: basePath + 'pse.detail.html',
-                        controller: 'pseDetailCtrl',
+                    'mainView' : {
+                        templateUrl: basePath + 'pse.list.html',
+                        controller: 'pseListCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('pseDelete', {
+                url: '/delete/{idPse:int}',
+                param: {
+                    idPse: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/pse.delete.html',
+                        controller: 'pseDeleteCtrl'
                     }
                 }
             });
