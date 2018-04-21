@@ -1,8 +1,12 @@
 <div class='container-fluid'>
     <div class='row'>
-<!--        <div class='col-md-2'>
-            <button type="button" class="btn btn-primary" ng-click="">Agregar PayPal</button>
-        </div>-->
+        <div class='col-md-2'>
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group">
+                    <a class="btn btn-info" ui-sref="tarjetacreditoCreate">Nueva tarjeta de crédito</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class='row'>
         <div class='col-md-8'>
@@ -12,12 +16,16 @@
                         <th>Nombre</th>
                         <th>Número de tarjeta</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody ng-repeat='tarjetacredito in tarjetacreditoRecords'>
                     <tr>
                         <td>{{tarjetacredito.nombreCliente}}</td>
                         <td>{{tarjetacredito.numeroTarjeta}}</td>
+                        <td>
+                            <button class="btn btn-default btn-sm" ui-sref="tarjetacreditoUpdate({idTarjetacredito: tarjetacredito.id})">Editar</button>
+                        </td>
                         <td>
                             <button class="btn btn-danger btn-sm" ui-sref="tarjetacreditoDelete({idTarjetacredito: tarjetacredito.id})">Eliminar</button>
                         </td>

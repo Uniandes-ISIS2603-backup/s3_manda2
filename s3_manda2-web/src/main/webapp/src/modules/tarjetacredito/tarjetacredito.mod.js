@@ -15,6 +15,25 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('tarjetacreditoUpdate', {
+                url: '/update/{idTarjetacredito:int}',
+                param: {
+                    idTarjetacredito: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/tarjetacredito.create.html',
+                        controller: 'tarjetacreditoUpdateCtrl'
+                    }
+                }
+            }).state('tarjetacreditoCreate', {
+                url: '/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/tarjetacredito.create.html',
+                        controller: 'tarjetacreditoCreateCtrl'
+                    }
+                }
             }).state('tarjetacreditoDelete', {
                 url: '/delete/{idTarjetacredito:int}',
                 param: {

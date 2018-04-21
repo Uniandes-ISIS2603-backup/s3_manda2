@@ -15,6 +15,25 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('pseCreate', {
+                url: '/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/pse.create.html',
+                        controller: 'pseCreateCtrl'
+                    }
+                }
+            }).state('pseUpdate', {
+                url: '/update/{idPse:int}',
+                param: {
+                    idPse: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/pse.create.html',
+                        controller: 'pseUpdateCtrl'
+                    }
+                }
             }).state('pseDelete', {
                 url: '/delete/{idPse:int}',
                 param: {
