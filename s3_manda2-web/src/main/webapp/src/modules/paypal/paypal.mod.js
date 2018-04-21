@@ -15,6 +15,25 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('paypalCreate', {
+                url: '/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/paypal.create.html',
+                        controller: 'paypalCreateCtrl'
+                    }
+                }
+            }).state('paypalUpdate', {
+                url: '/update/{idPaypal:int}',
+                param: {
+                    idPaypal: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/paypal.create.html',
+                        controller: 'paypalUpdateCtrl'
+                    }
+                }
             }).state('paypalDelete', {
                 url: '/delete/{idPaypal:int}',
                 param: {
@@ -22,7 +41,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/paypal.delete.html',
+                        templateUrl: basePath + 'delete/paypal.delete.html',
                         controller: 'paypalDeleteCtrl'
                     }
                 }

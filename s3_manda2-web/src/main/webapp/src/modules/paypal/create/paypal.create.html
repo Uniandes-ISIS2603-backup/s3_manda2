@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <label ng-if="!update" id="createPaypal">Crear PayPal</label>
+                <label ng-if="update" id="updatePaypal">Actualizar PayPal</label>
+            </div>
+            <div class="panel-body">
+                <form name="paypal">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="paypalNombreCliente" class="col-sm-2">Nombre cliente:</label>
+                            <input id="paypalNombreCliente" required ng-model="data.nombreCliente" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="paypalLink" class="col-sm-2">Link Paypal:</label>
+                            <input id="paypalLink" required ng-model="data.linkPayPal" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!paypal.$valid">
+
+                            <div class="alert alert-warning" >
+                                <p>Todos los campos son obligatorios.</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="paypal.$valid" ng-click="createPaypal()" value="Guardar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="paypalList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

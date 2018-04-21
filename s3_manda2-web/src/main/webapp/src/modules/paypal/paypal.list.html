@@ -1,8 +1,12 @@
 <div class='container-fluid'>
     <div class='row'>
-        <!--        <div class='col-md-2'>
-                    <button type="button" class="btn btn-primary" ng-click="">Agregar PayPal</button>
-                </div>-->
+        <div class='col-md-2'>
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group">
+                    <a class="btn btn-info" ui-sref="paypalCreate">Nuevo PayPal</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class='row'>
         <div class='col-md-10'>
@@ -12,12 +16,16 @@
                         <th>Nombre</th>
                         <th>Link</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody ng-repeat='paypal in paypalRecords'>
                     <tr>
                         <td>{{paypal.nombreCliente}}</td>
                         <td>{{paypal.linkPayPal}}</td>
+                        <td>
+                            <button class="btn btn-default btn-sm" ui-sref="paypalUpdate({idPaypal: paypal.id})">Editar</button>
+                        </td>
                         <td>
                             <button class="btn btn-danger btn-sm" ui-sref="paypalDelete({idPaypal: paypal.id})">Eliminar</button>
                         </td>
