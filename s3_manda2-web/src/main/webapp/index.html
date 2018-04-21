@@ -17,20 +17,23 @@
 
         <!-- Inicio -->
         <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
-        <!-- Medios de pago -->
-        <script src="src/modules/mediodepago/mediodepago.mod.js" type="text/javascript"></script>
-        <script src="src/modules/mediodepago/mediodepago.ctrl.js" type="text/javascript"></script>
 
         <!-- PayPal -->
         <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
-        <script src="src/modules/paypal/paypal.detail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/delete/paypal.delete.ctrl.js" type="text/javascript"></script>
+
 
         <!-- PSE -->
         <script src="src/modules/pse/pse.mod.js" type="text/javascript"></script>
-        <script src="src/modules/pse/pse.detail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pse/pse.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pse/delete/pse.delete.ctrl.js" type="text/javascript"></script>
+
 
         <!-- Tarjeta de crédito -->
         <script src="src/modules/tarjetacredito/tarjetacredito.mod.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/tarjetacredito.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/delete/tarjetacredito.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/tarjetacredito/tarjetacredito.detail.ctrl.js" type="text/javascript"></script>
 
 
@@ -41,7 +44,7 @@
         <!-- Vueltas con demora en oficina -->
         <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.mod.js" type="text/javascript"></script>
         <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.ctrl.js" type="text/javascript"></script>
-        
+
 
         <!-- Cliente -->
 
@@ -75,6 +78,14 @@
                     <li class="nav-item"> <a class="nav-link" ui-sref="empleadosList">Nuestro Equipo</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="reclamosList">Q & R</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
+                    <li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medios de pago</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" ui-sref="paypalList">PayPal</a>
+                            <a class="dropdown-item" ui-sref="pseList">PSE</a>
+                            <a class="dropdown-item" ui-sref="tarjetacreditoList">Tarjetas de crédito</a>
+                        </div>
+                    </li>
+
                 </ul>
                 < <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item"><a class="nav-link" href="#">Sign up</a> </li>
@@ -82,6 +93,9 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="card" style ="margin-top:100px">
+            <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
         <div class = "row">
             <div  class="col-sm-2"></div>
             <div class="col-sm-8" style ="margin-top:60px" >
@@ -89,6 +103,7 @@
             </div>
             <div  class="col-sm-2"></div>
         </div>
+
 
 
         <div class="container-fluid" ui-view="mainView"></div>

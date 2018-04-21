@@ -1,0 +1,29 @@
+<div class='container-fluid'>
+    <div class='row'>
+<!--        <div class='col-md-2'>
+            <button type="button" class="btn btn-primary" ng-click="">Agregar PayPal</button>
+        </div>-->
+    </div>
+    <div class='row'>
+        <div class='col-md-8'>
+            <table class='table table-hover'>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Número de tarjeta</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat='tarjetacredito in tarjetacreditoRecords'>
+                    <tr>
+                        <td>{{tarjetacredito.nombreCliente}}</td>
+                        <td>{{tarjetacredito.numeroTarjeta}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" ui-sref="tarjetacreditoDelete({idTarjetacredito: tarjetacredito.id})">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

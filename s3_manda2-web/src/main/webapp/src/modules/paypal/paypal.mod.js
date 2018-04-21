@@ -6,13 +6,24 @@
 
             $urlRouterProvider.otherwise('paypal');
 
-            $stateProvider.state('mediodepagoList.paypalDetail', {
-                url: 'paypal',
+            $stateProvider.state('paypalList', {
+                url: 'paypals',
                 views: {
-                    'mediodepagoDetail': {
-                        templateUrl: basePath + 'paypal.detail.html',
-                        controller: 'paypalDetailCtrl',
+                    'mainView' : {
+                        templateUrl: basePath + 'paypal.list.html',
+                        controller: 'paypalListCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('paypalDelete', {
+                url: '/delete/{idPaypal:int}',
+                param: {
+                    idPaypal: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/paypal.delete.html',
+                        controller: 'paypalDeleteCtrl'
                     }
                 }
             });
