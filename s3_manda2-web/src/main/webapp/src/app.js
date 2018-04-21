@@ -9,7 +9,8 @@
         'empleadoModule',
         'reclamoModule',
         'inicioModule',
-        'compraModule'
+        'compraModule',
+        'vueltaModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
