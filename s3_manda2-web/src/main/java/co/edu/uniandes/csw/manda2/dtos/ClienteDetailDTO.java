@@ -139,6 +139,7 @@ public class ClienteDetailDTO extends ClienteDTO {
         super(entity);
         
         if (entity != null) {
+            
             if (entity.getBilletera() != null) {
                 this.billetera = new BilleteraDTO(entity.getBilletera());
             }
@@ -179,6 +180,7 @@ public class ClienteDetailDTO extends ClienteDTO {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
             }
+            
             
         }
         
