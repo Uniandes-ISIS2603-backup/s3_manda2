@@ -1,0 +1,19 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+    <div class="row">
+        <div>  
+            <ul ng-repeat="reclamo in reclamoDetailRecords ">
+                <br> 
+                <li ><h1>Mensaje:</h1> <h4>{{reclamo.mensaje}}</h4></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h1>Comentarios:</h1>
+        <form>
+            <div class="form-group">
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+        </form>
+    </div>
+</div>

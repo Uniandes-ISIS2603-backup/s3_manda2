@@ -3,7 +3,7 @@
     mod.constant("compraContext", "api/comprasentienda");
      mod.controller('compraCtrl',['$scope', '$http', 'compraContext',
           function ($scope, $http, compraContext) { 
-              $http.get('compraContext').then(function (response) {  
+              $http.get(compraContext).then(function (response) {  
               $scope.comprasRecords = response.data;
           });
     }

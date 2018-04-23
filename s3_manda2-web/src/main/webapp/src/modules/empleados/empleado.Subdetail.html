@@ -1,0 +1,19 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+  <div class="row">
+              <div>  
+                  <img src="data/images/trabajador.jpg"  class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
+              </div>
+              <div>  
+                  <ul ng-repeat="empleado in empleadoDetailRecords">
+                      <br>
+                    <li >Nombre: {{empleado.nombre}}</li>  
+                    <li >Cedula: {{empleado.cedula}}</li>
+                    <li >Fecha de Ingreso: {{empleado.fechaDeIngreso}}</li>
+                    <li >Calificacion: {{empleado.calificacion}}</li>
+                    <li >Identificacion: {{empleado.identificacion}}</li>
+                    <li >EPS: {{empleado.eps}}</li>
+                  </ul>
+              </div>
+          </div>
+</div>

@@ -4,9 +4,16 @@
         'ui.router',
         'ui.bootstrap',
         // Internal modules dependencies       
-        'mediodepagoModule',
         'clienteModule',
-        'inicioModule'
+        'empleadoModule',
+        'reclamoModule',
+        'inicioModule',
+        'compraModule',
+        'compraModule',
+        'vueltaModule',
+        'paypalModule',
+        'pseModule',
+        'tarjetacreditoModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
