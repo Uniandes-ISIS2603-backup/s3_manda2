@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 
 /**
@@ -17,17 +18,17 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
     /**
      * Pago asociado al servicio.
      */
-    private PagoDTO pago;
+    protected PagoDTO pago;
 
     /**
      * Cliente que pide el servicio.
      */
-    private ClienteDTO cliente;
+    protected ClienteDTO cliente;
 
     /**
      * Empleado que realiza el servicio.
      */
-    private EmpleadoDTO empleado;
+    protected EmpleadoDTO empleado;
 
     public ServicioDetailDTO() {
         super();
@@ -39,6 +40,7 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
         if (entity != null) {
             this.cliente = new ClienteDTO(entity.getCliente());
             this.pago = new PagoDTO(entity.getPago());
+            this.empleado = new EmpleadoDTO(entity.getEmpleado());
         }
     }
 
@@ -52,6 +54,10 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
         //TODO: Qué pasa si this.pago es null? 
         if(pago != null){
             entity.setPago(this.pago.toEntity());
+        }
+        if(empleado != null)
+        {
+            //entity.setEmpleado((this.empleado.toEntity());
         }
         return entity;
     }

@@ -57,7 +57,7 @@ public abstract class ServicioDTO {
     /**
      * Indica estado del servicio.
      */
-    private String estado;
+    protected String estado;
 
     /**
      * Calificación del servicio.

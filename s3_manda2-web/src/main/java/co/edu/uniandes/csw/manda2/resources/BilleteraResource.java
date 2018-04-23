@@ -163,7 +163,7 @@ public class BilleteraResource {
         
 
     private List<BilleteraDetailDTO> listBilleteraEntityDetailDTO(List<BilleteraEntity> billeteraList) {
-        List<BilleteraDetailDTO> list = new ArrayList<>();
+        List<BilleteraDetailDTO> list = new ArrayList();
         for (BilleteraEntity entity : billeteraList) {
             list.add(new BilleteraDetailDTO(entity));
         }

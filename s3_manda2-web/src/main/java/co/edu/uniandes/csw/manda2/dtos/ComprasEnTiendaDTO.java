@@ -129,7 +129,7 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     @Override
     public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        ArrayList<ArticuloEntity> aentity = new ArrayList<>();
+        ArrayList aentity = new ArrayList();
         
          
         entity.setCostoDeTransporte(costoDeTransporte);

@@ -156,7 +156,7 @@ public class ClienteResource {
      * Metodo utilizado para convertir una lista de entidades en una lista de detail DTO´s.
     */
     private List<ClienteDetailDTO> listClienteEntityDetailDTO(List<ClienteEntity> entityList) {
-        List<ClienteDetailDTO> list = new ArrayList<>();
+        List<ClienteDetailDTO> list = new ArrayList();
         for (ClienteEntity entity : entityList) {
             list.add(new ClienteDetailDTO(entity));
         }

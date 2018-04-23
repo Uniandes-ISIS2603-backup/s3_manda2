@@ -30,7 +30,7 @@ public class UsuarioResource {
     @GET
     public List<UsuarioDTO> getUsuarios()
     {
-        return new ArrayList<>();
+        return new ArrayList();
     }
     @GET
     @Path ("{cedula : \\d+}")

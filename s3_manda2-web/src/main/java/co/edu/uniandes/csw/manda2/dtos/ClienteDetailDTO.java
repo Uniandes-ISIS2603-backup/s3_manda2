@@ -147,7 +147,7 @@ public class ClienteDetailDTO extends ClienteDTO {
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
             
             if (entity.getServicios() != null) {
-               this.servicios = new ArrayList<>();
+               this.servicios = new ArrayList();
                 for (ServicioEntity entityServicio : entity.getServicios()) {
                    if( entityServicio instanceof EntregasDeDocumentosEntity)
                    {
@@ -169,14 +169,14 @@ public class ClienteDetailDTO extends ClienteDTO {
             }
             
             if (entity.getPagos() != null) {
-                this.pagos = new ArrayList<>();
+                this.pagos = new ArrayList();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
                 }
             }
             
             if (entity.getQuejasYReclamos() != null) {
-                this.quejasYReclamos = new ArrayList<>();
+                this.quejasYReclamos = new ArrayList();
                 for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
@@ -258,21 +258,21 @@ public class ClienteDetailDTO extends ClienteDTO {
             clienteE.setBilletera(billetera.toEntity());
         }
         if (servicios != null) {
-            List<ServicioEntity> serviciosEntity = new ArrayList<>();
+            List<ServicioEntity> serviciosEntity = new ArrayList();
             for (ServicioDTO dtoServicio : servicios) {
                 serviciosEntity.add(dtoServicio.toEntity());
             }
             clienteE.setServicios(serviciosEntity);
         }
         if (pagos != null) {
-            List<PagoEntity> pagosEntity = new ArrayList<>();
+            List<PagoEntity> pagosEntity = new ArrayList();
             for (PagoDTO dtoPago : pagos) {
                 pagosEntity.add(dtoPago.toEntity());
             }
             clienteE.setPagos(pagosEntity);
         }
         if (quejasYReclamos != null) {
-            List<ReclamoEntity> reclamosEntity = new ArrayList<>();
+            List<ReclamoEntity> reclamosEntity = new ArrayList();
             for (ReclamoDTO dtoReclamo : quejasYReclamos) {
                 reclamosEntity.add(dtoReclamo.toEntity());
             }
