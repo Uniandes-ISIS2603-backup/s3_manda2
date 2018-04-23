@@ -59,5 +59,17 @@
                 }
 
             });
+            $stateProvider.state('clientesCreate', {
+                url: '/create',
+                parent: 'clientes',
+                views: {
+                    'listView': {
+                        templateUrl: basePath + '/new/clientes.new.html',
+                        controller: 'clienteNewCtrl'
+                    }
+                    
+                }
+
+            });
         }]);
 })(window.angular);

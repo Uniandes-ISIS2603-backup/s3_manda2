@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createCliente">Crear un nuevo cliente</label>
+                <label ng-if="edit" id="editCliente">Editar cliente</label></div>
+            <div class="panel-body">
+                <form name="cliente">
+                    <div class="form-group row">
+                        
+                            <label for="clienteId" class="col-sm-6">Id:</label>
+                            <input id="clienteId" required ng-model="data.id" class="col-sm-6"/>
+                            
+                    </div>
+                    <div class="form-group row">
+                        
+                            <label for="clienteNombre" class="col-sm-6">Nombre:</label>
+                            <input id="clienteNombre" required ng-model="data.nombre" class="col-sm-6"/>
+                            
+                    </div>
+                    <div class="form-group row">
+                             <label for="clienteCedula" class="col-sm-6">Cedula:</label>
+                            <input id="clienteCedula" required ng-model="data.cedula" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                             <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato 2012-04-23T18:25:43.511Z)</label>
+                            <input id="clienteFechaIngreso" required ng-model="data.fechaIngreso" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                             <label for="clienteCalificacion" class="col-sm-6">Calificacion:</label>
+                            <input id="clienteCalificacion" required ng-model="data.calificacion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                             <label for="clientePagoAnticipado" class="col-sm-6">Pago Anticipado:</label>
+                            <input id="clientePagoAnticipado" required ng-model="data.pagoAnticipado" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                             <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal:</label>
+                            <input id="clienteHorasDeServicioSemanal" required ng-model="data.horasDeServicioSemanal" class="col-sm-6"/>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="form-group col-sm-6" ng-if="!cliente.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="cliente.$valid" ng-click="createCliente()" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="clientesList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
