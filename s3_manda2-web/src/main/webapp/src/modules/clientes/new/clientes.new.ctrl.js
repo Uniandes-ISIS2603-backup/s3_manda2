@@ -9,7 +9,15 @@
             $scope.data = {};
        
             $scope.createCliente = function () {
-                $http.post(clientesContext, $scope.data).then(function (response) {
+                $http.post(clientesContext, {
+                    id: $scope.clienteId,
+                    nombre: $scope.clienteNombre,
+                    fechaIngreso: $scope.clienteFechaIngreso,
+                    cedula: $scope.clienteCedula,
+                    calificacion: $scope.clienteCalificacion,
+                    pagoAnticipado: $scope.clientePagoAnticipado,
+                    horasDeServicioSemanal: $scope.clienteHorasDeServicioSemanal
+                }).then(function (response) {
                     $state.go('clientesList', {clienteId: response.data.id}, {reload: true});
                 });
             };

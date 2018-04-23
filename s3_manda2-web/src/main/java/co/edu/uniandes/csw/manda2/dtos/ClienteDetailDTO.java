@@ -252,6 +252,8 @@ public class ClienteDetailDTO extends ClienteDTO {
     @Override
     public ClienteEntity toEntity() {
         ClienteEntity clienteE = super.toEntity();
+        //Esto se arreglara en el ciclo 3 ya que los to entity de alguna clases fallan.
+        /**
         if (billetera != null) {
             clienteE.setBilletera(billetera.toEntity());
         }
@@ -276,6 +278,7 @@ public class ClienteDetailDTO extends ClienteDTO {
             }
             clienteE.setQuejasYReclamos(reclamosEntity);
         }
+        * */
         return clienteE;
     }
 }

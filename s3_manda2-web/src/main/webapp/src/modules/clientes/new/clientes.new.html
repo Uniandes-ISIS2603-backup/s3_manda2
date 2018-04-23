@@ -4,40 +4,40 @@
             <div class="panel-heading"><label ng-if="!edit" id="createCliente">Crear un nuevo cliente</label>
                 <label ng-if="edit" id="editCliente">Editar cliente</label></div>
             <div class="panel-body">
-                <form name="cliente">
+                <form ng-submit="createCleinte()" name="cliente">
                     <div class="form-group row">
-                        
-                            <label for="clienteId" class="col-sm-6">Id:</label>
-                            <input id="clienteId" required ng-model="data.id" class="col-sm-6"/>
-                            
+
+                        <label for="clienteId" class="col-sm-6">Id:</label>
+                        <input id="clienteId" required ng-model="clienteId" class="col-sm-6"/>
+
                     </div>
                     <div class="form-group row">
-                        
-                            <label for="clienteNombre" class="col-sm-6">Nombre:</label>
-                            <input id="clienteNombre" required ng-model="data.nombre" class="col-sm-6"/>
-                            
+
+                        <label for="clienteNombre" class="col-sm-6">Nombre:</label>
+                        <input id="clienteNombre" required ng-model="clienteNombre" class="col-sm-6"/>
+
                     </div>
                     <div class="form-group row">
-                             <label for="clienteCedula" class="col-sm-6">Cedula:</label>
-                            <input id="clienteCedula" required ng-model="data.cedula" class="col-sm-6"/>
+                        <label for="clienteCedula" class="col-sm-6">Cedula:</label>
+                        <input id="clienteCedula" required ng-model="clienteCedula" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                             <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato 2012-04-23T18:25:43.511Z)</label>
-                            <input id="clienteFechaIngreso" required ng-model="data.fechaIngreso" class="col-sm-6"/>
+                        <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato 2012-04-23T18:25:43.511Z)</label>
+                        <input id="clienteFechaIngreso" required ng-model="clienteFechaIngreso" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                             <label for="clienteCalificacion" class="col-sm-6">Calificacion:</label>
-                            <input id="clienteCalificacion" required ng-model="data.calificacion" class="col-sm-6"/>
+                        <label for="clienteCalificacion" class="col-sm-6">Calificacion:</label>
+                        <input id="clienteCalificacion" required ng-model="clienteCalificacion" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                             <label for="clientePagoAnticipado" class="col-sm-6">Pago Anticipado:</label>
-                            <input id="clientePagoAnticipado" required ng-model="data.pagoAnticipado" class="col-sm-6"/>
+                        <label for="clientePagoAnticipado" class="col-sm-6">Pago Anticipado:</label>
+                        <input id="clientePagoAnticipado" required ng-model="clientePagoAnticipado" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                             <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal:</label>
-                            <input id="clienteHorasDeServicioSemanal" required ng-model="data.horasDeServicioSemanal" class="col-sm-6"/>
+                        <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal:</label>
+                        <input id="clienteHorasDeServicioSemanal" required ng-model="clienteHorasDeServicioSemanal" class="col-sm-6"/>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="form-group col-sm-6" ng-if="!cliente.$valid">
 
@@ -52,8 +52,8 @@
                             <a class="btn btn-info" ui-sref="clientesList">Cancel</a>
                         </div>
                     </div>
-                </form>
 
+                </form>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 (function (ng) {
-    var mod = ng.module("authorModule");
+    var mod = ng.module("clienteModule");
     mod.constant("authorsContext", "api/authors");
-    mod.controller('authorDeleteCtrl', ['$scope', '$http', 'authorsContext', '$state',
+    mod.controller('clienteDeleteCtrl', ['$scope', '$http', 'authorsContext', '$state',
         /**
          * @ngdoc controller
          * @name authors.controller:authorDeleteCtrl
