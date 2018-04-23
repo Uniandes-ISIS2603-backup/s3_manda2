@@ -5,7 +5,7 @@
             <button type="button" class="btn btn-primary" ui-sref="clientesCreate">Crear un cliente</button>
         </div>
         <br> </br>
-        <table class="table table-hover">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Id</th>    
@@ -15,6 +15,7 @@
                     <th>Calificacion</th> 
                     <th>Pago Anticipado</th> 
                     <th>Horas de servicio semanal</th> 
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,10 +23,14 @@
                     <td > <a ui-sref="clienteDetail ({clienteId: cliente.id}) ">{{cliente.id}}</a></td>
                     <td >{{cliente.nombre}}</td>  
                     <td >{{cliente.cedula}}</td>
-                    <td >{{cliente.fechaIngreso | date:'yyyy-MM-dd'}}</td>
+                    <td >{{cliente.fechaIngreso| date:'yyyy-MM-dd'}}</td>
                     <td >{{cliente.calificacion}}</td>
                     <td >{{cliente.pagoAnticipado}}</td>
                     <td >{{cliente.horasDeServicioSemanal}}</td>
+                    <td id="{{$index}}-actions">
+                        <button type="button" class="btn btn-primary"  ui-sref="clienteUpdate({clienteId: cliente.id})">Editar</button>
+                        <button type="button" class="btn btn-primary"  ui-sref="clienteDelete({clienteId: cliente.id})">Eliminar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
