@@ -95,7 +95,7 @@
                 views: {
                     'listView': {
                         templateUrl: basePath + '/delete/clientes.delete.html',
-                        controller: 'clientedeleteCtrl'
+                        controller: 'clienteDeleteCtrl'
                     }
                     
                 }
