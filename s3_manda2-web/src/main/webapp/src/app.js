@@ -15,7 +15,8 @@
         'pseModule',
         'tarjetacreditoModule',
         'pagoModulo',
-        'billeteraModulo'
+        'billeteraModulo',
+        'entregaModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);

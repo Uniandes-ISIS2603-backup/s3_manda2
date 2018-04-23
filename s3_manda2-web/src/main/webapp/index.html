@@ -69,7 +69,11 @@
         <script src="src/modules/clientes/new/clientes.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/delete/clientes.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/update/clientes.update.ctrl.js" type="text/javascript"></script>
-
+        
+        <!-- Entrega de documentos -->
+        <script src="src/modules/entregadedocumentos/entregas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/entregadedocumentos/entregas.ctrl.js" type="text/javascript"></script>
+        
         <!-- Empleado -->
         <script src="src/modules/empleados/empleados.mod.js" type="text/javascript"></script>
         <script src="src/modules/empleados/empleados.ctrl.js" type="text/javascript"></script>
@@ -140,8 +144,8 @@
                     <p>LOS DE MANDA2 ME TIENEN ATRAPADO </p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>  Entrega de documentos</h2>
-                    <p>PARA QUE LA PAGINA FUNCIONE</p>
+                    <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><a ui-sref="entregasList" > Entregas de documentos</a></h2>
+                    <p>Pulse aca para desplegar todas las entregas de documentos desde el principio de la aplicacion.</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Reservas y Organizacion</h2>
@@ -150,6 +154,8 @@
             </div>
         </div>
         <hr>
+         <div class="container-fluid" ui-view="despliegueServicios"></div>
+         <hr>
         <section class="well">
             <h2 class="text-center">Video Tutorial</h2>
             <hr>

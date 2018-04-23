@@ -1,0 +1,47 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="btn-group mr-2" role="group" aria-label="First group"> 
+            <button type="button" class="btn btn-primary" ui-sref="entregasCreate">Crear una entrega de documento</button>
+        </div>
+        <br> </br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>    
+                    <th>Nombre</th>  
+                    <th>Calificacion</th> 
+                    <th>Costo</th> 
+                    <th>Descripcion</th> 
+                    <th>Estado</th> 
+                    <th>Punto de encuentro</th> 
+                    <th>Punto de realizacion</th> 
+                    <th>Costo de transporte</th> 
+                    <th>Porcentaje extra</th> 
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entrega in entregasRecords">
+                    <td > <a ui-sref="entregaDetail ({entregaId: entrega.id}) ">{{entrega.id}}</a></td>
+                    <td >{{entrega.nombre}}</td>  
+                    <td >{{entrega.calificacion}}</td>
+                    <td >{{entrega.costo}}</td>
+                    <td >{{entrega.descripcion}}</td>
+                    <td >{{entrega.estado}}</td>
+                    <td >{{entrega.puntoDeEncuentro}}</td>
+                    <td >{{entrega.puntoDeRealizacion}}</td>
+                    <td >{{entrega.costoDeTransporte}}</td>
+                    <td >{{entrega.porcentajeExtra}}</td>
+                    <td id="{{$index}}-actions">
+                        <button type="button" class="btn btn-primary"  ui-sref="entregaUpdate({entregaId: entrega.id})">Editar</button>
+                        <button type="button" class="btn btn-primary"  ui-sref="entregaDelete({entregaId: entrega.id})">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
