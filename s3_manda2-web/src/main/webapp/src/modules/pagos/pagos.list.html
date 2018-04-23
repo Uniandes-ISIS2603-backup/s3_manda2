@@ -1,0 +1,14 @@
+<h1 class ="text-center"> Pagos</h1>
+<hr>
+
+<div ng-repeat = "pagos in pagosRecords" class="pagoRaya">
+    <span>{{pagos.fecha|date}}</span>
+    <span class="cosita-arriba">{{ pagos.estadoTransaccion}}</span>
+    <br>
+    <span> Costo:</span>
+    <br>
+    <span> Nombre del servicio:</span>
+    <div> <button ui-sref="pagosDetail({pago_id: pagos.id})" class="botoncito">Ver resumen</button></div>
+</div>
+
+<div ui-view="detailView"></div>

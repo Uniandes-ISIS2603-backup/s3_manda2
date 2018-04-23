@@ -1,0 +1,10 @@
+<h1> Nombre del servicio</h1>
+<div ng-repeat = "pagos in pagoIdRecords" class="pagoRaya">
+    <span>{{pagos.fecha|date}}</span>
+    <span> Metodo de pago</span>
+    <span class="cosita-arriba">{{ pagos.estadoTransaccion}}</span>
+    <br>
+    <span> Costo:</span>
+    <br>
+    <span> Resumen del servicio:</span>
+</div>

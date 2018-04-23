@@ -1,8 +1,2 @@
-[{"id":1,"saldo":17805,"puntos":31017,"payPal":null,"tarjetaCredito":{"nombreCliente":"Cosetta Aguirrezabala","id":1,"numeroTarjeta":999167147},"pse":null},
-{"id":2,"saldo":30006,"puntos":15610,"payPal":null ,"tarjetaCredito":null,"pse":{"nombreCliente":"Brandy Hayward","id":2,"linkPse":"http://flavors.me/sed/interdum/venenatis/turpis/enim.jpg"}},
-{"id":3,"saldo":30864,"puntos":25382,"payPal":{"nombreCliente":"Marieann Stichall","id":3,"linkPayPal":"http://qq.com/integer.js"},"tarjetaCredito":null,"pse":null},
-{"id":4,"saldo":28129,"puntos":30499,"payPal":{"nombreCliente":"Artemus Fillery","id":4,"linkPayPal":"http://google.co.jp/viverra.jpg"},"tarjetaCredito":{"nombreCliente":"Karole Starkey","id":4,"numeroTarjeta":952941068},"pse":{"nombreCliente":"Ingra Gudgin","id":4,"linkPse":"http://jalbum.net/adipiscing/elit/proin/risus/praesent.jpg"}},
-{"id":5,"saldo":15914,"puntos":1442,"payPal":null,"tarjetaCredito":{"nombreCliente":"Mortimer Nelissen","id":5,"numeroTarjeta":652298257},"pse":{"nombreCliente":"Stefanie Mowle","id":5,"linkPse":"http://newsvine.com/nisl/ut/volutpat/sapien/arcu/sed.js"}},
-{"id":6,"saldo":49031,"puntos":32923,"payPal":{"nombreCliente":"Derek Lesurf","id":6,"linkPayPal":"http://typepad.com/eget.html"},"tarjetaCredito":null, "pse":{"nombreCliente":"Nolana Whatham","id":6,"linkPse":"http://pcworld.com/odio/justo/sollicitudin.jsp"}},
-{"id":7,"saldo":26433,"puntos":12889,"payPal":{"nombreCliente":"Derrik Chessor","id":7,"linkPayPal":"http://ow.ly/est/phasellus/sit/amet/erat/nulla.js"},"tarjetaCredito":{"nombreCliente":"Jessalin McIlherran","id":7,"numeroTarjeta":368103800},"pse":null},
-{"id":8,"saldo":45859,"puntos":2267,"payPal":null,"tarjetaCredito":null ,"pse":null}]
+[{"id":1,"saldo":17800,"puntosFidelidad":9039},
+  {"id":2,"saldo":9000,"puntosFidelidad":400}]
