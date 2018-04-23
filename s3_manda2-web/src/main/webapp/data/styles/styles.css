@@ -1,0 +1,30 @@
+.billetera {
+    border: 1px solid lightgray;
+    padding: 15px;
+    border-radius: 15px;
+}
+.pago {
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.cosita-arriba {
+    float: right;
+    background-color: #18beff;
+    color: white;
+}
+
+.pagoRaya {
+    margin: 20px;
+    padding: 10px;
+    border: 1px dashed lightgrey;
+    box-shadow: -1px 3px 9px -1px;
+}
+
+.botoncito {
+    border: 1px dashed  whitesmoke;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    float: right;
+}
