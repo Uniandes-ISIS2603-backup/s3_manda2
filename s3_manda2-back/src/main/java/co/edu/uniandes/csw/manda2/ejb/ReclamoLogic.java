@@ -52,6 +52,21 @@ public class ReclamoLogic {
         return reclamo;
     }
     /**
+     * Busca un reclamos por ID
+     * @param numero El id del reclamo a buscar
+     * @return El reclamo encontrado, null si no lo encuentra.
+     */
+    public ReclamoEntity getReclamoByNumero(Integer numero) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar reclamo con id={0}", numero);
+        ReclamoEntity reclamo = persistence.findByNumero(numero);
+        if (reclamo == null) {
+            LOGGER.log(Level.SEVERE, "El reclamo el numero {0} no existe", numero);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar reclamo"
+                + " con numero={0}", numero);
+        return reclamo;
+    }
+    /**
      * Eliminar un reclamo
      * @param id El ID del reclamo a eliminar
      */

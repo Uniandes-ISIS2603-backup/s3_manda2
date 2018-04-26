@@ -128,5 +128,17 @@ public class EmpleadoDTO extends UsuarioDTO{
     public void setEPS(String EPS) {
         this.EPS = EPS;
     }
-    
+    @Override
+    public EmpleadoEntity toEntity(){
+        EmpleadoEntity entity = new EmpleadoEntity();
+        entity.setId(this.id);
+        entity.setNombre(this.nombre);
+        entity.setCedula(this.cedula);
+        entity.setFechaIngreso(this.fechaIngreso);
+        entity.setIdentificacio(this.identificacion);
+        entity.setEPS(this.EPS);
+        entity.setFoto(this.foto);
+        entity.setCalificacion(this.calificacion);
+        return entity;
+    }
 }
