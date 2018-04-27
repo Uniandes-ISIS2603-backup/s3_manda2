@@ -4,12 +4,12 @@
     mod.config(['$stateProvider', '$urlRouterProvider',
 
         function($stateProvider, $urlRouterProvider){
-//            $urlRouterProvider.otherwise('/pagos');
+            $urlRouterProvider.otherwise('/pagos');
 
 
             $stateProvider
                 .state('pagoList', {
-                    url:'/pagos1',
+                    url:'/pagos',
                     views: {
                         'mainView': {
                             templateUrl: 'src/modules/pagos/pagos.list.html',
@@ -20,7 +20,7 @@
                 })
                 .state('pagosDetail', {
 
-                    url: '/{pago_id}',
+                    url: 'pagos/{pago_id}',
                     params: {
                         pago_id: null
                     },
@@ -32,10 +32,17 @@
 
                         }
                     }
+                })
+                .state('createPago',{
+
+                    url:'/createPago',
+                    views: {
+                        'createView':{
+                            templateUrl: 'src/modules/pagos/createPago.list.html',
+                            controller: 'createPagoCtrl'
+                        }
+                    }
                 });
-
-
-
         }
     ]);
 })(window.angular);
