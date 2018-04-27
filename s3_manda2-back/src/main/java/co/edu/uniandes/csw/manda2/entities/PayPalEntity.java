@@ -45,6 +45,11 @@ public class PayPalEntity extends MedioPagoEntity{
         final PayPalEntity other = (PayPalEntity) obj;
         return true;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.linkPayPal);
+        return hash;
+    }  
 }
