@@ -46,6 +46,7 @@ public class PayPalEntity extends MedioPagoEntity{
         return true;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 7;
