@@ -4,7 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/tarjetacredito/';
 
-            $urlRouterProvider.otherwise('tarjetacredito');
+//            $urlRouterProvider.otherwise('tarjetacredito');
 
             $stateProvider.state('tarjetacreditoList', {
                 url: 'tarjetascredito',
