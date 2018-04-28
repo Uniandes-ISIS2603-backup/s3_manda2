@@ -3,7 +3,8 @@
 
      mod.config(['$stateProvider', '$urlRouterProvider',
                    function($stateProvider, $urlRouterProvider){
-                        <!--<--$urlRouterProvider.otherwise('/billeteras');-->
+                        $urlRouterProvider.otherwise('/billeteras');
+
 
 
                         $stateProvider

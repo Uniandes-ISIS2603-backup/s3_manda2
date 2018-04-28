@@ -74,7 +74,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      * @param pPuntos puntos de fidelidad.
      */
     public void setPuntosFidelidad(Integer pPuntos){
-        this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
+        this.puntosDeFidelidad= pPuntos;
     }
     
     /**

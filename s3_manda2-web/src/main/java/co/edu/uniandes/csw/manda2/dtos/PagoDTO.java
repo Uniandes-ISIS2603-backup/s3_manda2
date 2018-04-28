@@ -42,11 +42,11 @@ public class PagoDTO {
     /**
      * Constante que indica si el pago ha sido finalizado.
      */
-    public static String FINALIZADO = "FINALIZADO";
+    public static final String FINALIZADO = "FINALIZADO";
     /**
      * Constante que indica si el pago ha sido cancelado".
      */
-    public static String CANCELADO = "CANCELADO";
+    public static final String CANCELADO = "CANCELADO";
     
     
      /**

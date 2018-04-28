@@ -9,4 +9,3 @@
         }
     ]);
 })(window.angular);
-
