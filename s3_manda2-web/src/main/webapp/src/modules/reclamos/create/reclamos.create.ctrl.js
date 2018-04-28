@@ -1,6 +1,6 @@
 (
     function (ng) {
-        var mod = ng.modile('reclamoModule');
+        var mod = ng.module('reclamoModule');
         mod.constant('reclamoContext', 'api/reclamos');
         mod.controller('reclamoCreateCtrl', ['$scope', '$http', 'reclamoContext', '$state',
             function ($scope, $http, reclamoContext, $state) {
