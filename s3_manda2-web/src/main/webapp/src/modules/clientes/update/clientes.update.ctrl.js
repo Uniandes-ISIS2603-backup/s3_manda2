@@ -8,7 +8,6 @@
 
             var idCliente = $state.params.clienteId;
 
-            //Consulto el autor a editar.
             $http.get(clientesContext + '/' + idCliente).then(function (response) {
                 var cliente = response.data;
                 $scope.clienteId = cliente.id;

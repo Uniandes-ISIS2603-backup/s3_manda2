@@ -29,7 +29,7 @@
             });
             
             $stateProvider.state('entregaDetail', {
-                url: '/{entregaId:int}/entregaail',
+                url: '/{entregaId:int}/entregaDetail',
                 parent: 'entregas',
                 param: {
                     entregaId: null
@@ -37,58 +37,58 @@
                 views: {
                     'listView': {
                         templateUrl: basePath + 'entregas.list.html',
-                        controller: 'entregaDetailCtrl',
+                        controller: 'entregaCtrl',
                         controllerAs: 'ctrl'
                     },
                     'detailView': {
-                        templateUrl: basePath + 'entrega.detail.html'
+                        templateUrl: basePath + 'entregas.detail.html',
+                        controller: 'entregaDetailCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
 
             });
-            /**
-            $stateProvider.state('clientesCreate', {
+            $stateProvider.state('entregasCreate', {
                 url: '/create',
-                parent: 'clientes',
+                parent: 'entregas',
                 views: {
                     'listView': {
-                        templateUrl: basePath + '/new/clientes.new.html',
-                        controller: 'clienteNewCtrl'
+                        templateUrl: basePath + '/new/entregas.new.html',
+                        controller: 'entregaNewCtrl'
                     }
                     
                 }
 
             });
-            $stateProvider.state('clienteUpdate', {
-                url: '/update/{clienteId:int}',
-                parent: 'clientes',
+            $stateProvider.state('entregaUpdate', {
+                url: '/update/{entregaId:int}',
+                parent: 'entregas',
                 param: {
-                    clienteId: null
+                    entregaId: null
                 },
                 views: {
                     'listView': {
-                        templateUrl: basePath + '/new/clientes.new.html',
-                        controller: 'clienteUpdateCtrl'
+                        templateUrl: basePath + '/new/entregas.new.html',
+                        controller: 'entregasUpdateCtrl'
                     }
                     
                 }
 
             });
-            $stateProvider.state('clienteDelete', {
-                url: '/delete/{clienteId:int}',
-                parent: 'clientes',
+            $stateProvider.state('entregaDelete', {
+                url: '/delete/{entregaId:int}',
+                parent: 'entregas',
                 param: {
-                    clienteId: null
+                    entregaId: null
                 },
                 views: {
                     'listView': {
-                        templateUrl: basePath + '/delete/clientes.delete.html',
-                        controller: 'clienteDeleteCtrl'
+                        templateUrl: basePath + '/delete/entregas.delete.html',
+                        controller: 'entregaDeleteCtrl'
                     }
                     
                 }
 
-            });
-            */
+            }); 
         }]);
 })(window.angular);
