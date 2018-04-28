@@ -1,6 +1,6 @@
 (function(ng){
     var mod = ng.module("vueltaModule");
-    mod.constant("vueltaContext", "data/vueltas.json");
+    mod.constant("vueltaContext", "api/vueltascondemoraenoficina");
     mod.controller('vueltaCtrl', ['$scope', '$http', 'vueltaContext',
         function ($scope, $http, vueltaContext) {
             $http.get(vueltaContext).then(function (response){

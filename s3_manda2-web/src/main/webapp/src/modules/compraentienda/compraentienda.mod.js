@@ -10,18 +10,37 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
            var basePath = 'src/modules/compraentienda/' ;
            
-            $urlRouterProvider.otherwise("");
-            
-            $stateProvider.state ('comprastiendaList',{
-                url: '/compraentienda',
-                  views: { 
-                    'mainView': {
-                        templateUrl: basePath + 'compraentienda.list.html',
-                        controller: 'compraCtrl',
-                        controllerAs: 'ctrl'
-                    }
-                }
-            }); 
+           $stateProvider.state('compraentiendaList', {
+                 url: '/vueltascondemoraenoficina',
+                  views: {
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'compraentienda.list.html',
+                          controller: 'vueltaCtrl',
+                          controllerAs: 'ctrl'
+                      }
+                  }
+             } )
+           .state('compraentiendaCreate', {
+                 url: '/create',
+                  views: {
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'create/compraentienda.create.html',
+                          controller: 'compraCreateCtrl'
+                      }
+                  }
+             } )
+             .state('compraentiendaDelete', {
+                 url: '/delete/(idCompra:int)',
+                 param: {
+                     idCompra : null
+                 },
+                  views: {
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'delete/compraentienda.delete.html',
+                          controller: 'compraDeleteCtrl',
+                      }
+                  }
+             } ); 
         }          
     ]);
 })(window.angular);
