@@ -49,8 +49,8 @@ public class ExceptionMapperA implements ExceptionMapper<Exception> {
      */
     @Override
     public Response toResponse(Exception e) {
-
-        return Response.status(Response.Status.UNAUTHORIZED.getStatusCode())
+        e.printStackTrace();
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode())
                 .entity(getInitCause(e).getMessage())
                 .type(MediaType.TEXT_PLAIN_TYPE)
                 .build();

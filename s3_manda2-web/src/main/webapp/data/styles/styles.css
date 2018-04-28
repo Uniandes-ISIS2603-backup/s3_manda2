@@ -30,5 +30,8 @@
 }
 
 .nuevoBotoncito{
+    border: 1px dashed  whitesmoke;
+    border-radius: 4px;
+    background-color: #5bc0de;
 
 }

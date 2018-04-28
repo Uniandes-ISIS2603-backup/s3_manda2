@@ -14,7 +14,6 @@
         'paypalModule',
         'pseModule',
         'tarjetacreditoModule',
-
         'pagoModulo',
         'billeteraModulo',
         'entregaModule'
