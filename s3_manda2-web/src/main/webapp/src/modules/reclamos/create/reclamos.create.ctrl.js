@@ -7,10 +7,11 @@
                 $scope.data = {};
                 $scope.createReclamo = function () {
                     $http.post(reclamoContext, {
-                        id: $scope.reclamoNumero,
+                        id:$scope.reclamoId,
+                        numero: $scope.reclamoNumero,
                         mensaje: $scope.reclamoMensaje}
                     ).then(function (response) {
-                        $state.go('reclamoList', {idReclamo: response.numero}, {reload: true});
+                        $state.go('reclamoList', {idReclamo: response.id}, {reload: true});
                     });
                 };
             }]);

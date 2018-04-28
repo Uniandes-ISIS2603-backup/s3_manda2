@@ -16,9 +16,9 @@
                     cedula: $scope.empleadoCedula,
                     calificacion: $scope.empleadoCalificacion,
                     identificacion: $scope.empleadoIdentificacion,
-                    eps: $scope.empleadoEPS
+                    EPS: $scope.empleadoEPS
                 }).then(function (response) {
-                    $state.go('empleadosList', {empleadoId: response.data.id}, {reload: true});
+                    $state.go('empleadosList', {empleadoId: response.id}, {reload: true});
                 });
             };
         }
