@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "bae7af47-754e-4865-b0f9-579f5a9ec3e9",
+		"name": "Pruebas clase Entregas de documentos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "postEntregaDedocumentos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eaed2b87-c3ab-4b46-9061-2c0f18049003",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \t    \"id\": 34748,\r\n \t\t\"nombre\": \"Entrega de documento a bancolombia\",\r\n \t\t\"costo\": 15000,\r\n \t\t\"puntoDeEncuentro\":\"Pan Pa Ya 116\",\r\n \t\t\"estado\": \"EN_DESARROLLO\",\r\n \t\t\"calificacion\": 4,\r\n \t\t\"descripcion\": \"Llevar carta al gerente general\",\r\n \t\t\"puntoDeRealizacion\": \"Bancolombia calle 72\",\r\n \t\t\"costoDeTransporte\": 8000,\r\n \t\t\"porcentajeExtra\": 0.3,\r\n        \"pago\": {},\r\n        \"cliente\": {},\r\n        \"empleado\": {}\r\n       \r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"entregasdedocumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllentregasDeDocumentos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"entregasdedocumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get entrega",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"entregasdedocumentos",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update entrega con id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"entregasDeDocumentosDTO\",\n    \"calificacion\": 4,\n    \"costo\": 10000,\n    \"descripcion\": \"Ir a llevar carritos\",\n    \"estado\": \"EN_DESARROLLO\",\n    \"id\": 7,\n    \"nombre\": \"Entrega de documento a silvia\",\n    \"puntoDeEncuentro\": \"City U torre 3\",\n    \"puntoDeRealizacion\": \"El ono\",\n    \"cliente\": {},\n    \"empleado\": {},\n    \"pago\": {},\n    \"costoDeTransporte\": 15000,\n    \"porcentajeExtra\": 0.5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"entregasdedocumentos",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete entrega con id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b61b2b3a-0bfd-4d46-9912-c262859482ae",
+						"type": "text/javascript",
+						"exec": [
+							"http://localhost:8080/s3_manda2-web/api/entregasdedocumentos/{{id}}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/entregasdedocumentos/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"entregasdedocumentos",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

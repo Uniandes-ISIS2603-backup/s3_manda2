@@ -43,28 +43,13 @@ public class ReclamoDTO {
     /**
      * Atributo qie representa el id del reclamo
      **/
-    private Long id;
+    protected Long id;
     //CONSTRUCTOR
     /**
      * Se genera un reclamo
      */
     public ReclamoDTO()
     {
-      mensaje = "";
-      numero = 0;
-      id = new Long(0);
-    }
-    /** 
-     * Se genera un reclamo
-     * @param pMensaje el mensaje que se asignara al reclamo
-     * @param pNumero el numero del reclamo
-     * @param pId id del reclamo
-     **/
-    public ReclamoDTO(String pMensaje, Integer pNumero, Long pId)
-    {
-      mensaje = pMensaje;
-      numero = pNumero;
-      id =pId;
     }
     public ReclamoDTO (ReclamoEntity entity)
     {
@@ -112,7 +97,7 @@ public class ReclamoDTO {
      * se asigna el numero al reclamo
      * @param id el id que se le asigna al reclamo
      */
-    public void setNumero(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,24 +1,24 @@
 {
 	"info": {
-		"name": "Pruebas Clase Empleado",
-		"_postman_id": "99a6dab0-870f-5b29-74dc-27d22d0c97de",
-		"description": "",
+		"_postman_id": "94faf7ba-56f0-4687-ae9a-7d8162708c8c",
+		"name": "Pruebas Clase Reclamo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Crear Empleado",
+			"name": "Crear Reclamo",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "c8d31c4c-0d80-4325-ab40-baa13f3b577b",
+						"id": "913376fc-ec26-422b-bb29-94f76b8ffafd",
 						"type": "text/javascript",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_empleado\",data.id);",
+							"postman.setGlobalVariable(\"new_id_reclamo\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"console.log(data.id);"
+							"console.log(data.id);",
+							""
 						]
 					}
 				}
@@ -33,10 +33,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"nombre\": \"nicolas_caceres\", \r\n       \"cedula\": \"1014563321\",\r\n       \"fechaingreso\": \"Mayo 21 2018\",\r\n       \"calificacion\": 5.0,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"eps\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"servicios\":[]\r\n}\r\n"
+					"raw": "{\r\n\t   \"mensaje\": \"Ayoida\", \r\n       \"numero\": 2,\r\n       \"id\": 2123132121,\r\n       \"cliente\":[],\r\n       \"empleado\":[],\r\n       \"servicio\":[]\r\n\t\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -45,7 +45,7 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"empleados"
+						"reclamos"
 					]
 				},
 				"description": "Crear Cliente"
@@ -53,17 +53,17 @@
 			"response": []
 		},
 		{
-			"name": "Obtener todos los Empleados",
+			"name": "Obtener todos los Reclamo",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "c5c1d57b-d696-454f-8272-3d753719fff9",
+						"id": "93fe82d6-c3c7-418c-911f-daaf7c01c96f",
 						"type": "text/javascript",
 						"exec": [
 							"var data= JSON.parse(responseBody);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"empleados count\"] = data.length >= 0;"
+							"tests[\"reclamos count\"] = data.length >= 0;"
 						]
 					}
 				}
@@ -71,9 +71,12 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -82,7 +85,7 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"empleados"
+						"reclamos"
 					]
 				},
 				"description": "Obtener todos los Clientes"
@@ -90,12 +93,12 @@
 			"response": []
 		},
 		{
-			"name": "Obtener un Empleado",
+			"name": "Obtener un Reclamo",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"id": "462c78b2-0eb7-4c1b-81f2-b65a6567884d",
 						"type": "text/javascript",
 						"exec": [
 							"console.log(responseBody);",
@@ -108,9 +111,12 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos/{{new_id_reclamo}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -119,8 +125,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"empleados",
-						"{{new_id_empleado}}"
+						"reclamos",
+						"{{new_id_reclamo}}"
 					]
 				},
 				"description": "Obtener un Cliente"
@@ -128,7 +134,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar un Empleado",
+			"name": "Actualizar un Reclamo",
 			"event": [
 				{
 					"listen": "test",
@@ -153,10 +159,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"servicios\":[{\"costoduracion\": 15000, \"costodetransporte\": 25000, \"pago\": \"paypal\", \r\n       \"cliente\":[{\"id\": 001,\r\n       \"nombre\": \"nicolascaceres\",\r\n       \"cedula\": \"2104565210\",\r\n       \"fechaDeIngreso\": \"Mayo 21,2017\",\r\n       \"calificacion\": 5.0,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 5}],\r\n       \"id\":100, \"puntodeencuentro\": \"usaquen\", \"puntoderealizacion\": \"usaquen\",\r\n       \"exitodiligencia\": true,\r\n       \"calificacion\":5.0, \"descripcion\": \"entregar documentos\"\r\n       }]\r\n    }"
+					"raw": "{\r\n\t   \"mensaje\": \"El servicio se demoro mucho\", \r\n       \"numero\": 001,\r\n       \"id\": 001,\r\n       \"empleado\":[{ \"nombre\": \"Nicolas_Gaitan\", \r\n       \"cedula\": \"1014563321\",\r\n       \"fechaingreso\": \"Mayo 21, 2018\",\r\n       \"calificacion\": 5.0,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"eps\": \"millossaludprepagada\"}],\r\n       \"servicio\": [{\"costoduracion\": 15000, \"costodetransporte\": 25000, \"pago\": \"paypal\", \r\n       \"cliente\":[{\"id\": 001,\r\n       \"nombre\": \"nicolascaceres\",\r\n       \"cedula\": \"2104565210\",\r\n       \"fechaDeIngreso\": \"Mayo 21,2017\",\r\n       \"calificacion\": 5.0,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 5}],\r\n       \"id\":100,\r\n       \"puntodeencuentro\": \"usaquen\",\r\n       \"puntoderealizacion\": \"usaquen\",\r\n       \"exitodiligencia\": true,\r\n       \"calificacion\":5.0,\r\n       \"descripcion\": \"entregar documentos\"}]\r\n\t\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos/{{new_id_reclamo}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -165,8 +171,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"empleados",
-						"{{new_id_empleado}}"
+						"reclamos",
+						"{{new_id_reclamo}}"
 					]
 				},
 				"description": "Actualizar un Cliente"
@@ -174,7 +180,7 @@
 			"response": []
 		},
 		{
-			"name": "Borrar un Empleado",
+			"name": "Borrar un Reclamo",
 			"event": [
 				{
 					"listen": "test",
@@ -195,7 +201,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos/{{new_id_reclamo}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -204,8 +210,8 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"empleados",
-						"{{new_id_empleado}}"
+						"reclamos",
+						"{{new_id_reclamo}}"
 					]
 				},
 				"description": "Borrar un cliente"

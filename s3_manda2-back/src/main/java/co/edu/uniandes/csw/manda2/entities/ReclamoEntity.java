@@ -62,5 +62,30 @@ public class ReclamoEntity implements Serializable{
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
+
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public ServicioEntity getServicio() {
+        return servicio;
+    }
+
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
+    }
+
+    public void setServicio(ServicioEntity servicio) {
+        this.servicio = servicio;
+    }
+
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
+    
     
 }

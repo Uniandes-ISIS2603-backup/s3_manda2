@@ -5,7 +5,12 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 
 /**
  *Clase que representa el reclamo. 
@@ -87,6 +92,7 @@ public class ReclamoDetailDTO extends ReclamoDTO {
      */
     private ServicioDTO servicio;
     
+    private ClienteDTO cliente;
     //CONSTRUCTOR
     
     /**
@@ -94,15 +100,40 @@ public class ReclamoDetailDTO extends ReclamoDTO {
      */
     public ReclamoDetailDTO()
     {
-        super();
-        empleado = null;
-        servicio = null;
     }
 
     public ReclamoDetailDTO(ReclamoEntity entity) {
         super(entity);
-        empleado = null;
-        servicio = null;
+        this.id = entity.getId();
+        /**
+        if (entity.getCliente() != null) {
+                this.cliente = new ClienteDTO(entity.getCliente());
+            }
+          if (entity.getServicio() != null) {
+              ServicioEntity entityServicio = entity.getServicio();
+                   if( entityServicio instanceof EntregasDeDocumentosEntity)
+                   {
+                       servicio = new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio);
+                   }
+                   else if( entityServicio instanceof ComprasEnTiendaEntity)
+                   {
+                        servicio = (new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
+                   }
+                   else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
+                   {
+                        servicio = new VueltasConDemoraEnOficinaDTO((VueltasConDemoraEnOficinaEntity) entityServicio);
+                   }
+                   else if( entityServicio instanceof OrganizacionEntity)
+                   {
+                        servicio =new OrganizacionDTO((OrganizacionEntity) entityServicio);
+                   }
+            }
+         
+        if(entity.getEmpleado( )!= null)
+        {
+            this.empleado = new EmpleadoDTO(entity.getEmpleado());
+        }
+        * */
     }
     
     //METODOS
@@ -135,5 +166,32 @@ public class ReclamoDetailDTO extends ReclamoDTO {
     public void setServicio(ServicioDTO servicio) {
         this.servicio = servicio;
     }
+
+    public ClienteDTO getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteDTO cliente) {
+        this.cliente = cliente;
+    }
     
+    @Override
+    public ReclamoEntity toEntity() {
+        ReclamoEntity reclamo = super.toEntity();
+        /**
+        if(empleado!= null)
+        {
+            reclamo.setEmpleado(empleado.toEntity());
+        }
+        if(servicio!= null)
+        {
+            reclamo.setServicio(servicio.toEntity());
+        }
+        if(cliente!= null)
+        {
+            reclamo.setCliente(cliente.toEntity());
+        }
+        * */
+        return reclamo;
+    }
 }
