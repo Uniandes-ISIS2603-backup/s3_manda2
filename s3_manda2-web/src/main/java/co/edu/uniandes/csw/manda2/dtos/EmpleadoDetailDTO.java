@@ -78,8 +78,8 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     public EmpleadoDetailDTO()
     {   
         super();
-        pagos = new ArrayList();
-        servicios = new ArrayList();
+        pagos = new ArrayList<PagoDTO>();
+        servicios = new ArrayList<ServicioDetailDTO>();
     }
 
     public EmpleadoDetailDTO(EmpleadoEntity entity) {
@@ -126,7 +126,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     }
     public List<ServicioEntity> servicioListToEntity()
     {
-        ArrayList<ServicioEntity> lista = new ArrayList();
+        ArrayList<ServicioEntity> lista = new ArrayList<ServicioEntity>();
         for (ServicioDetailDTO servicio : servicios) {
             lista.add(servicio.toEntity());
         }
@@ -134,7 +134,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     }
      public List<PagoEntity> pagoListToEntity()
     {
-        ArrayList<PagoEntity> lista = new ArrayList();
+        ArrayList<PagoEntity> lista = new ArrayList<PagoEntity>();
         for (PagoDTO pago : pagos) {
             lista.add(pago.toEntity());
         }

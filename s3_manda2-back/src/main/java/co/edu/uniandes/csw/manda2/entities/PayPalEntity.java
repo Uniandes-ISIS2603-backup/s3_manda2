@@ -1,6 +1,5 @@
 package co.edu.uniandes.csw.manda2.entities;
 
-import java.util.Objects;
 import javax.persistence.Entity;
 
 /**
@@ -30,27 +29,4 @@ public class PayPalEntity extends MedioPagoEntity{
     public void setLinkPayPal(String linkPayPal) {
         this.linkPayPal = linkPayPal;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final PayPalEntity other = (PayPalEntity) obj;
-        return true;
-    }
-
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.linkPayPal);
-        return hash;
-    }  
 }

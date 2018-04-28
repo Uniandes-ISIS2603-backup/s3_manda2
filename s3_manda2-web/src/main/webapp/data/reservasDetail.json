@@ -1,0 +1,16 @@
+[
+  {
+    "type": "organizacionDTO",
+    "calificacion": 5,
+    "costo": 100,
+    "descripcion": "Quiero una reserva vip",
+    "estado": "En desarrollo",
+    "id": 7,
+    "nombre": "Concierto Justin B",
+    "puntoDeEncuentro": "Calle 134#29-93",
+    "puntoDeRealizacion": "Calle 127#69-02",
+    "costoDuracion": 65,
+    "costoTransporte": 25
+  }
+]
+   

@@ -5,10 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
-import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,55 +43,17 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
      * @param calificacion calificación del servicio.
      * @param descripcion descripción del servicio.
      */
-    
-    public ComprasEnTiendaDetailsDTO(){
-            super ();
+    public ComprasEnTiendaDetailsDTO(List<ArticuloDTO>  articulo, Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
+        super(costoDeTransporte, pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
+        this.articulo = articulo;
     }
 
-    
-    public ComprasEnTiendaDetailsDTO(ComprasEnTiendaEntity entity){
-    super(entity);
-        if (entity != null){
-            if(entity.getArticulo()!= null){
-                this.articulo = new ArrayList();
-                for (ArticuloEntity articuloEntity: entity.getArticulo()){
-                    articulo.add(new ArticuloDTO (articuloEntity));
-                }
-            }
-        }
-    }
-
-            
     public List<ArticuloDTO> getArticulo() {
         return articulo;
     }
 
     public void setArticulo(List<ArticuloDTO> articulo) {
         this.articulo = articulo;
-    }
-
-    public PagoDTO getPago() {
-        return pago;
-    }
-
-    public void setPago(PagoDTO pago) {
-        this.pago = pago;
-    }
-
-    public ClienteDTO getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(ClienteDTO cliente) {
-        this.cliente = cliente;
-    }
-
-    public EmpleadoDTO getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(EmpleadoDTO empleado) {
-        this.empleado = empleado;
     }
     
     

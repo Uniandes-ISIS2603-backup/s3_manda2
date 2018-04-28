@@ -162,7 +162,7 @@ public class TarjetaCreditoResource {
         tarjetaCreditoLogic.deleteTarjetaCredito(id);
     } 
     private List<TarjetaCreditoDTO> listTarjetaCreditoEntityDTO(List<TarjetaCreditoEntity> entityList) {
-        List<TarjetaCreditoDTO> list = new ArrayList();
+        List<TarjetaCreditoDTO> list = new ArrayList<>();
         for (TarjetaCreditoEntity entity : entityList) {
             list.add(new TarjetaCreditoDTO(entity));
         }
