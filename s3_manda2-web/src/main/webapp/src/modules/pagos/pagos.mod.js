@@ -4,7 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider',
 
         function($stateProvider, $urlRouterProvider){
-            $urlRouterProvider.otherwise('/pagos');
+//            $urlRouterProvider.otherwise('/pagos');
 
 
             $stateProvider

@@ -4,7 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/pse/';
 
-            $urlRouterProvider.otherwise('pse');
+//            $urlRouterProvider.otherwise('pse');
 
             $stateProvider.state('pseList', {
                 url: 'pses',

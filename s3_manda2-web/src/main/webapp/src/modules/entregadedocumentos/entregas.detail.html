@@ -1,0 +1,25 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+  <div class="row">
+              <div>  
+                  <img src="data/images/entregaDocumento.jpg" class="rounded-circle" alt="Imagen de entrega de documento" width="200" height="192"> 
+              </div>
+              <div>  
+                  <ul>
+                    <br>
+                    <li >Id: {{entregaActual.id}}</li>
+                    <li >Nombre: {{entregaActual.nombre}}</li>  
+                    <li >Calificacion: {{entregaActual.calificacion}}</li>
+                    <li >Costo: {{entregaActual.costo}}</li>
+                    <li >Descripcion: {{entregaActual.descripcion}}</li>
+                    <li >Estado: {{entregaActual.estado}}</li>
+                    <li >Punto de encuentro: {{entregaActual.puntoDeEncuentro}}</li>
+                    <li >Punto de realizacion: {{entregaActual.puntoDeRealizacion}}</li>
+                    <li >Costo de transporte: {{entregaActual.costoDeTransporte}}</li>
+                    <li >Porcentaje extra: {{entregaActual.porcentajeExtra}}</li>
+                  </ul>
+              </div>
+          </div>
+</div>
+
+
