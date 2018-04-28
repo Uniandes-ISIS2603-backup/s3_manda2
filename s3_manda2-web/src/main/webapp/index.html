@@ -5,10 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Manda2</title>
-        <link rel="shortcut icon" href="data/images/Manda2Act.png">
+
         <!-- Dependencias Externas -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="data/styles/styles.css" />
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <!--<script src="bower_components/popper.js/dist/popper.js"></script>-->
@@ -19,15 +18,6 @@
         <!-- Inicio -->
         <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
 
-            <!-- Billetera -->
-            <script src="src/modules/billeteras/billeteras.mod.js" type="text/javascript"></script>
-           <script src="src/modules/billeteras/billeteras.ctrl.js" type="text/javascript"></script>
-
-    <!-- Pago -->
-        <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
-            <script src="src/modules/pagos/pagos.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/pagos/pagos.detail.ctrl.js" type="text/javascript"></script>
-        
         <!-- PayPal -->
         <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
         <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
@@ -88,11 +78,26 @@
         <script src="src/modules/reclamos/reclamos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/reclamoDetail.ctrl.js" type="text/javascript"></script>
 
+        <!-- Reservas -->
+        <script src="src/modules/reservas/reservas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/reservas.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/reservasDetail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/create/reservas.create.ctrl.js" type="text/javascript"></script>
+
+
+        <!-- Articulos -->
+        <script src="src/modules/articulos/articulos.mod.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/articulos.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/articulosDetail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/create/articulos.create.ctrl.js" type="text/javascript"></script>
+
+
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
     </head>
     
     <body>
+
         <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top"> <a class="navbar-brand" href="·"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -104,8 +109,7 @@
                     <li class="nav-item"> <a class="nav-link" ui-sref="empleadosList">Nuestro Equipo</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="reclamosList">Q & R</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
-                    <li class="nav-item"> <a class="nav-link" ui-sref="billeteras"> Billeteras </a> </li>
-                    <li class="nav-item"> <a class="nav-link" ui-sref="pagoList"> Pagos </a> </li>
+                    <li clss=" nav-item"><a class=" nav-link" ui-sref="articulosList "> Articulos</a></li>
                     <li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medios de pago</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" ui-sref="paypalList">PayPal</a>
@@ -122,7 +126,8 @@
             </div>
         </nav>
 
-        
+        <div class="card" style ="margin-top:100px">
+            <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
         <div class = "row">
             <div  class="col-sm-2"></div>
             <div class="col-sm-8" style ="margin-top:60px" >
@@ -140,27 +145,27 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><a ui-sref="vueltacondemoraList"> Vueltas con Demora en Oficina </a></h2>
-                    <p> Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
+                    <p> AYUDA ESTOY ATRAPADO EN LA RED</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span><a ui-sref="comprastiendaList" > Compras en Tienda</a></h2>
-                    <p> Vamos a la tienda que usted nos diga y compramos lo que necesite </p>
+                    <p>LOS DE MANDA2 ME TIENEN ATRAPADO </p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><a ui-sref="entregasList" > Entregas de documentos</a></h2>
-                    <p>Recogemos y entregamos los documentos que necesite  </p>
+                    <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>  Entrega de documentos</h2>
+                    <p>PARA QUE LA PAGINA FUNCIONE</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Reservas y Organizacion</h2>
-                    <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
+                    <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+                        <a ui-sref="reservasList" > Reservas y Organizacion</a>
+                    </h2>
+                    <p>NO ME ALIMENTAN</p>
                 </div>
             </div>
         </div>
         <hr>
-         <div class="container-fluid" ui-view="despliegueServicios"></div>
-         <hr>
         <section class="well">
-            <h2 class="text-center">Nuestros Empleados</h2>
+            <h2 class="text-center">Video Tutorial</h2>
             <hr>
             <div class="container">
                 <div class="row">
@@ -175,7 +180,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="thumbnail"> <!--<img src="" alt="Thumbnail Image 1" class="img-responsive">-->
+                    <div class="thumbnail"> <img src="images/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
                         <div class="caption">
                             <h3>Feature</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, at.</p>
@@ -251,5 +256,5 @@
             </div>
         </footer>
 
-    </body>
+        </div></body>
 </html>

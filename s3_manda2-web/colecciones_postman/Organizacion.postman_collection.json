@@ -1,14 +1,126 @@
 {
-	"info": {
-		"name": "Organizacion",
-		"_postman_id": "46980122-8e7a-4984-a7a4-9bdec20e1f03",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
+	"id": "3d8b0a46-0a5d-4338-a471-4f5c3a53c0ba",
+	"name": "Organizacion",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [
+		"ed79cf6b-a84d-4676-af9c-2b898093b234",
+		"7a556f4d-87fb-4cd2-b6e1-7f2ec82c16fc",
+		"450b59f4-2342-48e8-ad8c-53b653a73b84",
+		"f4b89f2a-e6fd-495d-8cce-416e8379e03f",
+		"89270998-d1cd-407a-b061-e1273a683c7e"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
 		{
+			"id": "450b59f4-2342-48e8-ad8c-53b653a73b84",
+			"name": "Obtener la organizacion",
+			"url": "http://localhost:8080/s3_manda2-web-1.0/api/organizaciones/{{new_id_org}}",
+			"description": null,
+			"data": [],
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f64f87e7-d217-4be5-9e36-1b4d7de75d05",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"authors count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "7a556f4d-87fb-4cd2-b6e1-7f2ec82c16fc",
+			"name": "Obtener organizaciones",
+			"url": "http://localhost:8080/s3_manda2-web-1.0/api/organizaciones",
+			"description": null,
+			"data": [],
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7de5c7c6-a50a-4b4d-a940-fcb6fab725ab",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"pse count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "89270998-d1cd-407a-b061-e1273a683c7e",
+			"name": "Eliminar Organización",
+			"url": "http://localhost:8080/s3_manda2-web-1.0/api/organizaciones/{{new_id_org}}",
+			"description": null,
+			"data": [],
+			"dataMode": null,
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f48bf21-e490-4645-abc6-49f94d2ca12b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "ed79cf6b-a84d-4676-af9c-2b898093b234",
 			"name": "crear organizacion",
-			"event": [
+			"url": "http://localhost:8080/s3_manda2-web-1.0/api/organizaciones",
+			"description": null,
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
 				{
 					"listen": "test",
 					"script": {
@@ -23,113 +135,29 @@
 					}
 				}
 			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"costoTransporte\":25000,\r\n   \"costoDuracion\": 65000,\r\n   \"desplazamiento\": true\r\n }"
-				},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"organizaciones"
-					]
-				},
-				"description": ""
-			},
-			"response": []
+			"folder": null,
+			"rawModeData": "{\r\n   \r\n\t\"nombre\": \"Concierto Justin B\",\r\n\t \"puntoDeEncuentro\": \"Calle 134#29-93\",\r\n     \"puntoDeRealizacion\": \"Calle 127#69-02\",\r\n    \"calificacion\": 5,\r\n       \"descripcion\": \"Quiero una reserva vip\",\r\n       \"estado\": \"En desarrollo\",\r\n     \"costoTransporte\":25.000,\r\n     \"costoDuracion\": 65.000,\r\n      \"costo\":100.000,\r\n      \"desplazamiento\": true\r\n     \r\n }",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
 		},
 		{
-			"name": "Obtener organizaciones",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "7de5c7c6-a50a-4b4d-a940-fcb6fab725ab",
-						"type": "text/javascript",
-						"exec": [
-							"var data= JSON.parse(responseBody);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"pse count\"] = data.length >= 0;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"organizaciones"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener la organizacion",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "f64f87e7-d217-4be5-9e36-1b4d7de75d05",
-						"type": "text/javascript",
-						"exec": [
-							"var data= JSON.parse(responseBody);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"authors count\"] = data.length >= 0;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones/{{new_id_org}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"organizaciones",
-						"{{new_id_org}}"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
+			"id": "f4b89f2a-e6fd-495d-8cce-416e8379e03f",
 			"name": "Actualizar Organizacion",
-			"event": [
+			"url": "http://localhost:8080/s3_manda2-web-1.0/api/organizaciones/{{new_id_org}}",
+			"description": null,
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
 				{
 					"listen": "test",
 					"script": {
@@ -143,71 +171,10 @@
 					}
 				}
 			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"costoTransporte\":2,\r\n   \"costoDuracion\": 1,\r\n   \"desplazamiento\": true\r\n }"
-				},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones/{{new_id_org}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"organizaciones",
-						"{{new_id_org}}"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Organización",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "1f48bf21-e490-4645-abc6-49f94d2ca12b",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 204\"] = responseCode.code === 204;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones/{{new_id_org}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"s3_manda2-web",
-						"api",
-						"organizaciones",
-						"{{new_id_org}}"
-					]
-				},
-				"description": ""
-			},
-			"response": []
+			"folder": null,
+			"rawModeData": "{\r\n    \"type\": \"organizacionDTO\",\r\n    \"calificacion\": 5,\r\n    \"costo\": 98400,\r\n    \"descripcion\": \"Quiero una reserva vip\",\r\n    \"estado\": \"En desarrollo\",\r\n    \"id\": 7,\r\n    \"nombre\": \"Concierto de Cardy B\",\r\n    \"puntoDeEncuentro\": \"Calle 134#29-93\",\r\n    \"puntoDeRealizacion\": \"Calle 127#69-02\",\r\n    \"costoDuracion\": 65,\r\n    \"costoTransporte\": 25\r\n }",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
 		}
 	]
 }

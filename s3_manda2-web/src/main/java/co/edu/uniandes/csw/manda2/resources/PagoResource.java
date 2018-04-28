@@ -166,7 +166,7 @@ public class PagoResource {
     }
 
     private List<PagoDetailDTO> listPagoEntityDetailDTO(List<PagoEntity> pagos) {
-        List<PagoDetailDTO> list = new ArrayList();
+        List<PagoDetailDTO> list = new ArrayList<>();
         for (PagoEntity entity : pagos) {
             list.add(new PagoDetailDTO(entity));
         }

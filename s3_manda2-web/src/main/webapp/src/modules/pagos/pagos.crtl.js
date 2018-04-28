@@ -7,7 +7,5 @@
                 $scope.pagosRecords =  response.data;
             });
         }
-
     ]);
 })(window.angular);
-
