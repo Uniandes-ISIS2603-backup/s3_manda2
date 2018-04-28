@@ -27,38 +27,26 @@
                     }
                 }
             });
-            /**
-            $stateProvider.state('clienteDetail', {
-                url: '/{clienteId:int}/detail',
-                parent: 'clientes',
+            
+            $stateProvider.state('entregaDetail', {
+                url: '/{entregaId:int}/entregaail',
+                parent: 'entregas',
                 param: {
-                    clienteId: null
+                    entregaId: null
                 },
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'clientes.list.html',
-                        controller: 'clienteCtrl',
+                        templateUrl: basePath + 'entregas.list.html',
+                        controller: 'entregaDetailCtrl',
                         controllerAs: 'ctrl'
                     },
                     'detailView': {
-                        templateUrl: basePath + 'cliente.detail.html'
+                        templateUrl: basePath + 'entrega.detail.html'
                     }
                 }
 
             });
-            $stateProvider.state('clienteSubDetail', {
-                url: '/datosPersonales',
-                parent: 'clienteDetail',
-                views: {
-                    'clienteView': {
-                        templateUrl: basePath + 'cliente.SubDetail.html',
-                        controller: 'clienteDetailCtrl',
-                        controllerAs: 'ctrl'
-                    }
-                    
-                }
-
-            });
+            /**
             $stateProvider.state('clientesCreate', {
                 url: '/create',
                 parent: 'clientes',
