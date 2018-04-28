@@ -1,16 +1,68 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createCompra">Crear una nueva compra</label>
+                <label ng-if="edit" id="updateCompra">Editar una compra</label></div>
+            <div class="panel-body">
+                <form ng-submit="createCompra()" name="entrega">
+                    <div class="form-group row">
+
+                        <label for="entregaId" class="col-sm-6">Id:</label>
+                        <input id="entregaId" required ng-model="compraId" class="col-sm-6"/>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <label for="compraNombre" class="col-sm-6">Nombre:</label>
+                        <input id="compraNombre" required ng-model="compraNombre" class="col-sm-6"/>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraCalificacion" class="col-sm-6">Calificacion:</label>
+                        <input id="compraCalificacion" required ng-model="compraCalificacion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraCosto" class="col-sm-6">Costo:</label>
+                        <input id="compraCosto" required ng-model="compraCosto" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraDescripcion" class="col-sm-6">Descripcion:</label>
+                        <input id="compraDescripcion" required ng-model="compraDescripcion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraEstado" class="col-sm-6">Estado:</label>
+                        <input id="compraEstado" required ng-model="compraEstado" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraPuntoDeEncuentro" class="col-sm-6">Punto de encuentro:</label>
+                        <input id="compraPuntoDeEncuentro" required ng-model="compraPuntoDeEncuentro" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
+                        <input id="compraPuntoDeRealizacion" required ng-model="compraPuntoDeRealizacion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compraCostoDeTransporte" class="col-sm-6">Costo de transporte:</label>
+                        <input id="compraCostoDeTransporte" required ng-model="compraCostoDeTransporte" class="col-sm-6"/>
+                    </div>
+                 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-6" ng-if="!compra.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="compra.$valid" ng-click="createCompra()" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="compraentiendaList">Cancel</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
