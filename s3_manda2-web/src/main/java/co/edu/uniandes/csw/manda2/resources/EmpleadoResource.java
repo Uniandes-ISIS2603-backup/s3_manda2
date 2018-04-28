@@ -163,7 +163,7 @@ public class EmpleadoResource {
     }
 
     private List<EmpleadoDetailDTO> listEmpleafoEntityDTO(List<EmpleadoEntity> empleados) {
-        List<EmpleadoDetailDTO> list = new ArrayList();
+        List<EmpleadoDetailDTO> list = new ArrayList<EmpleadoDetailDTO>();
         for (EmpleadoEntity entity : empleados)
         {
             list.add( new EmpleadoDetailDTO(entity));

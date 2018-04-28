@@ -57,7 +57,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
     }
     /**
      * Establece el saldo en la billetera.
-     * @param pSaldo .
+     * @param pSaldo.
      */
     public void setSaldo(double pSaldo){
         this.saldo = pSaldo;
@@ -74,7 +74,7 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      * @param pPuntos puntos de fidelidad.
      */
     public void setPuntosFidelidad(Integer pPuntos){
-        this.puntosDeFidelidad = pPuntos;
+        this.puntosDeFidelidad= puntosDeFidelidad + pPuntos;
     }
     
     /**

@@ -1,0 +1,343 @@
+{
+	"id": "22553735-1d3c-41d1-a8a7-0e4a8af7e337",
+	"name": "pago",
+	"allTests": [],
+	"timestamp": "2018-03-15T18:02:09.220Z",
+	"collection_id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "no-environment",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
+		"name": "pago",
+		"description": "",
+		"order": [
+			"b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"90b90c61-01e2-a2d9-2234-d969405ed202",
+			"a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"7ee0dc78-3037-255a-6dad-f0162f27f386"
+		],
+		"folders": [],
+		"folders_order": [],
+		"timestamp": 0,
+		"synced": true,
+		"remote_id": "0",
+		"owner": "3682665",
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": null,
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": "2018-03-05T19:56:56.000Z",
+		"updatedAt": 1520791403185,
+		"write": true,
+		"published": false,
+		"favorite": true,
+		"permissions": {},
+		"syncedPermissions": {},
+		"events": null,
+		"variables": [],
+		"auth": null
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"key": "new_id",
+			"value": "16",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "new_id_e",
+			"value": "1",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "new_id_b",
+			"value": "1",
+			"enabled": true,
+			"type": "text"
+		}
+	],
+	"results": [
+		{
+			"name": "create pago",
+			"id": "b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"110"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "110",
+			"totalRequestTime": "110",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener todos los pagos",
+			"id": "90b90c61-01e2-a2d9-2234-d969405ed202",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"authors count": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"authors count": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"33"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"authors count": true
+				}
+			],
+			"time": "33",
+			"totalRequestTime": "33",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener un pago",
+			"id": "a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"47"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "47",
+			"totalRequestTime": "47",
+			"iterationResults": {}
+		},
+		{
+			"name": "borrar un pago",
+			"id": "30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"41"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			],
+			"time": "41",
+			"totalRequestTime": "41",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update",
+			"id": "7ee0dc78-3037-255a-6dad-f0162f27f386",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"46"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "46",
+			"totalRequestTime": "46",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 5,
+	"totalFail": 0,
+	"totalTime": 277,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "create pago",
+			"id": "b6382f15-36e8-9207-54b1-6ef45f312c12",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"time": "2018-03-15T18:02:09.220Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener todos los pagos",
+			"id": "90b90c61-01e2-a2d9-2234-d969405ed202",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos",
+			"time": "2018-03-15T18:02:09.220Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"authors count": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener un pago",
+			"id": "a8307ac7-99d5-be0c-1179-8706747abc7b",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "borrar un pago",
+			"id": "30b4a824-2a3a-511a-5928-c86ba72f1afb",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update",
+			"id": "7ee0dc78-3037-255a-6dad-f0162f27f386",
+			"url": "http://localhost:8080/s3_manda2-web/api/pagos/16",
+			"time": "2018-03-15T18:02:09.220Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}

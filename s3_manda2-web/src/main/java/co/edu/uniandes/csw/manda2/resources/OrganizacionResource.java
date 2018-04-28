@@ -53,7 +53,7 @@ public class OrganizacionResource {
      * 200 OK Devuelve todos los organizacións de la aplicacion.</code>
      * </pre>
      *
-     * @return JSONArray {@link OrganizacionDetailDTO} - Los servicios
+     * @return JSONArray {@link OrganizacionDTO} - Los servicios
      * encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
@@ -84,7 +84,7 @@ public class OrganizacionResource {
      *
      * @param id Identificador del organización de tipo organización que se está
      * buscando. Este debe ser una cadena de dígitos.
-     * @return JSON {@link OrganizacionDetailDTO} - El organización buscada
+     * @return JSON {@link OrganizacionDTO} - El organización buscada
      */
     @GET
     public List<OrganizacionDTO> getorganizacionBusquedas() {

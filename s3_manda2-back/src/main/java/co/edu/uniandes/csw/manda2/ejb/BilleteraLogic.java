@@ -79,10 +79,10 @@ public class BilleteraLogic {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
 
-//         if(getBilletera(entity.getId())!= null)
-//        {
-//            throw new BusinessLogicException("No pueden existir dos billeteras con el mismo id");
-//        }
+         if(getBilletera(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos billeteras con el mismo id");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de la billetera");
         return entity;

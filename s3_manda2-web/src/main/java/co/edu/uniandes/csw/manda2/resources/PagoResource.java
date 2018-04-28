@@ -79,8 +79,8 @@ public class PagoResource {
      * @return JSONArray {@link PagoDTO} - Los pagos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<PagoDTO> getPagos(){
-        return listPagoEntityDTO (pagoLogic.getPagos());
+    public List<PagoDetailDTO> getPagos(){
+        return listPagoEntityDetailDTO (pagoLogic.getPagos());
     }
     
     
@@ -164,16 +164,11 @@ public class PagoResource {
         }
         pagoLogic.deletePago(id);
     }
-//    @POST
-//    @Path( "{idS: \\d+}" )
-//    public PagoDTO pagarServicio( @PathParam( "idS" ) Long idS, PagoDetailDTO dto )
-//    {
-//        return new PagoDTO( pagoLogic.createPago( idS, dto.toEntity() ));
-//    }
-    private List<PagoDTO> listPagoEntityDTO(List<PagoEntity> pagos) {
-        List<PagoDTO> list = new ArrayList();
+
+    private List<PagoDetailDTO> listPagoEntityDetailDTO(List<PagoEntity> pagos) {
+        List<PagoDetailDTO> list = new ArrayList<>();
         for (PagoEntity entity : pagos) {
-            list.add(new PagoDTO(entity));
+            list.add(new PagoDetailDTO(entity));
         }
         return list;
     }

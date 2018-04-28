@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -70,7 +69,7 @@ public class ServicioEntity extends BaseEntity{
      */
     protected String descripcion;
     
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
     @PodamExclude
     private PagoEntity pago;
     

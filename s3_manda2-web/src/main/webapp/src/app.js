@@ -13,10 +13,9 @@
         'vueltaModule',
         'paypalModule',
         'pseModule',
-        'tarjetacreditoModule',
-        'pagoModulo',
-        'billeteraModulo',
-        'entregaModule'
+        'reservasModule',
+        'articulosModule',
+        'tarjetacreditoModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
