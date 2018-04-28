@@ -56,6 +56,8 @@ public class ArticuloDTO {
         if (articulo != null) {
             this.id = articulo.getId();
             this.nombreArticulo = articulo.getNombreArticulo();
+            this.precio = articulo.getPrecio();
+            this.rutaImagen = articulo.getRutaImagen();
         }
 
     }
@@ -155,6 +157,8 @@ public class ArticuloDTO {
         ArticuloEntity entity = new ArticuloEntity();
         entity.setId(this.id);
         entity.setNombreArticulo(this.nombreArticulo);
+        entity.setPrecio(this.precio);
+        entity.setRutaImagen(this.rutaImagen);
         return entity;
     }
 }
