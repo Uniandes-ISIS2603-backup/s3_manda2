@@ -5,6 +5,12 @@
     <hr>
     <div class = "card">
         <form ng-submit ="createReclamo()" name="reclamo">
+             <div class="form-group row">
+
+                <label for="reclamoId" class="col-sm-2">Id</label>
+                <input id="reclamoId" required ng-model="reclamoId" class="col-sm-6"/>
+
+            </div>
             <div class="form-group row">
 
                 <label for="reclamoNumero" class="col-sm-2">Numero</label>
