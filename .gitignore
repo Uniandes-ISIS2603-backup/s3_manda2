@@ -28,12 +28,7 @@ s3_manda2-web/target/jaxrs-analyzer/swagger\.json
 *.lst
 /s3_manda2-web/target/
 /target/
-<<<<<<< HEAD
-/s3_manda2-web/src/main/webapp/bower_components/
-=======
-<<<<<<< HEAD
-/s3_manda2-web/src/main/webapp/bower_components/
-=======
+/.idea
+*.iml
 /src/main/webapp/bower_components/
->>>>>>> fd2a0a4b9ab8b7bac0da8a7ff3fa892386e4db60
->>>>>>> 154c9fdeccfde9f4900739ef7e8a0eb260c77134
+

@@ -24,6 +24,8 @@ public class PagoDetailDTO extends PagoDTO {
      * Medio de pago para realizar la transaccion
      */
     private MedioPagoDTO medioPago;
+
+    private ClienteDTO cliente;
     
     /**
      * Constructor para transformar un Entity a un DTO
@@ -37,7 +39,15 @@ public class PagoDetailDTO extends PagoDTO {
          if(entity !=  null){
              if(entity.getMedioPago()!= null){
                  this.medioPago = new MedioPagoDTO(entity.getMedioPago());
-             }         
+             }
+             if(entity.getServicio()!= null){
+                 this.servicio = new ServicioDTO(entity.getServicio());
+
+             }
+             if(entity.getCliente()!= null){
+                 this.cliente = new ClienteDTO(entity.getCliente());
+
+             }
          }
         
         
@@ -61,7 +71,13 @@ public class PagoDetailDTO extends PagoDTO {
     public void setServicio(ServicioDTO pServicio){
         this.servicio = pServicio;
     }
-    
+    public ClienteDTO getCliente(){
+        return cliente;
+    }
+
+    public void setCliente(ClienteDTO pCliente){
+        this.cliente = pCliente;
+    }
     /**
      * Retorna el medio de pago con el que se realiza el pago.
      * @return Medio de pago con el que se realiza el pago.
@@ -76,6 +92,8 @@ public class PagoDetailDTO extends PagoDTO {
     public void setMedioPago(MedioPagoDTO pMedioPago){
         this.medioPago = pMedioPago;
     }
+
+
      /**
      * Transformar un DTO a un Entity
      *
@@ -86,6 +104,12 @@ public class PagoDetailDTO extends PagoDTO {
         PagoEntity pagoE = super.toEntity();
         if (medioPago != null) {
             pagoE.setMedioPago(medioPago.toEntity());
+        }
+        if (servicio != null) {
+            pagoE.setServicio(servicio.toEntity());
+        }
+        if (cliente != null) {
+            pagoE.setCliente(cliente.toEntity());
         }
         return pagoE;
     }

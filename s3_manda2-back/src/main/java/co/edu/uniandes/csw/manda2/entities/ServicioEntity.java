@@ -70,7 +70,7 @@ public class ServicioEntity extends BaseEntity{
      */
     protected String descripcion;
     
-    @OneToOne(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @PodamExclude
     private PagoEntity pago;
     

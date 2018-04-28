@@ -12,7 +12,7 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  *
  * @author da.ramos
  */
-public abstract class ServicioDTO {
+public class ServicioDTO {
 
     /**
      * Id del objeto

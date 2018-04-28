@@ -1,43 +1,39 @@
-(function (ng){
+(function (ng) {
     let mod = ng.module('pagoModulo', ['ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider',
 
-        function($stateProvider, $urlRouterProvider){
+        function ($stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('pagosList');
 
-
-
             $stateProvider
                 .state('pagoList', {
-
-                    url:'/pagos',
-
+                    url: '/pagos',
                     views: {
                         'mainView': {
                             templateUrl: 'src/modules/pagos/pagos.list.html',
-                            controller: 'pagosCtrl'}
+                            controller: 'pagosCtrl'
+                        }
                     }
                 })
                 .state('pagosDetail', {
-                    url: 'pagos/{pago_id}',
+                    url: '/pagos/{pago_id}',
                     params: {
                         pago_id: null
                     },
                     views: {
                         'mainView': {
                             templateUrl: 'src/modules/pagos/pagos.detail.list.html',
-                           controller: 'pagosDetailCtrl'
+                            // controller: 'pagosDetailCtrl'
 
                         }
                     }
                 })
-                .state('createPago',{
-
-                    url:'/createPago',
+                .state('createPago', {
+                    url: '/createPago',
                     views: {
-                        'createView':{
+                        'mainView': {
                             templateUrl: 'src/modules/pagos/createPago.list.html',
                             controller: 'createPagoCtrl'
                         }
@@ -47,4 +43,3 @@
         }
     ]);
 })(window.angular);
-
