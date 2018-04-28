@@ -65,6 +65,7 @@ public class EmpleadoDTO extends UsuarioDTO{
     
     public EmpleadoDTO(EmpleadoEntity entity){
         super(entity);
+        if(entity != null){
         identificacion = entity.getIdentificacio();
         foto = entity.getFoto();
         EPS = entity.getEPS();
@@ -73,7 +74,7 @@ public class EmpleadoDTO extends UsuarioDTO{
     }
     //METODOS
      /**
-     * retorna la identificacion del empleado
+     * retorna la identificacion del em pleado
      * @return identificacion del empleado
      */
     public String getIdentificacion() {
