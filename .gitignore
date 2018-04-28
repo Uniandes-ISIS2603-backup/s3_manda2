@@ -32,3 +32,5 @@ s3_manda2-web/target/jaxrs-analyzer/swagger\.json
 *.iml
 /src/main/webapp/bower_components/
 
+
+s3_manda2-web/src/main/webapp/bower_components/
