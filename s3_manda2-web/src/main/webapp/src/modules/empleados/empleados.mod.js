@@ -71,7 +71,7 @@
                   }
               }
           });
-          $stateProvider.state('empleadoDelete', {
+          $stateProvider.state('borrarEmpleado', {
               url: 'delete/{empleadoId:int}',
               param: {
                   empleadoId: null
