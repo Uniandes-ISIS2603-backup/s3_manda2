@@ -23,7 +23,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    private Long id;
+    protected Long id;
     
     private OrganizacionEntity organizacion;
     /**
@@ -117,4 +117,39 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     {
         this.desplazamiento=desplazamiento;
     }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public OrganizacionEntity getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(OrganizacionEntity organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    public Double getCostoDeTransporte() {
+        return costoDeTransporte;
+    }
+
+    public void setCostoDeTransporte(Double costoDeTransporte) {
+        this.costoDeTransporte = costoDeTransporte;
+    }
+
+    public Double getCostoDeDuracion() {
+        return costoDeDuracion;
+    }
+
+    public void setCostoDeDuracion(Double costoDeDuracion) {
+        this.costoDeDuracion = costoDeDuracion;
+    }
+
 }
