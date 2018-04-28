@@ -5,8 +5,6 @@
 
         function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('pagosList');
-
             $stateProvider
                 .state('pagoList', {
                     url: '/pagos',
