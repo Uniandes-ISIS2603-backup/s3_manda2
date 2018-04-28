@@ -88,7 +88,7 @@ public class PagoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from PagoEntity").executeUpdate();
+        em.createQuery("delete from EditorialEntity").executeUpdate();
     }
 
     /**

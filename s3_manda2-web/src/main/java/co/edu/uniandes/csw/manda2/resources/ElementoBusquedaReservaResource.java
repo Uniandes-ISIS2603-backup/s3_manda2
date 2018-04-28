@@ -103,7 +103,7 @@ public class ElementoBusquedaReservaResource {
      * 412 Precodition Failed: Ya existe el elementoBusqueda.
      * </code>
      * </pre>
-     * @param ElementoBusquedas el elemento de la busqueda.
+     * @param elementoBusquedas el elemento de la busqueda.
      * @return JSON {@link ElementoBusquedaReservaDTO} - El elemetoBusqueda guardado con el atributo id autogenerado.
      */
     @POST
@@ -124,7 +124,7 @@ public class ElementoBusquedaReservaResource {
      * </code> 
      * </pre>
      * @param id Identificador del elemetoBusqueda que se desea actualizar.Este debe ser una cadena de dígitos.
-     * @param ElementoBusqueda {@link ElementoBusquedaReservaDTO} El elemetoBusqueda que se desea guardar.
+     * @param elemento {@link ElementoBusquedaReservaDTO} El elemetoBusqueda que se desea guardar.
      * @return JSON {@link ElementoBusquedaReservaDTO} - El elemetoBusqueda guardado.
      */
     @PUT

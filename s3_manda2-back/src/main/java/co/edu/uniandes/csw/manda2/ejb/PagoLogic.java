@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.manda2.ejb;
 
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.PagoPersistence;
 import java.util.Date;
@@ -79,11 +78,18 @@ public class PagoLogic {
     public PagoEntity createPago(PagoEntity entity) throws BusinessLogicException {
 
         LOGGER.info("Inicia proceso de creación del pago");
-
+//        if (!validateNombreCliente(entity.getCliente().getNombre())) {
+//            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
+//        } else
             if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
             throw new BusinessLogicException("El estaod del pago no puede ser vacio");
+        }
+
+         if(getPago(entity.getId())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos pagos con el mismo id");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del pago");
@@ -157,13 +163,4 @@ public class PagoLogic {
     private boolean validateEstado(String estado) {
         return (estado != null && !estado.isEmpty());
     }
-    public PagoEntity createPago( Long idS, PagoEntity ent )
-    {
-        ServicioEntity s = new ServicioEntity();
-        s.setId( idS );
-        ent.setServicio( s );
-        persistence.create( ent );
-        return ent;
-    }
-
 }

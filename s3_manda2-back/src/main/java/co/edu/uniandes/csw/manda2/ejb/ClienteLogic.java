@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.manda2.ejb;
 import co.edu.uniandes.csw.manda2.entities.ClienteEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ClientePersistence;
-import static java.lang.Math.toIntExact;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,9 +93,7 @@ public class ClienteLogic {
         if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())) {
             throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
         }
-        int ant = toIntExact(id);
-        int desp = toIntExact(entity.getId());
-        if(ant!= desp)
+        if(id!= entity.getId())
         {
             throw new BusinessLogicException("No se puede cambiar el id del cliente");
         }
