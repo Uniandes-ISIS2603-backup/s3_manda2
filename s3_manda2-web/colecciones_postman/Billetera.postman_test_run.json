@@ -1,83 +1,148 @@
 {
-	"id": "bd73ba4b-c071-499a-a9af-eb339670f744",
-	"name": "Billetera",
-	"allTests": [],
-	"timestamp": "2018-03-15T18:50:23.026Z",
-	"collection_id": "a54b3aa2-be59-9edb-18c0-5a9cc48ddb3a",
-	"folder_id": 0,
-	"target_type": "collection",
-	"environment_id": "no-environment",
-	"data": [],
-	"delay": 0,
-	"count": 1,
-	"collection": {
-		"id": "a54b3aa2-be59-9edb-18c0-5a9cc48ddb3a",
+	"variables": [],
+	"info": {
 		"name": "Billetera",
+		"_postman_id": "a54b3aa2-be59-9edb-18c0-5a9cc48ddb3a",
 		"description": "",
-		"order": [
-			"27ebf7dd-1853-1424-78cd-d12d6f0fcd83",
-			"d2b18a45-129a-cdc1-3909-fabbf97a75e1",
-			"42efd51c-60ed-d77b-a482-aac2638301b6",
-			"ee69a07f-b7bd-e8c3-78cc-4e20dd94a2b7",
-			"9188fda3-82ad-6e7d-5278-0e1c934b5b56"
-		],
-		"folders": [],
-		"folders_order": [],
-		"timestamp": 0,
-		"synced": true,
-		"remote_id": "0",
-		"owner": "3682665",
-		"sharedWithTeam": false,
-		"subscribed": false,
-		"remoteLink": "",
-		"remoteLinkUpdatedAt": null,
-		"public": false,
-		"createdAt": "2018-03-05T22:39:17.000Z",
-		"updatedAt": 1521137139806,
-		"write": true,
-		"published": false,
-		"favorite": false,
-		"permissions": {},
-		"syncedPermissions": {},
-		"events": [],
-		"variables": [],
-		"auth": null
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
-	"folder": null,
-	"environment": null,
-	"globals": [
-		{
-			"enabled": true,
-			"key": "new_id",
-			"type": "text",
-			"value": "15"
-		},
-		{
-			"enabled": true,
-			"key": "new_id_e",
-			"type": "text",
-			"value": "1"
-		},
-		{
-			"enabled": true,
-			"key": "new_id_b",
-			"type": "text",
-			"value": "1"
-		}
-	],
-	"results": [],
-	"totalPass": 0,
-	"totalFail": 0,
-	"totalTime": 0,
-	"lifecycle": "done",
-	"requests": [
+	"item": [
 		{
 			"name": "create billetera",
-			"id": "27ebf7dd-1853-1424-78cd-d12d6f0fcd83",
-			"url": "http://localhost:8080/s3_manda2-web/api/billeteras",
-			"time": "2018-03-15T18:50:23.026Z",
-			"testPassFailCounts": {}
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"saldo\": 3700,\n  \"puntosDeFidelidad\": 100,\n  \"medioPago\": []\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las billeteras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"authors count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una billetera",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "borrar una billetera",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras/{{new_id}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web/api/billeteras",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"1234\",\n  \"saldo\": 3700,\n  \"puntosFidelidad\": \"100\"\n}"
+				},
+				"description": null
+			},
+			"response": []
 		}
-	],
-	"synced": false
+	]
 }

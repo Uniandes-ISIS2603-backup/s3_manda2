@@ -4,31 +4,31 @@
     mod.config(['$stateProvider', '$urlRouterProvider',
 
         function($stateProvider, $urlRouterProvider){
-            $urlRouterProvider.otherwise('/pagos');
+
+            $urlRouterProvider.otherwise('pagosList');
+
 
 
             $stateProvider
                 .state('pagoList', {
+
                     url:'/pagos',
+
                     views: {
                         'mainView': {
                             templateUrl: 'src/modules/pagos/pagos.list.html',
                             controller: 'pagosCtrl'}
                     }
-
-
                 })
                 .state('pagosDetail', {
-
                     url: 'pagos/{pago_id}',
                     params: {
                         pago_id: null
                     },
-
                     views: {
-                        'detailView': {
+                        'mainView': {
                             templateUrl: 'src/modules/pagos/pagos.detail.list.html',
-                            controller: 'pagosDetailCtrl'
+                           controller: 'pagosDetailCtrl'
 
                         }
                     }
@@ -43,6 +43,7 @@
                         }
                     }
                 });
+
         }
     ]);
 })(window.angular);

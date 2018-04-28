@@ -7,7 +7,10 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
 import co.edu.uniandes.csw.manda2.entities.MedioPagoEntity;
+import co.edu.uniandes.csw.manda2.entities.PSEEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
+import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +49,17 @@ public class BilleteraDetailDTO extends BilleteraDTO {
               if (entity.getMedioPago() != null) {
                 this.medioPago = new ArrayList();
                 for (MedioPagoEntity entityMedio : entity.getMedioPago()) {
-                    medioPago.add(new MedioPagoDTO(entityMedio));
+                    if(entityMedio instanceof PayPalEntity) {
+                        medioPago.add(new PayPalDTO((PayPalEntity) entityMedio));
+                    }
+                    else if (entityMedio instanceof TarjetaCreditoEntity)
+                    {
+                        medioPago.add(new TarjetaCreditoDTO((TarjetaCreditoEntity) entityMedio));
+                    }
+                    else if (entityMedio instanceof PSEEntity)
+                    {
+                        medioPago.add(new PSEDTO((PSEEntity) entityMedio));
+                    }
                 }
             }
         }
