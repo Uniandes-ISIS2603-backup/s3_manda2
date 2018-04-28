@@ -16,14 +16,62 @@ import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
  *      "mensaje": string, 
  *      "numero": number,
  *      "id": number,
- *      "empleado": "EmpleadoDTO",
- *      "servicio": "ServicioDTO"  
+ *      "empleado": [
+ *          "nombre": string, 
+ *          "cedula": string,
+ *          "fechaingreso": date,
+ *          "calificacion": double,
+ *          "id": number,
+ *          "identificacion": string,
+ *          "foto": string,
+ *          "eps: string],
+ *      "servicio": [ 
+ *          "costoDeDuracion": Double,
+ *          "costoDeTransporte": Double,
+ *          "porcentajeExtra": Double,
+ *          "pago": PagoDTO,
+ *          "cliente": ClienteDTO,
+ *          "empleado": Empleado DTO,
+ *          "id": Long,
+ *          "nombre": String,
+ *          "costo": Double,
+ *          "puntoDeEncuentro": String,
+ *          "puntoDeRealizacion": String,
+ *          "puntoDeRealizacion": String,
+ *          "exitoDiligencia": Boolean,
+ *          "calification": Double,
+ *          "descripcion": String,]
  * }
  * </pre>
  * Por ejemplo reclamo se representa así:<br>
  * 
  * <pre>
- *   git
+ *      "mensaje": "El servicio se demoro mucho", 
+ *      "numero": 1,
+ *      "id": 1
+ *      "empleado" :[
+ *          "nombre": "nicolas_caceres", 
+ *          "cedula": "1014563321",
+ *          "fechaingreso": date,
+ *          "calificacion": 5.0,
+ *          "id": 001,
+ *          "identificacion": "nicolascaceres001",
+ *          "foto": "nicolascaceres.jpg",
+ *          "eps: "millossaludprepagada"],
+ *      "servicio" :[ 
+ *          "costoDeTransporte": 10.000,
+ *          "pago": PagoDTO,
+ *          "cliente": pedro,
+ *          "empleado": Empleado1,
+ *          "id": 345,
+ *          "nombre": compra1,
+ *          "costo": 30.000,
+ *          "puntoDeEncuentro":calle 44,
+ *          "puntoDeRealizacion": Exito ,
+ *          "exitoDiligencia": true,
+ *          "calification": 5,
+ *          "descripcion": estuvo bien ]
+ *      
  * </pre>
  * @author n.bello
  */

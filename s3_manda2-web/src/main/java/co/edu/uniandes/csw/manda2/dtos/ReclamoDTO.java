@@ -24,8 +24,8 @@ import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
  * <pre>
  *   {
  *      "mensaje": "El servicio se demoro mucho", 
- *      "numero": 001,
- *      "id": 001
+ *      "numero": 1,
+ *      "id": 1
  *   }
  * </pre>
  * @author n.bello

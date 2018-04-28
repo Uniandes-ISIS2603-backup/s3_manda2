@@ -5,14 +5,14 @@
                   <img src="data/images/trabajador.jpg"  class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
               </div>
               <div>  
-                  <ul ng-repeat="empleado in empleadoDetailRecords">
+                  <ul>
                       <br>
-                    <li >Nombre: {{empleado.nombre}}</li>  
-                    <li >Cedula: {{empleado.cedula}}</li>
-                    <li >Fecha de Ingreso: {{empleado.fechaDeIngreso}}</li>
-                    <li >Calificacion: {{empleado.calificacion}}</li>
-                    <li >Identificacion: {{empleado.identificacion}}</li>
-                    <li >EPS: {{empleado.eps}}</li>
+                    <li >Nombre: {{empleadoseleccionado.nombre}}</li>  
+                    <li >Cedula: {{empleadoseleccionado.cedula}}</li>
+                    <li >Fecha de Ingreso: {{empleadoseleccionado.fechaDeIngreso}}</li>
+                    <li >Calificacion: {{empleadoseleccionado.calificacion}}</li>
+                    <li >Identificacion: {{empleadoseleccionado.identificacion}}</li>
+                    <li >EPS: {{empleadoseleccionado.eps}}</li>
                   </ul>
               </div>
           </div>

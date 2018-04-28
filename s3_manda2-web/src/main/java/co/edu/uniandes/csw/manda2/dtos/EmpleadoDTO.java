@@ -16,7 +16,7 @@ import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
  *      "nombre": string, 
  *      "cedula": string,
  *      "fechaingreso": date,
- *      "calificacion": number,
+ *      "calificacion": double,
  *      "id": number,
  *      "identificacion": string,
  *      "foto": string,

@@ -47,5 +47,16 @@
                 }
 
             });
+            $stateProvider.state('reclamoCreate', {
+                url: '/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/reclamo.create.html',
+                        controller: 'reclamoCreateCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+
+            });
         }]);
 })(window.angular);

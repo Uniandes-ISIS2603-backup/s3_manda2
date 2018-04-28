@@ -6,8 +6,6 @@
             
             var basePath = 'src/modules/empleados/';
             
-            $urlRouterProvider.otherwise("/empleadosList");
-            
             $stateProvider.state('empleadosList', {
                 
                 url: '/empleados/list',
@@ -20,7 +18,10 @@
                 }
             });
             $stateProvider.state('empleadoDetail', {
-                url: '/empleados/list/detail',
+                url: 'empleados/{empleadoId: int}/detail',
+                param: {
+                    empleadoId:null
+                },
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'empleados.list2.html',
@@ -36,7 +37,7 @@
 
             });
             $stateProvider.state('empleadoDetail2', {
-                url: '/empleados/list/detail',
+                url: 'empleados/datospersonales',
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'empleado.detail.html',
@@ -59,5 +60,28 @@
                 }
 
             });
+          $stateProvider.state('empleadoCreate', {
+              url:'/create',
+              views:{
+                  'mainView':{
+                      templateUrl: basePath + 'create/empleados.create.html',
+                      controller: 'empleadoNewCtrl',
+                        
+                  }
+              }
+          });
+          $stateProvider.state('empleadoDelete', {
+              url: 'delete/{empleadoId:int}',
+              param: {
+                  empleadoId: null
+              },
+              views:{
+                  'mainView':{
+                      templateUrl: basePath + 'delete/empleado.delete.html',
+                      controller: 'empleadoDeleteCtrl',
+                      controllerAs: 'ctrl'
+                  }
+              }
+          });
         }]);
 })(window.angular);
