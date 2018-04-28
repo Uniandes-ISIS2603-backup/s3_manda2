@@ -18,7 +18,7 @@
         <!-- Inicio -->
         <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
 
-        <<<<<<< HEAD
+
         <!-- Billetera -->
         <script src="src/modules/billeteras/billeteras.mod.js" type="text/javascript"></script>
         <script src="src/modules/billeteras/billeteras.ctrl.js" type="text/javascript"></script>
@@ -28,8 +28,6 @@
         <script src="src/modules/pagos/pagos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/pagos/pagos.detail.ctrl.js" type="text/javascript"></script>
 
-        =======
-        >>>>>>> master
         <!-- PayPal -->
         <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
         <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
@@ -154,84 +152,90 @@
                 <div class="container-fluid" ui-view="mainView"></div>
                 <div class="container-fluid" ui-view="detailView"></div>
                 <hr>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="thumbnail" ui-sref="vueltacondemoraList">
-                                <img src="data/images/oficina_nueva.png" alt=" oficina" width="200" height="200">
-                                <div class="caption">
-                                    <h1>Vueltas con Demora en Oficina</h1>
-                                    <p>Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
-                                </div>
+            </div>
+            <h1> Nuestros Servicios </h1>
+            <div class="container">
+                <hr>
+                <div class="row" style ="center">
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="vueltacondemoraList">
+                            <img src="data/images/oficina_nueva.png" alt=" oficina" width="200" height="200">
+                            <div class="caption">
+                                <h1>Vueltas con Demora en Oficina</h1>
+                                <p>Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="thumbnail" ui-sref="comprastiendaList">
-                                <img src="data/images/carrito_mercado.png" alt="tienda" width="200" height="200">
-                                <div class="caption">
-                                    <h1>Compras en Tienda</h1>
-                                    <p>Vamos a la tienda que usted nos diga y compramos lo que necesite</p>
-                                </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="comprastiendaList">
+                            <img src="data/images/carrito_mercado.png" alt="tienda" width="200" height="200">
+                            <div class="caption">
+                                <h1>Compras en Tienda</h1>
+                                <p>Vamos a la tienda que usted nos diga y compramos lo que necesite</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="thumbnail" ui-sref="entregasList">
-                                <img src="data/images/documentos.png" alt=" documentos" width="200" height="200">
-                                <div class="caption">
-                                    <h1>Entregas de documentos</h1>
-                                    <p>Recogemos y entregamos los documentos que necesite</p>
-                                </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="entregasList">
+                            <img src="data/images/documentos.png" alt=" documentos" width="200" height="200">
+                            <div class="caption">
+                                <h1>Entregas de documentos</h1>
+                                <p>Recogemos y entregamos los documentos que necesite</p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="thumbnail" ui-sref="#">
-                                <img src="data/images/reservas.png" alt=" reservas" width="200" height="200">
-                                <div class="caption">
-                                    <h1>Reservas y Organizacion</h1>
-                                    <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
-                                </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="#">
+                            <img src="data/images/reservas.png" alt=" reservas" width="200" height="200">
+                            <div class="caption">
+                                <h1>Reservas y Organizacion</h1>
+                                <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="container-fluid" ui-view="despliegueServicios"></div>
+            
+            <section class="well">
                 <hr>
-                <div class="container-fluid" ui-view="despliegueServicios"></div>
+                <h2 class="text-center">Nuestros Empleados</h2>
                 <hr>
-                <section class="well">
-                    <h2 class="text-center">Nuestros Empleados</h2>
-                    <hr>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-lg-12">
+                            <div class="mx-auto">
                                 <img src="data/images/actual.png" alt=" actual" style="width:100%">
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
 
-                <hr>
+            <hr>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <h2>Sobre Nosotros</h2>
-                            <address>
-                                <strong>Manda2, Inc.</strong><br>
-                                Universidad de los Andes,<br>
-                                Bogota, Colombia<br>
-                                <abbr title="Phone">P:</abbr> (123) 456-7890
-                            </address>
-                        </div>
-                        <div class="col-lg-4 col-sm-12">
-                            <h2>Nuestro Trabajo</h2>
-                            <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <h2>Sobre Nosotros</h2>
+                        <address>
+                            <strong>Manda2, Inc.</strong><br>
+                            Universidad de los Andes,<br>
+                            Bogota, Colombia<br>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <h2>Nuestro Trabajo</h2>
+                        <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
                     </div>
                 </div>
-                <hr>
             </div>
+            <hr>
+
         </div>
         <div class="bg-dark text-white">
             <footer class="text-center" >
