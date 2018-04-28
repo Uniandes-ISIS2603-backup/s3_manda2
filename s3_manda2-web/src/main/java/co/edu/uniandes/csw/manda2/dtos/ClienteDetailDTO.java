@@ -137,8 +137,8 @@ public class ClienteDetailDTO extends ClienteDTO {
     public ClienteDetailDTO(ClienteEntity entity) {
 
         super(entity);
-        
-        if (entity != null) {
+        if (entity != null) {        
+
             //Hay errores en los constructores a entities de las diferentes relaciones que tiene cliente, por lo que se deja comentado hasta el ciclo 3
             /**
             if (entity.getBilletera() != null) {

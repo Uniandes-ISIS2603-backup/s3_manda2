@@ -47,23 +47,8 @@ public class BilleteraDTO {
     private Long id;
     
      /**
-     * Crea una billetera.
-     * @param id id  de la billetera
-     * @param saldo saldo en la billetera
-     * @param puntosFidelidad puntos de fidelidad acumulados
+     * Crea una billetera
      */
-//    public BilleteraDTO(Double saldo, Integer puntosFidelidad){
-//        this.puntosDeFidelidad = puntosFidelidad;
-//        this.saldo = saldo;
-//        
-//    }
-//    /**
-//     * Constructor por defecto
-//     */
-//    public BilleteraDTO(){
-//     this(0D,0);
-//    
-//    }
     public BilleteraDTO(){
         
     }
@@ -88,48 +73,31 @@ public class BilleteraDTO {
      * Retorna el id de la billetera.
      * @return id de la billetera.
      */
-    
-    public Long getId(){
-        return id;
-    }
-    /**
-     * Establece el id de la billetera.
-     * @param pSaldo.
-     */
-    public void setId(Long id){
-        this.id = id;
-    }
-    /**
-     * Retorna el saldo en la billetera.
-     * @return saldo en la billetera.
-     */
-    
-    public Double getSaldo(){
+    public Double getSaldo() {
         return saldo;
     }
-    /**
-     * Establece el saldo en la billetera.
-     * @param pSaldo.
-     */
-    public void setSaldo(double pSaldo){
-        this.saldo = pSaldo;
-    }
-    /**
-     * Retorna los puntos de fidelidad.
-     * @return puntos de fidelidad.
-     */
-    public Integer getPuntosFidelidad(){
-        return puntosDeFidelidad;
-    }
-    /**
-     * Establece los puntos de fidelidad.
-     * @param pPuntos puntos de fidelidad.
-     */
-    public void setPuntosFidelidad(Integer pPuntos){
-        this.puntosDeFidelidad= pPuntos;
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
     }
 
-     /**
+    public Integer getPuntosDeFidelidad() {
+        return puntosDeFidelidad;
+    }
+
+    public void setPuntosDeFidelidad(Integer puntosDeFidelidad) {
+        this.puntosDeFidelidad = puntosDeFidelidad;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
      * Convertir DTO a Entity
      *
      * @return Un Entity con los valores del DTO

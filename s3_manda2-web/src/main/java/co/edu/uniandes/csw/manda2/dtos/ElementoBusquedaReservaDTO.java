@@ -46,6 +46,7 @@ public class  ElementoBusquedaReservaDTO extends OrganizacionDTO
         super();
         if(entity!= null)
         {
+        
         this.id = entity.getId();
         this.nombre= entity.getNombreElementoBusquedaReserva();
         }

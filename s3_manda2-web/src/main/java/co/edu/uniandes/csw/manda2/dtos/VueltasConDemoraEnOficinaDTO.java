@@ -75,7 +75,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         
         
     public VueltasConDemoraEnOficinaDTO(){
-       
+       super ();
     }
 
     public VueltasConDemoraEnOficinaDTO(VueltasConDemoraEnOficinaEntity entityServicio) {
@@ -83,6 +83,13 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         if(entityServicio!= null)
         {
         this.id = entityServicio.getId();
+        this.calificacion = entityServicio.getCalificacion();
+        this.costo = entityServicio.getCosto();
+        this.descripcion = entityServicio.getDescripcion();
+        this.estado = entityServicio.getEstado();
+        this.nombre = entityServicio.getNombre();
+        this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
+        this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
         this.costoDuracion=  entityServicio.getCostoDuracion();
         this.costoDeTransporte=  entityServicio.getCostoDeTransporte();
         }

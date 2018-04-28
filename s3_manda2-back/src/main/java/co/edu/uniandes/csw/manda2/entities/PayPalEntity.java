@@ -5,11 +5,12 @@ import javax.persistence.Entity;
 
 /**
  * Clase para la serialización del PayPal.
+ *
  * @author da.ramos
  */
 @Entity
-public class PayPalEntity extends MedioPagoEntity{
-    
+public class PayPalEntity extends MedioPagoEntity {
+
     /**
      * Link asociado con la cuenta de PayPal.
      */
@@ -17,6 +18,7 @@ public class PayPalEntity extends MedioPagoEntity{
 
     /**
      * Retorna el link.
+     *
      * @return link del PayPal.
      */
     public String getLinkPayPal() {
@@ -25,6 +27,7 @@ public class PayPalEntity extends MedioPagoEntity{
 
     /**
      * Asigna el link del PayPal al valor dado por parámetro.
+     *
      * @param linkPayPal nuevo link del PayPal.
      */
     public void setLinkPayPal(String linkPayPal) {
@@ -45,6 +48,11 @@ public class PayPalEntity extends MedioPagoEntity{
         final PayPalEntity other = (PayPalEntity) obj;
         return true;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.linkPayPal);
+        return hash;
+    }
 }

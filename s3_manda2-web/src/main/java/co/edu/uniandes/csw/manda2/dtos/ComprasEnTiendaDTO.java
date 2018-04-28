@@ -58,35 +58,23 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     // ComprasenTienda y ComprasenTienda tiene un atributo dela clase articulo
 
     public ComprasEnTiendaDTO() {
-        this(0D, null, null, null, 0L, "", 0D, "", "", false, 0D, "");
-    }
+            super();
+         }
 
-    /**
-     * Constructor
-     *
-     * @param costoDeTransporte costo relacionado con le costo del transporte
-     * @param pago el pago que el cliente realiza por el servicio
-     * @param cliente el cliente que obtiene el servicio
-     * @param empleado empleado que realiza el servicio
-     * @param id id del servicio
-     * @param nombre nombre del servicio
-     * @param costo costo del servicio
-     * @param puntoDeEncuentro punto de encuentro del cliente y empleado
-     * @param puntoDeRealizacion punto de realizacion del servicio
-     * @param exitoDiligencia indica si la diligencia tuvo o no éxito
-     * @param calificacion calificación del servicio.
-     * @param descripcion descripción del servicio.
-     */
-    public ComprasEnTiendaDTO(Double costoDeTransporte, PagoDTO pago, ClienteDTO cliente, EmpleadoDTO empleado, Long id, String nombre, Double costo, String puntoDeEncuentro, String puntoDeRealizacion, Boolean exitoDiligencia, Double calificacion, String descripcion) {
-        //super(pago, cliente, empleado, id, nombre, costo, puntoDeEncuentro, puntoDeRealizacion, exitoDiligencia, calificacion, descripcion);
-        this.costoDeTransporte = costoDeTransporte;
-    }
+    
 
     public ComprasEnTiendaDTO(ComprasEnTiendaEntity entityServicio) {
 
         super();
         if (entityServicio != null) {
             this.id = entityServicio.getId();
+        this.calificacion = entityServicio.getCalificacion();
+        this.costo = entityServicio.getCosto();
+        this.descripcion = entityServicio.getDescripcion();
+        this.estado = entityServicio.getEstado();
+        this.nombre = entityServicio.getNombre();
+        this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
+        this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
             this.costoDeTransporte = entityServicio.getCostoDeTransporte();
         }
     }
