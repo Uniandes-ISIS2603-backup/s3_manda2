@@ -6,11 +6,9 @@
             
             var basePath = 'src/modules/reclamos/';
             
-            $urlRouterProvider.otherwise("/reclamosList");
-            
             $stateProvider.state('reclamosList', {
                 
-                url: '/reclamos/list',
+                url: '/reclamos',
                  views: {
                     'mainView': {
                         templateUrl: basePath + 'reclamos.list.html',
@@ -20,7 +18,10 @@
                 }
             });
             $stateProvider.state('reclamoDetail', {
-                url: '/reclamos/list/detail',
+                url: '/{reclamoId:int}/detail',
+                param: {
+                    reclamoId:null
+                },
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'reclamos.list.html',
@@ -36,11 +37,22 @@
 
             });
             $stateProvider.state('reclamoDetail2', {
-                url: '/reclamos/list/detail',
+                url: '/datosReclamo',
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'reclamo.detail.html',
                         controller: 'reclamoDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+
+            });
+            $stateProvider.state('reclamoCreate', {
+                url: '/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/reclamo.create.html',
+                        controller: 'reclamoCreateCtrl',
                         controllerAs: 'ctrl'
                     }
                 }

@@ -1,0 +1,67 @@
+<div class = "container-fluid">
+    <div>
+        <h1>Ingrese la informacion del nuevo Empleado</h1>
+    </div>
+    <hr>
+    <div class = "card">
+        <form ng-submit ="createEmpleado()" name="empleado">
+            <div class="form-group row">
+
+                <label for="empleadoId" class="col-sm-2">Id:</label>
+                <input id="empleadoId" required ng-model="empleadoId" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoNombre" class="col-sm-2">Nombre:</label>
+                <input id="empleadoNombre" required ng-model="empleadoNombre" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoFechaIngreso" class="col-sm-2">FechaIngreso:</label>
+                <input id="empleadoFechaIngreso" required ng-model="empleadoFechaIngreso" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoCedula" class="col-sm-2">Cedula:</label>
+                <input id="empleadoCedula" required ng-model="empleadoCedula" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoCalificacion" class="col-sm-2">Calificacion:</label>
+                <input id="empleadoCalificacion" required ng-model="empleadoCalificacion" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoIdentificacion" class="col-sm-2">Identificacion:</label>
+                <input id="empleadoIdentificacion" required ng-model="empleadoIdentificacion" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="empleadoEPS" class="col-sm-2">EPS:</label>
+                <input id="empleadoEPS" required ng-model="empleadoEPS" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-sm-6" ng-if="!empleado.$valid">
+
+                    <div class="alert alert-warning" >
+                        <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="form-group row">
+                <div class="form-group col-sm-12">
+                    <input ng-show="empleado.$valid" ng-click="createEmpleado()" value="Save" class="btn btn-success"/>
+                    <a class="btn btn-info" ui-sref="empleadosList">Cancel</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -16,7 +16,7 @@ import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
  *      "nombre": string, 
  *      "cedula": string,
  *      "fechaingreso": date,
- *      "calificacion": number,
+ *      "calificacion": double,
  *      "id": number,
  *      "identificacion": string,
  *      "foto": string,
@@ -60,27 +60,16 @@ public class EmpleadoDTO extends UsuarioDTO{
      */
     public EmpleadoDTO()
     {
-        this("","","");
+       
     }
-    /**
-     *  Genera un empleado.
-     * @param pIdentificacion el numero de identificacion que se asigna al empleado
-     * @param pFoto la foto que se le asigna al usuario
-     * @param PEPS la EPS a la que esta afiliada el empleado
-     */
     
-    public EmpleadoDTO(String pIdentificacion, String pFoto, String PEPS)
-    {
-        super();
-        identificacion = pIdentificacion;
-        foto = pFoto;
-        EPS = PEPS;
-    }
     public EmpleadoDTO(EmpleadoEntity entity){
         super(entity);
         identificacion = entity.getIdentificacio();
         foto = entity.getFoto();
         EPS = entity.getEPS();
+        this.calificacion = entity.getCalificacion();
+        }
     }
     //METODOS
      /**
@@ -125,5 +114,17 @@ public class EmpleadoDTO extends UsuarioDTO{
     public void setEPS(String EPS) {
         this.EPS = EPS;
     }
-    
+    @Override
+    public EmpleadoEntity toEntity(){
+        EmpleadoEntity entity = new EmpleadoEntity();
+        entity.setId(this.id);
+        entity.setNombre(this.nombre);
+        entity.setCedula(this.cedula);
+        entity.setFechaIngreso(this.fechaIngreso);
+        entity.setIdentificacio(this.identificacion);
+        entity.setEPS(this.EPS);
+        entity.setFoto(this.foto);
+        entity.setCalificacion(this.calificacion);
+        return entity;
+    }
 }

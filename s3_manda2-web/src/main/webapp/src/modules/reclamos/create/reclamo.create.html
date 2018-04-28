@@ -1,0 +1,38 @@
+<div class = "container-fluid">
+    <div>
+        <h1>Ingrese la informacion del nuevo Reclamo</h1>
+    </div>
+    <hr>
+    <div class = "card">
+        <form ng-submit ="createReclamo()" name="reclamo">
+            <div class="form-group row">
+
+                <label for="reclamoNumero" class="col-sm-2">Numero</label>
+                <input id="reclamoNumero" required ng-model="reclamoNumero" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="reclamoMensaje" class="col-sm-2">Mensaje:</label>
+                <input id="reclamoMensaje" required ng-model="reclamoMensaje" class="col-sm-6"/>
+
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-sm-6" ng-if="!reclamo.$valid">
+
+                    <div class="alert alert-warning" >
+                        <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="form-group row">
+                <div class="form-group col-sm-12">
+                    <input ng-show="reclamo.$valid" ng-click="createReclamo()" value="Save" class="btn btn-success"/>
+                    <a class="btn btn-info" ui-sref="reclamosList">Cancel</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+

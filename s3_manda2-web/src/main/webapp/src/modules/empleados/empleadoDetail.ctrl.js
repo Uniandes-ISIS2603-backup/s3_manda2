@@ -1,11 +1,13 @@
 (function (ng) {
     var mod = ng.module("empleadoModule");
-    mod.constant("empleadoContext2", "api/empleados");
-    mod.controller('empleadoDetailCtrl', ['$scope', '$http', 'empleadoContext2',
-        function ($scope, $http, empleadoContext2) {
-            $http.get('data/empleadoDetail.json').then(function (response) {
-                $scope.empleadoDetailRecords = response.data;
-            });
+    mod.constant("empleadoContext", "api / empleados");
+    mod.controller('empleadoDetailCtrl', ['$scope', '$http', 'empleadoContext',
+        function ($scope, $http, empleadoContext, $state) {
+            if (($state.param.empleadoId !== undefined) && ($state.param.empleadoId !== null)) {
+                $http.get(empleadoContext + '/' + $state.param.empleadoId).then(function (response) {
+                    $scope.empleadoseleccionado = response.data;
+                });
+            }
         }
     ]);
 }
