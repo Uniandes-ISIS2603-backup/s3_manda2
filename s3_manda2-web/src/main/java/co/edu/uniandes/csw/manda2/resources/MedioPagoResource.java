@@ -166,7 +166,7 @@ public class MedioPagoResource {
     }
  
         private List<MedioPagoDTO> listMedioPagoEntityDTO(List<MedioPagoEntity> entityList) {
-        List<MedioPagoDTO> list = new ArrayList<>();
+        List<MedioPagoDTO> list = new ArrayList();
         for (MedioPagoEntity entity : entityList) {
             list.add(new MedioPagoDTO(entity));
         }

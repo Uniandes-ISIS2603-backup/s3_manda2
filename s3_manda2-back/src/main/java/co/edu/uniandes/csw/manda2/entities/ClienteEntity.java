@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,28 +36,28 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * Atributo que representa la billetera que tiene cada usuario.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "cliente")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private BilleteraEntity billetera;
     /**
      *  Atributo que modela una lista con todos los servicios contratados por un
      * usuario.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ServicioEntity> servicios;
     /**
      *  Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PagoEntity> pagos;
     /**
      * Atributo que modela una lista con todos los reclamos hechos por un
      * usuario.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ReclamoEntity> quejasYReclamos;
 
     //Metodos

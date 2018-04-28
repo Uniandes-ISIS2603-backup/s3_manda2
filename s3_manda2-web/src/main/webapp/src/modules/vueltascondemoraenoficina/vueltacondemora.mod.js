@@ -1,57 +1,43 @@
 (function (ng) {
     var mod = ng.module("vueltaModule", ['ui.router']);
-     mod.constant("vueltaContext", "data/vueltas.json");
+     mod.constant("vueltaContext", "api/vueltascondemoraenoficina");
    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/vueltascondemoraenoficina/';
             
              $stateProvider.state('vueltacondemoraList', {
                  url: '/vueltascondemoraenoficina',
                   views: {
-                      'mainView': { 
-                          templateUrl: basePath + 'vueltacondemora.list.html',
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'vueltascondemora.lista.html',
                           controller: 'vueltaCtrl',
                           controllerAs: 'ctrl'
                       }
                   }
              } )
-             $stateProvider.state('vueltacondemoraList2',{
-                  url: '/vueltascondemoraenoficina',
-                   views: { 
-                       'detailView': {
-                          templateUrl: basePath + 'vueltascondemora.list2.html',
-                          controller: 'vueltaCtrl',
-                          controllerAs: 'ctrl'
-                           
-                       }
-                   }
-             })
-              
-             $stateProvider.state('vueltacondemoraList3',{
-                  url: '/vueltascondemoraenoficina',
-                   views: { 
-                       'detailView': {
-                          templateUrl: basePath + 'vueltascondemora.list3.html',
-                          controller: 'vueltaCtrl',
-                          controllerAs: 'ctrl'
-                           
-                       }
-                   }
-             })
-                     
-             $stateProvider.state('vueltacondemoraLista',{
-                  url: '/vueltascondemoraenoficina/list',
-                   views: { 
-                       'mainView': {
-                          templateUrl: basePath + 'vueltascondemora.lista.html',
-                          controller: 'vueltaCtrl',
-                          controllerAs: 'ctrl'
-                           
-                       }
-                   }
-             }
-           );
+           .state('vueltacondemoraAgregar', {
+                 url: '/create',
+                  views: {
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'create/vueltacondemora.create.html',
+                          controller: 'vueltaCreateCtrl'
+                      }
+                  }
+             } )
+             .state('vueltacondemoraDelete', {
+                 url: '/delete/(idVuelta:int)',
+                 param: {
+                     idVuelta : null
+                 },
+                  views: {
+                      'despliegueServicios': { 
+                          templateUrl: basePath + 'delete/vueltacondemora.delete.html',
+                          controller: 'vueltaDeleteCtrl',
+                      }
+                  }
+             } )
+           ;
+             
          }    
    ]  );
 })(window.angular);
-   
-
+ 

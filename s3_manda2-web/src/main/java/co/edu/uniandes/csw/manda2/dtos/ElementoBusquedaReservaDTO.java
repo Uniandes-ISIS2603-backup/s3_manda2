@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
 import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
-import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 
 /**
  ** ElementoBusqudReservaDTO servicios de tipo reserva. Los DTO contienen las
@@ -36,37 +35,23 @@ import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
  * </pre>
  * @author cv.trujillo
  */
-public class  ElementoBusquedaReservaDTO
+public class  ElementoBusquedaReservaDTO extends OrganizacionDTO
 {
 
     public ElementoBusquedaReservaDTO(){
-
+ 
     }
-
-
-    public String getDatosBusqueda() {
-        return datosBusqueda;
-    }
-
-    public void setDatosBusqueda(String datosBusqueda) {
-        this.datosBusqueda = datosBusqueda;
-    }
-
-    public Boolean getExitosa() {
-        return exitosa;
-    }
-
+    
     public ElementoBusquedaReservaDTO(ElementoBusquedaReservaEntity entity) {
         super();
         if(entity!= null)
         {
-
+        
         this.id = entity.getId();
         this.nombre= entity.getNombreElementoBusquedaReserva();
         }
     }
-
-    private Long id;
+    
  
     /**
      * nombre del elemento de busqueda
@@ -141,16 +126,11 @@ public class  ElementoBusquedaReservaDTO
      *
      * @return Un Entity con los valores del DTO
      */
-
+    @Override
     public ElementoBusquedaReservaEntity toEntity() {
         ElementoBusquedaReservaEntity entity = new ElementoBusquedaReservaEntity();
         entity.setId(this.id);
         entity.setNombreBusquedaReserva(this.getNombre());
         return entity;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 }

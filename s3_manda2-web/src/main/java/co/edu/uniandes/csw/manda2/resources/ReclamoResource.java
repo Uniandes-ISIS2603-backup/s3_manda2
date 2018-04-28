@@ -162,7 +162,7 @@ public class ReclamoResource {
     }
 
     private List<ReclamoDetailDTO> ListReclamoEntityDTO(List<ReclamoEntity> reclamos) {
-      List<ReclamoDetailDTO> list = new ArrayList<>();
+      List<ReclamoDetailDTO> list = new ArrayList();
       for (ReclamoEntity entity : reclamos) {
           list.add(new ReclamoDetailDTO(entity));
       }

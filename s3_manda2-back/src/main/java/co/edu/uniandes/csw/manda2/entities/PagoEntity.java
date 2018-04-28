@@ -4,21 +4,15 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.manda2.entities;
+
 import co.edu.uniandes.csw.manda2.podam.DateStrategy;
-import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -66,8 +60,9 @@ public class PagoEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el empleado conoce el pago
      * 
      */
+       @JsonIgnore
     @PodamExclude
-    @OneToOne
+    @OneToOne(mappedBy = "pago", fetch = FetchType.LAZY)
     private ServicioEntity servicio;
        /**
      *  Atributo que modela el empleado conoce el pago
@@ -142,10 +137,10 @@ public class PagoEntity extends BaseEntity implements Serializable {
     }
 
     /**
-     * @param medio the medioPago to set
+     * @param Cliente the medioPago to set
      */
     public void setCliente(ClienteEntity Cliente) {
-        this.cliente =cliente;
+        this.cliente =Cliente;
     }
         /**
      * @return the Servicio
@@ -159,6 +154,14 @@ public class PagoEntity extends BaseEntity implements Serializable {
      */
     public void setServicio(ServicioEntity servicio) {
         this.servicio =servicio;
+    }
+
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
     }
 }
 

@@ -46,11 +46,14 @@ public abstract class UsuarioDTO  {
         
     }
     public UsuarioDTO(EmpleadoEntity entity){
+        if(entity!= null)
+        {
         nombre = entity.getNombre();
         cedula = entity.getCedula();
         fechaIngreso = entity.getFechaIngreso();
         calificacion = entity.getCalificacion();
         id = entity.getId();
+        }
     }
    
     //METODOS
