@@ -156,7 +156,7 @@ public class PayPalResource {
     }
     
     private List<PayPalDTO> listPayPalEntity2DTO( List<PayPalEntity> entityList){
-        List<PayPalDTO> list = new ArrayList<>();
+        List<PayPalDTO> list = new ArrayList();
         for( PayPalEntity entity : entityList ){
             list.add(new PayPalDTO(entity));
         }

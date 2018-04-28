@@ -137,15 +137,17 @@ public class ClienteDetailDTO extends ClienteDTO {
     public ClienteDetailDTO(ClienteEntity entity) {
 
         super(entity);
-        
-        if (entity != null) {
+        if (entity != null) {        
+
+            //Hay errores en los constructores a entities de las diferentes relaciones que tiene cliente, por lo que se deja comentado hasta el ciclo 3
+            /**
             if (entity.getBilletera() != null) {
                 this.billetera = new BilleteraDTO(entity.getBilletera());
             }
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
             
             if (entity.getServicios() != null) {
-               this.servicios = new ArrayList<>();
+               this.servicios = new ArrayList();
                 for (ServicioEntity entityServicio : entity.getServicios()) {
                    if( entityServicio instanceof EntregasDeDocumentosEntity)
                    {
@@ -167,18 +169,19 @@ public class ClienteDetailDTO extends ClienteDTO {
             }
             
             if (entity.getPagos() != null) {
-                this.pagos = new ArrayList<>();
+                this.pagos = new ArrayList();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
                 }
             }
             
             if (entity.getQuejasYReclamos() != null) {
-                this.quejasYReclamos = new ArrayList<>();
+                this.quejasYReclamos = new ArrayList();
                 for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
             }
+            */
             
         }
         
@@ -249,30 +252,33 @@ public class ClienteDetailDTO extends ClienteDTO {
     @Override
     public ClienteEntity toEntity() {
         ClienteEntity clienteE = super.toEntity();
+        //Esto se arreglara en el ciclo 3 ya que los to entity de alguna clases fallan.
+        /**
         if (billetera != null) {
             clienteE.setBilletera(billetera.toEntity());
         }
         if (servicios != null) {
-            List<ServicioEntity> serviciosEntity = new ArrayList<>();
+            List<ServicioEntity> serviciosEntity = new ArrayList();
             for (ServicioDTO dtoServicio : servicios) {
                 serviciosEntity.add(dtoServicio.toEntity());
             }
             clienteE.setServicios(serviciosEntity);
         }
         if (pagos != null) {
-            List<PagoEntity> pagosEntity = new ArrayList<>();
+            List<PagoEntity> pagosEntity = new ArrayList();
             for (PagoDTO dtoPago : pagos) {
                 pagosEntity.add(dtoPago.toEntity());
             }
             clienteE.setPagos(pagosEntity);
         }
         if (quejasYReclamos != null) {
-            List<ReclamoEntity> reclamosEntity = new ArrayList<>();
+            List<ReclamoEntity> reclamosEntity = new ArrayList();
             for (ReclamoDTO dtoReclamo : quejasYReclamos) {
                 reclamosEntity.add(dtoReclamo.toEntity());
             }
             clienteE.setQuejasYReclamos(reclamosEntity);
         }
+        * */
         return clienteE;
     }
 }

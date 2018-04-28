@@ -6,8 +6,11 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -24,8 +27,8 @@ public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements
     
     private String nombreBusquedaReserva;
     
-    @ManyToOne
-    private ElementoBusquedaReservaEntity elementoBusquedaReserva;
+    //@ManyToMany
+    //private ElementoBusquedaReservaEntity elementoBusquedaReserva;
     
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer

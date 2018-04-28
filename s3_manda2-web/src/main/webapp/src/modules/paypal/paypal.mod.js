@@ -4,7 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/paypal/';
 
-            $urlRouterProvider.otherwise('paypal');
+//            $urlRouterProvider.otherwise('paypal');
 
             $stateProvider.state('paypalList', {
                 url: 'paypals',

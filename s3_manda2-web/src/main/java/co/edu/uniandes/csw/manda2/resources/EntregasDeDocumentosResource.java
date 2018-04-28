@@ -171,7 +171,7 @@ public class EntregasDeDocumentosResource {
     
     
     private List<EntregasDeDocumentosDTO> listEntregas2DTO( List<EntregasDeDocumentosEntity> entityList){
-        List<EntregasDeDocumentosDTO> lista = new ArrayList<>();
+        List<EntregasDeDocumentosDTO> lista = new ArrayList();
         for( EntregasDeDocumentosEntity entity : entityList ){
             lista.add(new EntregasDeDocumentosDTO(entity));
         }
