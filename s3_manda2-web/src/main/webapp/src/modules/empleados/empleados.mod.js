@@ -66,6 +66,7 @@
                   'mainView':{
                       templateUrl: basePath + 'create/empleados.create.html',
                       controller: 'empleadoNewCtrl',
+                      controllerAs: 'ctrl'
                         
                   }
               }

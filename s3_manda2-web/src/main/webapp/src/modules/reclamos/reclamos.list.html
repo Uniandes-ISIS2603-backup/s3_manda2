@@ -6,7 +6,6 @@
         <div class = "row-sm-6">
             <div class="btn-group">
                 <button type="button" class="btn btn-outline-warning btn-lg" ui-sref="reclamoCreate">Crear Comentario</button>
-                <button type="button" class="btn btn-outline-warning btn-lg">Todos los reclamo</button>
             </div>
         </div>
         <div class = "row-sm-3"></div>
@@ -15,7 +14,7 @@
         <h2>Comentarios:</h2>
         <ul class="list-group">
             <div ng-repeat="reclamo in reclamosRecords">
-            <li class="list-group-item" ui-sref="reclamoDetail ({reclamoId: reclamo.numero})" >
+            <li class="list-group-item" ui-sref="reclamoDetail({reclamoId: reclamo.numero})" >
                 <p> {{reclamo.mensaje}}</p>
             </li>
              </div>

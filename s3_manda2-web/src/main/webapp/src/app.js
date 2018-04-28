@@ -1,4 +1,4 @@
-(function (ng) {
+    (function (ng) {
     var app = angular.module('mainApp', [
         // External dependencies
         'ui.router',
@@ -16,7 +16,9 @@
         'tarjetacreditoModule',
         'pagoModulo',
         'billeteraModulo',
-        'entregaModule'
+        'entregaModule',
+        'resrvasModule',
+        'articulosModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);

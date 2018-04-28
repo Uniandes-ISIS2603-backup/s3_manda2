@@ -1,68 +1,75 @@
 <html ng-app="mainApp">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Manda2</title>
-    <link rel="shortcut icon" href="data/images/Manda2Act.png">
-    <!-- Dependencias Externas -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="data/styles/styles.css"/>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!--<script src="bower_components/popper.js/dist/popper.js"></script>-->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Manda2</title>
+        <link rel="shortcut icon" href="data/images/Manda2Act.png">
+        <!-- Dependencias Externas -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="data/styles/styles.css"/>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!--<script src="bower_components/popper.js/dist/popper.js"></script>-->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-    <!-- Inicio -->
-    <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
+        <!-- Inicio -->
+        <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
 
-    <!-- Billetera -->
-    <script src="src/modules/billeteras/billeteras.mod.js" type="text/javascript"></script>
-    <script src="src/modules/billeteras/billeteras.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/billeteras/billeteras.detail.crtl.js" type="text/javascript"></script>
-    <script src="src/modules/billeteras/createBilletera.ctrl.js" type="text/javascript"></script>
+        <!-- Billetera -->
+        <script src="src/modules/billeteras/billeteras.mod.js" type="text/javascript"></script>
+        <script src="src/modules/billeteras/billeteras.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/billeteras/billeteras.detail.crtl.js" type="text/javascript"></script>
+        <script src="src/modules/billeteras/createBilletera.ctrl.js" type="text/javascript"></script>
 
-    <!-- Pago -->
-    <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
-    <script src="src/modules/pagos/pagos.crtl.js" type="text/javascript"></script>
-    <script src="src/modules/pagos/pagos.detail.crtl.js" type="text/javascript"></script>
-    <script src="src/modules/pagos/createPago.ctrl.js" type="text/javascript"></script>
+        <!-- Pago -->
+        <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/pagos.crtl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/pagos.detail.crtl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/createPago.ctrl.js" type="text/javascript"></script>
 
-    <!-- PayPal -->
-    <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
-    <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/paypal/create/paypal.create.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/paypal/update/paypal.update.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/paypal/delete/paypal.delete.ctrl.js" type="text/javascript"></script>
-
-
-    <!-- PSE -->
-    <script src="src/modules/pse/pse.mod.js" type="text/javascript"></script>
-    <script src="src/modules/pse/pse.list.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/pse/create/pse.create.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/pse/update/pse.update.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/pse/delete/pse.delete.ctrl.js" type="text/javascript"></script>
+        <!-- PayPal -->
+        <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/create/paypal.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/update/paypal.update.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/paypal/delete/paypal.delete.ctrl.js" type="text/javascript"></script>
 
 
-    <!-- Tarjeta de crédito -->
-    <script src="src/modules/tarjetacredito/tarjetacredito.mod.js" type="text/javascript"></script>
-    <script src="src/modules/tarjetacredito/tarjetacredito.list.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/tarjetacredito/create/tarjetacredito.create.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/tarjetacredito/update/tarjetacredito.update.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/tarjetacredito/delete/tarjetacredito.delete.ctrl.js" type="text/javascript"></script>
+        <!-- PSE -->
+        <script src="src/modules/pse/pse.mod.js" type="text/javascript"></script>
+        <script src="src/modules/pse/pse.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pse/create/pse.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pse/update/pse.update.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/pse/delete/pse.delete.ctrl.js" type="text/javascript"></script>
 
 
-    <!-- Compras en Tienda -->
-    <script src="src/modules/compraentienda/compraentienda.mod.js" type="text/javascript"></script>
-    <script src="src/modules/compraentienda/compraentienda.ctrl.js" type="text/javascript"></script>
+        <!-- Tarjeta de crédito -->
+        <script src="src/modules/tarjetacredito/tarjetacredito.mod.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/tarjetacredito.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/create/tarjetacredito.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/update/tarjetacredito.update.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetacredito/delete/tarjetacredito.delete.ctrl.js" type="text/javascript"></script>
 
-    <!-- Vueltas con demora en oficina -->
-    <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.mod.js" type="text/javascript"></script>
-    <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.ctrl.js" type="text/javascript"></script>
 
+        <!-- Compras en Tienda -->
+        <script src="src/modules/compraentienda/compraentienda.mod.js" type="text/javascript"></script>
+        <script src="src/modules/compraentienda/compraentienda.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/compraentienda/create/compraentienda.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/compraentienda/delete/compraentienda.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/compraentienda/update/compraentienda.update.ctrl.js" type="text/javascript"></script>
+        
+        
+        <!-- Vueltas con demora en oficina -->
+        <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.mod.js" type="text/javascript"></script>
+        <script src="src/modules/vueltascondemoraenoficina/vueltacondemora.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/vueltascondemoraenoficina/create/vueltacondemora.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/vueltascondemoraenoficina/delete/vueltacondemora.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/vueltascondemoraenoficina/update/vueltacondemora.update.ctrl.js" type="text/javascript"></script>
+        
 
         <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
         <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
@@ -70,7 +77,7 @@
         <script src="src/modules/clientes/new/clientes.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/delete/clientes.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/clientes/update/clientes.update.ctrl.js" type="text/javascript"></script>
-        
+
         <!-- Entrega de documentos -->
         <script src="src/modules/entregadedocumentos/entregas.mod.js" type="text/javascript"></script>
         <script src="src/modules/entregadedocumentos/entregas.ctrl.js" type="text/javascript"></script>
@@ -84,158 +91,153 @@
         <script src="src/modules/empleados/empleados.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/empleadoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/create/empleados.create.ctrl.js" type="text/javascript"></script>
-         <script src="src/modules/empleados/delete/empleado.delete.ctrl.js" type="text/javascript"></script>
-        
-        
+        <script src="src/modules/empleados/delete/empleado.delete.ctrl.js" type="text/javascript"></script>
+
+
         <!-- Reclamo -->
         <script src="src/modules/reclamos/reclamos.mod.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/reclamos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/reclamoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/create/reclamos.create.ctrl.js" type="text/javascript"></script>
 
-    <!-- Empleado -->
-    <script src="src/modules/empleados/empleados.mod.js" type="text/javascript"></script>
-    <script src="src/modules/empleados/empleados.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/empleados/empleadoDetail.ctrl.js" type="text/javascript"></script>
+        <script src="src/app.js" type="text/javascript"></script>
+        <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
+    </head>
 
-    <!-- Reclamo -->
-    <script src="src/modules/reclamos/reclamos.mod.js" type="text/javascript"></script>
-    <script src="src/modules/reclamos/reclamos.ctrl.js" type="text/javascript"></script>
-    <script src="src/modules/reclamos/reclamoDetail.ctrl.js" type="text/javascript"></script>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top"> <a class="navbar-brand" href="·"></a>
 
-    <script src="src/app.js" type="text/javascript"></script>
-    <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-</head>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" ui-sref="inicio">Inicio <span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Cuenta</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="empleadosList">Nuestro Equipo</a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="reclamosList">Q & R</a> </li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
+                    <li class="nav-item"><a class="nav-link" ui-sref="billeteras"> Billeteras </a></li>
+                    <li class="nav-item"> <a class="nav-link" ui-sref="pagoList"> Pagos </a> </li>
+                    <li clss=" nav-item"><a class=" nav-link" ui-sref="articulosList "> Articulos</a></li>
+                    <li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medios de pago</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" ui-sref="paypalList">PayPal</a>
+                            <a class="dropdown-item" ui-sref="pseList">PSE</a>
+                            <a class="dropdown-item" ui-sref="tarjetacreditoList">Tarjetas de crédito</a>
+                        </div>
+                    </li>
 
-<body>
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top"><a class="navbar-brand" href="·"></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-            class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" ui-sref="inicio">Inicio <span
-                    class="sr-only">(current)</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Cuenta</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="empleadosList">Nuestro Equipo</a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="reclamosList">Q & R</a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="billeteras"> Billeteras </a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="pagoList"> Pagos </a></li>
-            <li class="nav-item"><a class="nav-link" ui-sref="pagoList"> Organizacion </a></li> 
-            <li class="nav-item"><a class="nav-link" ui-sref="pagoList"> Articulos </a></li>
-
-            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                                             role="button" aria-haspopup="true" aria-expanded="false">Medios de pago</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" ui-sref="paypalList">PayPal</a>
-                    <a class="dropdown-item" ui-sref="pseList">PSE</a>
-                    <a class="dropdown-item" ui-sref="tarjetacreditoList">Tarjetas de crédito</a>
-                </div>
-            </li>
-
-        </ul>
-        <
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item"><a class="nav-link" href="#">Sign up</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-        </ul>
-    </div>
-</nav>
-
-
-<div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8" style="margin-top:60px">
-        <img class="card-img-top" src="data/images/Manda2Act.png" alt="logo" width="304" height="320">
-    </div>
-    <div class="col-sm-2"></div>
-</div>
-
-
-<div class="container-fluid" ui-view="mainView"></div>
-<div class="container-fluid" ui-view="detailView"></div>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><a ui-sref="vueltacondemoraList">
-                Vueltas con Demora en Oficina </a></h2>
-            <p> Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y
-                esperar por usted</p>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span><a ui-sref="comprastiendaList">
-                Compras en Tienda</a></h2>
-            <p> Vamos a la tienda que usted nos diga y compramos lo que necesite </p>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><a ui-sref="entregasList">
-                Entregas de documentos</a></h2>
-            <p>Recogemos y entregamos los documentos que necesite </p>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Reservas y Organizacion</h2>
-            <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
-        </div>
-    </div>
-</div>
-<hr>
-<div class="container-fluid" ui-view="despliegueServicios"></div>
-<hr>
-<section class="well">
-    <h2 class="text-center">Nuestros Empleados</h2>
-    <hr>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lFqDM_YlXV8"></iframe>
-                </div>
+                </ul>
+                < <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a class="nav-link" href="#">Sign up</a> </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a> </li>
+                </ul>
             </div>
-        </section>
-       
+        </nav>
+        <div style="background-color:#FDEBD9;">
 
-        <hr>
+            <div class = "row">
+                <div  class="col-sm-2"></div>
+                <div class="col-sm-8" style ="margin-top:60px" >
+                    <img class="card-img-top" src="data/images/Manda2.png" alt="logo" width="304" height="320">
+                </div>
+                <div class="container-fluid" ui-view="mainView"></div>
+                <div class="container-fluid" ui-view="detailView"></div>
+                <hr>
+            </div>
+            <h1>Nuestros Servicios</h1>
+            <div class="container">
+                <hr>
+                <div class="row" style ="center">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <h2>Sobre Nosotros</h2>
-                    <address>
-                        <strong>Manda2, Inc.</strong><br>
-                        Universidad de los Andes,<br>
-                        Bogota, Colombia<br>
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
-                    <h4>Social</h4>
-                    <div class="row">
-                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                        <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>        
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="vueltacondemoraList">
+                            <img src="data/images/oficina_nueva.png" alt=" oficina" width="200" height="200">
+                            <div class="caption">
+                                <h1>Vueltas con Demora en Oficina</h1>
+                                <p>Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="comprastiendaList">
+                            <img src="data/images/carrito_mercado.png" alt="tienda" width="200" height="200">
+                            <div class="caption">
+                                <h1>Compras en Tienda</h1>
+                                <p>Vamos a la tienda que usted nos diga y compramos lo que necesite</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="entregasList">
+                            <img src="data/images/documentos.png" alt=" documentos" width="200" height="200">
+                            <div class="caption">
+                                <h1>Entregas de documentos</h1>
+                                <p>Recogemos y entregamos los documentos que necesite</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="thumbnail" ui-sref="#">
+                            <img src="data/images/reservas.png" alt=" reservas" width="200" height="200">
+                            <div class="caption">
+                                <h1>Reservas y Organizacion</h1>
+                                <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-12">
-                    <h2>Nuestro Trabajo</h2>
-                    <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="thumbnail"><img src="images/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Feature</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, atque.</p>
+
+                <div class="container-fluid" ui-view="despliegueServicios"></div>
+
+                <section class="well">
                     <hr>
-                    <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+                    <h2 class="text-center">Nuestros Empleados</h2>
+                    <hr>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-lg-12">
+                                <div class="mx-auto">
+                                    <img src="data/images/actual.png" alt=" actual" style="width:100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <h2>Sobre Nosotros</h2>
+                            <address>
+                                <strong>Manda2, Inc.</strong><br>
+                                Universidad de los Andes,<br>
+                                Bogota, Colombia<br>
+                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <h2>Nuestro Trabajo</h2>
+                            <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
+                        </div>
+                    </div>
                 </div>
+                <hr>
+
+            </div>
+            <div class="bg-dark text-white">
+                <footer class="text-center" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Copyright © Manda2. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>
 

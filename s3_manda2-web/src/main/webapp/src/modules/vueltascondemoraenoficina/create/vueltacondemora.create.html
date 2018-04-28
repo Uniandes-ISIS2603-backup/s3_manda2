@@ -1,9 +1,68 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            
-            
+            <div class="panel-heading"><label ng-if="!edit" id="createVuelta">Crear una nueva vuelta con demora</label>
+                <label ng-if="edit" id="editEntrega">Editar una vuelta con demora</label></div>
+            <div class="panel-body">
+                <form ng-submit="vueltaEntrega()" name="vuelta">
+                    <div class="form-group row">
+
+                        <label for="vueltaId" class="col-sm-6">Id:</label>
+                        <input id="vueltaId" required ng-model="vueltaId" class="col-sm-6"/>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <label for="vueltaNombre" class="col-sm-6">Nombre:</label>
+                        <input id="vueltaNombre" required ng-model="vueltaNombre" class="col-sm-6"/>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaCalificacion" class="col-sm-6">Calificacion:</label>
+                        <input id="vueltaCalificacion" required ng-model="vueltaCalificacion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaCosto" class="col-sm-6">Costo:</label>
+                        <input id="vueltaCosto" required ng-model="vueltaCosto" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaDescripcion" class="col-sm-6">Descripcion:</label>
+                        <input id="vueltaDescripcion" required ng-model="vueltaDescripcion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaEstado" class="col-sm-6">Estado:</label>
+                        <input id="vueltaEstado" required ng-model="vueltaEstado" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaPuntoDeEncuentro" class="col-sm-6">Punto de encuentro:</label>
+                        <input id="vueltaPuntoDeEncuentro" required ng-model="vueltaPuntoDeEncuentro" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="entregaPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
+                        <input id="entregaPuntoDeRealizacion" required ng-model="entregaPuntoDeRealizacion" class="col-sm-6"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="vueltaCostoDeTransporte" class="col-sm-6">Costo de transporte:</label>
+                        <input id="vueltaCostoDeTransporte" required ng-model="vueltaCostoDeTransporte" class="col-sm-6"/>
+                    </div>
+                  
+                    <div class="form-group row">
+                        <div class="form-group col-sm-6" ng-if="!vuelta.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="vuelta.$valid" ng-click="createVuelta()" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="vueltacondemoraList">Cancel</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
