@@ -15,12 +15,11 @@
                   }
              } )
            .state('vueltacondemoraAgregar', {
-                 url: '/update/(idVuelta:int)',
-                 
+                 url: '/create',
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'create/vueltacondemora.create.html',
-                          controller: 'vueltaCreateCtrl',
+                          controller: 'vueltaCreateCtrl'
                       }
                   }
              } )
