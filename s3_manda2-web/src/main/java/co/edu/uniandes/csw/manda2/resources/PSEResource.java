@@ -161,7 +161,7 @@ public class PSEResource {
         pseLogic.deletePSE(id);
     }
     private List<PSEDTO> listPSEEntityDTO(List<PSEEntity> entityList) {
-        List<PSEDTO> list = new ArrayList();
+        List<PSEDTO> list = new ArrayList<>();
         for (PSEEntity entity : entityList) {
             list.add(new PSEDTO(entity));
         }

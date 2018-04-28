@@ -1,0 +1,38 @@
+[{
+  "type": "organizacionDTO",
+  "calificacion": 5,
+  "costo": 100,
+  "descripcion": "Quiero una reserva vip",
+  "estado": "En desarrollo",
+  "id": 7,
+  "nombre": "Concierto Justin B",
+  "puntoDeEncuentro": "Calle 134#29-93",
+  "puntoDeRealizacion": "Calle 127#69-02",
+  "costoDuracion": 65,
+  "costoTransporte": 25
+},
+  {"type": "organizacionDTO",
+  "calificacion": 4,
+  "costo": 87,
+  "descripcion": "Reservas quiero yo",
+  "estado": "En desarrollo",
+  "id": 1,
+  "nombre": "Restaurante",
+  "puntoDeEncuentro": "Calle 67#45-98",
+  "puntoDeRealizacion": "Autopista 123",
+  "costoDuracion": 72,
+  "costoTransporte": 18},
+  {
+    "type": "organizacionDTO",
+    "calificacion": 1 ,
+    "costo": 765,
+    "descripcion": "Occidental",
+    "estado": "Completo",
+    "id": 2,
+    "nombre": "Concierto de Imagine Dragons ",
+    "puntoDeEncuentro": "Calle 1r#4-93",
+    "puntoDeRealizacion": "Calle 12#6-52",
+    "costoDuracion": 12,
+    "costoTransporte": 12
+  }
+]

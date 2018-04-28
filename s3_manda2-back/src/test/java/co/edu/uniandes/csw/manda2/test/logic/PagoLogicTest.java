@@ -123,9 +123,8 @@ public class PagoLogicTest {
         Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
         try {
             PagoLogic.createPago(newEntity);
-            fail();
         } catch (BusinessLogicException e) {
-
+            fail();
         }
 //        try {
 //            PagoEntity newEntity2 = factory.manufacturePojo(PagoEntity.class);

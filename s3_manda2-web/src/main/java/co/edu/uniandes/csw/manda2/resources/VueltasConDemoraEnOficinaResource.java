@@ -169,7 +169,7 @@ public class VueltasConDemoraEnOficinaResource {
     }
     
     private List<VueltasConDemoraEnOficinaDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
-        List<VueltasConDemoraEnOficinaDTO> lista = new ArrayList();
+        List<VueltasConDemoraEnOficinaDTO> lista = new ArrayList<>();
         for( VueltasConDemoraEnOficinaEntity entity : entityList ){
             lista.add(new VueltasConDemoraEnOficinaDTO(entity));
         }

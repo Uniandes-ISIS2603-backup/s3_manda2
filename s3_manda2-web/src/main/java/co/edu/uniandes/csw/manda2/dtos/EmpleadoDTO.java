@@ -60,34 +60,21 @@ public class EmpleadoDTO extends UsuarioDTO{
      */
     public EmpleadoDTO()
     {
-        this("","","");
+       
     }
-    /**
-     *  Genera un empleado.
-     * @param pIdentificacion el numero de identificacion que se asigna al empleado
-     * @param pFoto la foto que se le asigna al usuario
-     * @param PEPS la EPS a la que esta afiliada el empleado
-     */
     
-    public EmpleadoDTO(String pIdentificacion, String pFoto, String PEPS)
-    {
-        super();
-        identificacion = pIdentificacion;
-        foto = pFoto;
-        EPS = PEPS;
-    }
     public EmpleadoDTO(EmpleadoEntity entity){
         super(entity);
-        if(entity != null)
-        {
+        if(entity != null){
         identificacion = entity.getIdentificacio();
         foto = entity.getFoto();
         EPS = entity.getEPS();
+        this.calificacion = entity.getCalificacion();
         }
     }
     //METODOS
      /**
-     * retorna la identificacion del empleado
+     * retorna la identificacion del em pleado
      * @return identificacion del empleado
      */
     public String getIdentificacion() {

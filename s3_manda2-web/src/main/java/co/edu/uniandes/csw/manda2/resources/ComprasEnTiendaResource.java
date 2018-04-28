@@ -170,7 +170,7 @@ public class ComprasEnTiendaResource {
     
     
     private List<ComprasEnTiendaDTO> listComprasEntity2DTO( List<ComprasEnTiendaEntity> entityList){
-        List<ComprasEnTiendaDTO> lista = new ArrayList();
+        List<ComprasEnTiendaDTO> lista = new ArrayList<>();
         for( ComprasEnTiendaEntity entity : entityList ){
             lista.add(new ComprasEnTiendaDTO(entity));
         }

@@ -5,10 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Manda2</title>
-        <link rel="shortcut icon" href="data/images/Manda2Act.png">
+
         <!-- Dependencias Externas -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="data/styles/styles.css" />
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <!--<script src="bower_components/popper.js/dist/popper.js"></script>-->
@@ -19,6 +18,7 @@
         <!-- Inicio -->
         <script src="src/modules/inicio/inicio.mod.js" type="text/javascript"></script>
 
+        <<<<<<< HEAD
         <!-- Billetera -->
         <script src="src/modules/billeteras/billeteras.mod.js" type="text/javascript"></script>
         <script src="src/modules/billeteras/billeteras.ctrl.js" type="text/javascript"></script>
@@ -28,6 +28,8 @@
         <script src="src/modules/pagos/pagos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/pagos/pagos.detail.ctrl.js" type="text/javascript"></script>
 
+        =======
+        >>>>>>> master
         <!-- PayPal -->
         <script src="src/modules/paypal/paypal.mod.js" type="text/javascript"></script>
         <script src="src/modules/paypal/paypal.list.ctrl.js" type="text/javascript"></script>
@@ -92,11 +94,26 @@
         <script src="src/modules/reclamos/reclamoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/create/reclamos.create.ctrl.js" type="text/javascript"></script>
 
+        <!-- Reservas -->
+        <script src="src/modules/reservas/reservas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/reservas.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/reservasDetail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reservas/create/reservas.create.ctrl.js" type="text/javascript"></script>
+
+
+        <!-- Articulos -->
+        <script src="src/modules/articulos/articulos.mod.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/articulos.list.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/articulosDetail.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/articulos/create/articulos.create.ctrl.js" type="text/javascript"></script>
+
+
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
     </head>
 
     <body>
+
         <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top"> <a class="navbar-brand" href="·"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -108,8 +125,7 @@
                     <li class="nav-item"> <a class="nav-link" ui-sref="empleadosList">Nuestro Equipo</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="reclamosList">Q & R</a> </li>
                     <li class="nav-item"> <a class="nav-link" ui-sref="clientesList">Nuestros Clientes</a> </li>
-                    <li class="nav-item"> <a class="nav-link" ui-sref="billeteras"> Billeteras </a> </li>
-                    <li class="nav-item"> <a class="nav-link" ui-sref="pagoList"> Pagos </a> </li>
+                    <li clss=" nav-item"><a class=" nav-link" ui-sref="articulosList "> Articulos</a></li>
                     <li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medios de pago</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" ui-sref="paypalList">PayPal</a>
@@ -127,6 +143,7 @@
         </nav>
 
 
+
         <div style="background-color:#FDEBD9;">
 
             <div class = "row">
@@ -134,99 +151,90 @@
                 <div class="col-sm-8" style ="margin-top:60px" >
                     <img class="card-img-top" src="data/images/Manda2.png" alt="logo" width="304" height="320">
                 </div>
-                <div  class="col-sm-2"></div>
-            </div>
-
-            <div class="container-fluid" ui-view="mainView"></div>
-            <div class="container-fluid" ui-view="detailView"></div>
-            <hr>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="thumbnail" ui-sref="vueltacondemoraList">
-                            <img src="data/images/oficina_nueva.png" alt=" oficina" width="200" height="200">
-                            <div class="caption">
-                                <h1>Vueltas con Demora en Oficina</h1>
-                                <p>Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="thumbnail" ui-sref="comprastiendaList">
-                            <img src="data/images/carrito_mercado.png" alt="tienda" width="200" height="200">
-                            <div class="caption">
-                                <h1>Compras en Tienda</h1>
-                                <p>Vamos a la tienda que usted nos diga y compramos lo que necesite</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="thumbnail" ui-sref="entregasList">
-                            <img src="data/images/documentos.png" alt=" documentos" width="200" height="200">
-                            <div class="caption">
-                                <h1>Entregas de documentos</h1>
-                                <p>Recogemos y entregamos los documentos que necesite</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="thumbnail" ui-sref="#">
-                            <img src="data/images/reservas.png" alt=" reservas" width="200" height="200">
-                            <div class="caption">
-                                <h1>Reservas y Organizacion</h1>
-                                <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="container-fluid" ui-view="despliegueServicios"></div>
-            <hr>
-            <section class="well">
-                <h2 class="text-center">Nuestros Empleados</h2>
+                <div class="container-fluid" ui-view="mainView"></div>
+                <div class="container-fluid" ui-view="detailView"></div>
                 <hr>
+
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <img src="data/images/actual.png" alt=" actual" style="width:100%">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="thumbnail" ui-sref="vueltacondemoraList">
+                                <img src="data/images/oficina_nueva.png" alt=" oficina" width="200" height="200">
+                                <div class="caption">
+                                    <h1>Vueltas con Demora en Oficina</h1>
+                                    <p>Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno y esperar por usted</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="thumbnail" ui-sref="comprastiendaList">
+                                <img src="data/images/carrito_mercado.png" alt="tienda" width="200" height="200">
+                                <div class="caption">
+                                    <h1>Compras en Tienda</h1>
+                                    <p>Vamos a la tienda que usted nos diga y compramos lo que necesite</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="thumbnail" ui-sref="entregasList">
+                                <img src="data/images/documentos.png" alt=" documentos" width="200" height="200">
+                                <div class="caption">
+                                    <h1>Entregas de documentos</h1>
+                                    <p>Recogemos y entregamos los documentos que necesite</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="thumbnail" ui-sref="#">
+                                <img src="data/images/reservas.png" alt=" reservas" width="200" height="200">
+                                <div class="caption">
+                                    <h1>Reservas y Organizacion</h1>
+                                    <p>Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-
-            <hr>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <h2>Sobre Nosotros</h2>
-                        <address>
-                            <strong>Manda2, Inc.</strong><br>
-                            Universidad de los Andes,<br>
-                            Bogota, Colombia<br>
-                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                        </address>
-                        <h4>Social</h4>
+                <hr>
+                <div class="container-fluid" ui-view="despliegueServicios"></div>
+                <hr>
+                <section class="well">
+                    <h2 class="text-center">Nuestros Empleados</h2>
+                    <hr>
+                    <div class="container">
                         <div class="row">
-                            <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                            <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                            <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>
-                            <div class="col-xs-2"><img class="img-circle" src="images/32X32.gif" alt=""></div>        
+                            <div class="col-lg-12">
+                                <img src="data/images/actual.png" alt=" actual" style="width:100%">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <h2>Nuestro Trabajo</h2>
-                        <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
+                </section>
+
+
+                <hr>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <h2>Sobre Nosotros</h2>
+                            <address>
+                                <strong>Manda2, Inc.</strong><br>
+                                Universidad de los Andes,<br>
+                                Bogota, Colombia<br>
+                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <h2>Nuestro Trabajo</h2>
+                            <p>Brindamos un servicio de "asistencia personal" a cada uno de sus usuarios, para que puedan adquirir diferentes servicios como: Entrega de documentos, vueltas con demora en oficinas, compras en tiendas, reservas, búsquedas, entre otras, para así poder optimizar su tiempo y generar una mejor calidad de vida al evitarle a nuestros usuarios perder largas horas de trabajo o de tiempo en familia en aburridas filas.</p>
+                        </div>
                     </div>
                 </div>
+                <hr>
             </div>
-            <hr>
         </div>
         <div class="bg-dark text-white">
             <footer class="text-center" >
-
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">

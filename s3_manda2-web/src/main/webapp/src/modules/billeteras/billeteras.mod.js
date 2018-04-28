@@ -3,7 +3,8 @@
 
      mod.config(['$stateProvider', '$urlRouterProvider',
                    function($stateProvider, $urlRouterProvider){
-                        <!--<--$urlRouterProvider.otherwise('/billeteras');-->
+                        $urlRouterProvider.otherwise('/billeteras');
+
 
 
                         $stateProvider
@@ -16,7 +17,30 @@
                                 }
 
 
+                            })
+                            .state('billeterasDetail', {
+                                url: '/billeteras/{billetera_id}',
+                                params: {
+                                    billetera_id: null
+                                },
+                                views: {
+                                    'mainView': {
+                                        templateUrl: 'src/modules/billeteras/billeteras.detail.list.html',
+                                        // controller: 'pagosDetailCtrl'
+
+                                    }
+                                }
+                            })
+                            .state('createBilletera', {
+                                url: '/createBilletera',
+                                views: {
+                                    'mainView': {
+                                        templateUrl: 'src/modules/billeteras/createBilletera.list.html',
+                                        controller: 'createBilleteraCtrl'
+                                    }
+                                }
                             });
+
 
 
                    }

@@ -22,8 +22,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 @PrimaryKeyJoinColumn( referencedColumnName = "id" )
-public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializable {
-    
+public class ArticuloEntity extends BaseEntity implements Serializable {
 
     private String rutaImagen;
     /**
@@ -92,4 +91,5 @@ public class ArticuloEntity extends ComprasEnTiendaEntity implements Serializabl
     {
         this.precio=pPrecio;
     }
+
 }

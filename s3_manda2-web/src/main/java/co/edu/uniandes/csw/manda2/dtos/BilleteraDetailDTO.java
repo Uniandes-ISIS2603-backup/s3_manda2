@@ -44,7 +44,7 @@ public class BilleteraDetailDTO extends BilleteraDTO {
    super(entity);
         if (entity != null) {
               if (entity.getMedioPago() != null) {
-                this.medioPago = new ArrayList();
+                this.medioPago = new ArrayList<>();
                 for (MedioPagoEntity entityMedio : entity.getMedioPago()) {
                     medioPago.add(new MedioPagoDTO(entityMedio));
                 }

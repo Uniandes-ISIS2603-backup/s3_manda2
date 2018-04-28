@@ -5,9 +5,13 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,8 +82,8 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     public EmpleadoDetailDTO()
     {   
         super();
-        pagos = new ArrayList();
-        servicios = new ArrayList();
+        pagos = new ArrayList<PagoDTO>();
+        servicios = new ArrayList<ServicioDetailDTO>();
     }
 
     public EmpleadoDetailDTO(EmpleadoEntity entity) {
@@ -91,6 +95,34 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
             this.cedula = entity.getCedula();
             this.calificacion = entity.getCalificacion();
             this.fechaIngreso = entity.getFechaIngreso();
+            if (entity.getServicios() != null) {
+               this.servicios = new ArrayList();
+                for (ServicioEntity entityServicio : entity.getServicios()) {
+                   if( entityServicio instanceof EntregasDeDocumentosEntity)
+                   {
+                        servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
+                   }
+                   else if( entityServicio instanceof ComprasEnTiendaEntity)
+                   {
+                        servicios.add(new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
+                   }
+                   else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
+                   {
+                        servicios.add(new VueltasConDemoraEnOficinaDTO((VueltasConDemoraEnOficinaEntity) entityServicio));
+                   }
+                   else if( entityServicio instanceof OrganizacionEntity)
+                   {
+                        servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
+                   }
+                }
+            }
+            
+            if (entity.getPagos() != null) {
+                this.pagos = new ArrayList();
+                for (PagoEntity entityPago : entity.getPagos()) {
+                    pagos.add(new PagoDTO(entityPago));
+                }
+            }
         }
     }
    
@@ -126,7 +158,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     }
     public List<ServicioEntity> servicioListToEntity()
     {
-        ArrayList<ServicioEntity> lista = new ArrayList();
+        ArrayList<ServicioEntity> lista = new ArrayList<ServicioEntity>();
         for (ServicioDetailDTO servicio : servicios) {
             lista.add(servicio.toEntity());
         }
@@ -134,7 +166,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
     }
      public List<PagoEntity> pagoListToEntity()
     {
-        ArrayList<PagoEntity> lista = new ArrayList();
+        ArrayList<PagoEntity> lista = new ArrayList<PagoEntity>();
         for (PagoDTO pago : pagos) {
             lista.add(pago.toEntity());
         }
@@ -151,6 +183,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      entity.setIdentificacio(identificacion);
      entity.setFoto(foto);
      entity.setEPS(EPS);
+     entity.setCalificacion(calificacion);
      entity.setServicios(servicioListToEntity());
      entity.setPagos(pagoListToEntity());
      return entity;
