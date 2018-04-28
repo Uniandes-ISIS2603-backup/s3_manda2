@@ -17,7 +17,7 @@
         'pagoModulo',
         'billeteraModulo',
         'entregaModule',
-        'resrvasModule',
+        'reservasModule',
         'articulosModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
