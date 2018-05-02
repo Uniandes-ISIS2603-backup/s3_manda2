@@ -14,6 +14,21 @@
                       }
                   }
              } )
+                     .state ('vueltaDetail'),{
+                         url:'/{vueltaId:int}/vueltaDetail',
+                         param: {
+                             vueltaId: null},
+                         views : {
+                             'despliegueServicios':{
+                                 templateUrl: basePath + 'vueltascondemora.lista.html',
+                                 controller: 'vueltaCtrl'
+                             },
+                             'detailView': {
+                                 templateUrl : basePath + 'vuelta.detail.html',
+                                 controller: 'vueltaDetailCtrl'
+                             }
+                         }
+             }
            .state('vueltacondemoraAgregar', {
                  url: '/create',
                   views: {
@@ -23,6 +38,7 @@
                       }
                   }
              } )
+                     .state ('')
              .state('vueltacondemoraDelete', {
                  url: '/delete/(idVuelta:int)',
                  param: {
@@ -31,7 +47,7 @@
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'delete/vueltacondemora.delete.html',
-                          controller: 'vueltaDeleteCtrl',
+                          controller: 'vueltaDeleteCtrl'
                       }
                   }
              } )

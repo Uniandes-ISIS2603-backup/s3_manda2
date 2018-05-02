@@ -11,7 +11,7 @@
            var basePath = 'src/modules/compraentienda/' ;
            
            $stateProvider.state('compraentiendaList', {
-                 url: '/vueltascondemoraenoficina',
+                 url: '/comprasentienda',
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'compraentienda.list.html',
