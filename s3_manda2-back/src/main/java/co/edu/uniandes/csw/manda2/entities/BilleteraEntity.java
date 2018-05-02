@@ -36,15 +36,15 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      * 
      */
     @PodamExclude
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PayPalEntity> payPals;
     
     @PodamExclude
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PSEEntity> pses;
     
     @PodamExclude
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TarjetaCreditoEntity> tarjetasDeCredito;
     
     /**
