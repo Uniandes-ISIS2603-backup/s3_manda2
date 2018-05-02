@@ -7,7 +7,9 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -34,9 +36,16 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      * 
      */
     @PodamExclude
-    @OneToOne
-   
-    private List<MedioPagoEntity> medioPago;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PayPalEntity> payPals;
+    
+    @PodamExclude
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PSEEntity> pses;
+    
+    @PodamExclude
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<TarjetaCreditoEntity> tarjetasDeCredito;
     
     /**
      *  Atributo que modela el cliente al que le pertenece la billetera
@@ -44,7 +53,6 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
      */
     @PodamExclude
     @OneToOne
-    
     private ClienteEntity cliente;
     
     /**
@@ -77,18 +85,28 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
         this.puntosDeFidelidad = pPuntos;
     }
     
-    /**
-     * @return the medio pago
-     */
-    public List<MedioPagoEntity> getMedioPago() {
-        return medioPago;
+    public List<PayPalEntity> getPayPals() {
+        return payPals;
     }
 
-    /**
-     * @param medio the medioPago to set
-     */
-    public void setMedioPago(List<MedioPagoEntity> medio) {
-        this.medioPago =medio;
+    public void setPayPals(List<PayPalEntity> payPals) {
+        this.payPals = payPals;
+    }
+
+    public List<PSEEntity> getPses() {
+        return pses;
+    }
+
+    public void setPses(List<PSEEntity> pses) {
+        this.pses = pses;
+    }
+
+    public List<TarjetaCreditoEntity> getTarjetasDeCredito() {
+        return tarjetasDeCredito;
+    }
+
+    public void setTarjetasDeCredito(List<TarjetaCreditoEntity> tarjetasDeCredito) {
+        this.tarjetasDeCredito = tarjetasDeCredito;
     }
     
      /**
