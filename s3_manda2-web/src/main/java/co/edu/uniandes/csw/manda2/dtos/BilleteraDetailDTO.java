@@ -37,6 +37,9 @@ public class BilleteraDetailDTO extends BilleteraDTO {
      */
     public BilleteraDetailDTO() {
         super();
+        payPals = new ArrayList<>();
+        pses = new ArrayList<>();
+        tarjetasDeCredito = new ArrayList<>();
     }
 
     /**
@@ -47,6 +50,9 @@ public class BilleteraDetailDTO extends BilleteraDTO {
      */
     public BilleteraDetailDTO(BilleteraEntity entity) {
         super(entity);
+        payPals = new ArrayList<>();
+        pses = new ArrayList<>();
+        tarjetasDeCredito = new ArrayList<>();
         if (entity != null) {
             if (entity.getPayPals() != null) {
                 for(PayPalEntity paypal: entity.getPayPals()){
@@ -66,30 +72,59 @@ public class BilleteraDetailDTO extends BilleteraDTO {
         }
     }
 
+    /**
+     * Retorna los paypals asociados a la billetera.
+     * @return paypals asociados a la billetera.
+     */
     public List<PayPalDTO> getPayPals() {
         return payPals;
     }
 
+    /**
+     * Asigna los paypals al valor dado por parámetro.
+     * @param payPals lista de paypals
+     */
     public void setPayPals(List<PayPalDTO> payPals) {
         this.payPals = payPals;
     }
 
+    /**
+     * Retorna los pses asociados a la billetera.
+     * @return pses asociados a la billetera.
+     */
     public List<PSEDTO> getPses() {
         return pses;
     }
 
+    /**
+     * Asigna los pses al valor dado por parámetro.
+     * @param pses lista de pses
+     */
     public void setPses(List<PSEDTO> pses) {
         this.pses = pses;
     }
 
+    /**
+     * Retorna las tarjetas de crédito asociados a la billetera.
+     * @return paypals asociados a la billetera.
+     */
     public List<TarjetaCreditoDTO> getTarjetasDeCredito() {
         return tarjetasDeCredito;
     }
 
+    /**
+     * Asigna las tarjetas de crédito al valor dado por parámetro.
+     * @param tarjetasDeCredito lista de tarjetas de crédito
+     */
     public void setTarjetasDeCredito(List<TarjetaCreditoDTO> tarjetasDeCredito) {
         this.tarjetasDeCredito = tarjetasDeCredito;
     }
 
+    /**
+     * Transforma el DetailDTO a un Entity.
+     * @return Entity que corresponde a la BilleteraDetailDTO.
+     */
+    @Override
     public BilleteraEntity toEntity() {
         BilleteraEntity billeteraEntity = super.toEntity();
         if (payPals != null) {

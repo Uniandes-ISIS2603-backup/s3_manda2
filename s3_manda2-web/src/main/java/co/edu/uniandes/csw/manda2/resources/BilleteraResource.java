@@ -85,8 +85,8 @@ public class BilleteraResource {
      * @return JSONArray {@link BilleteraDetailDTO} - Las billeteras encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<BilleteraDetailDTO> getBilletera() {
-        return listBilleteraEntityDetailDTO(billeteraLogic.getBilleteras());
+    public List<BilleteraDTO> getBilletera() {
+        return listBilleteraEntity2DTO(billeteraLogic.getBilleteras());
     }
 
     /**
@@ -109,6 +109,7 @@ public class BilleteraResource {
      *
      * @param billetera {@link BilleteraDetailDTO} - La billetera que se desea guardar.
      * @return JSON {@link BilleteraDetailDTO}  - La billetera guardada con el atributo id autogenerado.
+     * @throws co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException si no se cumplen las reglas del negocio.
      */
     @POST
     public BilleteraDetailDTO createBilletera(BilleteraDetailDTO billetera) throws BusinessLogicException {
@@ -133,6 +134,7 @@ public class BilleteraResource {
      * @param id        id de la persona
      * @param billetera {@link BilleteraDetailDTO} La billetera que se desea guardar.
      * @return JSON {@link BilleteraDetailDTO} - La billetera guardada.
+     * @throws co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException si no se cumplen las reglas del negocio.
      */
     @PUT
     @Path("{id : \\d+}")
@@ -170,11 +172,11 @@ public class BilleteraResource {
         billeteraLogic.deleteBilletera(id);
     }
 
-
-    private List<BilleteraDetailDTO> listBilleteraEntityDetailDTO(List<BilleteraEntity> billeteraList) {
-        List<BilleteraDetailDTO> list = new ArrayList<>();
+    
+        private List<BilleteraDTO> listBilleteraEntity2DTO(List<BilleteraEntity> billeteraList) {
+        List<BilleteraDTO> list = new ArrayList<>();
         for (BilleteraEntity entity : billeteraList) {
-            list.add(new BilleteraDetailDTO(entity));
+            list.add(new BilleteraDTO(entity));
         }
         return list;
     }

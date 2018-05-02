@@ -6,9 +6,7 @@
 package co.edu.uniandes.csw.manda2.ejb;
 
 import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
-import co.edu.uniandes.csw.manda2.entities.BilleteraEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.manda2.persistence.BilleteraPersistence;
 import co.edu.uniandes.csw.manda2.persistence.BilleteraPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,7 +25,6 @@ public class BilleteraLogic {
 
     @Inject
     private BilleteraPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
-//
 
     public List<BilleteraEntity> getBilleteras() {
         LOGGER.info("Inicia proceso de consultar todas las billeteras");
@@ -75,14 +72,9 @@ public class BilleteraLogic {
     public BilleteraEntity createBilletera(BilleteraEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de la billetera");
 
-         if (!validateSaldo(entity.getSaldo())) {
+        if (!validateSaldo(entity.getSaldo())) {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
-
-//         if(getBilletera(entity.getId())!= null)
-//        {
-//            throw new BusinessLogicException("No pueden existir dos billeteras con el mismo id");
-//        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de la billetera");
         return entity;
@@ -102,13 +94,10 @@ public class BilleteraLogic {
     public BilleteraEntity updateBilletera(Long id, BilleteraEntity entity) throws BusinessLogicException {
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la billetera con id={0}", id);
-//        if (!validateCedula(entity.getCliente().getCedula())) {
-//            throw new BusinessLogicException("La cedula no puede ser vacia");
-//        } else
-            if (!validateSaldo(entity.getSaldo())) {
+        if (!validateSaldo(entity.getSaldo())) {
             throw new BusinessLogicException("El saldo de la billetera no puede ser vacia/ no es valido");
         }
-        if (id != entity.getId()) {
+        if (!id.equals(entity.getId())) {
             throw new BusinessLogicException("No se puede cambiar el id de  la billetera");
         }
         BilleteraEntity newEntity = persistence.update(entity);
@@ -129,7 +118,7 @@ public class BilleteraLogic {
 
     /**
      * Retorna true si la cedula del cliente es un string válido, false de lo
-     * contrario. 
+     * contrario.
      *
      * @param cedula cedula del cliente
      * @return true si la cedula del cliente es un string válido, false de lo

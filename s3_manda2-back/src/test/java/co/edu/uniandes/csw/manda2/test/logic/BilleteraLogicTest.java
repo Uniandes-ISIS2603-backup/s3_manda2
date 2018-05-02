@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.BilleteraPersistence;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJBException;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,8 +34,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class BilleteraLogicTest {
-    
-    
+
     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
@@ -116,7 +116,6 @@ public class BilleteraLogicTest {
         Assert.assertNotNull(result);
         BilleteraEntity entity = em.find(BilleteraEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
-//        Assert.assertEquals(newEntity.getCliente().getCedula(), entity.getCliente().getCedula());
         Assert.assertEquals(newEntity.getSaldo(), entity.getSaldo());
         try {
             BilleteraLogic.createBilletera(newEntity);
@@ -145,31 +144,19 @@ public class BilleteraLogicTest {
 
         pojoEntity.setId(entity.getId());
 
-        BilleteraLogic.updateBilletera(pojoEntity.getId(), pojoEntity);
+        try {
+            BilleteraLogic.updateBilletera(pojoEntity.getId(), pojoEntity);
+        } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
+            Assert.fail();
+        }
 
         BilleteraEntity resp = em.find(BilleteraEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
-//        Assert.assertEquals(pojoEntity.getCliente().getCedula(), resp.getCliente().getCedula());
         Assert.assertEquals(pojoEntity.getSaldo(), resp.getSaldo());
         try {
             BilleteraLogic.updateBilletera(pojoEntity.getId(), data.get(1));
-            fail();
-        } catch (BusinessLogicException e) {
-
-        }
-//        try {
-//
-//            pojoEntity.getCliente().setCedula(null);
-//            BilleteraLogic.updateBilletera(pojoEntity.getId(), pojoEntity);
-//            fail();
-//        } catch (BusinessLogicException e) {
-//
-//        }
-        try {
-//            pojoEntity.getCliente().setCedula("111111");
-            pojoEntity.setSaldo(0);
-            BilleteraLogic.updateBilletera(pojoEntity.getId(), pojoEntity);
             fail();
         } catch (BusinessLogicException e) {
 
@@ -188,6 +175,7 @@ public class BilleteraLogicTest {
         BilleteraEntity deleted = em.find(BilleteraEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+
     /**
      * Prueba para consultar la lista de Billeteras
      *
@@ -219,7 +207,6 @@ public class BilleteraLogicTest {
         BilleteraEntity resultEntity = BilleteraLogic.getBilletera(entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
-//        Assert.assertEquals(entity.getCliente().getCedula(), resultEntity.getCliente().getCedula());
         Assert.assertEquals(entity.getSaldo(), resultEntity.getSaldo());
     }
 }
