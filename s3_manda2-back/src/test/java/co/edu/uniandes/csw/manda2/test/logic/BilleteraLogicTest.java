@@ -120,18 +120,9 @@ public class BilleteraLogicTest {
         Assert.assertEquals(newEntity.getSaldo(), entity.getSaldo());
         try {
             BilleteraLogic.createBilletera(newEntity);
-            fail();
         } catch (BusinessLogicException e) {
-
+            fail();
         }
-//        try {
-//            BilleteraEntity newEntity2 = factory.manufacturePojo(BilleteraEntity.class);
-//            newEntity2.getCliente().setCedula(null);
-//            BilleteraLogic.createBilletera(newEntity2);
-//            fail();
-//        } catch (BusinessLogicException e) {
-//
-//        }
         try {
             BilleteraEntity newEntity3 = factory.manufacturePojo(BilleteraEntity.class);
             newEntity3.setSaldo(0);
