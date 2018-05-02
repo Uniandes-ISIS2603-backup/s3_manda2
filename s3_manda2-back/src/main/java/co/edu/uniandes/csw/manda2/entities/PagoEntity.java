@@ -33,13 +33,22 @@ public class PagoEntity extends BaseEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
     private Date fecha; 
-     /**
-     *  Atributo que modela el medio de pago ddl pago
-     * 
-     */
+ 
+    
     @PodamExclude
-    @OneToOne
-    private MedioPagoEntity medioPago;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private PayPalEntity payPal;
+    
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private PSEEntity pse;
+    
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)    
+    private TarjetaCreditoEntity tarjetaDeCredito;
     
      /**
      *  Atributo que modela el empleado conoce el pago
@@ -53,7 +62,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el empleado conoce el pago
      * 
      */
-       @JsonIgnore
+    @JsonIgnore
     @PodamExclude
     @OneToOne(mappedBy = "pago", fetch = FetchType.LAZY)
     private ServicioEntity servicio;
@@ -95,19 +104,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     public void setFecha (Date pFecha){
         this.fecha = pFecha;
     }
-     /**
-     * @return the medio pago
-     */
-    public MedioPagoEntity getMedioPago() {
-        return medioPago;
-    }
 
-    /**
-     * @param medio the medioPago to set
-     */
-    public void setMedioPago(MedioPagoEntity medio) {
-        this.medioPago = medio;
-    }
     
      /**
      * @return the Cliente
@@ -142,6 +139,30 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
+    }
+
+    public PayPalEntity getPayPal() {
+        return payPal;
+    }
+
+    public void setPayPal(PayPalEntity payPal) {
+        this.payPal = payPal;
+    }
+
+    public PSEEntity getPse() {
+        return pse;
+    }
+
+    public void setPse(PSEEntity pse) {
+        this.pse = pse;
+    }
+
+    public TarjetaCreditoEntity getTarjetaDeCredito() {
+        return tarjetaDeCredito;
+    }
+
+    public void setTarjetaDeCredito(TarjetaCreditoEntity tarjetaDeCredito) {
+        this.tarjetaDeCredito = tarjetaDeCredito;
     }
 }
 
