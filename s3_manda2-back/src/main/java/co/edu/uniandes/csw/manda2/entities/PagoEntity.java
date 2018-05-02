@@ -21,13 +21,6 @@ import java.util.Date;
 
 @Entity
 public class PagoEntity extends BaseEntity implements Serializable {
-    
-///**
-//     * Id del pago
-//     */
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.IDENTITY)
-//    private Long id; 
 
   /**
      * Indica el estado en el que se encuentra la transaccion
@@ -71,14 +64,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private ClienteEntity cliente;
-//  /**
-//     * Retorna el id del pago.
-//     * @return id de pago.
-//     */
-//    public Long getId(){
-//        return id;
-//    }
-//    
+    
     /**
      * Retorna el estado de transaccion.
      * @return estado de la transaccion.
@@ -93,13 +79,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     public Date getFecha(){
         return fecha;
     }
-//     /**
-//     * Establece el id del pago.
-//     * @param id del pago.
-//     */
-//    public void setId(Long id){
-//        this.id = id;
-//    }
+
      /**
      * Establece el  estado de la transaccion.
      * @param estado Nuevo estado de pago.
@@ -126,7 +106,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * @param medio the medioPago to set
      */
     public void setMedioPago(MedioPagoEntity medio) {
-        this.medioPago =medio;
+        this.medioPago = medio;
     }
     
      /**

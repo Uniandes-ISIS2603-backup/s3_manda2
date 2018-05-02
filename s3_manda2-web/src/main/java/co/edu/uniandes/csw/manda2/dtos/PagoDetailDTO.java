@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
-import java.util.Date;
 
 /**
  * Clase que extiende de {@link PagoDTO} para manejar la transformacion entre
@@ -39,6 +38,7 @@ public class PagoDetailDTO extends PagoDTO {
          if(entity !=  null){
              if(entity.getMedioPago()!= null){
                  this.medioPago = new MedioPagoDTO(entity.getMedioPago());
+
              }
              if(entity.getServicio()!= null){
                  this.servicio = new ServicioDTO(entity.getServicio());
@@ -49,14 +49,13 @@ public class PagoDetailDTO extends PagoDTO {
 
              }
          }
-        
-        
     }
     
     public PagoDetailDTO()
     {
         super();
     }
+    
     /**
      * Retorna el servicio relacionado al pago.
      * @return servicio relacionado al pago.
