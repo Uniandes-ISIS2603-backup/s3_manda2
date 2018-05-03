@@ -95,6 +95,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
             this.cedula = entity.getCedula();
             this.calificacion = entity.getCalificacion();
             this.fechaIngreso = entity.getFechaIngreso();
+            this.login = entity.getLogin();
             if (entity.getServicios() != null) {
                this.servicios = new ArrayList();
                 for (ServicioEntity entityServicio : entity.getServicios()) {
@@ -186,6 +187,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO{
      entity.setCalificacion(calificacion);
      entity.setServicios(servicioListToEntity());
      entity.setPagos(pagoListToEntity());
+     entity.setLogin(login);
      return entity;
     }
     

@@ -36,6 +36,18 @@ public class UsuarioEntity implements Serializable{
    
    private Double calificacion;
 
+   private String login;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+   
+   
+   
     public Long getId() {
         return id;
     }

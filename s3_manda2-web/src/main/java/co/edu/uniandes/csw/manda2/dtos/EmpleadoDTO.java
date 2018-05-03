@@ -70,6 +70,7 @@ public class EmpleadoDTO extends UsuarioDTO{
         foto = entity.getFoto();
         EPS = entity.getEPS();
         this.calificacion = entity.getCalificacion();
+        this.login = entity.getLogin();
         }
     }
     //METODOS
@@ -126,6 +127,7 @@ public class EmpleadoDTO extends UsuarioDTO{
         entity.setEPS(this.EPS);
         entity.setFoto(this.foto);
         entity.setCalificacion(this.calificacion);
+        entity.setLogin(this.login);
         return entity;
     }
 }
