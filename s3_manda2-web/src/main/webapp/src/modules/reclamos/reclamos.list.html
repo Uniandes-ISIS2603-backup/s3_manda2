@@ -14,10 +14,19 @@
         <h2>Comentarios:</h2>
         <ul class="list-group">
             <div ng-repeat="reclamo in reclamosRecords">
-            <li class="list-group-item" ui-sref="reclamoDetail({reclamoId: reclamo.numero})" >
-                <p> {{reclamo.mensaje}}</p>
-            </li>
-             </div>
+                <li class="list-group-item" >
+                    <div class="row">
+                        <div class="col-sm-6" ui-sref="reclamoDetail({reclamoId: reclamo.id})" >
+                            <p> {{reclamo.mensaje}}</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-danger" ui-sref="borrarReclamo({reclamoId: reclamo.id})">Borrar Reclamo</button>
+                            <button type="button" class="btn btn-warning" ui-sref="updateReclamo({reclamoId: reclamo.id})">Modificar Reclamo</button>
+                        </div>
+                    </div>
+                </li>
+
+            </div>
         </ul>
     </div>
 </div>

@@ -4,7 +4,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         var basePath = 'src/modules/articulos/';
 
-        $urlRouterProvider.otherwise('articulosList');
+        
 
         $stateProvider.state('articulosList', {
             url: '/articulos',

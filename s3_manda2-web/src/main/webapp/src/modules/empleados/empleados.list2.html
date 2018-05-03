@@ -10,10 +10,11 @@
         <ul class="list-group">
             <li class="list-group-item"  ng-repeat="empleado in empleadosRecords">
                 <div class="row">
-                    <div class="col-sm-3" ui-sref="empleadoDetail({empleadoId:empleado.Id})">
-                        <h5>{{empleado.nombre}}</h5>
-                        
-                    </div>
+                   <div class="col-sm-3" ui-sref="empleadoDetail ({empleadoId: empleado.id})">
+                            <h5>{{empleado.nombre}}</h5>
+
+                        </div>
+
                     <div class="col-sm-3">
                         <p > Id: {{empleado.id}}</p>
                         <p > Cedula: {{empleado.cedula}}</p>
@@ -24,6 +25,7 @@
                     </div>
                     <div class="col-sm-3">
                         <button type="button" class="btn btn-danger" ui-sref="borrarEmpleado({empleadoId: empleado.id})">Borrar Empleado</button>
+                        <button type="button" class="btn btn-warning" ui-sref="updateEmpleado({empleadoId: empleado.id})">Modificar Empleado</button>
                     </div>
                 </div>
             </li>
