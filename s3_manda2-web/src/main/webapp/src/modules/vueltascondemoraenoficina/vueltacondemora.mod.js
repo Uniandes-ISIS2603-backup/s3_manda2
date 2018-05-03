@@ -16,7 +16,7 @@
              } );
             
            $stateProvider.state('vueltacondemoraAgregar', {
-                 url: '/create',
+                 url: 'vueltacondemora/create',
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'create/vueltacondemora.create.html',
@@ -27,25 +27,25 @@
              $stateProvider.state ('vueltaUpdate',{
                         url: '/update/{vueltaId:int}', 
                 param: {
-                    vueltaId:null
+                    vueltaId: null
                 },
                 views:{
                     'despliegueServicios': {
                         templateUrl: basePath + 'create/vueltacondemora.create.html',
-                        controller : 'vueltaCreateCtrl'
+                        controller : 'vueltaUpdateCtrl'
                     }
                 }
              });
            
              
              $stateProvider.state('vueltacondemoraDelete', {
-                 url: '/delete/(idVuelta:int)',
+                 url: '/delete/(vueltaId:int)',
                  param: {
-                     idVuelta : null
+                     vueltaId : null
                  },
                   views: {
                       'despliegueServicios': { 
-                          templateUrl: basePath + 'delete/vueltacondemora.delete.html',
+                          templateUrl: basePath + '/delete/vueltacondemora.delete.html',
                           controller: 'vueltaDeleteCtrl'
                       }
                   }
