@@ -1,4 +1,4 @@
-/** Modulo de artículo, el cual modela funciones de tipo REST *//
+/** Modulo de artículo, el cual modela funciones de tipo REST */
 (function (ng) {
     var mod = ng.module('articulosModule', ['ui.router']);
 
