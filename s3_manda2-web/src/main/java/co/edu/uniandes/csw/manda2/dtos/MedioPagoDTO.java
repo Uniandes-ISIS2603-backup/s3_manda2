@@ -44,7 +44,7 @@ public class MedioPagoDTO {
     protected String nombreCliente;
     
     public MedioPagoDTO(){
-        
+        //Constructor vacío.
     }
     
      /**

@@ -50,7 +50,7 @@ public class BilleteraDTO {
      * Crea una billetera
      */
     public BilleteraDTO(){
-        
+        //Cosntructor vacío.
     }
     
      /**

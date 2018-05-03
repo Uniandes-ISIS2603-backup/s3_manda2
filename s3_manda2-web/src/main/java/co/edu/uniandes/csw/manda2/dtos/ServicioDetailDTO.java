@@ -42,18 +42,22 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
         }
     }
 
+    /**
+     * Método para convertir el ServicioDetailDTO a ServicioEntity.
+     *
+     * @return ServicioEntity
+     */
     @Override
     public ServicioEntity toEntity() {
         ServicioEntity entity = super.toEntity();
-        if(cliente != null){
+        if (cliente != null) {
             entity.setCliente(this.cliente.toEntity());
         }
-        if(pago != null){
+        if (pago != null) {
             entity.setPago(this.pago.toEntity());
         }
-        if(empleado != null)
-        {
-            //entity.setEmpleado(this.empleado.toEntity());
+        if (empleado != null) {
+            entity.setEmpleado(this.empleado.toEntity());
         }
         return entity;
     }

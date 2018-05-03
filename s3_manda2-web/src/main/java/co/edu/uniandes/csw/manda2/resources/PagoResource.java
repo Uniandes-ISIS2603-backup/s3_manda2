@@ -107,7 +107,7 @@ public class PagoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public PagoDTO getPagoId(@PathParam("id") Long id) {
+    public PagoDetailDTO getPagoId(@PathParam("id") Long id) {
         PagoEntity entity = pagoLogic.getPago(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /pagos/" + id + " no existe.", 404);
@@ -137,13 +137,12 @@ public class PagoResource {
     @PUT
     @Path("{id: \\d+}")
     public PagoDetailDTO updatePago(@PathParam("id") long id, PagoDetailDTO pago) throws BusinessLogicException {
-        return pago;
-//        pago.setId(id);
-//        PagoEntity entity = pagoLogic.getPago(id);
-//        if (entity == null) {
-//            throw new WebApplicationException("El recurso /pagoss/" + id + " no existe.", 404);
-//        }
-//        return new PagoDetailDTO(pagoLogic.updatePago(id, pago.toEntity()));
+        pago.setId(id);
+        PagoEntity entity = pagoLogic.getPago(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /pagoss/" + id + " no existe.", 404);
+        }
+        return new PagoDetailDTO(pagoLogic.updatePago(id, pago.toEntity()));
     }
 
     /**
@@ -172,6 +171,11 @@ public class PagoResource {
         pagoLogic.deletePago(id);
     }
 
+    /**
+     * Transforma una lista de PagoEntity a una lista de PagoDTO.
+     * @param pagos lista de PagoEntity.
+     * @return lista de PagoDTO.
+     */
     private List<PagoDTO> listPagoEntityDTO(List<PagoEntity> pagos) {
         List<PagoDTO> list = new ArrayList();
         for (PagoEntity entity : pagos) {

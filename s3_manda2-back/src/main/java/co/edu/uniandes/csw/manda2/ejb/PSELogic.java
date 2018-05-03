@@ -104,7 +104,7 @@ public class PSELogic {
      * @return true si el nombre del cliente es un string válido, false de lo contrario.
      */
     private boolean validateNombreCliente( String nombreCliente ){
-        return (nombreCliente != null && !nombreCliente.isEmpty());
+        return nombreCliente != null && !nombreCliente.isEmpty();
     }
     
      /**
@@ -113,7 +113,7 @@ public class PSELogic {
      * @return true si el link del pse es un string válido, false de lo contrario.
      */
     private boolean validateLink( String link ){
-        return ( link != null && !link.isEmpty());
+        return  link != null && !link.isEmpty();
     }
     
 }
