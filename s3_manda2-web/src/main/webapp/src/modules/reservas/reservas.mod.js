@@ -5,8 +5,7 @@
     mod.constant("compraContext", "api/servicios");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouteProvider) {
         var basePath = 'src/modules/reservas/';
-        /*El scope que se encarga de manejar la ruta de reservas*/
-        $urlRouteProvider.otherwise('reservas');
+
         $stateProvider
             .state('reservasList', {
                 url: '/reservas',
