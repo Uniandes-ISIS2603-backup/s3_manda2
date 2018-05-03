@@ -138,12 +138,11 @@ public class ClienteDetailDTO extends ClienteDTO {
 
         super(entity);
         if (entity != null) {        
-
+            /**
             //Hay errores en los constructores a entities de las diferentes relaciones que tiene cliente, por lo que se deja comentado hasta el ciclo 3
             if (entity.getBilletera() != null) {
                 this.billetera = new BilleteraDTO(entity.getBilletera());
             }
-            /**
             System.out.println("Entro al metodo1");
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
             if (entity.getServicios() != null) {
@@ -152,7 +151,7 @@ public class ClienteDetailDTO extends ClienteDTO {
                System.out.println("Entro al metodo3");
                 for (ServicioEntity entityServicio : entity.getServicios()) {
                     System.out.println("Entro al metodo4");
-                   if( entityServicio instanceof EntregasDeDocumentosEntity)
+                   if( true ||entityServicio instanceof EntregasDeDocumentosEntity)
                    {
                        System.out.println("Entro al metodo5");
                         servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
@@ -171,6 +170,7 @@ public class ClienteDetailDTO extends ClienteDTO {
                    {
                         servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
                    }
+                   
                    
                 }
             }
