@@ -85,7 +85,31 @@ public class EmpleadoResource {
         }
         return new EmpleadoDetailDTO(entity);
     }
-    
+    /**
+     * <h1>GET /api/clientes/{login} : Obtener un cliente por login.</h1>
+     * 
+     * <pre>Busca un cliente con el login asociado recibido en la URL y lo devuelve.
+     * 
+     * Codigos de respuesta:
+     * <code style="color: mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Devuelve el cliente correspondiente correspondiente al login.
+     * </code> 
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 404 Not Found No existe un cliente con el login dado.
+     * </code> 
+     * </pre>
+     * @param login Identificador del cliente que se esta buscando. Este debe ser una cadena de caracteres.
+     * @return El cliente buscado
+     */
+    @GET
+    @Path("logins/{empleadoLogin: [a-zA-Z][a-zA-Z_0-9]*}")
+    public EmpleadoDetailDTO getClienteByLogin(@PathParam ("empleadoLogin") String login){
+        EmpleadoEntity entity = logic.getEmpleado(login);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /empleados/logins" + login + " no existe.", 404);
+        }
+        return new EmpleadoDetailDTO(entity);
+    }
     /**
      * <h1>POST /api/empleados : Crear un empleado.</h1>
      * 
