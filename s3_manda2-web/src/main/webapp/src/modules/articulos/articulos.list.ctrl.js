@@ -1,3 +1,4 @@
+//** clase que funciona para IMPLEMENTAR EL CONTXY EN UNA FUNCION*//
 (function(ng){
     var mod = ng.module('articulosModule');
     mod.constant('articulosContext', 'api/articulos');

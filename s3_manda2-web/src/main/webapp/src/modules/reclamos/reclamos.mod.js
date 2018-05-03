@@ -6,9 +6,21 @@
             
             var basePath = 'src/modules/reclamos/';
             
+            $stateProvider.state('reclamos', {
+                 url: '/reclamos/',
+                abstract: true,
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'reclamos.html',
+                        controller: 'empleadoCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            });
             $stateProvider.state('reclamosList', {
                 
-                url: '/reclamos',
+                url: 'list',
+                parent:'reclamos',
                  views: {
                     'mainView': {
                         templateUrl: basePath + 'reclamos.list.html',
@@ -19,6 +31,7 @@
             });
             $stateProvider.state('reclamoDetail', {
                 url: '/{reclamoId:int}/detail',
+                parent:'reclamos',
                 param: {
                     reclamoId:null
                 },
@@ -38,6 +51,7 @@
             });
             $stateProvider.state('reclamoDetail2', {
                 url: '/datosReclamo',
+                parent:'reclamos',
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'reclamo.detail.html',
@@ -49,6 +63,7 @@
             });
             $stateProvider.state('reclamoCreate', {
                 url: '/create',
+                parent:'reclamos',
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'create/reclamo.create.html',
@@ -57,6 +72,34 @@
                     }
                 }
 
+            });
+            $stateProvider.state('borrarReclamo', {
+                url: '/delete/{reclamoId:int}',
+                parent:'reclamos',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'delete/reclamo.delete.html',
+                        controller: 'reclamoDeleteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            });
+            $stateProvider.state('updateReclamo',{
+               url: '/update/{reclamoId:int}',
+                parent:'reclamos',
+                param: {
+                    empleadoId: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'create/reclamo.create.html',
+                        controller: 'reclamoUpdateCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                } 
             });
         }]);
 })(window.angular);

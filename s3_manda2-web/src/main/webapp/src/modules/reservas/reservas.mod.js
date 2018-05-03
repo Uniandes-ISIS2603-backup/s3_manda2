@@ -1,13 +1,16 @@
+/**Clase reservas*/
 (function (ng) {
     var mod = ng.module('reservasModule', ['ui.router']);
+    /*constante que da el vinculo a reservas*/
     mod.constant("compraContext", "api/servicios");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouteProvider) {
         var basePath = 'src/modules/reservas/';
-        $urlRouteProvider.otherwise('reservas');
+
         $stateProvider
             .state('reservasList', {
                 url: '/reservas',
                 views: {
+                    /**Se encarga de vincular reservas al mainview para que aparezca en el index este tipo de servicio*/
                     'mainView': {
                         templateUrl: basePath + 'reservas.list.html',
                         controller: 'reservasListCtrl',
@@ -15,6 +18,7 @@
                     }
                 }
             })
+            /**Estado para crear un areserva*/
             .state('reservasCrear', {
                 url: "/reservas/crear",
                 params: {
@@ -39,6 +43,7 @@
                     }
                 }
             })
+            /**Estado paraotener la informacion de una reserva*/
             .state('reservasDetail', {
                 url: '/reservas/{id_reserva}',
                 params: {

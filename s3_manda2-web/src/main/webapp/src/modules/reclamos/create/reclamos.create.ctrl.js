@@ -11,7 +11,7 @@
                         numero: $scope.reclamoNumero,
                         mensaje: $scope.reclamoMensaje}
                     ).then(function (response) {
-                        $state.go('reclamoList', {idReclamo: response.id}, {reload: true});
+                        $state.go('reclamosList', {idReclamo: response.id}, {reload: true});
                     });
                 };
             }]);
