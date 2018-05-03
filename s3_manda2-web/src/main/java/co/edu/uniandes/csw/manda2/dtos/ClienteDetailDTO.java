@@ -140,19 +140,25 @@ public class ClienteDetailDTO extends ClienteDTO {
         if (entity != null) {        
 
             //Hay errores en los constructores a entities de las diferentes relaciones que tiene cliente, por lo que se deja comentado hasta el ciclo 3
-            /**
             if (entity.getBilletera() != null) {
                 this.billetera = new BilleteraDTO(entity.getBilletera());
             }
+            /**
+            System.out.println("Entro al metodo1");
             //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
-            
             if (entity.getServicios() != null) {
+                System.out.println("Entro al metodo2");
                this.servicios = new ArrayList();
+               System.out.println("Entro al metodo3");
                 for (ServicioEntity entityServicio : entity.getServicios()) {
+                    System.out.println("Entro al metodo4");
                    if( entityServicio instanceof EntregasDeDocumentosEntity)
                    {
+                       System.out.println("Entro al metodo5");
                         servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
                    }
+                   System.out.println("Entro al metodo6");
+                   /**
                    else if( entityServicio instanceof ComprasEnTiendaEntity)
                    {
                         servicios.add(new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
@@ -165,23 +171,23 @@ public class ClienteDetailDTO extends ClienteDTO {
                    {
                         servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
                    }
+                   
                 }
             }
-            
+            */
             if (entity.getPagos() != null) {
                 this.pagos = new ArrayList();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
                 }
             }
-            
             if (entity.getQuejasYReclamos() != null) {
                 this.quejasYReclamos = new ArrayList();
                 for (ReclamoEntity entityReclamo : entity.getQuejasYReclamos()) {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
             }
-            */
+            
             
         }
         
@@ -253,10 +259,11 @@ public class ClienteDetailDTO extends ClienteDTO {
     public ClienteEntity toEntity() {
         ClienteEntity clienteE = super.toEntity();
         //Esto se arreglara en el ciclo 3 ya que los to entity de alguna clases fallan.
-        /**
+        
         if (billetera != null) {
             clienteE.setBilletera(billetera.toEntity());
         }
+
         if (servicios != null) {
             List<ServicioEntity> serviciosEntity = new ArrayList();
             for (ServicioDTO dtoServicio : servicios) {
@@ -278,7 +285,7 @@ public class ClienteDetailDTO extends ClienteDTO {
             }
             clienteE.setQuejasYReclamos(reclamosEntity);
         }
-        * */
+     
         return clienteE;
     }
 }
