@@ -2,9 +2,9 @@
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading"><label ng-if="!edit" id="createVuelta">Crear una nueva vuelta con demora</label>
-                <label ng-if="edit" id="editEntrega">Editar una vuelta con demora</label></div>
+                <label ng-if="edit" id="editVuelta">Editar una vuelta con demora</label></div>
             <div class="panel-body">
-                <form ng-submit="vueltaEntrega()" name="vuelta">
+                <form ng-submit="createVuelta()" name="vuelta">
                     <div class="form-group row">
 
                         <label for="vueltaId" class="col-sm-6">Id:</label>
@@ -38,8 +38,8 @@
                         <input id="vueltaPuntoDeEncuentro" required ng-model="vueltaPuntoDeEncuentro" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                        <label for="entregaPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
-                        <input id="entregaPuntoDeRealizacion" required ng-model="entregaPuntoDeRealizacion" class="col-sm-6"/>
+                        <label for="vueltaPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
+                        <input id="vueltaPuntoDeRealizacion" required ng-model="vueltaPuntoDeRealizacion" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
                         <label for="vueltaCostoDeTransporte" class="col-sm-6">Costo de transporte:</label>

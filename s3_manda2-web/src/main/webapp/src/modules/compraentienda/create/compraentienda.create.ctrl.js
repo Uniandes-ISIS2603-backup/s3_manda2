@@ -7,7 +7,7 @@
             
              $scope.data = {};
             
-           $scope.createVuelta = function(){
+           $scope.createCompra = function(){
                 $http.post(compraContext, {
                     id: $scope.compraId,
                     nombre: $scope.compraNombre,
@@ -17,7 +17,8 @@
                     estado: $scope.compraEstado,
                     puntoDeEncuentro: $scope.compraPuntoDeEncuentro,
                     puntoDeRealizacion: $scope.compraPuntoDeRealizacion,
-                    costoDeTransporte: $scope.compraCostoDeTransporte
+                    costoDeTransporte: $scope.compraCostoDeTransporte,
+                    articulo: $scope.compraArticulo
                 }).then(function (response) {
                     $state.go('compraentiendaList', {compraId: response.data.id}, {reload: true});
                 });

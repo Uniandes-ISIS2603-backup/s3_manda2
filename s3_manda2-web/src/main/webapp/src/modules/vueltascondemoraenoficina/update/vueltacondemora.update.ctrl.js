@@ -2,9 +2,10 @@
      var mod = ng.module('vueltaModule');
      mod.constant("vueltaContext", "api/vueltascondemoraenoficina");
      mod.controller('vueltaUpdateCtrl', ['$scope', '$http', 'vueltaContext', '$state','$rootScope',
+         
           function ($scope, $http, vueltaContext, $state, $rootScope){
-              $rootScope.update = true;
-               var idVuelta = $state.params.idVuelta;
+              $rootScope.edit = true;
+               var idVuelta = $state.params.vueltaId;
                
                $http.get(vueltaContext + '/' + idVuelta).then(function (response) {
                 var vuelta = response.data;
@@ -17,9 +18,9 @@
                     $scope.vueltaPuntoDeEncuentro=vuelta.puntoDeEncuentro;
                     $scope.vueltaPuntoDeRealizacion=vuelta.puntoDeRealizacion;
                     $scope.vueltaCostoDeTransporte=vuelta.costoDeTransporte;
-                    $scope.vueltaCostoDuracion=vuelta.porcentajeExtra;
+                    $scope.vueltaCostoDuracion=vuelta.costoDuracion;
             });
-            $scope.createEntrega = function () {
+            $scope.createVuelta = function () {
                 $http.put(vueltaContext + "/" + idVuelta, {
                     id: $scope.vueltaId,
                     nombre: $scope.vueltaNombre,
