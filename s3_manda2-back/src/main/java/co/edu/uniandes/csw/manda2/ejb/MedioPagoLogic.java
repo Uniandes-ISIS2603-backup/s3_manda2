@@ -120,6 +120,6 @@ public class MedioPagoLogic {
      * contrario.
      */
     private boolean validateNombreCliente(String nombreCliente) {
-        return (nombreCliente != null && !nombreCliente.isEmpty());
+        return nombreCliente != null && !nombreCliente.isEmpty();
     }
 }
