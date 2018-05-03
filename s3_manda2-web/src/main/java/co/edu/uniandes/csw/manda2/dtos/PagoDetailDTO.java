@@ -25,7 +25,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     private PSEDTO pse;
 
-    private TarjetaCreditoDTO tarjetaCredito;
+    private TarjetaCreditoDTO tarjetaDeCredito;
 
     private ClienteDTO cliente;
 
@@ -41,14 +41,15 @@ public class PagoDetailDTO extends PagoDTO {
         if (entity != null) {
             if (entity.getPayPal() != null) {
                 this.payPal = new PayPalDTO(entity.getPayPal());
-            } else if (entity.getPse() != null) {
-                this.pse = new PSEDTO(entity.getPse());
-            } else if (entity.getTarjetaDeCredito() != null) {
-                this.tarjetaCredito = new TarjetaCreditoDTO(entity.getTarjetaDeCredito());
             }
+            if (entity.getPse() != null) {
+                this.pse = new PSEDTO(entity.getPse());
+            }
+            if (entity.getTarjetaDeCredito() != null) {
+                this.tarjetaDeCredito = new TarjetaCreditoDTO(entity.getTarjetaDeCredito());
+            }   
             if (entity.getServicio() != null) {
                 this.servicio = new ServicioDTO(entity.getServicio());
-
             }
             if (entity.getCliente() != null) {
                 this.cliente = new ClienteDTO(entity.getCliente());
@@ -86,12 +87,12 @@ public class PagoDetailDTO extends PagoDTO {
         this.cliente = pCliente;
     }
 
-    public PayPalDTO getPaypal() {
+    public PayPalDTO getPayPal() {
         return payPal;
     }
 
-    public void setPaypal(PayPalDTO paypal) {
-        this.payPal = paypal;
+    public void setPayPal(PayPalDTO payPal) {
+        this.payPal = payPal;
     }
 
     public PSEDTO getPse() {
@@ -102,12 +103,12 @@ public class PagoDetailDTO extends PagoDTO {
         this.pse = pse;
     }
 
-    public TarjetaCreditoDTO getTarjetaCredito() {
-        return tarjetaCredito;
+    public TarjetaCreditoDTO getTarjetaDeCredito() {
+        return tarjetaDeCredito;
     }
 
-    public void setTarjetaCredito(TarjetaCreditoDTO tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
+    public void setTarjetaDeCredito(TarjetaCreditoDTO tarjetaCredito) {
+        this.tarjetaDeCredito = tarjetaCredito;
     }
 
     /**
@@ -120,10 +121,12 @@ public class PagoDetailDTO extends PagoDTO {
         PagoEntity pagoE = super.toEntity();
         if (payPal != null) {
             pagoE.setPayPal(payPal.toEntity());
-        } else if (pse != null) {
+        }
+        if (pse != null) {
             pagoE.setPse(pse.toEntity());
-        } else if (tarjetaCredito != null) {
-            pagoE.setTarjetaDeCredito(tarjetaCredito.toEntity());
+        }
+        if (tarjetaDeCredito != null) {
+            pagoE.setTarjetaDeCredito(tarjetaDeCredito.toEntity());
         }
         if (servicio != null) {
             pagoE.setServicio(servicio.toEntity());

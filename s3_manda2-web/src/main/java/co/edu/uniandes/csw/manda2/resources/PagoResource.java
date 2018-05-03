@@ -137,12 +137,13 @@ public class PagoResource {
     @PUT
     @Path("{id: \\d+}")
     public PagoDetailDTO updatePago(@PathParam("id") long id, PagoDetailDTO pago) throws BusinessLogicException {
-        pago.setId(id);
-        PagoEntity entity = pagoLogic.getPago(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso /pagoss/" + id + " no existe.", 404);
-        }
-        return new PagoDetailDTO(pagoLogic.updatePago(id, pago.toEntity()));
+        return pago;
+//        pago.setId(id);
+//        PagoEntity entity = pagoLogic.getPago(id);
+//        if (entity == null) {
+//            throw new WebApplicationException("El recurso /pagoss/" + id + " no existe.", 404);
+//        }
+//        return new PagoDetailDTO(pagoLogic.updatePago(id, pago.toEntity()));
     }
 
     /**
@@ -170,12 +171,6 @@ public class PagoResource {
         }
         pagoLogic.deletePago(id);
     }
-//    @POST
-//    @Path( "{idS: \\d+}" )
-//    public PagoDTO pagarServicio( @PathParam( "idS" ) Long idS, PagoDetailDTO dto )
-//    {
-//        return new PagoDTO( pagoLogic.createPago( idS, dto.toEntity() ));
-//    }
 
     private List<PagoDTO> listPagoEntityDTO(List<PagoEntity> pagos) {
         List<PagoDTO> list = new ArrayList();
