@@ -1,3 +1,5 @@
+
+/** Artículos con lo scopes */
 (function (ng) {
         var mod = ng.module("articulosModule");
         mod.constant("articulosContext2", "api/articulos");
