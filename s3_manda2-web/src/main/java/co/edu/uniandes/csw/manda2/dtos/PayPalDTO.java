@@ -41,12 +41,12 @@ public class PayPalDTO extends MedioPagoDTO {
      * Constructor vacío.
      */
     public PayPalDTO() {
-        super();
     }
     
 
 
     public PayPalDTO(PayPalEntity entity) {
+        super(entity);
         if( entity != null){
             this.id = entity.getId();
             this.linkPayPal = entity.getLinkPayPal();

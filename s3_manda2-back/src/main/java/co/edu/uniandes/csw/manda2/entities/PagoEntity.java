@@ -21,13 +21,6 @@ import java.util.Date;
 
 @Entity
 public class PagoEntity extends BaseEntity implements Serializable {
-    
-///**
-//     * Id del pago
-//     */
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.IDENTITY)
-//    private Long id; 
 
   /**
      * Indica el estado en el que se encuentra la transaccion
@@ -40,13 +33,22 @@ public class PagoEntity extends BaseEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
     private Date fecha; 
-     /**
-     *  Atributo que modela el medio de pago ddl pago
-     * 
-     */
+ 
+    
     @PodamExclude
-    @OneToOne
-    private MedioPagoEntity medioPago;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private PayPalEntity payPal;
+    
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private PSEEntity pse;
+    
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)    
+    private TarjetaCreditoEntity tarjetaDeCredito;
     
      /**
      *  Atributo que modela el empleado conoce el pago
@@ -60,7 +62,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      *  Atributo que modela el empleado conoce el pago
      * 
      */
-       @JsonIgnore
+    @JsonIgnore
     @PodamExclude
     @OneToOne(mappedBy = "pago", fetch = FetchType.LAZY)
     private ServicioEntity servicio;
@@ -71,14 +73,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private ClienteEntity cliente;
-//  /**
-//     * Retorna el id del pago.
-//     * @return id de pago.
-//     */
-//    public Long getId(){
-//        return id;
-//    }
-//    
+    
     /**
      * Retorna el estado de transaccion.
      * @return estado de la transaccion.
@@ -93,13 +88,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     public Date getFecha(){
         return fecha;
     }
-//     /**
-//     * Establece el id del pago.
-//     * @param id del pago.
-//     */
-//    public void setId(Long id){
-//        this.id = id;
-//    }
+
      /**
      * Establece el  estado de la transaccion.
      * @param estado Nuevo estado de pago.
@@ -115,19 +104,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
     public void setFecha (Date pFecha){
         this.fecha = pFecha;
     }
-     /**
-     * @return the medio pago
-     */
-    public MedioPagoEntity getMedioPago() {
-        return medioPago;
-    }
 
-    /**
-     * @param medio the medioPago to set
-     */
-    public void setMedioPago(MedioPagoEntity medio) {
-        this.medioPago =medio;
-    }
     
      /**
      * @return the Cliente
@@ -162,6 +139,30 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     public void setEmpleado(EmpleadoEntity empleado) {
         this.empleado = empleado;
+    }
+
+    public PayPalEntity getPayPal() {
+        return payPal;
+    }
+
+    public void setPayPal(PayPalEntity payPal) {
+        this.payPal = payPal;
+    }
+
+    public PSEEntity getPse() {
+        return pse;
+    }
+
+    public void setPse(PSEEntity pse) {
+        this.pse = pse;
+    }
+
+    public TarjetaCreditoEntity getTarjetaDeCredito() {
+        return tarjetaDeCredito;
+    }
+
+    public void setTarjetaDeCredito(TarjetaCreditoEntity tarjetaDeCredito) {
+        this.tarjetaDeCredito = tarjetaDeCredito;
     }
 }
 

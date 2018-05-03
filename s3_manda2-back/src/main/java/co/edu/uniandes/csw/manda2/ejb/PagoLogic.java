@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.manda2.ejb;
 
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.PagoPersistence;
 import java.util.Date;
@@ -80,10 +79,12 @@ public class PagoLogic {
 
         LOGGER.info("Inicia proceso de creación del pago");
 
-            if (!validateFecha(entity.getFecha())) {
+        if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
-            throw new BusinessLogicException("El estaod del pago no puede ser vacio");
+            throw new BusinessLogicException("El estado del pago no puede ser vacio");
+        } else if (!validateMedioDePago(entity)) {
+            throw new BusinessLogicException("El pago no tiene medio de pago asociado o tiene varios medios de pago");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del pago");
@@ -103,35 +104,20 @@ public class PagoLogic {
     public PagoEntity updatePago(Long id, PagoEntity entity) throws BusinessLogicException {
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar pago con id={0}", id);
-//        if (!validateNombreCliente(entity.getCliente().getNombre())) {
-//            throw new BusinessLogicException("El nombre del cliente no puede ser vacio");
-//        } else
-            
-         if (!validateFecha(entity.getFecha())) {
+        if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
-            throw new BusinessLogicException("El estaDd del pago no puede ser vacio");
+            throw new BusinessLogicException("El estado del pago no puede ser vacio");
+        } else if (!validateMedioDePago(entity)) {
+            throw new BusinessLogicException("El pago no tiene medio de pago asociado o tiene varios medios de pago");
         }
-        if (id != entity.getId()) {
+        if (!entity.getId().equals(id)) {
             throw new BusinessLogicException("No se puede cambiar el id del pago");
         }
- 
-    
+
         PagoEntity newEntity = persistence.update(entity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar pago con id={0}", entity.getId());
         return newEntity;
-    }
-
-    /**
-     * Retorna true si el nombre del cliente que realiza el pago es un string
-     * válido, false de lo contrario.
-     *
-     * @param nombreCliente nombre del cliente que realiza el pago
-     * @return true si el nombre del cliente que realiza el pagodel pago es un
-     * string válido, false de lo contrario.
-     */
-    private boolean validateNombreCliente(String nombreCliente) {
-        return (nombreCliente != null && !nombreCliente.isEmpty());
     }
 
     /**
@@ -157,13 +143,34 @@ public class PagoLogic {
     private boolean validateEstado(String estado) {
         return (estado != null && !estado.isEmpty());
     }
-    public PagoEntity createPago( Long idS, PagoEntity ent )
-    {
-        ServicioEntity s = new ServicioEntity();
-        s.setId( idS );
-        ent.setServicio( s );
-        persistence.create( ent );
-        return ent;
+
+    /**
+     * Valida que el pago sólo tenga un tipo de medio de pago.
+     *
+     * @param entity Pago que se va a validar.
+     * @return true si el pago sólo tiene un medio de pago, false de lo
+     * contrario.
+     */
+    private boolean validateMedioDePago(PagoEntity entity) {
+        if (entity.getPayPal() != null) {
+            if (entity.getPse() != null || entity.getTarjetaDeCredito() != null) {
+                return false;
+            }
+        }
+        if (entity.getPse() != null) {
+            if (entity.getPayPal() != null || entity.getTarjetaDeCredito() != null) {
+                return false;
+            }
+        }
+        if (entity.getTarjetaDeCredito() != null) {
+            if (entity.getPayPal() != null || entity.getPse() != null) {
+                return false;
+            }
+        }
+        if(entity.getPse() == null && entity.getPayPal() == null && entity.getTarjetaDeCredito() == null){
+            return false;
+        }
+        return true;
     }
 
 }

@@ -92,7 +92,5 @@ public class PSEDTO extends MedioPagoDTO {
         entity.setNombreCliente(this.nombreCliente);
         entity.setLinkPse(this.linkPse);
         return entity;
-    }
-    
-    
+    }  
 }
