@@ -5,13 +5,38 @@
           function ($scope, $http, vueltaContext, $state, $rootScope){
               $rootScope.update = true;
                var idVuelta = $state.params.idVuelta;
-               $scope.data = {'id':1};
                
-                $scope.createVuelta = function(){
-                    $http.put(vueltaContext, $scope.data).then(function (response){
-                   $state.go('vueltacondemoraList', {idVuelta: response.id}, {reload:true});
-  });
-                };
-            }]);
-})(window.angular);
-
+               $http.get(vueltaContext + '/' + idVuelta).then(function (response) {
+                var vuelta = response.data;
+                    $scope.vueltaId= vuelta.id;
+                    $scope.vueltaNombre= vuelta.nombre;
+                    $scope.vueltaCalificacion=vuelta.calificacion;
+                    $scope.vueltaCosto=vuelta.costo;
+                    $scope.vueltaDescripcion=vuelta.descripcion;
+                    $scope.vueltaEstado=vuelta.estado;
+                    $scope.vueltaPuntoDeEncuentro=vuelta.puntoDeEncuentro;
+                    $scope.vueltaPuntoDeRealizacion=vuelta.puntoDeRealizacion;
+                    $scope.vueltaCostoDeTransporte=vuelta.costoDeTransporte;
+                    $scope.vueltaCostoDuracion=vuelta.porcentajeExtra;
+            });
+            $scope.createEntrega = function () {
+                $http.put(vueltaContext + "/" + idVuelta, {
+                    id: $scope.vueltaId,
+                    nombre: $scope.vueltaNombre,
+                    calificacion: $scope.vueltaCalificacion,
+                    costo: $scope.vueltaCosto,
+                    descripcion: $scope.vueltaDescripcion,
+                    estado: $scope.vueltaEstado,
+                    puntoDeEncuentro: $scope.vueltaPuntoDeEncuentro,
+                    puntoDeRealizacion: $scope.vueltaPuntoDeRealizacion,
+                    costoDeTransporte: $scope.vueltaCostoDeTransporte,
+                    costoDuracion: $scope.vueltaCostoDuracion
+                }).then(function (response) {
+                    //vuelta created successfully
+                    $state.go('vueltacondemoraList', {vueltaId: response.data.id}, {reload: true});
+                });
+            };
+        }
+    ]);
+}
+)(window.angular);

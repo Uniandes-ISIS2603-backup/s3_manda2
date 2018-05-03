@@ -15,29 +15,41 @@
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'compraentienda.list.html',
-                          controller: 'vueltaCtrl',
+                          controller: 'compraCtrl',
                           controllerAs: 'ctrl'
                       }
                   }
-             } )
-           .state('compraentiendaCreate', {
-                 url: '/create',
+             } );
+           $stateProvider.state('compraentiendaCreate', {
+                 url: 'compraentienda/create',
                   views: {
                       'despliegueServicios': { 
                           templateUrl: basePath + 'create/compraentienda.create.html',
                           controller: 'compraCreateCtrl'
                       }
                   }
-             } )
-             .state('compraentiendaDelete', {
-                 url: '/delete/(idCompra:int)',
+             } );
+             $stateProvider.state ('compraUpdate',{
+                        url: '/update/{compraId:int}', 
+                param: {
+                    compraId: null
+                },
+                views:{
+                    'despliegueServicios': {
+                        templateUrl: basePath + 'create/compraentienda.create.html',
+                        controller : 'compraUpdateCtrl'
+                    }
+                }
+             });
+             $stateProvider.state('compraentiendaDelete', {
+                 url: '/delete/(compraId:int)',
                  param: {
                      idCompra : null
                  },
                   views: {
                       'despliegueServicios': { 
-                          templateUrl: basePath + 'delete/compraentienda.delete.html',
-                          controller: 'compraDeleteCtrl',
+                          templateUrl: basePath + '/delete/compraentienda.delete.html',
+                          controller: 'compraDeleteCtrl'
                       }
                   }
              } ); 

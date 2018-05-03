@@ -24,37 +24,32 @@
                     <th>Costo </th> 
                     <th>Costo de duración</th>
                     <th>Costo de transporte</th> 
-                    <th>Pago</th> 
+                    
                 </tr>
             </thead>
             
             <tbody>
                 <tr ng-repeat="vuelta in vueltasRecords">
-                    <td > <a ui-sref="vueltaDetail ({vueltaId: vuelta.id}) ">{{vuelta.id}}</a></td>
+                    <td > {{vuelta.id}}  </td>
                     <td >{{vuelta.nombre}}</td>  
                     <td >{{vuelta.cliente}}</td>
                     <td >{{vuelta.empleado}}</td>
                     <td >{{vuelta.puntoDeEncuentro}}</td>
                     <td >{{vuelta.puntoDeRealizacion}}</td>
                     <td >{{vuelta.exitoDiligencia}}</td>
-                    <td >{{vuelta.calification}}</td>
+                    <td >{{vuelta.calificacion}}</td>
                     <td >{{vuelta.descripcion}}</td>
                     <td >{{vuelta.costo}}</td>
                     <td >{{vuelta.costoDuracion}}</td>
                     <td >{{vuelta.costoDeTransporte}}</td>
                     <td >{{vuelta.pago}}</td>
-                     <td>
-                            <button class="btn btn-default btn-sm" ui-sref="vueltaUpdate({idVuelta: vuelta.id})">Editar</button>
+                     <td id="{{$index}}-actions">
+                            <button class="btn btn-default btn-sm" ui-sref="vueltaUpdate({vueltaId: vuelta.id})">Editar</button>
+                            <button class="btn btn-danger btn-sm" ui-sref="vueltacondemoraDelete({vueltaId: vuelta.id})">Eliminar</button>
+                       
                         </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
-                        </td>
-                    </tr>
                 </tr>
-                
-                
-                 
             </tbody>
         </table>
     </div>
-</div>
+
