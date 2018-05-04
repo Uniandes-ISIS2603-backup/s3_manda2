@@ -81,8 +81,14 @@ public class EmpleadoLogic {
      */
     public EmpleadoEntity createEmpleado(EmpleadoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
-        if (!validateNombreEmpleado(entity.getNombre())|| !validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
-            throw new BusinessLogicException("El nombre o cedula no pueden ser vacios");
+        if(!validateNombreEmpleado(entity.getNombre())){
+            throw new BusinessLogicException("Nombre no válido");
+        }
+        if(!validateCedula(entity.getCedula())){
+            throw new BusinessLogicException("Cédula no válida");
+        }
+        if(!validateLogin(entity.getLogin())){
+            throw new BusinessLogicException("Login no válido");
         }
         if(persistence.find(entity.getId())!= null)
         {
@@ -122,7 +128,7 @@ public class EmpleadoLogic {
      * @return true si el nombre del empleado es un string válido, false de lo contrario.
      */
     private boolean validateNombreEmpleado( String nombreCliente ){
-        return (nombreCliente != null && !nombreCliente.isEmpty());
+        return nombreCliente != null && !nombreCliente.isEmpty();
     }
     
      /**
@@ -131,7 +137,7 @@ public class EmpleadoLogic {
      * @return true si el cedula es un string válido, false de lo contrario.
      */
     private boolean validateCedula( String cedula ){
-        return ( cedula != null && !cedula.isEmpty());
+        return cedula != null && !cedula.isEmpty();
     }
     /**
      * Retorna true si el login del cliente es un string válido, false de lo contrario.
@@ -139,6 +145,6 @@ public class EmpleadoLogic {
      * @return true si el login del cliente es un string válido, false de lo contrario.
      */
     private boolean validateLogin( String login ){
-        return ( login != null && !login.isEmpty());
+        return login != null && !login.isEmpty();
     }
 }
