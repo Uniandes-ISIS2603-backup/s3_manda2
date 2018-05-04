@@ -67,7 +67,7 @@ public class UsuarioLogic {
      */
     public UsuarioEntity createUsuario(UsuarioEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un usuario");
-        if (!validateNombreUsuario(entity.getNombre())|| !validateCedula(entity.getCedula())) {
+        if (!validateNombreUsuario(entity.getNombre()) || !validateCedula(entity.getCedula())) {
             throw new BusinessLogicException("El nombre o cedula no pueden ser vacios");
         }
         if(persistence.find(entity.getId())!= null)
@@ -104,7 +104,7 @@ public class UsuarioLogic {
      * @return true si el nombre del usuario es un string válido, false de lo contrario.
      */
     private boolean validateNombreUsuario( String nombreCliente ){
-        return (nombreCliente != null && !nombreCliente.isEmpty());
+        return nombreCliente != null && !nombreCliente.isEmpty();
     }
     
      /**
@@ -113,7 +113,7 @@ public class UsuarioLogic {
      * @return true si el cedula es un string válido, false de lo contrario.
      */
     private boolean validateCedula( String cedula ){
-        return ( cedula != null && !cedula.isEmpty());
+        return cedula != null && !cedula.isEmpty();
     }
       
 }

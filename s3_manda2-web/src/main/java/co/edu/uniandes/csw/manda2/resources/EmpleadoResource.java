@@ -132,6 +132,7 @@ public class EmpleadoResource {
      */
     @POST
     public EmpleadoDetailDTO createEmpleado( EmpleadoDetailDTO empleado)throws BusinessLogicException{
+        System.out.println(empleado.toEntity().toString());
         return new EmpleadoDetailDTO (logic.createEmpleado(empleado.toEntity()));
     }
     /**

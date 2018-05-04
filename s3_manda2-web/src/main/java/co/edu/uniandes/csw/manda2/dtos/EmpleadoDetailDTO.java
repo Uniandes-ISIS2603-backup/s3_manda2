@@ -103,29 +103,33 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
             this.calificacion = entity.getCalificacion();
             this.fechaIngreso = entity.getFechaIngreso();
             this.login = entity.getLogin();
-            if( entity.getComprasEnTienda() != null){
+            if (entity.getComprasEnTienda() != null) {
                 List<ComprasEnTiendaDTO> comprasDTO = new ArrayList<>();
-                for(ComprasEnTiendaEntity compraEntity : entity.getComprasEnTienda()){
+                for (ComprasEnTiendaEntity compraEntity : entity.getComprasEnTienda()) {
                     comprasDTO.add(new ComprasEnTiendaDTO(compraEntity));
                 }
+                this.comprasEnTienda = comprasDTO;
             }
-            if( entity.getEntregasDeDocumentos() != null){
+            if (entity.getEntregasDeDocumentos() != null) {
                 List<EntregasDeDocumentosDTO> entregasDTO = new ArrayList<>();
-                for(EntregasDeDocumentosEntity entregaEntity : entity.getEntregasDeDocumentos()){
+                for (EntregasDeDocumentosEntity entregaEntity : entity.getEntregasDeDocumentos()) {
                     entregasDTO.add(new EntregasDeDocumentosDTO(entregaEntity));
                 }
+                this.entregasDeDocumentos = entregasDTO;
             }
-            if( entity.getOrganizaciones() != null){
+            if (entity.getOrganizaciones() != null) {
                 List<OrganizacionDTO> organizacionesDTO = new ArrayList<>();
-                for(OrganizacionEntity organizacionEntity : entity.getOrganizaciones()){
+                for (OrganizacionEntity organizacionEntity : entity.getOrganizaciones()) {
                     organizacionesDTO.add(new OrganizacionDTO(organizacionEntity));
                 }
+                this.organizaciones = organizacionesDTO;
             }
-            if( entity.getVueltasConDemoraEnOficina() != null){
+            if (entity.getVueltasConDemoraEnOficina() != null) {
                 List<VueltasConDemoraEnOficinaDTO> vueltasDTO = new ArrayList<>();
-                for(VueltasConDemoraEnOficinaEntity vueltaEntity : entity.getVueltasConDemoraEnOficina()){
+                for (VueltasConDemoraEnOficinaEntity vueltaEntity : entity.getVueltasConDemoraEnOficina()) {
                     vueltasDTO.add(new VueltasConDemoraEnOficinaDTO(vueltaEntity));
                 }
+                this.vueltasConDemoraEnOficina = vueltasDTO;
             }
             if (entity.getPagos() != null) {
                 this.pagos = new ArrayList();
@@ -150,7 +154,6 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
      *
      * @param pagos Lista de pagos != null
      */
-
     public void setPagos(List<PagoDTO> pagos) {
         this.pagos = pagos;
     }
@@ -186,34 +189,34 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
     public void setOrganizaciones(List<OrganizacionDTO> organizaciones) {
         this.organizaciones = organizaciones;
     }
-    
-    public List<ComprasEnTiendaEntity> comprasListToEntity(){
+
+    public List<ComprasEnTiendaEntity> comprasListToEntity() {
         ArrayList<ComprasEnTiendaEntity> lista = new ArrayList<>();
-        for( ComprasEnTiendaDTO compra : comprasEnTienda){
+        for (ComprasEnTiendaDTO compra : comprasEnTienda) {
             lista.add(compra.toEntity());
         }
         return lista;
     }
-    
-    public List<EntregasDeDocumentosEntity> entregasListToEntity(){
+
+    public List<EntregasDeDocumentosEntity> entregasListToEntity() {
         ArrayList<EntregasDeDocumentosEntity> lista = new ArrayList<>();
-        for( EntregasDeDocumentosDTO entrega : entregasDeDocumentos){
+        for (EntregasDeDocumentosDTO entrega : entregasDeDocumentos) {
             lista.add(entrega.toEntity());
         }
         return lista;
     }
-    
-    public List<OrganizacionEntity> organizacionesListToEntity(){
+
+    public List<OrganizacionEntity> organizacionesListToEntity() {
         ArrayList<OrganizacionEntity> lista = new ArrayList<>();
-        for( OrganizacionDTO organizacion : organizaciones){
+        for (OrganizacionDTO organizacion : organizaciones) {
             lista.add(organizacion.toEntity());
         }
         return lista;
     }
-    
-    public List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity(){
+
+    public List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity() {
         ArrayList<VueltasConDemoraEnOficinaEntity> lista = new ArrayList<>();
-        for( VueltasConDemoraEnOficinaDTO vuelta : vueltasConDemoraEnOficina){
+        for (VueltasConDemoraEnOficinaDTO vuelta : vueltasConDemoraEnOficina) {
             lista.add(vuelta.toEntity());
         }
         return lista;
@@ -235,7 +238,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         entity.setFechaIngreso(fechaIngreso);
         entity.setCedula(cedula);
         entity.setId(id);
-        entity.setIdentificacio(identificacion);
+        entity.setIdentificacion(identificacion);
         entity.setFoto(foto);
         entity.setEPS(EPS);
         entity.setCalificacion(calificacion);
@@ -247,5 +250,4 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         entity.setLogin(login);
         return entity;
     }
-
 }
