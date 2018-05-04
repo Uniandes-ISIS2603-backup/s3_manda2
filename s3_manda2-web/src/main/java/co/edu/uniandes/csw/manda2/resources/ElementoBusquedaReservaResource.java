@@ -50,7 +50,7 @@ public class ElementoBusquedaReservaResource {
     @GET
     public List<ElementoBusquedaReservaDTO> getElementoBusquedas() {
         
-        return listElementos(elementoLogic.getElementoBusquedaReservas()) ;
+        return listElementos(elementoLogic.getElementosBusquedasReservas()) ;
                 
     }
  /**
