@@ -66,10 +66,11 @@ public class EmpleadoDTO extends UsuarioDTO{
     public EmpleadoDTO(EmpleadoEntity entity){
         super(entity);
         if(entity != null){
-        identificacion = entity.getIdentificacio();
+        identificacion = entity.getIdentificacion();
         foto = entity.getFoto();
         EPS = entity.getEPS();
         this.calificacion = entity.getCalificacion();
+        this.login = entity.getLogin();
         }
     }
     //METODOS
@@ -122,10 +123,11 @@ public class EmpleadoDTO extends UsuarioDTO{
         entity.setNombre(this.nombre);
         entity.setCedula(this.cedula);
         entity.setFechaIngreso(this.fechaIngreso);
-        entity.setIdentificacio(this.identificacion);
+        entity.setIdentificacion(this.identificacion);
         entity.setEPS(this.EPS);
         entity.setFoto(this.foto);
         entity.setCalificacion(this.calificacion);
+        entity.setLogin(this.login);
         return entity;
     }
 }

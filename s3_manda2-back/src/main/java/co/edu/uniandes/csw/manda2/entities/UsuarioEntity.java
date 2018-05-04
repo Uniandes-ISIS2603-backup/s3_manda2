@@ -21,20 +21,31 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author n.bello
  */
 @Entity
-public class UsuarioEntity implements Serializable{
-   @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-   
-   private String nombre;
-   
-   private String cedula;
-   
-   @Temporal(TemporalType.DATE)
-   @PodamStrategyValue(DateStrategy.class)
-   private Date fechaIngreso;
-   
-   private Double calificacion;
+public class UsuarioEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+
+    protected String nombre;
+
+    protected String cedula;
+
+    @Temporal(TemporalType.DATE)
+    @PodamStrategyValue(DateStrategy.class)
+    private Date fechaIngreso;
+
+    private Double calificacion;
+
+    private String login;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public Long getId() {
         return id;
@@ -75,6 +86,5 @@ public class UsuarioEntity implements Serializable{
     public void setCalificacion(Double calificacion) {
         this.calificacion = calificacion;
     }
-   
-   
+
 }

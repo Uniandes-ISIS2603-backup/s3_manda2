@@ -10,9 +10,9 @@ import co.edu.uniandes.csw.manda2.entities.PSEEntity;
 /**
  * PSEDTO Objeto de transferencia de datos de Pses. Los DTO contienen las
  * representaciones de los JSON que se transfieren entre el cliente y el
- * servidor, ademas hereda la clase (@link MedioPagoDTO), dirijase a ella para mas
- * informacion
- * 
+ * servidor, ademas hereda la clase (@link MedioPagoDTO), dirijase a ella para
+ * mas informacion
+ *
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
@@ -20,11 +20,10 @@ import co.edu.uniandes.csw.manda2.entities.PSEEntity;
  *      "id": number,
  *      "linkPse": string
  *   }
- * </pre>
- * Por ejemplo un pse se representa asi:<br>
- * 
+ * </pre> Por ejemplo un pse se representa asi:<br>
+ *
  * <pre>
- * 
+ *
  *   {
  *      "nombreCliente": "carlos bello",
  *      "id": 01234566789,
@@ -36,18 +35,21 @@ import co.edu.uniandes.csw.manda2.entities.PSEEntity;
  * @author na.caceres
  */
 public class PSEDTO extends MedioPagoDTO {
+
     //Atributos
     /**
      * Atributo que representa el link correspondiente a la transaccion.
      */
     private String linkPse;
+
     //Constructor
     /**
      * Constructor por defecto
-    */
-    public PSEDTO(){
-       
+     */
+    public PSEDTO() {
+        //Constructor vacío.
     }
+
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
@@ -56,15 +58,14 @@ public class PSEDTO extends MedioPagoDTO {
      */
     public PSEDTO(PSEEntity pse) {
         super();
-        if(pse!= null)
-        {
-        this.id = pse.getId();
-        this.nombreCliente = pse.getNombreCliente();
-        this.linkPse = pse.getLinkPse();
+        if (pse != null) {
+            this.id = pse.getId();
+            this.nombreCliente = pse.getNombreCliente();
+            this.linkPse = pse.getLinkPse();
         }
 
     }
-    
+
     //Metodos
     /**
      * @return the linkPse
@@ -93,6 +94,4 @@ public class PSEDTO extends MedioPagoDTO {
         entity.setLinkPse(this.linkPse);
         return entity;
     }
-    
-    
 }

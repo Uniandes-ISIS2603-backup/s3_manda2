@@ -59,6 +59,29 @@ public class ClientePersistence {
         }
     }
 
+    /**
+     * Busca si hay algun cliente con el login que se envía de argumento
+     *
+     * @param login: Login del cliente que se está buscando.
+     * @return null si no existe ningun cliente con el numero de login del argumento. Si
+     * existe alguna devuelve la primera.
+     */
+    public ClienteEntity findByLogin(String login) {
+        LOGGER.log(Level.INFO, "Consultando cliente por numero de login ", login);
+
+        // Se crea un query para buscar un cliente con el numero de cedula que recibe el método como argumento. ":login" 
+        TypedQuery query = em.createQuery("Select e From ClienteEntity e where e.login = :login", ClienteEntity.class);
+        // Se remplaza el placeholder ":cedula" con el valor del argumento 
+        query = query.setParameter("login", login);
+        // Se invoca el query se obtiene la lista resultado
+        List<ClienteEntity> sameLogin = query.getResultList();
+        if (sameLogin.isEmpty()) {
+            return null;
+        } else {
+            return sameLogin.get(0);
+        }
+    }
+    
     public List<ClienteEntity> findAll() {
         LOGGER.info("Consultando todas los clientes");
         TypedQuery query = em.createQuery("select u from ClienteEntity u", ClienteEntity.class);

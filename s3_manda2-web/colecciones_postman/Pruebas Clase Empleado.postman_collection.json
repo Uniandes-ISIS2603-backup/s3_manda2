@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8c5401c6-8111-4315-9465-b06035793923",
+		"_postman_id": "1616843a-a8c8-4314-8a42-3eb7dd9c57b9",
 		"name": "Pruebas Clase Empleado",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \"nombre\": \"nicolas_caceres\", \r\n       \"cedula\": \"1014563321\",\r\n       \"fechaIngreso\": \"2012-04-23T18:25:43.511Z\",\r\n       \"calificacion\": 5,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"EPS\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"servicios\":[]\r\n}\r\n"
+					"raw": "{\r\n       \"nombre\": \"nicolas caceres\", \r\n       \"login\":\"ncaceres\",\r\n       \"cedula\": \"1014563321\",\r\n       \"fechaIngreso\": \"2012-04-23T18:25:43.511Z\",\r\n       \"calificacion\": 5,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"EPS\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"comprasEnTienda\":\r\n       [\r\n       \t {\r\n \t\t\t\"costoDeTransporte\": \"10.000\",\r\n    \t\t\"pago\": \"dasd\",\r\n    \t\t\"cliente\": \"pedro\",\r\n    \t\t\"empleado\": \"Empleado1\",\r\n    \t\t\"id\": \"345\",\r\n\t       \"nombre\": \"compra1\",\r\n\t       \"costo\": \"30.000\",\r\n\t       \"puntoDeEncuentro\":\"calle 44\",\r\n\t       \"puntoDeRealizacion\": \"Exito \",\r\n\t       \"exitoDiligencia\": \"true\",\r\n\t       \"calification\": \"5\",\r\n\t       \"descripcion\": \"estuvo bien\",\r\n       \t \t\"articulo\":[]\r\n       \t }\r\n       ],\r\n       \"entregasDeDocumentos\":\r\n       [\r\n       \t {\r\n \t    \"id\": 34748,\r\n \t\t\"nombre\": \"Entrega de documento a bancolombia\",\r\n \t\t\"costo\": 15000,\r\n \t\t\"puntoDeEncuentro\":\"Pan Pa Ya 116\",\r\n \t\t\"estado\": \"EN_DESARROLLO\",\r\n \t\t\"calificacion\": 4,\r\n \t\t\"descripcion\": \"Llevar carta al gerente general\",\r\n \t\t\"puntoDeRealizacion\": \"Bancolombia calle 72\",\r\n \t\t\"costoDeTransporte\": 8000,\r\n \t\t\"porcentajeExtra\": 0.3,\r\n        \"pago\": {},\r\n        \"cliente\": {},\r\n        \"empleado\": {}\r\n       \r\n\t\t}\r\n       ],\r\n       \"organizaciones\":\r\n       [\r\n       \t{\r\n    \t\"costoTransporte\":25000,\r\n\t\t\"costoDuracion\": 65000,\r\n\t\t\"desplazamiento\": true\r\n\t\t}\r\n       ],\r\n       \"vueltasConDemoraEnOficina\":\r\n       [\r\n       \t {\r\n \t\t\t\"costoDeTransporte\": \"10000\",\r\n\t       \"pago\": \"dasd\",\r\n\t       \"cliente\": \"pedro\",\r\n\t       \"empleado\": \"Empleado1\",\r\n\t       \"id\": \"345\",\r\n\t       \"nombre\": \"compra1\",\r\n\t       \"costo\": \"30.000\",\r\n\t       \"puntoDeEncuentro\":\"calle 44\",\r\n\t       \"puntoDeRealizacion\": \"Exito \",\r\n\t       \"exitoDiligencia\": \"true\",\r\n\t       \"calification\": \"5\",\r\n\t       \"descripcion\": \"estuvo bien\",\r\n\t       \"costoDuracion\": \"10000\"\r\n\t\t  }\r\n       ]\r\n}\r\n"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",

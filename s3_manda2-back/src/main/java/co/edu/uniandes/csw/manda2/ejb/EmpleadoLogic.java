@@ -51,6 +51,20 @@ public class EmpleadoLogic {
         return empleado;
     }
     /**
+     * Busca un cliente por login
+     * @param login El login del cliente  a buscar
+     * @return El cliente encontrado, null si no lo encuentra.
+     */
+    public EmpleadoEntity getEmpleado(String login) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar empleado con login={0}", login);
+        EmpleadoEntity empleado = persistence.findByLogin(login);
+        if (empleado == null) {
+            LOGGER.log(Level.SEVERE, "El empleado con el login {0} no existe", login);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar empleado con login={0}", login);
+        return empleado;
+    }
+    /**
      * Eliminar un empleado
      * @param id El ID del empleado a eliminar
      */
@@ -67,12 +81,22 @@ public class EmpleadoLogic {
      */
     public EmpleadoEntity createEmpleado(EmpleadoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un empleado");
-        if (!validateNombreEmpleado(entity.getNombre())|| !validateCedula(entity.getCedula())) {
-            throw new BusinessLogicException("El nombre o cedula no pueden ser vacios");
+        if(!validateNombreEmpleado(entity.getNombre())){
+            throw new BusinessLogicException("Nombre no válido");
+        }
+        if(!validateCedula(entity.getCedula())){
+            throw new BusinessLogicException("Cédula no válida");
+        }
+        if(!validateLogin(entity.getLogin())){
+            throw new BusinessLogicException("Login no válido");
         }
         if(persistence.find(entity.getId())!= null)
         {
             throw new BusinessLogicException("No pueden existir dos empleado con el mismo id");
+        }
+        if(persistence.findByLogin(entity.getLogin())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos empleados con el mismo login");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de empleado");
@@ -87,7 +111,7 @@ public class EmpleadoLogic {
      */
     public EmpleadoEntity updateEmpleado(Long id, EmpleadoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar empleado con id={0}", id);
-        if (!validateNombreEmpleado(entity.getNombre())||!validateCedula(entity.getCedula())) {
+        if (!validateNombreEmpleado(entity.getNombre())||!validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
             throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
         }
         if(id!= entity.getId())
@@ -104,7 +128,7 @@ public class EmpleadoLogic {
      * @return true si el nombre del empleado es un string válido, false de lo contrario.
      */
     private boolean validateNombreEmpleado( String nombreCliente ){
-        return (nombreCliente != null && !nombreCliente.isEmpty());
+        return nombreCliente != null && !nombreCliente.isEmpty();
     }
     
      /**
@@ -113,7 +137,14 @@ public class EmpleadoLogic {
      * @return true si el cedula es un string válido, false de lo contrario.
      */
     private boolean validateCedula( String cedula ){
-        return ( cedula != null && !cedula.isEmpty());
+        return cedula != null && !cedula.isEmpty();
     }
-    
+    /**
+     * Retorna true si el login del cliente es un string válido, false de lo contrario.
+     * @param login login del cliente
+     * @return true si el login del cliente es un string válido, false de lo contrario.
+     */
+    private boolean validateLogin( String login ){
+        return login != null && !login.isEmpty();
+    }
 }
