@@ -5,11 +5,11 @@
  */
 package co.edu.uniandes.csw.manda2.entities;
 
-
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -18,32 +18,48 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author n.bello
  */
 @Entity
-public class EmpleadoEntity extends UsuarioEntity implements Serializable{
-    
-    private String identificacio;
-    
+public class EmpleadoEntity extends UsuarioEntity implements Serializable {
+
+    private String identificacion;
+
     private String foto;
-    
+
     private String EPS;
-    
+
     @OneToMany(mappedBy = "empleado")
     @PodamExclude
-    protected List<PagoEntity> pagos;
-    
-    @OneToMany(mappedBy="empleado")
+    private List<PagoEntity> pagos;
+
+    @OneToMany(mappedBy = "empleado")
     @PodamExclude
-    protected List<ReclamoEntity> reclamos;
-    
-    @OneToMany(mappedBy="empleado")
+    private List<ReclamoEntity> reclamos;
+
+    @OneToMany(mappedBy = "empleado", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     @PodamExclude
-    protected List<ServicioEntity> servicios;
-    
-    public String getIdentificacio() {
-        return identificacio;
+    @JoinColumn(nullable = true)
+    private List<ComprasEnTiendaEntity> comprasEnTienda;
+
+    @OneToMany(mappedBy = "empleado", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<EntregasDeDocumentosEntity> entregasDeDocumentos;
+
+    @OneToMany(mappedBy = "empleado", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<OrganizacionEntity> organizaciones;
+
+    @OneToMany(mappedBy = "empleado", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<VueltasConDemoraEnOficinaEntity> vueltasConDemoraEnOficina;
+
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setIdentificacio(String identificacio) {
-        this.identificacio = identificacio;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
     public String getFoto() {
@@ -62,18 +78,6 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
         this.EPS = EPS;
     }
 
-//    public void addServicio( ServicioEntity servicio ){
-//        servicios.add(servicio);
-//    }
-    
-    public List<ServicioEntity> getServicios(){
-        return servicios;
-    }
-    
-    public void setServicios( List<ServicioEntity> servicios ){
-        this.servicios = servicios;
-    }
-
     public List<PagoEntity> getPagos() {
         return pagos;
     }
@@ -89,6 +93,36 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
     public void setReclamos(List<ReclamoEntity> reclamos) {
         this.reclamos = reclamos;
     }
-  
-   
+
+    public List<ComprasEnTiendaEntity> getComprasEnTienda() {
+        return comprasEnTienda;
+    }
+
+    public void setComprasEnTienda(List<ComprasEnTiendaEntity> comprasEnTienda) {
+        this.comprasEnTienda = comprasEnTienda;
+    }
+
+    public List<EntregasDeDocumentosEntity> getEntregasDeDocumentos() {
+        return entregasDeDocumentos;
+    }
+
+    public void setEntregasDeDocumentos(List<EntregasDeDocumentosEntity> entregasDeDocumentos) {
+        this.entregasDeDocumentos = entregasDeDocumentos;
+    }
+
+    public List<OrganizacionEntity> getOrganizaciones() {
+        return organizaciones;
+    }
+
+    public void setOrganizaciones(List<OrganizacionEntity> organizaciones) {
+        this.organizaciones = organizaciones;
+    }
+
+    public List<VueltasConDemoraEnOficinaEntity> getVueltasConDemoraEnOficina() {
+        return vueltasConDemoraEnOficina;
+    }
+
+    public void setVueltasConDemoraEnOficina(List<VueltasConDemoraEnOficinaEntity> vueltasConDemoraEnOficina) {
+        this.vueltasConDemoraEnOficina = vueltasConDemoraEnOficina;
+    }
 }

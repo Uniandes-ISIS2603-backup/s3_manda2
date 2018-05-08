@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -25,7 +24,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     
     protected Long id;
     
-    private OrganizacionEntity organizacion;
+    //private OrganizacionEntity organizacion;
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
@@ -70,7 +69,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
      * Obtener el id del servicio organizacion
      * @return id el id de la organizacion
      */
-   /** public Long getId()
+   /**public Long getId()
     {
         return id;
     }
@@ -118,23 +117,8 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
         this.desplazamiento=desplazamiento;
     }
 
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public OrganizacionEntity getOrganizacion() {
-        return organizacion;
-    }
-
-    public void setOrganizacion(OrganizacionEntity organizacion) {
-        this.organizacion = organizacion;
-    }
+    
+    
 
     public Double getCostoDeTransporte() {
         return costoDeTransporte;
@@ -151,5 +135,56 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     public void setCostoDeDuracion(Double costoDeDuracion) {
         this.costoDeDuracion = costoDeDuracion;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPuntoDeEncuentro() {
+        return puntoDeEncuentro;
+    }
+
+    public void setPuntoDeEncuentro(String puntoDeEncuentro) {
+        this.puntoDeEncuentro = puntoDeEncuentro;
+    }
+    
+
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
+    }
+
+    public String getPuntoDeRealizacion() {
+        return puntoDeRealizacion;
+    }
+
+    public void setPuntoDeRealizacion(String puntoDeRealizacion) {
+        this.puntoDeRealizacion = puntoDeRealizacion;
+    }
+
+    public Double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(Double calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
 
 }

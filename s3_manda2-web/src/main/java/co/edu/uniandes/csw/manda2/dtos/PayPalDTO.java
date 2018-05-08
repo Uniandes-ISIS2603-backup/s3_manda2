@@ -30,30 +30,38 @@ import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
  * @author da.ramos
  */
 public class PayPalDTO extends MedioPagoDTO {
-    
-        
+
     /**
      * Link de PayPal.
      */
     private String linkPayPal;
-    
+
     /**
      * Constructor vacío.
      */
     public PayPalDTO() {
+        //Constructor vacío.
     }
-    
 
-
+    /**
+     * Constructor a partir de un PayPalEntity.
+     *
+     * @param entity PayPalEntity
+     */
     public PayPalDTO(PayPalEntity entity) {
         super(entity);
-        if( entity != null){
+        if (entity != null) {
             this.id = entity.getId();
             this.linkPayPal = entity.getLinkPayPal();
             this.nombreCliente = entity.getNombreCliente();
         }
     }
 
+    /**
+     * Método para convertir el PayPalDTO a un PayPalEntity
+     *
+     * @return entity
+     */
     @Override
     public PayPalEntity toEntity() {
         PayPalEntity entity = new PayPalEntity();

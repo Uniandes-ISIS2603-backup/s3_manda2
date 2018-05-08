@@ -147,30 +147,33 @@ public class PagoLogic {
     /**
      * Valida que el pago sólo tenga un tipo de medio de pago.
      *
-     * @param entity Pago que se va a validar.
+     * @param entity Pago qu(PagoEntity entity) { return entity.getPayPal() !=
+     * null && entity.getPse() == null && entity.getTarjetaDeCredito() == null;
+     * }
+     *
+     * private boolean validatePse(PagoEntity entity) { return entity.getPse()
+     * != null && entity.getPayPal() == null && entity.getTarjetaDeCredito() ==
+     * null; }
+     *
+     * private boolean validateTarjetaDeCredito(PagoEntity entity) { return
+     * entity.getTarjetaDeCredito() != null && entity.getPayPal() == null &&
+     * entity.getPse() == null; } }e se va a validar.
      * @return true si el pago sólo tiene un medio de pago, false de lo
      * contrario.
      */
     private boolean validateMedioDePago(PagoEntity entity) {
-        if (entity.getPayPal() != null) {
-            if (entity.getPse() != null || entity.getTarjetaDeCredito() != null) {
-                return false;
-            }
-        }
-        if (entity.getPse() != null) {
-            if (entity.getPayPal() != null || entity.getTarjetaDeCredito() != null) {
-                return false;
-            }
-        }
-        if (entity.getTarjetaDeCredito() != null) {
-            if (entity.getPayPal() != null || entity.getPse() != null) {
-                return false;
-            }
-        }
-        if(entity.getPse() == null && entity.getPayPal() == null && entity.getTarjetaDeCredito() == null){
-            return false;
-        }
-        return true;
+        return validatePayPal(entity) || validatePse(entity) || validateTarjetaDeCredito(entity);
     }
 
+    private boolean validatePayPal(PagoEntity entity) {
+        return entity.getPayPal() != null && entity.getPse() == null && entity.getTarjetaDeCredito() == null;
+    }
+
+    private boolean validatePse(PagoEntity entity) {
+        return entity.getPse() != null && entity.getPayPal() == null && entity.getTarjetaDeCredito() == null;
+    }
+
+    private boolean validateTarjetaDeCredito(PagoEntity entity) {
+        return entity.getTarjetaDeCredito() != null && entity.getPayPal() == null && entity.getPse() == null;
+    }
 }

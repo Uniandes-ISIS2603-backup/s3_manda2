@@ -13,98 +13,97 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import static javax.ws.rs.client.Entity.entity;
 
 /**
  *
- * @author cv.trujillo
+ * @ElementoBusquedaReserva cv.trujillo
  */
 @Stateless
-public class ElementoBusquedaReservaLogic  {
-     //Constantes
-    private static final Logger LOGGER = Logger.getLogger(ElementoBusquedaReservaLogic.class.getName());
-    //Atributos
-    @Inject
+public class ElementoBusquedaReservaLogic {
+     private static final Logger LOGGER = Logger.getLogger(ElementoBusquedaReservaLogic.class.getName());
+    
+     @Inject
     private ElementoBusquedaReservaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
     /**
-     * Devuelve todos los pses que hay en la base de datos.
-     * @return Lista de entidades de tipo pse.
+     * Devuelve todos los elementos que hay en la base de datos.
+     * @return Lista de entidades de tipo articulo.
      */
-    public List<ElementoBusquedaReservaEntity> getElementoBusquedaReservas() {
-        LOGGER.info("Inicia proceso de consultar todos los pses");
-        List<ElementoBusquedaReservaEntity> pses = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todos los pses");
-        return pses;
+    public List<ElementoBusquedaReservaEntity> getElementosBusquedasReservas() {
+        LOGGER.info("Inicia proceso de consultar todos los elementos");
+        List<ElementoBusquedaReservaEntity> elementos = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todos los elementos");
+        return elementos;
     }
     /**
-     * Busca un pse por ID
-     * @param id El id del pse a buscar
-     * @return El pse encontrado, null si no lo encuentra.
+     * Busca un articulo por ID
+     * @param id El id del articulo a buscar
+     * @return El articulo encontrado, null si no lo encuentra.
      */
     public ElementoBusquedaReservaEntity getElementoBusquedaReserva(Long id) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar pse con id={0}", id);
-        ElementoBusquedaReservaEntity pse = persistence.find(id);
-        if (pse == null) {
-            LOGGER.log(Level.SEVERE, "El pse con el id {0} no existe", id);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar articulo con id={0}", id);
+        ElementoBusquedaReservaEntity articulo = persistence.find(id);
+        if (articulo == null) {
+            LOGGER.log(Level.SEVERE, "El articulo con el id {0} no existe", id);
         }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar pse"
+        LOGGER.log(Level.INFO, "Termina proceso de consultar articulo"
                 + " con id={0}", id);
-        return pse;
+        return articulo;
     }
     /**
      * Eliminar un ElementoBusquedaReserva
-     * @param id El ID del pse a eliminar
+     * @param id El ID del articulo a eliminar
      */
     public void deleteElementoBusquedaReserva(Long id) {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar pse con id={0}", id);
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar articulo con id={0}", id);
         persistence.delete(id);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar pse con id={0}", id);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar articulo con id={0}", id);
     }
     /**
      * Guardar un nuevo ElementoBusquedaReserva
-     * @param entity La entidad de tipo pse del nuevo pse a persistir.
+     * @param entity La entidad de tipo articulo del nuevo articulo a persistir.
      * @return La entidad luego de persistirla
-     * @throws BusinessLogicException Si el nombre o el nombre son nulos o estaban vacios. 
+     * @throws BusinessLogicException Si el nombre o el link son nulos o estaban vacios. 
      */
     public ElementoBusquedaReservaEntity createElementoBusquedaReserva(ElementoBusquedaReservaEntity entity) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de creación del pse");
-        if (!validateNombre(entity.getNombreElementoBusquedaReserva())) {
-            throw new BusinessLogicException("El nombre o el nombre no pueden ser vacios");
+        LOGGER.info("Inicia proceso de creación del articulo");
+        if (validateNombreElementoBusquedaReserva(entity.getNombreElementoBusquedaReserva())) {
+            throw new BusinessLogicException("El nombre o el link no pueden ser vacios");
         }
-        if(persistence.find(entity.getId())!= null)
-        {
-            throw new BusinessLogicException("No pueden existir dos pses con el mismo id");
-        }
+       
         persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de pse");
+        LOGGER.info("Termina proceso de creación de articulo");
         return entity;
     }
     /**
-     * Actualizar un pse por ID
-     * @param id El ID del pse a actualizar
-     * @param entity La entidad del pse con los cambios deseados
-     * @return La entidad del pse luego de actualizarla
-     * @throws BusinessLogicException Si el nombre o el nombre son nulos o estaban vacios o se intento cambiar el id.
+     * Actualizar un articulo por ID
+     * @param id El ID del articulo a actualizar
+     * @param entity La entidad del articulo con los cambios deseados
+     * @return La entidad del articulo luego de actualizarla
+     * @throws BusinessLogicException Si el nombre o el link son nulos o estaban vacios o se intento cambiar el id.
      */
     public ElementoBusquedaReservaEntity updateElementoBusquedaReserva(Long id, ElementoBusquedaReservaEntity entity) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar pse con id={0}", id);
-        if (!validateNombre(entity.getNombreElementoBusquedaReserva())) {
-            throw new BusinessLogicException("El nombre o el nombre no pueden ser vacios");
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar articulo con id={0}", id);
+        if (validateNombreElementoBusquedaReserva(entity.getNombreElementoBusquedaReserva())) {
+            throw new BusinessLogicException("El nombre no puede ser vacio");
         }
         if(id!= entity.getId())
         {
-            throw new BusinessLogicException("No se puede cambiar el id del pse");
+            throw new BusinessLogicException("No se puede cambiar el id del articulo");
         }
         ElementoBusquedaReservaEntity newEntity = persistence.update(entity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar pse con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar articulo con id={0}", entity.getId());
         return newEntity;
     }
-
-     /**
-     * Retorna true si el nombre del paypal es un string válido, false de lo contrario.
-     * @param nombre nombre del paypal
-     * @return true si el nombre del pse es un string válido, false de lo contrario.
+    /**
+     * Retorna true si el nombre del elemento busqueda es un string válido, false de lo contrario.
+     * @param nombreElementoBusqueda nombre del elemento busqueda
+     * @return true si el nombre del elemento busqueda es un string válido, false de lo contrario.
      */
-    private boolean validateNombre( String nombre ){
-        return ( nombre != null && !nombre.isEmpty());
+    private boolean validateNombreElementoBusquedaReserva( String nombreElementoBusqueda ){
+       return nombreElementoBusqueda==null || nombreElementoBusqueda.isEmpty();
     }
+    
+ 
+    
 }

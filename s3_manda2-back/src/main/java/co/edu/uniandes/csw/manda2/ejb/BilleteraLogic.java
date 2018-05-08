@@ -113,18 +113,6 @@ public class BilleteraLogic {
      * contrario.
      */
     private boolean validateSaldo(Double saldo) {
-        return (saldo != null && saldo > 0);
-    }
-
-    /**
-     * Retorna true si la cedula del cliente es un string válido, false de lo
-     * contrario.
-     *
-     * @param cedula cedula del cliente
-     * @return true si la cedula del cliente es un string válido, false de lo
-     * contrario.
-     */
-    private boolean validateCedula(String cedula) {
-        return (cedula != null && !cedula.isEmpty());
+        return saldo != null && saldo > 0;
     }
 }

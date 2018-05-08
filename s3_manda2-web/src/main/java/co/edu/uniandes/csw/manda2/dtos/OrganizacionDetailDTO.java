@@ -1,86 +1,170 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
-
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrganizacionDetailDTO extends OrganizacionDTO {
-
+/**
+ * Clase que representa el empleado.
+ * 
+ * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
+ * <pre>
+ *   {
+ *      "nombre": string, 
+ *      "cedula": string,
+ *      "fechaingreso": date,
+ *      "calificacion": number,
+ *      "id": number,
+ *      "identificacion": string,
+ *      "foto": string,
+ *      "eps: string,
+ *      "pagos" [{}],
+ *      "servicios" [{}]
+ *   }
+ * </pre>
+ * Por ejemplo un empleado se representa así:<br>
+ * 
+ * <pre>
+ *   {
+ *      "nombre": "nicolas_caceres", 
+ *      "cedula": "1014563321",
+ *      "fechaingreso": date,
+ *      "calificacion": 5.0,
+ *      "id": 001,
+ *      "identificacion": "nicolascaceres001",
+ *      "foto": "nicolascaceres.jpg",
+ *      "eps: "millossaludprepagada",
+ *      "pagos"[{
+ *       "id": 91852,
+ *      "estadoTransaccion: "cancelado",
+ *      "fecha": "02/06/2018"}],
+ *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal", 
+ *      "cliente"[{"id": 001,
+ *      "nombre": nicolascaceres,
+ *      "cedula": 2104565210,
+ *      "fechaDeIngreso": Mayo 21,2017,
+ *      "calificacion": 5.0,
+ *      "pagoAnticipado": false,
+ *      "horasDeServicioSemanal": 5}],
+ *      "id":100, "puntodeencuentro": "usaquen", "puntoderealizacion": "usaquen",
+ *      "exitodiligencia": true,
+ *      "calificacion":5.0, "descripcion": "entregar documentos"
+ *      }]
+ *   }
+ * </pre>   
+ * @author n.bello
+ */
+public class OrganizacionDetailDTO extends OrganizacionDTO{
+    //ATRIBUTOS
     /**
-     * Servicio por el que se realiza el Organizacion
+     * Listado de todos los pagos que ha hecho el empleado
      */
-    private ServicioDTO servicio;
-
+    private List<PagoDTO> pagos;
+     /**
+     * Listado de todos los servicios del empleado
+     */
+    private List<ServicioDetailDTO>servicios;
+    //CONSTRUCTOR
     /**
-     *  de Organizacion para realizar la transaccion
-     */
-    private OrganizacionDTO Organizacion;
-
-    /**
-     * Constructor para transformar un Entity a un DTO
-     *
-     * @param entity La entidad de ciudad a partir de la cual se construye el
-     * objeto
-     */
-    public OrganizacionDetailDTO (OrganizacionEntity entity){
-        super(entity);
-
-        if(entity !=  null){
-            if(entity.getOrganizacion()!= null){
-                this.Organizacion = new OrganizacionDTO(entity.getOrganizacion());
-            }
-        }
-
-
-    }
-
+     * genera un empleado
+     **/
     public OrganizacionDetailDTO()
-    {
+    {   
         super();
-    }
-    /**
-     * Retorna el servicio relacionado al Organizacion.
-     * @return servicio relacionado al Organizacion.
-     */
-    public ServicioDTO getServicio(){
-        return servicio;
-    }
-    /**
-     * Asigna el servicio por el que se realiza Organizacion.
-     * @param pServicio servicio por el que se realiza Organizacion.
-     */
-    public void setServicio(ServicioDTO pServicio){
-        this.servicio = pServicio;
+        pagos = new ArrayList();
+        servicios = new ArrayList();
     }
 
-    /**
-     * Retorna el  de Organizacion con el que se realiza el Organizacion.
-     * @return  de Organizacion con el que se realiza el Organizacion.
-     */
-    public OrganizacionDTO getOrganizacion(){
-        return Organizacion;
-    }
-    /**
-     * Asigna el  de Organizacion con el que se realiza la transaccion.
-     * @param pOrganizacion con el que se realiza el Organizacion.
-     */
-    public void setOrganizacion(OrganizacionDTO pOrganizacion){
-        this.Organizacion = pOrganizacion;
-    }
-    /**
-     * Transformar un DTO a un Entity
-     *
-     * @return La entidad construida a partir del DTO.
-     */
-    @Override
-    public OrganizacionEntity toEntity() {
-        OrganizacionEntity OrganizacionE = super.toEntity();
-        if (Organizacion != null) {
-            OrganizacionE.setOrganizacion(Organizacion.toEntity());
+    public OrganizacionDetailDTO(OrganizacionEntity entity) {
+        super(entity);
+        if(entity !=null)
+        {
+            this.nombre = entity.getNombre();
+            this.costo = entity.getCosto();
+            this.puntoDeEncuentro=entity.getPuntoDeEncuentro();
+            this.puntoDeRealizacion= entity.getPuntoDeRealizacion();
+            this.calificacion = entity.getCalificacion();
+            this.descripcion=entity.getDescripcion();
+            this.estado = entity.getEstado();
+            this.id = entity.getId();       
+            this.costoDeDuracion=entity.getCostoDeDuracion();
+            this.costoDeTransporte=entity.getCostoDeTransporte();
+            this.desplazamiento=entity.getDesplazamiento();
         }
-        return OrganizacionE;
     }
-
+   
+    /**
+     * Retorna la lista de pagos del empleado
+     * @return la lista de pagos
+     */
+    public List<PagoDTO> getPagos() {
+        return pagos;
+    }
+    /**
+     * se asigna la lista de pagos al empleado
+     * @param pagos Lista de pagos != null
+     */
+    
+    public void setPagos(List<PagoDTO> pagos) {
+        this.pagos = pagos;
+    }
+    /**
+     * retorna la lista de servicios del empleado
+     * @return servicios Lista de servicios del empleado
+     **/ 
+    public List<ServicioDetailDTO> getServicios() {
+        return servicios;
+    }
+    /**
+     * Lista de servicios que se le va a asignar 
+     * @param servicios llega la lista de servicios para asignar !=null
+     */
+    
+    public void setServicios(List<ServicioDetailDTO> servicios) {
+        this.servicios = servicios;
+    }
+    public List<ServicioEntity> servicioListToEntity()
+    {
+        ArrayList<ServicioEntity> lista = new ArrayList();
+        for (ServicioDetailDTO servicio : servicios) {
+            lista.add(servicio.toEntity());
+        }
+        return lista;
+    }
+     public List<PagoEntity> pagoListToEntity()
+    {
+        ArrayList<PagoEntity> lista = new ArrayList();
+        for (PagoDTO pago : pagos) {
+            lista.add(pago.toEntity());
+        }
+        return lista;
+    }
+     @Override
+    public OrganizacionEntity toEntity() {
+     OrganizacionEntity entity = new OrganizacionEntity();
+     entity.setId(id);
+     entity.setNombre(nombre);
+     entity.setCosto(costo);
+     entity.setPuntoDeEncuentro(puntoDeEncuentro);
+     entity.setPuntoDeRealizacion(puntoDeRealizacion);
+     entity.setCalificacion(calificacion);
+     entity.setDescripcion(descripcion);
+     entity.setEstado(estado);
+     entity.setCostoDeDuracion(costoDeDuracion);
+     entity.setCostoDeTransporte(costoDeTransporte);
+     entity.setDesplazamiento(desplazamiento);
+     return entity;
+    }
+   
 }

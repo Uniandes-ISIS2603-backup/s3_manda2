@@ -49,7 +49,7 @@ public class ElementoBusquedaReservaPersistence {
         LOGGER.log(Level.INFO, "Consultando ElementoBusquedaReserva por nombre ", nombre);
 
         // Se crea un query para buscar ElementoBusquedaReserva con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From ElementoBusquedaReservaEntity e where e.nombreElementoBusquedaReserva = :nombre", ElementoBusquedaReservaEntity.class);
+        TypedQuery query = em.createQuery("Select e From ElementoBusquedaReservaEntity e where e.elementoBusquedaReserva.nombre = :nombre", ElementoBusquedaReservaEntity.class);
         // Se remplaza el placeholder ":nombre" con el valor del argumento 
         query = query.setParameter("nombre", nombre);
         // Se invoca el query se obtiene la lista resultado
