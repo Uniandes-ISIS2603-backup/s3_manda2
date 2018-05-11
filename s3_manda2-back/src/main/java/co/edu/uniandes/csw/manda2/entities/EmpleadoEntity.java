@@ -26,7 +26,7 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
 
     private String EPS;
 
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany
     @PodamExclude
     private List<PagoEntity> pagos;
 
