@@ -129,7 +129,7 @@ public class PagoLogic {
      * contrario.
      */
     private boolean validateFecha(Date fecha) {
-        return (fecha != null);
+        return fecha != null;
     }
 
     /**
@@ -141,7 +141,7 @@ public class PagoLogic {
      * contrario.
      */
     private boolean validateEstado(String estado) {
-        return (estado != null && !estado.isEmpty());
+        return estado != null && !estado.isEmpty();
     }
 
     /**

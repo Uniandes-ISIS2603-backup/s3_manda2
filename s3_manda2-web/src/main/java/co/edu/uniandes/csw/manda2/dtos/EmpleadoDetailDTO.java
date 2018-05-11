@@ -240,7 +240,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         entity.setId(id);
         entity.setIdentificacion(identificacion);
         entity.setFoto(foto);
-        entity.setEPS(EPS);
+        entity.setEPS(eps);
         entity.setCalificacion(calificacion);
         entity.setComprasEnTienda(comprasListToEntity());
         entity.setEntregasDeDocumentos(entregasListToEntity());

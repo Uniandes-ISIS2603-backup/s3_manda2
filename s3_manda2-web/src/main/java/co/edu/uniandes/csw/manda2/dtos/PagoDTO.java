@@ -66,7 +66,7 @@ public class PagoDTO {
     private Date fecha;
 
     public PagoDTO() {
-
+        //Constructor vacío.
     }
 
     public PagoDTO(PagoEntity entity) {
