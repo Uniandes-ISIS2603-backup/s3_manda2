@@ -46,7 +46,7 @@ public class PagoLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<PagoEntity> data = new ArrayList<PagoEntity>();
+    private List<PagoEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {

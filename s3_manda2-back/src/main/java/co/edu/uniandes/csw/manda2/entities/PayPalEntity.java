@@ -45,7 +45,6 @@ public class PayPalEntity extends MedioPagoEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PayPalEntity other = (PayPalEntity) obj;
         return true;
     }
 
