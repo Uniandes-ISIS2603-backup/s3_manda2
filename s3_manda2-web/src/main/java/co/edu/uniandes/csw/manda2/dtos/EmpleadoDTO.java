@@ -68,7 +68,7 @@ public class EmpleadoDTO extends UsuarioDTO{
         if(entity != null){
         identificacion = entity.getIdentificacion();
         foto = entity.getFoto();
-        eps = entity.getEPS();
+        eps = entity.getEps();
         this.calificacion = entity.getCalificacion();
         this.login = entity.getLogin();
         }
@@ -124,7 +124,7 @@ public class EmpleadoDTO extends UsuarioDTO{
         entity.setCedula(this.cedula);
         entity.setFechaIngreso(this.fechaIngreso);
         entity.setIdentificacion(this.identificacion);
-        entity.setEPS(this.eps);
+        entity.setEps(this.eps);
         entity.setFoto(this.foto);
         entity.setCalificacion(this.calificacion);
         entity.setLogin(this.login);
