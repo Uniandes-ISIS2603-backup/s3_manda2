@@ -53,7 +53,7 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
      */
     private Double costoDeTransporte;
 
-    private List<ArticuloDTO> articulo;
+    //private List<ArticuloDTO> articulo;
     //TODO: DONE  Revisar por qué articulo extiende de 
     // ComprasenTienda y ComprasenTienda tiene un atributo dela clase articulo
 
@@ -100,13 +100,13 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
         this.costoDeTransporte = costoDeTransporte;
     }
 
-    public List<ArticuloDTO> getArticulo() {
-        return articulo;
-    }
-
-    public void setArticulo(List<ArticuloDTO> articulo) {
-        this.articulo = articulo;
-    }
+//    public List<ArticuloDTO> getArticulo() {
+//        return articulo;
+//    }
+//
+//    public void setArticulo(List<ArticuloDTO> articulo) {
+//        this.articulo = articulo;
+//    }
 
     
     /**
@@ -117,17 +117,17 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     @Override
     public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        ArrayList aentity = new ArrayList();
+        //ArrayList aentity = new ArrayList();
         
          
         entity.setCostoDeTransporte(costoDeTransporte);
         //TODO:DONE Esto no puede ser un cast a List<ArticuloEntity>
         // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
         
-       for (ArticuloDTO articulo : articulo){
-           aentity.add(articulo.toEntity());
-       }
-        entity.setArticulo(aentity);
+//       for (ArticuloDTO articulo : articulo){
+//           aentity.add(articulo.toEntity());
+//       }
+//        entity.setArticulo(aentity);
         return entity;
     }
 }
