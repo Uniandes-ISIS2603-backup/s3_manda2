@@ -12,12 +12,12 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  *
  * @author da.ramos
  */
-public abstract class ServicioDTO {
+public class ServicioDTO {
 
     /**
      * Id del objeto
      */
-    protected Long id;
+   protected Long id;
 
     /**
      * Constante que indica que el estado del servicio es "en espera".
@@ -69,20 +69,11 @@ public abstract class ServicioDTO {
      */
     protected String descripcion;
 
-    /**
-     * Constructor vacío.
-     */
     public ServicioDTO() {
-        //Constructor vacío.
     }
 
-    /**
-     * Constructor a partir de un ServicioEntity
-     *
-     * @param entity ServicioEntity
-     */
     public ServicioDTO(ServicioEntity entity) {
-        if (entity != null) {
+        if( entity != null){
             this.calificacion = entity.getCalificacion();
             this.costo = entity.getCosto();
             this.descripcion = entity.getDescripcion();
@@ -94,11 +85,6 @@ public abstract class ServicioDTO {
         }
     }
 
-    /**
-     * Método para convertir el ServicioDTO a un ServicioEntity.
-     *
-     * @return ServicioEntity.
-     */
     public ServicioEntity toEntity() {
         ServicioEntity entity = new ServicioEntity();
         entity.setCalificacion(calificacion);

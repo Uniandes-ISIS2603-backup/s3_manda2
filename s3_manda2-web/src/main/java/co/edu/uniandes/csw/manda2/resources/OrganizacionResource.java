@@ -2,7 +2,6 @@ package co.edu.uniandes.csw.manda2.resources;
 
 //TODO: Borrar los import que no usan
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDTO;
-import co.edu.uniandes.csw.manda2.dtos.OrganizacionDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.OrganizacionLogic;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
@@ -59,12 +58,13 @@ public class OrganizacionResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public OrganizacionDetailDTO getOrganizacion(@PathParam("id") long id) {
-        OrganizacionDetailDTO nuevo = new OrganizacionDetailDTO(organizacionLogic.getOrganizacion(id));
+    public OrganizacionDTO getorganizacionBusquedas(@PathParam("id") long id) {
+        OrganizacionDTO nuevo = new OrganizacionDTO(organizacionLogic.getOrganizacion(id));
         if (nuevo == null) {
             throw new WebApplicationException("El recurso /organizaciones/" + id + " no existe.", 404);
         }
         return nuevo;
+
     }
 
     /**
@@ -119,7 +119,7 @@ public class OrganizacionResource {
      * </code>
      * </pre>
      *
-     * @param organizacion {@link OrganizacionDetailDTO} - El servicio de tipo
+     * @param servicio {@link OrganizacionDetailDTO} - El servicio de tipo
      * Organización que se desea guardar.
      * @return JSON {@link OrganizacionDetailDTO} - El servicio de tipo
      * Organización fue guardado con el atributo id autogenerado.
@@ -128,8 +128,9 @@ public class OrganizacionResource {
      *
      */
     @POST
-    public OrganizacionDetailDTO crearOrganizacion(OrganizacionDetailDTO organizacion) throws BusinessLogicException {
-        return new OrganizacionDetailDTO(organizacionLogic.createOrganizacion(organizacion.toEntity()));
+    public OrganizacionDTO crearOrganizacion(OrganizacionDTO organizacion) throws BusinessLogicException {
+        return new OrganizacionDTO(organizacionLogic.createOrganizacion(organizacion.toEntity()));
+
     }
 
     /**
@@ -162,12 +163,12 @@ public class OrganizacionResource {
     @PUT
     @Path("{id : \\d+}")
 
-    public OrganizacionDetailDTO actualizarOrganizacion(@PathParam("id") Long id, OrganizacionDetailDTO organizacion) throws BusinessLogicException {
+    public OrganizacionDTO actualizarOrganizacion(@PathParam("id") Long id, OrganizacionDTO organizacion) throws BusinessLogicException {
         OrganizacionEntity entity = organizacionLogic.getOrganizacion(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /organizacions/" + id + " no existe.", 404);
         }
-        return new OrganizacionDetailDTO(organizacionLogic.updateOrganizacion(id, organizacion.toEntity()));
+        return new OrganizacionDTO(organizacionLogic.updateOrganizacion(id, organizacion.toEntity()));
 
     }
 

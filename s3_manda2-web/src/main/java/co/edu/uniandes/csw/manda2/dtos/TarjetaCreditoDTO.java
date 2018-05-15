@@ -8,11 +8,11 @@ package co.edu.uniandes.csw.manda2.dtos;
 import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
 
 /**
- * TarjetaCreditoDTO Objeto de transferencia de datos de Tarjetas de cretito.
- * Los DTO contienen las representaciones de los JSON que se transfieren entre
- * el cliente y el servidor, ademas hereda la clase (@link MedioPagoDTO),
- * dirijase a ella para mas informacion
- *
+ * TarjetaCreditoDTO Objeto de transferencia de datos de Tarjetas de cretito. Los DTO contienen las
+ * representaciones de los JSON que se transfieren entre el cliente y el
+ * servidor, ademas hereda la clase (@link MedioPagoDTO), dirijase a ella para mas
+ * informacion
+ * 
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
@@ -20,10 +20,11 @@ import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
  *      "id": number,
  *      "numeroTarjeta": string
  *   }
- * </pre> Por ejemplo una tarjeta de credito se representa asi:<br>
- *
+ * </pre>
+ * Por ejemplo una tarjeta de credito se representa asi:<br>
+ * 
  * <pre>
- *
+ * 
  *   {
  *      "nombreCliente": "carlos bello",
  *      "id": 01234566789,
@@ -32,18 +33,18 @@ import co.edu.uniandes.csw.manda2.entities.TarjetaCreditoEntity;
  *
  * </pre>
  *
- *
+
  *
  * @author na.caceres
  */
 public class TarjetaCreditoDTO extends MedioPagoDTO {
-
+    
     //Atributos
     /**
      * Atributo que representa el numero de la tarjeta.
      */
     private String numeroTarjeta;
-
+    
     /**
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
@@ -51,21 +52,22 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
      * @param tarjeta: Es la entidad que se va a convertir a DTO
      */
     public TarjetaCreditoDTO(TarjetaCreditoEntity tarjeta) {
-        super();
-        if (tarjeta != null) {
-            this.id = tarjeta.getId();
-            this.nombreCliente = tarjeta.getNombreCliente();
-            this.numeroTarjeta = tarjeta.getNumeroTarjeta();
-        }
+       super();
+        if(tarjeta != null)
+       {
+        this.id = tarjeta.getId();
+        this.nombreCliente = tarjeta.getNombreCliente();
+        this.numeroTarjeta = tarjeta.getNumeroTarjeta();
+       }
 
     }
-
     //Constructor
     /**
      * constructor por defecto.
      */
-    public TarjetaCreditoDTO() {
-        //Constructor vacío.  
+    public TarjetaCreditoDTO()
+    {
+       
     }
     //Metodos
 
@@ -82,7 +84,6 @@ public class TarjetaCreditoDTO extends MedioPagoDTO {
     public void setNumeroTarjeta(String numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
-
     /**
      * Convertir DTO a Entity
      *

@@ -2,7 +2,7 @@
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <label  id="createBilletera">Crear billetera</label>
+                <label id="createBilletera">Crear billetera</label>
 
             </div>
             <div class="panel-body">
@@ -10,18 +10,19 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="billeteraSaldo" class="col-sm-4">Saldo:</label>
-                            <input id="billeteraSaldo" required ng-model="data.saldo" />
+                            <input id="billeteraSaldo" required ng-model="data.saldo"/>
                         </div>
-                        <div  class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="puntosDeFidelidad" class="col-sm-4">Puntos de fidelidad:</label>
-                            <input id ="puntosDeFidelidad" required ng-model="data.puntosDeFidelidad">
+                            <input id="puntosDeFidelidad" required ng-model="data.puntosDeFidelidad">
                         </div>
                     </div>
 
 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="billetera.$valid" ng-click="createBilletera()" value="Continuar" class="btn btn-success"/>
+                            <input ng-show="billetera.$valid" ng-click="createBilletera()" value="Continuar"
+                                   class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="billeteras">Cancelar</a>
                         </div>
                     </div>

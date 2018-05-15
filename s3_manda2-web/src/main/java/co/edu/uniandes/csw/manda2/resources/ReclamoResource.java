@@ -76,11 +76,11 @@ public class ReclamoResource {
      * @return JSON {@link ReclamoDetailDTO} - El reclamo buscado
      */
     @GET
-    @Path("{id : \\d+}")
-    public ReclamoDetailDTO getReclamo (@PathParam ("id") Long id){
-        ReclamoEntity entity = logic.getReclamo(id);
+    @Path("{numero : \\d+}")
+    public ReclamoDetailDTO getReclamo (@PathParam ("numero") Integer numero){
+        ReclamoEntity entity = logic.getReclamoByNumero(numero);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /reclamos/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /reclamos/" + numero + " no existe.", 404);
         }
         return new ReclamoDetailDTO(entity);
     }
@@ -130,7 +130,6 @@ public class ReclamoResource {
     @PUT
     @Path("{id : \\d+}")
     public ReclamoDetailDTO updateReclamo (@PathParam("id") Long id, ReclamoDetailDTO reclamo ) throws BusinessLogicException{
-        reclamo.setId(id);
         ReclamoEntity entity = logic.getReclamo(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /reclamo/" + id + " no existe.", 404);

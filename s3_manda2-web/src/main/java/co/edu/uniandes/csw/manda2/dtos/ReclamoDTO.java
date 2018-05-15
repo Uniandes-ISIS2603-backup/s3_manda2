@@ -35,11 +35,11 @@ public class ReclamoDTO {
     /**
      * Atributo que representa el mensaje del reclamo
      */
-    protected String mensaje;
+    private String mensaje;
     /**
      * Atributo qie representa el numero del reclamo
      */
-    protected Integer numero;
+    private Integer numero;
     /**
      * Atributo qie representa el id del reclamo
      **/

@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "8c5401c6-8111-4315-9465-b06035793923",
+		"name": "Pruebas Clase Empleado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8d31c4c-0d80-4325-ab40-baa13f3b577b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_empleado\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"nombre\": \"nicolas_caceres\", \r\n       \"cedula\": \"1014563321\",\r\n       \"fechaIngreso\": \"2012-04-23T18:25:43.511Z\",\r\n       \"calificacion\": 5,\r\n       \"id\": 001,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"EPS\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"servicios\":[]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Crear Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los Empleados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c5c1d57b-d696-454f-8272-3d753719fff9",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"empleados count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Obtener todos los Clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Obtener un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1846e7b0-8873-4f0f-a6fa-b6fadfbbefcb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"id\": 084156584,\r\n       \"nombre\": \"Carlos Castro\",\r\n       \"cedula\": 1020839875,\r\n       \"fechaDeIngreso\": \"15/07/06\",\r\n       \"calificacion\": 5,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 20,\r\n       \r\n       \"pagos\": [{\"id\": 91852,\r\n       \"estadoTransaccion\": \"cancelado\",\r\n       \"fecha\": \"02/06/2018\"\r\n       }],\r\n       \r\n       \"servicios\":[{\"costoduracion\": 15000, \"costodetransporte\": 25000, \"pago\": \"paypal\", \r\n       \"cliente\":[{\"id\": 001,\r\n       \"nombre\": \"nicolascaceres\",\r\n       \"cedula\": \"2104565210\",\r\n       \"fechaDeIngreso\": \"Mayo 21,2017\",\r\n       \"calificacion\": 5.0,\r\n       \"pagoAnticipado\": false,\r\n       \"horasDeServicioSemanal\": 5}],\r\n       \"id\":100, \"puntodeencuentro\": \"usaquen\", \"puntoderealizacion\": \"usaquen\",\r\n       \"exitodiligencia\": true,\r\n       \"calificacion\":5.0, \"descripcion\": \"entregar documentos\"\r\n       }]\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Actualizar un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f261b8e6-752f-4626-b0d2-0904ebce77bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Borrar un cliente"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b4877f9a-39b3-4a04-a2ad-5106f96ae846",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c66c1b5-f58c-4545-b561-08a2f31dd7e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

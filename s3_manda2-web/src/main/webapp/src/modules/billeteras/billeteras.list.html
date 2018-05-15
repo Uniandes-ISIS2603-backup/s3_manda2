@@ -1,10 +1,12 @@
-<h1 class ="text-center"> Billeteras</h1>
+<h1 class="text-center"> Billeteras</h1>
 <hr>
 
-<div ng-repeat = "billetera in billeterasRecords" class="billetera">
+<div ng-repeat="billetera in billeterasRecords" class="billetera">
     <span>{{'Saldo= '+billetera.saldo}}</span>
     <br>
     <span>{{'Puntos de fidelidad= '+ billetera.puntosDeFidelidad}}</span>
 </div>
 
-<div><button ui-sref="createBilletera" class="nuevoBotoncito"> Crear una billetera </button></div>
+<div>
+    <button ui-sref="createBilletera" class="nuevoBotoncito"> Crear una billetera</button>
+</div>

@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.VueltasConDemoraEnOficinaDTO;
-import co.edu.uniandes.csw.manda2.dtos.VueltasConDemoraEnOficinaDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.VueltasConDemoraEnOficinaLogic;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
@@ -60,7 +59,7 @@ public class VueltasConDemoraEnOficinaResource {
      * @return JSONArray {@link VueltasConDemoraEnOficinaDTO} - Las vueltasConDemoraEnOFicina encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<VueltasConDemoraEnOficinaDetailDTO> getVueltasConDemoraEnOficina(){
+    public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina(){
         return listVueltas2DTO(vueltasConDemoraEnOficinaLogic.getVueltas());
     }
     
@@ -82,12 +81,12 @@ public class VueltasConDemoraEnOficinaResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public VueltasConDemoraEnOficinaDetailDTO getVueltaConDemoraEnOficina(@PathParam("id") long id){
+    public VueltasConDemoraEnOficinaDTO getVueltaConDemoraEnOficina(@PathParam("id") long id){
         VueltasConDemoraEnOficinaEntity entity = vueltasConDemoraEnOficinaLogic.getVuelta(id);
        if( entity == null ){
           throw new WebApplicationException("El recurso /vueltasConDemoraEnOficina/" + id + " no existe", 404);
        }
-       return new VueltasConDemoraEnOficinaDetailDTO(entity);
+       return new VueltasConDemoraEnOficinaDTO(entity);
     }
    
     /**
@@ -111,8 +110,8 @@ public class VueltasConDemoraEnOficinaResource {
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
     @POST
-    public VueltasConDemoraEnOficinaDetailDTO createVueltaConDemoraEnOficina( VueltasConDemoraEnOficinaDetailDTO vueltaConDemoraEnOficina)throws BusinessLogicException{
-        return new VueltasConDemoraEnOficinaDetailDTO (vueltasConDemoraEnOficinaLogic.createVuelta(vueltaConDemoraEnOficina.toEntity()));
+    public VueltasConDemoraEnOficinaDTO createVueltaConDemoraEnOficina( VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina)throws BusinessLogicException{
+        return new VueltasConDemoraEnOficinaDTO (vueltasConDemoraEnOficinaLogic.createVuelta(vueltaConDemoraEnOficina.toEntity()));
     }
     
     
@@ -136,13 +135,13 @@ public class VueltasConDemoraEnOficinaResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public VueltasConDemoraEnOficinaDetailDTO  updateVueltaConDemoraEnOficina( @PathParam("id") long id, VueltasConDemoraEnOficinaDetailDTO  vueltaConDemoraEnOficina ) throws BusinessLogicException{
+    public VueltasConDemoraEnOficinaDTO  updateVueltaConDemoraEnOficina( @PathParam("id") long id, VueltasConDemoraEnOficinaDTO  vueltaConDemoraEnOficina ) throws BusinessLogicException{
         vueltaConDemoraEnOficina.setId(id);
        VueltasConDemoraEnOficinaEntity entity = vueltasConDemoraEnOficinaLogic.getVuelta(id);
        if( entity == null ){
            throw new WebApplicationException("El recurso /compras /" + id + " no existe", 404);
        }
-       return new VueltasConDemoraEnOficinaDetailDTO(vueltasConDemoraEnOficinaLogic.updateVuelta(id, vueltaConDemoraEnOficina.toEntity()));
+       return new VueltasConDemoraEnOficinaDTO(vueltasConDemoraEnOficinaLogic.updateVuelta(id, vueltaConDemoraEnOficina.toEntity()));
     }
     
     /**
@@ -169,10 +168,10 @@ public class VueltasConDemoraEnOficinaResource {
         vueltasConDemoraEnOficinaLogic.deleteVuelta(id);
     }
     
-    private List<VueltasConDemoraEnOficinaDetailDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
-        List<VueltasConDemoraEnOficinaDetailDTO> lista = new ArrayList();
+    private List<VueltasConDemoraEnOficinaDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
+        List<VueltasConDemoraEnOficinaDTO> lista = new ArrayList();
         for( VueltasConDemoraEnOficinaEntity entity : entityList ){
-            lista.add(new VueltasConDemoraEnOficinaDetailDTO(entity));
+            lista.add(new VueltasConDemoraEnOficinaDTO(entity));
         }
         return lista;
     }

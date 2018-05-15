@@ -35,10 +35,7 @@ public abstract class UsuarioDTO  {
      * Atributo que representa la id del usuario
      */
     protected Long id;
-    /**
-     * Atributo que modela el login del cliente
-     */
-    protected String login;
+    
     
     //CONSTRUCTOR
     /**
@@ -56,7 +53,6 @@ public abstract class UsuarioDTO  {
         fechaIngreso = entity.getFechaIngreso();
         calificacion = entity.getCalificacion();
         id = entity.getId();
-        login = entity.getLogin();
         }
     }
    
@@ -137,13 +133,4 @@ public abstract class UsuarioDTO  {
         //completar
         return null;
     }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-    
 }

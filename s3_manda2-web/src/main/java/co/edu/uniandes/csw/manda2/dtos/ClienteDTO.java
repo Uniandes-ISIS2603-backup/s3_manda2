@@ -79,7 +79,6 @@ public class ClienteDTO extends UsuarioDTO {
             this.calificacion = cliente.getCalificacion();
             this.pagoAnticipado = cliente.isPagoAnticipado();
             this.horasDeServicioSemanal = cliente.getHorasDeServicioSemanal();
-            this.login = cliente.getLogin();
         }
     }
     //Metodos
@@ -127,7 +126,6 @@ public class ClienteDTO extends UsuarioDTO {
         entity.setCalificacion(this.calificacion);
         entity.setPagoAnticipado(this.pagoAnticipado);
         entity.setHorasDeServicioSemanal(this.horasDeServicioSemanal);
-        entity.setLogin(this.login);
         return entity;
     }
 }

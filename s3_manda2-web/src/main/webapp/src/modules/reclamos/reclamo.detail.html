@@ -1,21 +1,11 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
     <div class="row">
-        <div class = "col-sm-2">
-            <h1>Numero:</h1>   
-        </div>
-        <div class = "col-sm-3">
-            <h2>{{reclamoSeleccionado.numero}}</h2>
-        </div>
-
-    </div>
-    <div class="row">
-        <div class = "col-sm-2">
-            <h1>Mensaje:</h1>
-        </div>
-        <hr>
-        <div class = "col-sm-9">
-            <h2>{{reclamoSeleccionado.mensaje}}</h2>
+        <div>
+            <ul ng-repeat="reclamo in reclamoDetailRecords ">
+                <br>
+                <li><h1>Mensaje:</h1> <h4>{{reclamo.mensaje}}</h4></li>
+            </ul>
         </div>
     </div>
     <div>

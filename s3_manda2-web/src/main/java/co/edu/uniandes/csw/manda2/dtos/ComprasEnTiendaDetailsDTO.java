@@ -26,10 +26,7 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     *Articulo que se quiere comprar en tienda
     */
     private List<ArticuloDTO> articulo;
-/**
-     * Pago asociado al servicio.
-     */
-    private PagoDTO pago;
+
    //CONSTRUCTOR
    
 
@@ -63,16 +60,6 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
                 for (ArticuloEntity articuloEntity: entity.getArticulo()){
                     articulo.add(new ArticuloDTO (articuloEntity));
                 }
-            }
-            if (entity.getCliente() != null) {
-                this.cliente = new ClienteDTO(entity.getCliente());
-            }
-            if (entity.getEmpleado() != null) {
-                this.empleado = new EmpleadoDTO(entity.getEmpleado());
-            }
-            if(entity.getPago()!= null)
-            {
-                this.pago = new PagoDTO (entity.getPago());
             }
         }
     }
@@ -110,32 +97,19 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
         this.empleado = empleado;
     }
     
-     @Override
-    public ComprasEnTiendaEntity toEntity() {
-        ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        
-        
-         if (articulo != null) {
-            List<ArticuloEntity> articuloEntity = new ArrayList();
-            for (ArticuloDTO dtoArticulo : articulo) {
-                articuloEntity.add(dtoArticulo.toEntity());
-            }
-            entity.setArticulo(articuloEntity);
-         }
-         if (empleado != null) {
-            entity.setEmpleado(empleado.toEntity());
-        }
-        if (cliente != null) {
-            entity.setCliente(cliente.toEntity());
-        }
-        if (pago != null) {
-            entity.setPago(pago.toEntity());
-        }
-        
-        return entity;
+    
+  /**
+     *Retorna el articulo 
+     * @return costoDeTransporte
+     */
+    
+    
+
+    /**
+     * Asigna el articulo 
+     * @param articulo articulo de la compra
+     */
    
- 
-    }
     
     
    

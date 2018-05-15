@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createEntrega">Crear una nueva entrega de documento</label>
+            <div class="panel-heading"><label ng-if="!edit" id="createEntrega">Crear una nueva entrega de
+                documento</label>
                 <label ng-if="edit" id="editEntrega">Editar una entrega de documento</label></div>
             <div class="panel-body">
                 <form ng-submit="createEntrega()" name="entrega">
@@ -35,15 +36,18 @@
                     </div>
                     <div class="form-group row">
                         <label for="entregaPuntoDeEncuentro" class="col-sm-6">Punto de encuentro:</label>
-                        <input id="entregaPuntoDeEncuentro" required ng-model="entregaPuntoDeEncuentro" class="col-sm-6"/>
+                        <input id="entregaPuntoDeEncuentro" required ng-model="entregaPuntoDeEncuentro"
+                               class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
                         <label for="entregaPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
-                        <input id="entregaPuntoDeRealizacion" required ng-model="entregaPuntoDeRealizacion" class="col-sm-6"/>
+                        <input id="entregaPuntoDeRealizacion" required ng-model="entregaPuntoDeRealizacion"
+                               class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
                         <label for="entregaCostoDeTransporte" class="col-sm-6">Costo de transporte:</label>
-                        <input id="entregaCostoDeTransporte" required ng-model="entregaCostoDeTransporte" class="col-sm-6"/>
+                        <input id="entregaCostoDeTransporte" required ng-model="entregaCostoDeTransporte"
+                               class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
                         <label for="entregaPorcentajeExtra" class="col-sm-6">Porcentaje extra:</label>
@@ -52,14 +56,16 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-6" ng-if="!entrega.$valid">
 
-                            <div class="alert alert-warning" >
-                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
-                            </div> 
-                        </div> 
-                    </div> 
+                            <div class="alert alert-warning">
+                                <strong>Advertencia!</strong>
+                                <p>Todos los campos son necesarios</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="entrega.$valid" ng-click="createEntrega()" value="Save" class="btn btn-success"/>
+                            <input ng-show="entrega.$valid" ng-click="createEntrega()" value="Save"
+                                   class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="entregasList">Cancel</a>
                         </div>
                     </div>

@@ -3,54 +3,56 @@
         <div class='col-md-2'>
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group mr-2" role="group">
-                    <button type="button" class="btn btn-primary" onclick=<a ui-sref="compraentiendaCreate"> Nueva compra en tienda </button>
+                    <button type="button" class="btn btn-primary" onclick=<a ui-sref="compraentiendaCreate"> Nueva
+                        compra
+                    </button>
                 </div>
             </div>
         </div>
-    </div> 
-    
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>    
-                    <th>Nombre</th>  
-                    <th>Cliente</th> 
-                    <th>Empleado</th> 
-                    <th>Punto de encuentro</th> 
-                    <th>Punto de realizacion</th> 
-                    <th>Exito de la vuelta </th> 
-                    <th>Calificación</th> 
-                    <th>Descripcion</th>
-                    <th>Costo </th> 
-                    <th>Costo de transporte</th> 
-                    <th>Articulo </th> 
-                </tr>
-            </thead>
-            
-            <tbody>
-                <tr ng-repeat="compra in comprasRecords">
-                    <td > {{compra.id}}</td>
-                    <td >{{compra.nombre}}</td>  
-                    <td >{{compra.cliente}}</td>
-                    <td >{{compra.empleado}}</td>
-                    <td >{{compra.puntoDeEncuentro}}</td>
-                    <td >{{compra.puntoDeRealizacion}}</td>
-                    <td >{{compra.exitoDiligencia}}</td>
-                    <td >{{compra.calification}}</td>
-                    <td >{{compra.descripcion}}</td>
-                    <td >{{compra.costo}}</td>
-                    <td >{{compra.costoDeTransporte}}</td>
-                    <td >{{compra.Articulo}}</td>
-                     <td>
-                            <button class="btn btn-default btn-sm" ui-sref="compraUpdate({idCompra: compra.id})">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" ui-sref="compraDelete({idCompra: compra.id})">Eliminar</button>
-                        </td>
-                    </tr>
-   
-            </tbody>
-        </table>
     </div>
 
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Cliente</th>
+            <th>Empleado</th>
+            <th>Punto de encuentro</th>
+            <th>Punto de realizacion</th>
+            <th>Exito de la vuelta</th>
+            <th>Calificación</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Pago</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="compra in comprasRecords">
+            <td> {{compra.id}}</td>
+            <td>{{compra.nombre}}</td>
+            <td>{{compra.cliente}}</td>
+            <td>{{compra.empleado}}</td>
+            <td>{{compra.puntoDeEncuentro}}</td>
+            <td>{{compra.puntoDeRealizacion}}</td>
+            <td>{{compra.exitoDiligencia}}</td>
+            <td>{{compra.calification}}</td>
+            <td>{{compra.descripcion}}</td>
+            <td>{{compra.costo}}</td>
+            <td>{{compra.pago}}</td>
+            <td>
+                <button class="btn btn-default btn-sm" ui-sref="compraUpdate({idCompra: compra.id})">Editar</button>
+            </td>
+            <td>
+                <button class="btn btn-danger btn-sm" ui-sref="compraDelete({idCompra: compra.id})">Eliminar</button>
+            </td>
+        </tr>
+        </tr>
+
+
+        </tbody>
+    </table>
+</div>
+</div>
 

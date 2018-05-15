@@ -50,7 +50,7 @@ public class BilleteraDTO {
      * Crea una billetera
      */
     public BilleteraDTO(){
-        //Cosntructor vacío.
+        
     }
     
      /**
@@ -103,6 +103,7 @@ public class BilleteraDTO {
      * @return Un Entity con los valores del DTO
      */
     public BilleteraEntity toEntity() {
+        //PendientePorHacer
         BilleteraEntity billetera = new BilleteraEntity();
         billetera.setId(this.id);
         billetera.setPuntosFidelidad(this.puntosDeFidelidad);

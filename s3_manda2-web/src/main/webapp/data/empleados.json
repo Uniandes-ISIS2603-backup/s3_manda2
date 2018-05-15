@@ -1,49 +1,56 @@
-[{       
-       "id": 1,
-       "nombre": "Nicolas Caceres",
-       "cedula": 1020839875,
-       "fechaDeIngreso": "15/07/06",
-       "calificacion": 5,
-       "identificacion": "123654654",
-       "eps": "Sanitas"
-    }, {
-       "id": 2,
-       "nombre": "Andres Rodriguez",
-       "cedula": 1020839876,
-       "fechaDeIngreso": "15/07/07",
-       "calificacion": 5,
-       "identificacion": "1597531598",
-       "eps": "Sanitas"
-    }, {
-       "id": 3,
-       "nombre": "Andres Varon",
-       "cedula": 1020839877,
-       "fechaDeIngreso": "15/07/07",
-       "calificacion": 2,
-       "identificacion": "123698745",
-       "eps": "SURA"
-    }, {
-       "id": 4,
-       "nombre": "Mariana Moreno",
-       "cedula": 1020839878,
-       "fechaDeIngreso": "15/07/07",
-       "calificacion": 1,
-       "identificacion": "1598753214862",
-       "eps": "N/A"
-    }, {
-       "id": 5,
-       "nombre": "Diana Vanessa Gonzalez",
-       "cedula": 1020839879,
-       "fechaDeIngreso": "15/07/07",
-       "calificacion": 5,
-       "identificacion": "1563247895",
-       "eps": "CafeSalud"
-     }, {
-       "id": 6,
-       "nombre": "Carol Vanesa Trujillo",
-       "cedula": 1020839873,
-       "fechaDeIngreso": "15/07/07",
-       "calificacion": 5,
-       "identificacion": "1563247895",
-       "eps": "CafeSalud"
-}]
+[
+  {
+    "id": 1,
+    "nombre": "Nicolas Caceres",
+    "cedula": 1020839875,
+    "fechaDeIngreso": "15/07/06",
+    "calificacion": 5,
+    "identificacion": "123654654",
+    "eps": "Sanitas"
+  },
+  {
+    "id": 2,
+    "nombre": "Andres Rodriguez",
+    "cedula": 1020839876,
+    "fechaDeIngreso": "15/07/07",
+    "calificacion": 5,
+    "identificacion": "1597531598",
+    "eps": "Sanitas"
+  },
+  {
+    "id": 3,
+    "nombre": "Andres Varon",
+    "cedula": 1020839877,
+    "fechaDeIngreso": "15/07/07",
+    "calificacion": 2,
+    "identificacion": "123698745",
+    "eps": "SURA"
+  },
+  {
+    "id": 4,
+    "nombre": "Mariana Moreno",
+    "cedula": 1020839878,
+    "fechaDeIngreso": "15/07/07",
+    "calificacion": 1,
+    "identificacion": "1598753214862",
+    "eps": "N/A"
+  },
+  {
+    "id": 5,
+    "nombre": "Diana Vanessa Gonzalez",
+    "cedula": 1020839879,
+    "fechaDeIngreso": "15/07/07",
+    "calificacion": 5,
+    "identificacion": "1563247895",
+    "eps": "CafeSalud"
+  },
+  {
+    "id": 6,
+    "nombre": "Carol Vanesa Trujillo",
+    "cedula": 1020839873,
+    "fechaDeIngreso": "15/07/07",
+    "calificacion": 5,
+    "identificacion": "1563247895",
+    "eps": "CafeSalud"
+  }
+]

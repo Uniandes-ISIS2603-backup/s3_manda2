@@ -1,171 +1,86 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Clase que representa el empleado.
- *
- * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
- * <pre>
- *   {
- *      "nombre": string,
- *      "cedula": string,
- *      "fechaingreso": date,
- *      "calificacion": number,
- *      "id": number,
- *      "identificacion": string,
- *      "foto": string,
- *      "eps: string,
- *      "pagos" [{}],
- *      "servicios" [{}]
- *   }
- * </pre> Por ejemplo un empleado se representa así:<br>
- *
- * <pre>
- *   {
- *      "nombre": "nicolas_caceres",
- *      "cedula": "1014563321",
- *      "fechaingreso": date,
- *      "calificacion": 5.0,
- *      "id": 001,
- *      "identificacion": "nicolascaceres001",
- *      "foto": "nicolascaceres.jpg",
- *      "eps: "millossaludprepagada",
- *      "pagos"[{
- *       "id": 91852,
- *      "estadoTransaccion: "cancelado",
- *      "fecha": "02/06/2018"}],
- *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal",
- *      "cliente"[{"id": 001,
- *      "nombre": nicolascaceres,
- *      "cedula": 2104565210,
- *      "fechaDeIngreso": Mayo 21,2017,
- *      "calificacion": 5.0,
- *      "pagoAnticipado": false,
- *      "horasDeServicioSemanal": 5}],
- *      "id":100, "puntodeencuentro": "usaquen", "puntoderealizacion": "usaquen",
- *      "exitodiligencia": true,
- *      "calificacion":5.0, "descripcion": "entregar documentos"
- *      }]
- *   }
- * </pre>
- *
- * @author n.bello
- */
 public class OrganizacionDetailDTO extends OrganizacionDTO {
 
-    //ATRIBUTOS
     /**
-     * Listado de todos los pagos que ha hecho el empleado
+     * Servicio por el que se realiza el Organizacion
      */
-    private PagoDTO pago;
+    private ServicioDTO servicio;
+
     /**
-     * Listado de todos los servicios del empleado
+     *  de Organizacion para realizar la transaccion
      */
-    private List<ServicioDetailDTO> servicios;
+    private OrganizacionDTO Organizacion;
 
-    private List<ElementoBusquedaReservaDTO> elementosBusquedaReserva;
-
-    //CONSTRUCTOR
     /**
-     * genera un empleado
+     * Constructor para transformar un Entity a un DTO
      *
+     * @param entity La entidad de ciudad a partir de la cual se construye el
+     * objeto
      */
-    public OrganizacionDetailDTO() {
-        super();
-        elementosBusquedaReserva = new ArrayList<>();
-    }
-
-    public OrganizacionDetailDTO(OrganizacionEntity entity) {
+    public OrganizacionDetailDTO (OrganizacionEntity entity){
         super(entity);
-        elementosBusquedaReserva = new ArrayList<>();
-        if (entity != null) {
-            this.nombre = entity.getNombre();
-            this.costo = entity.getCosto();
-            this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
-            this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
-            this.calificacion = entity.getCalificacion();
-            this.descripcion = entity.getDescripcion();
-            this.estado = entity.getEstado();
-            this.id = entity.getId();
-            this.costoDeDuracion = entity.getCostoDeDuracion();
-            this.costoDeTransporte = entity.getCostoDeTransporte();
-            this.desplazamiento = entity.getDesplazamiento();
-            if (entity.getElementosBusquedaReserva() != null) {
-                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
-                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
-                }
+
+        if(entity !=  null){
+            if(entity.getOrganizacion()!= null){
+                this.Organizacion = new OrganizacionDTO(entity.getOrganizacion());
             }
         }
-        if (entity.getEmpleado() != null) {
-            this.empleado = new EmpleadoDTO(entity.getEmpleado());
-        }
-        if (entity.getPago() != null) {
-            this.pago = new PagoDTO(entity.getPago());
-            this.id = entity.getId();
-            this.costoDeDuracion = entity.getCostoDeDuracion();
-            this.costoDeTransporte = entity.getCostoDeTransporte();
-            this.desplazamiento = entity.getDesplazamiento();
-            if (entity.getElementosBusquedaReserva() != null) {
-                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
-                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
-                }
-            }
-        }
+
+
     }
 
-    private List<ElementoBusquedaReservaEntity> elementosListToEntity() {
-        ArrayList<ElementoBusquedaReservaEntity> lista = new ArrayList<>();
-        for (ElementoBusquedaReservaDTO elemento : elementosBusquedaReserva) {
-            lista.add(elemento.toEntity());
-        }
-        return lista;
+    public OrganizacionDetailDTO()
+    {
+        super();
+    }
+    /**
+     * Retorna el servicio relacionado al Organizacion.
+     * @return servicio relacionado al Organizacion.
+     */
+    public ServicioDTO getServicio(){
+        return servicio;
+    }
+    /**
+     * Asigna el servicio por el que se realiza Organizacion.
+     * @param pServicio servicio por el que se realiza Organizacion.
+     */
+    public void setServicio(ServicioDTO pServicio){
+        this.servicio = pServicio;
     }
 
     /**
-     * Retorna la lista de pagos del empleado
-     *
-     * @return la lista de pagos
+     * Retorna el  de Organizacion con el que se realiza el Organizacion.
+     * @return  de Organizacion con el que se realiza el Organizacion.
      */
-    public PagoDTO getPagos() {
-        return pago;
+    public OrganizacionDTO getOrganizacion(){
+        return Organizacion;
     }
-    public List<ElementoBusquedaReservaDTO> getElementosBusquedaReserva() {
-        return elementosBusquedaReserva;
+    /**
+     * Asigna el  de Organizacion con el que se realiza la transaccion.
+     * @param pOrganizacion con el que se realiza el Organizacion.
+     */
+    public void setOrganizacion(OrganizacionDTO pOrganizacion){
+        this.Organizacion = pOrganizacion;
     }
-
+    /**
+     * Transformar un DTO a un Entity
+     *
+     * @return La entidad construida a partir del DTO.
+     */
     @Override
     public OrganizacionEntity toEntity() {
-        OrganizacionEntity entity = new OrganizacionEntity();
-        entity.setId(id);
-        entity.setNombre(nombre);
-        entity.setCosto(costo);
-        entity.setPuntoDeEncuentro(puntoDeEncuentro);
-        entity.setPuntoDeRealizacion(puntoDeRealizacion);
-        entity.setCalificacion(calificacion);
-        entity.setDescripcion(descripcion);
-        entity.setEstado(estado);
-        entity.setCostoDeDuracion(costoDeDuracion);
-        entity.setCostoDeTransporte(costoDeTransporte);
-        entity.setDesplazamiento(desplazamiento);
-        entity.setElementosBusquedaReserva(elementosListToEntity());
-        if (cliente != null) {
-            entity.setCliente(cliente.toEntity());
+        OrganizacionEntity OrganizacionE = super.toEntity();
+        if (Organizacion != null) {
+            OrganizacionE.setOrganizacion(Organizacion.toEntity());
         }
-        if (pago != null) {
-            entity.setPago(pago.toEntity());
-        }
-        if (empleado != null) {
-            entity.setEmpleado(empleado.toEntity());
-        }
-        return entity;
+        return OrganizacionE;
     }
+
 }
