@@ -105,10 +105,10 @@ public Double getCostoDeTransporte() {
     }
 
     public List<ArticuloDTO> getArticulo() {
-        return articulo;
+       return articulo;
     }
 
-    public void setArticulo(List<ArticuloDTO> articulo) {
+  public void setArticulo(List<ArticuloDTO> articulo) {
         this.articulo = articulo;
     }
 
@@ -143,6 +143,11 @@ public Double getCostoDeTransporte() {
         entity.setPuntoDeRealizacion(puntoDeRealizacion);
         
         
+
+      for (ArticuloDTO articulo : articulo){
+          aentity.add(articulo.toEntity());
+       }
+       entity.setArticulo(aentity);
         return entity;
     }
 }

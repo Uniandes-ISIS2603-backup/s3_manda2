@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.manda2.test.logic;
 import co.edu.uniandes.csw.manda2.ejb.PagoLogic;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.PagoPersistence;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class PagoLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<PagoEntity> data = new ArrayList<PagoEntity>();
+    private List<PagoEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -113,7 +114,9 @@ public class PagoLogicTest {
     public void createPagoTest() throws BusinessLogicException {
         PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
         PayPalEntity newPayPal = factory.manufacturePojo(PayPalEntity.class);
+        VueltasConDemoraEnOficinaEntity vuelta = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
         newEntity.setPayPal(newPayPal);
+        newEntity.setVueltaConDemoraEnOficina(vuelta);
         try {
             PagoEntity result = PagoLogic.createPago(newEntity);
             Assert.assertNotNull(result);
@@ -157,8 +160,10 @@ public class PagoLogicTest {
 
         PagoEntity pojoEntity = factory.manufacturePojo(PagoEntity.class);
         PayPalEntity paypalEntity = factory.manufacturePojo(PayPalEntity.class);
+        VueltasConDemoraEnOficinaEntity vuelta = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
         pojoEntity.setPayPal(paypalEntity);
         pojoEntity.setId(entity.getId());
+        pojoEntity.setVueltaConDemoraEnOficina(vuelta);
 
         try {
             PagoLogic.updatePago(pojoEntity.getId(), pojoEntity);

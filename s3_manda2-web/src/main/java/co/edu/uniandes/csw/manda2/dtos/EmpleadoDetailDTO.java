@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,16 +69,33 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
 
     //ATRIBUTOS
     /**
-     * Listado de todos los pagos que ha hecho el empleado
+     * Listado de todos los pagos que ha hecho el empleado.
      */
     private List<PagoDTO> pagos;
 
+    /**
+     * Reclamos del empleado.
+     */
+    private List<ReclamoDTO> reclamos;
+
+    /**
+     * Servicios de compras en tieneda asociados al empleado.
+     */
     private List<ComprasEnTiendaDTO> comprasEnTienda;
 
+    /**
+     * Servicios de entregas de documentos asociados al empleado.
+     */
     private List<EntregasDeDocumentosDTO> entregasDeDocumentos;
 
+    /**
+     * Servicios de vueltas con demora en oficina asociados al empleado.
+     */
     private List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina;
 
+    /**
+     * Servicios de organización asociados al empleado.
+     */
     private List<OrganizacionDTO> organizaciones;
 
     //CONSTRUCTOR
@@ -94,6 +112,11 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         organizaciones = new ArrayList<>();
     }
 
+    /**
+     * Constructor de un EmpleadoDetailDTO a partir de un EmpleadoEntity.
+     *
+     * @param entity EmpleadoEntity.
+     */
     public EmpleadoDetailDTO(EmpleadoEntity entity) {
         super(entity);
         if (entity != null) {
@@ -132,9 +155,15 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
                 this.vueltasConDemoraEnOficina = vueltasDTO;
             }
             if (entity.getPagos() != null) {
-                this.pagos = new ArrayList();
+                this.pagos = new ArrayList<>();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
+                }
+            }
+            if (entity.getReclamos() != null) {
+                this.reclamos = new ArrayList<>();
+                for (ReclamoEntity reclamo : entity.getReclamos()) {
+                    reclamos.add(new ReclamoDTO(reclamo));
                 }
             }
         }
@@ -158,39 +187,103 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         this.pagos = pagos;
     }
 
+    /**
+     * Retorna los reclamos del empleado.
+     *
+     * @return reclamos del empleado
+     */
+    public List<ReclamoDTO> getReclamos() {
+        return reclamos;
+    }
+
+    /**
+     * Asigna los reclamos al valor dado por parámtetro.
+     *
+     * @param reclamos reclamos
+     */
+    public void setReclamos(List<ReclamoDTO> reclamos) {
+        this.reclamos = reclamos;
+    }
+
+    /**
+     * Retorna los servicios de compras en tienda asociados al empleado.
+     *
+     * @return compras en tienda
+     */
     public List<ComprasEnTiendaDTO> getComprasEnTienda() {
         return comprasEnTienda;
     }
 
+    /**
+     * Asigna las compras en tienda al valor dado por parámetro
+     *
+     * @param comprasEnTienda compras en tienda
+     */
     public void setComprasEnTienda(List<ComprasEnTiendaDTO> comprasEnTienda) {
         this.comprasEnTienda = comprasEnTienda;
     }
 
+    /**
+     * Retorna los servicios entregas de documentos asociados al empleado.
+     *
+     * @return entregas de documentos
+     */
     public List<EntregasDeDocumentosDTO> getEntregasDeDocumentos() {
         return entregasDeDocumentos;
     }
 
+    /**
+     * Asigna las entregas de documentos al valor dado por parámetro
+     *
+     * @param entregasDeDocumentos entregas de documentos.
+     */
     public void setEntregasDeDocumentos(List<EntregasDeDocumentosDTO> entregasDeDocumentos) {
         this.entregasDeDocumentos = entregasDeDocumentos;
     }
 
+    /**
+     * Retorna los servicios de vueltas con demora en oficina asociados al
+     * empleado.
+     *
+     * @return vueltas con demora en oficina
+     */
     public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina() {
         return vueltasConDemoraEnOficina;
     }
 
+    /**
+     * Asigna las vueltas con demora en oficina al valor dado por parámetro
+     *
+     * @param vueltasConDemoraEnOficina vueltas con demora en oficina
+     */
     public void setVueltasConDemoraEnOficina(List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina) {
         this.vueltasConDemoraEnOficina = vueltasConDemoraEnOficina;
     }
 
+    /**
+     * Retorna los servicios de organizacion asociados al empleado.
+     *
+     * @return organizaciones
+     */
     public List<OrganizacionDTO> getOrganizaciones() {
         return organizaciones;
     }
 
+    /**
+     * Asigna las organizaciones al valor dado por parámetro
+     *
+     * @param organizaciones organizaciones
+     */
     public void setOrganizaciones(List<OrganizacionDTO> organizaciones) {
         this.organizaciones = organizaciones;
     }
 
-    public List<ComprasEnTiendaEntity> comprasListToEntity() {
+    /**
+     * Convierte la lista de compras en tienda del DTO a una lista de Entities
+     *
+     * @return lista de ComprasEnTiendaEntity
+     */
+    private List<ComprasEnTiendaEntity> comprasListToEntity() {
         ArrayList<ComprasEnTiendaEntity> lista = new ArrayList<>();
         for (ComprasEnTiendaDTO compra : comprasEnTienda) {
             lista.add(compra.toEntity());
@@ -198,7 +291,13 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         return lista;
     }
 
-    public List<EntregasDeDocumentosEntity> entregasListToEntity() {
+    /**
+     * Convierte la lista de entregas de documentos del DTO a una lista de
+     * Entities
+     *
+     * @return lista de EntregaDeDocumentosEntity
+     */
+    private List<EntregasDeDocumentosEntity> entregasListToEntity() {
         ArrayList<EntregasDeDocumentosEntity> lista = new ArrayList<>();
         for (EntregasDeDocumentosDTO entrega : entregasDeDocumentos) {
             lista.add(entrega.toEntity());
@@ -206,7 +305,12 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         return lista;
     }
 
-    public List<OrganizacionEntity> organizacionesListToEntity() {
+    /**
+     * Convierte la lista de organizaciones del DTO a una lista de Entities
+     *
+     * @return lista de OrganizacionEntity
+     */
+    private List<OrganizacionEntity> organizacionesListToEntity() {
         ArrayList<OrganizacionEntity> lista = new ArrayList<>();
         for (OrganizacionDTO organizacion : organizaciones) {
             lista.add(organizacion.toEntity());
@@ -214,7 +318,12 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         return lista;
     }
 
-    public List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity() {
+    /**
+     * Convierte la lista de vueltas con demora del DTO a una lista de Entities
+     *
+     * @return lista de VueltasConDemoraEnOficinaEntity
+     */
+    private List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity() {
         ArrayList<VueltasConDemoraEnOficinaEntity> lista = new ArrayList<>();
         for (VueltasConDemoraEnOficinaDTO vuelta : vueltasConDemoraEnOficina) {
             lista.add(vuelta.toEntity());
@@ -222,7 +331,12 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         return lista;
     }
 
-    public List<PagoEntity> pagoListToEntity() {
+    /**
+     * Convierte la lista de pagos del DTO a una lista de Entities
+     *
+     * @return lista de PagoEntity
+     */
+    private List<PagoEntity> pagoListToEntity() {
         ArrayList<PagoEntity> lista = new ArrayList();
         for (PagoDTO pago : pagos) {
             lista.add(pago.toEntity());
@@ -230,6 +344,24 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         return lista;
     }
 
+    /**
+     * Convierte la lista de reclamosdel DTO a una lista de Entities
+     *
+     * @return lista de ReclamoEntity
+     */
+    private List<ReclamoEntity> reclamosListToEntity() {
+        ArrayList<ReclamoEntity> lista = new ArrayList<>();
+        for (ReclamoDTO reclamo : reclamos) {
+            lista.add(reclamo.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Conviete el DTO a un Entity
+     *
+     * @return EmpleadoEntity
+     */
     @Override
     public EmpleadoEntity toEntity() {
         EmpleadoEntity entity = new EmpleadoEntity();
@@ -240,7 +372,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         entity.setId(id);
         entity.setIdentificacion(identificacion);
         entity.setFoto(foto);
-        entity.setEPS(EPS);
+        entity.setEps(eps);
         entity.setCalificacion(calificacion);
         entity.setComprasEnTienda(comprasListToEntity());
         entity.setEntregasDeDocumentos(entregasListToEntity());
@@ -248,6 +380,7 @@ public class EmpleadoDetailDTO extends EmpleadoDTO {
         entity.setVueltasConDemoraEnOficina(vueltasListToEntity());
         entity.setPagos(pagoListToEntity());
         entity.setLogin(login);
+        entity.setReclamos(reclamosListToEntity());
         return entity;
     }
 }
