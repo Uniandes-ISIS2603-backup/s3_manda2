@@ -22,8 +22,7 @@ import java.util.Date;
  *      "estadoTransaccion": string,
  *      "fecha": date
  *   }
- * </pre>
- * Por ejemplo un pago se representa asi:<br>
+ * </pre> Por ejemplo un pago se representa asi:<br>
  *
  * <pre>
  *
@@ -39,7 +38,6 @@ import java.util.Date;
  */
 public class PagoDTO {
 
-
     /**
      * Constante que indica si el pago ha sido finalizado.
      */
@@ -48,7 +46,6 @@ public class PagoDTO {
      * Constante que indica si el pago ha sido cancelado".
      */
     public static final String CANCELADO = "CANCELADO";
-
 
     /**
      * Id del pago
@@ -66,7 +63,7 @@ public class PagoDTO {
     private Date fecha;
 
     public PagoDTO() {
-
+        //Constructor vacío.
     }
 
     public PagoDTO(PagoEntity entity) {
@@ -74,7 +71,6 @@ public class PagoDTO {
             this.id = entity.getId();
             this.estadoTransaccion = entity.getEstadoTransaccion();
             this.fecha = entity.getFecha();
-
 
         }
     }
@@ -124,7 +120,7 @@ public class PagoDTO {
     }
 
     /**
-     * Establece el  estado de la transaccion.
+     * Establece el estado de la transaccion.
      *
      * @param estado Nuevo estado de pago.
      */
@@ -140,6 +136,4 @@ public class PagoDTO {
     public void setFecha(Date pFecha) {
         this.fecha = pFecha;
     }
-
-
 }

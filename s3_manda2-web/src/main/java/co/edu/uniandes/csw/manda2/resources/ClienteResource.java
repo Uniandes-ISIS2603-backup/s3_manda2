@@ -78,6 +78,31 @@ public class ClienteResource {
         }
         return new ClienteDetailDTO(entity);
     }
+    /**
+     * <h1>GET /api/clientes/{login} : Obtener un cliente por login.</h1>
+     * 
+     * <pre>Busca un cliente con el login asociado recibido en la URL y lo devuelve.
+     * 
+     * Codigos de respuesta:
+     * <code style="color: mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Devuelve el cliente correspondiente correspondiente al login.
+     * </code> 
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 404 Not Found No existe un cliente con el login dado.
+     * </code> 
+     * </pre>
+     * @param login Identificador del cliente que se esta buscando. Este debe ser una cadena de caracteres.
+     * @return El cliente buscado
+     */
+    @GET
+    @Path("logins/{clienteLogin: [a-zA-Z][a-zA-Z_0-9]*}")
+    public ClienteDetailDTO getClienteByLogin(@PathParam ("clienteLogin") String login){
+        ClienteEntity entity = clienteLogic.getCliente(login);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /clientes/logins" + login + " no existe.", 404);
+        }
+        return new ClienteDetailDTO(entity);
+    }
     
     /**
      * <h1>POST /api/clientes: Crear un cliente.</h1>

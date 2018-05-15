@@ -10,29 +10,26 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="tarjetacreditoNombreCliente" class="col-sm-4">Nombre cliente:</label>
-                            <input id="tarjetacreditoNombreCliente" required ng-model="data.nombreCliente"
-                                   class="col-sm-6"/>
+                            <input id="tarjetacreditoNombreCliente" required ng-model="data.nombreCliente" class="col-sm-6"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="tarjetacreditoNumeroTarjeta" class="col-sm-4">Número de tarjeta:</label>
-                            <input id="tarjetacreditoNumeroTarjeta" required ng-model="data.numeroTarjeta"
-                                   class="col-sm-6"/>
+                            <input id="tarjetacreditoNumeroTarjeta" required ng-model="data.numeroTarjeta" class="col-sm-6"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!tarjetacredito.$valid">
 
-                            <div class="alert alert-warning">
+                            <div class="alert alert-warning" >
                                 <p>Todos los campos son obligatorios.</p>
-                            </div>
-                        </div>
-                    </div>
+                            </div> 
+                        </div> 
+                    </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="tarjetacredito.$valid" ng-click="createTarjetacredito()" value="Guardar"
-                                   class="btn btn-success"/>
+                            <input ng-show="tarjetacredito.$valid" ng-click="createTarjetacredito()" value="Guardar" class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="tarjetacreditoList">Cancelar</a>
                         </div>
                     </div>

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
+import co.edu.uniandes.csw.manda2.dtos.EmpleadoDTO;
 import co.edu.uniandes.csw.manda2.dtos.EmpleadoDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
@@ -56,8 +57,8 @@ public class EmpleadoResource {
      * @return JSONArray {@link EmpleadoDetailDTO} - Los empleados encontrados en la aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
-    public List<EmpleadoDetailDTO> getEmpleados(){
-        return listEmpleafoEntityDTO (logic.getEmpleados());
+    public List<EmpleadoDTO> getEmpleados(){
+        return listEmpleadoEntityDTO (logic.getEmpleados());
     }
      /**
      * <h1>GET /api/empleados/{cedula} : Obtener empleado por cedula.</h1>
@@ -85,7 +86,31 @@ public class EmpleadoResource {
         }
         return new EmpleadoDetailDTO(entity);
     }
-    
+    /**
+     * <h1>GET /api/clientes/{login} : Obtener un cliente por login.</h1>
+     * 
+     * <pre>Busca un cliente con el login asociado recibido en la URL y lo devuelve.
+     * 
+     * Codigos de respuesta:
+     * <code style="color: mediumseagreen; background-color: #eaffe0;">
+     * 200 OK Devuelve el cliente correspondiente correspondiente al login.
+     * </code> 
+     * <code style="color: #c7254e; background-color: #f9f2f4;">
+     * 404 Not Found No existe un cliente con el login dado.
+     * </code> 
+     * </pre>
+     * @param login Identificador del cliente que se esta buscando. Este debe ser una cadena de caracteres.
+     * @return El cliente buscado
+     */
+    @GET
+    @Path("logins/{empleadoLogin: [a-zA-Z][a-zA-Z_0-9]*}")
+    public EmpleadoDetailDTO getClienteByLogin(@PathParam ("empleadoLogin") String login){
+        EmpleadoEntity entity = logic.getEmpleado(login);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /empleados/logins" + login + " no existe.", 404);
+        }
+        return new EmpleadoDetailDTO(entity);
+    }
     /**
      * <h1>POST /api/empleados : Crear un empleado.</h1>
      * 
@@ -108,6 +133,7 @@ public class EmpleadoResource {
      */
     @POST
     public EmpleadoDetailDTO createEmpleado( EmpleadoDetailDTO empleado)throws BusinessLogicException{
+        System.out.println(empleado.toEntity().toString());
         return new EmpleadoDetailDTO (logic.createEmpleado(empleado.toEntity()));
     }
     /**
@@ -162,11 +188,11 @@ public class EmpleadoResource {
         logic.deleteEmpleado(id);
     }
 
-    private List<EmpleadoDetailDTO> listEmpleafoEntityDTO(List<EmpleadoEntity> empleados) {
-        List<EmpleadoDetailDTO> list = new ArrayList();
+    private List<EmpleadoDTO> listEmpleadoEntityDTO(List<EmpleadoEntity> empleados) {
+        List<EmpleadoDTO> list = new ArrayList<>();
         for (EmpleadoEntity entity : empleados)
         {
-            list.add( new EmpleadoDetailDTO(entity));
+            list.add( new EmpleadoDTO(entity));
         }
         return list;
     }

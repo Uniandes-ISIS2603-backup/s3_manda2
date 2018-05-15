@@ -1,5 +1,5 @@
-(function (ng) {
-    var app = ng.module('mainApp', [
+    (function (ng) {
+    var app = angular.module('mainApp', [
         // External dependencies
         'ui.router',
         'ui.bootstrap',
@@ -18,29 +18,10 @@
         'billeteraModulo',
         'entregaModule',
         'reservasModule',
-        'articulosModule',
-        'loginModule'
+        'articulosModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
-        $qProvider.errorOnUnhandledRejections(false);
-    }]);
-    app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state',
-        function ($scope, $location, $anchorScroll, $state) {
-            $scope.gotoAnchor = function (ancla) {
-                $location.hash(ancla);
-                $anchorScroll();
-            };
-            $scope.isadmin= function () {
-
-            }
-            $scope.irVuelta= function () {
-                if($scope.isadmin()){
-                    $state.go('vueltacondemoraList',{},{});
-                }
-            }
-
-
-
+            $qProvider.errorOnUnhandledRejections(false);
         }]);
-
 })(window.angular);
+

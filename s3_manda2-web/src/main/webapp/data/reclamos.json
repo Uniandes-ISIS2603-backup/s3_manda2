@@ -1,32 +1,26 @@
-[
-  {
-    "mensaje": "Geniales, muy buenos",
-    "numero": 1,
-    "id": 1
-  },
-  {
-    "mensaje": "Mi mensajera era suoer bonita y querida, recomendados",
-    "numero": 2,
-    "id": 2
-  },
-  {
-    "mensaje": " regular se demoro demasiado",
-    "numero": 3,
-    "id": 3
-  },
-  {
-    "mensaje": "Muy buenos.",
-    "numero": 4,
-    "id": 4
-  },
-  {
-    "mensaje": "Ayuda estoy atrapado en la pagina de Manda2, no me alimentan me mantienen aqui para que funcione",
-    "numero": 5,
-    "id": 5
-  },
-  {
-    "mensaje": "regular",
-    "numero": 6,
-    "id": 6
-  }
+[{
+        "mensaje": "Geniales, muy buenos",
+        "numero": 1,
+        "id": 1
+    }, {
+        "mensaje": "Mi mensajera era suoer bonita y querida, recomendados",
+        "numero": 2,
+        "id": 2
+    }, {
+        "mensaje": " regular se demoro demasiado",
+        "numero": 3,
+        "id": 3
+    }, {
+        "mensaje": "Muy buenos.",
+        "numero": 4,
+        "id": 4
+    }, {
+        "mensaje": "Ayuda estoy atrapado en la pagina de Manda2, no me alimentan me mantienen aqui para que funcione",
+        "numero": 5,
+        "id": 5
+    }, {
+        "mensaje": "regular",
+        "numero": 6,
+        "id": 6
+    }
 ]

@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.EntregasDeDocumentosDTO;
+import co.edu.uniandes.csw.manda2.dtos.EntregasDeDocumentosDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.EntregasDeDocumentosLogic;
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
@@ -63,7 +64,7 @@ public class EntregasDeDocumentosResource {
      * @return JSONArray {@link EntregasDeDocumentosDTO} - Las entregasDeDocumentos encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
      @GET
-    public List<EntregasDeDocumentosDTO> getEntregasDeDocumentos(){
+    public List<EntregasDeDocumentosDetailDTO> getEntregasDeDocumentos(){
         return listEntregas2DTO(entregasDeDocumentosLogic.getEntregas());
     }
     
@@ -85,12 +86,12 @@ public class EntregasDeDocumentosResource {
      */
     @GET
     @Path("{id : \\d+}")
-    public EntregasDeDocumentosDTO getEntregaDeDocumentos(@PathParam("id") long id){
+    public EntregasDeDocumentosDetailDTO getEntregaDeDocumentos(@PathParam("id") long id){
        EntregasDeDocumentosEntity entity = entregasDeDocumentosLogic.getEntrega(id);
        if( entity == null ){
           throw new WebApplicationException("El recurso / entregasDeDocumentos/" + id + " no existe", 404);
        }
-       return new EntregasDeDocumentosDTO(entity);
+       return new EntregasDeDocumentosDetailDTO(entity);
     }
      
     /**
@@ -114,8 +115,8 @@ public class EntregasDeDocumentosResource {
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe el PayPal.
      */
      @POST
-    public EntregasDeDocumentosDTO createEntregasDeDocumentos( EntregasDeDocumentosDTO entregasDeDocumentos) throws BusinessLogicException{
-        return new EntregasDeDocumentosDTO (entregasDeDocumentosLogic.createEntrega(entregasDeDocumentos.toEntity()));
+    public EntregasDeDocumentosDetailDTO createEntregasDeDocumentos( EntregasDeDocumentosDetailDTO entregasDeDocumentos) throws BusinessLogicException{
+        return new EntregasDeDocumentosDetailDTO (entregasDeDocumentosLogic.createEntrega(entregasDeDocumentos.toEntity()));
     }
     /**
      * <h1>PUT /api/entregasDeDocumentos/{id} : Actualizar entregasDeDocumentos con el id dado.</h1>
@@ -136,13 +137,13 @@ public class EntregasDeDocumentosResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public EntregasDeDocumentosDTO updateEntregasDeDocumentos( @PathParam("id") long id, EntregasDeDocumentosDTO  entregasDeDocumentos ){
+    public EntregasDeDocumentosDetailDTO updateEntregasDeDocumentos( @PathParam("id") long id, EntregasDeDocumentosDetailDTO  entregasDeDocumentos ){
         entregasDeDocumentos.setId(id);
        EntregasDeDocumentosEntity entity = entregasDeDocumentosLogic.getEntrega(id);
        if( entity == null ){
            throw new WebApplicationException("El recurso /compras /" + id + " no existe", 404);
        }
-       return new  EntregasDeDocumentosDTO(entregasDeDocumentosLogic.updateEntrega(id, entregasDeDocumentos.toEntity()));
+       return new  EntregasDeDocumentosDetailDTO(entregasDeDocumentosLogic.updateEntrega(id, entregasDeDocumentos.toEntity()));
 
     }
     /**
@@ -170,10 +171,10 @@ public class EntregasDeDocumentosResource {
     }
     
     
-    private List<EntregasDeDocumentosDTO> listEntregas2DTO( List<EntregasDeDocumentosEntity> entityList){
-        List<EntregasDeDocumentosDTO> lista = new ArrayList();
+    private List<EntregasDeDocumentosDetailDTO> listEntregas2DTO( List<EntregasDeDocumentosEntity> entityList){
+        List<EntregasDeDocumentosDetailDTO> lista = new ArrayList();
         for( EntregasDeDocumentosEntity entity : entityList ){
-            lista.add(new EntregasDeDocumentosDTO(entity));
+            lista.add(new EntregasDeDocumentosDetailDTO(entity));
         }
         return lista;
     }

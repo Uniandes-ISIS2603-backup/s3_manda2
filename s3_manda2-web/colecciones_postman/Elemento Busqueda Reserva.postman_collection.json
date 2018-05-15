@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "94e07428-6aa4-4b74-80ec-d7ba742834bb",
 		"name": "Elemento Busqueda Reserva",
-		"_postman_id": "15c67611-d215-4eb2-9d1c-0e09d47e1eaa",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -47,8 +46,7 @@
 						"api",
 						"busquedaselementos"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -71,7 +69,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos",
 					"protocol": "http",
@@ -84,8 +85,7 @@
 						"api",
 						"busquedaselementos"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -95,10 +95,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7933b396-77ba-4009-9859-930510538d6f",
+						"id": "76578f4a-5ed1-4edc-992d-82f21298eb9d",
 						"type": "text/javascript",
 						"exec": [
 							"var data= JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"tests[\"authors count\"] = data.length >= 0;"
 						]
@@ -108,7 +109,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos/{{new_id_elemento}}",
 					"protocol": "http",
@@ -122,8 +126,7 @@
 						"busquedaselementos",
 						"{{new_id_elemento}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -133,11 +136,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c45a367a-ad4d-4cf7-a10b-ef3a97466d44",
+						"id": "242da37b-540f-40a8-8fef-a6d564ebef73",
 						"type": "text/javascript",
 						"exec": [
 							"console.log(responseBody);",
 							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;"
 						]
 					}
@@ -168,8 +172,7 @@
 						"busquedaselementos",
 						"{{new_id_elemento}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -179,10 +182,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "637c4846-0da7-4ba7-8f17-2e49556b7759",
+						"id": "6d4694ef-c884-4584-a620-10facfe5980d",
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+							"tests[\"Status code is 204\"] = responseCode.code === 204;",
+							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
+							""
 						]
 					}
 				}
@@ -190,7 +195,10 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos/{{new_id_elemento}}",
 					"protocol": "http",
@@ -204,8 +212,7 @@
 						"busquedaselementos",
 						"{{new_id_elemento}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}

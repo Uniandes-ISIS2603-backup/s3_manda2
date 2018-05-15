@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "1616843a-a8c8-4314-8a42-3eb7dd9c57b9",
+		"name": "Pruebas Clase Empleado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8d31c4c-0d80-4325-ab40-baa13f3b577b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_empleado\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"nombre\": \"nicolas caceres\", \r\n       \"login\":\"ncacere\",\r\n       \"cedula\": \"1014513321\",\r\n       \"fechaIngreso\": \"2012-04-23T18:25:43.511Z\",\r\n       \"calificacion\": 5,\r\n       \"id\": 002,\r\n       \"identificacion\": \"nicolascaceres001\",\r\n       \"foto\": \"nicolascaceres.jpg\",\r\n       \"EPS\": \"millossaludprepagada\",\r\n       \r\n       \"pagos\":[],\r\n       \r\n       \"comprasEnTienda\":\r\n       [\r\n       \t {\r\n \t\t\t\"costoDeTransporte\": \"10.000\",\r\n    \t\t\"pago\": \"dasd\",\r\n    \t\t\"cliente\": \"pedro\",\r\n    \t\t\"empleado\": \"Empleado1\",\r\n    \t\t\"id\": \"345\",\r\n\t       \"nombre\": \"compra1\",\r\n\t       \"costo\": \"30.000\",\r\n\t       \"puntoDeEncuentro\":\"calle 44\",\r\n\t       \"puntoDeRealizacion\": \"Exito \",\r\n\t       \"exitoDiligencia\": \"true\",\r\n\t       \"calification\": \"5\",\r\n\t       \"descripcion\": \"estuvo bien\",\r\n       \t \t\"articulo\":[]\r\n       \t }\r\n       ],\r\n       \"entregasDeDocumentos\":\r\n       [\r\n       \t {\r\n \t    \"id\": 34748,\r\n \t\t\"nombre\": \"Entrega de documento a bancolombia\",\r\n \t\t\"costo\": 15000,\r\n \t\t\"puntoDeEncuentro\":\"Pan Pa Ya 116\",\r\n \t\t\"estado\": \"EN_DESARROLLO\",\r\n \t\t\"calificacion\": 4,\r\n \t\t\"descripcion\": \"Llevar carta al gerente general\",\r\n \t\t\"puntoDeRealizacion\": \"Bancolombia calle 72\",\r\n \t\t\"costoDeTransporte\": 8000,\r\n \t\t\"porcentajeExtra\": 0.3,\r\n        \"pago\": {},\r\n        \"cliente\": {},\r\n        \"empleado\": {}\r\n       \r\n\t\t}\r\n       ],\r\n       \"organizaciones\":\r\n       [\r\n       \t{\r\n    \t\"costoTransporte\":25000,\r\n\t\t\"costoDuracion\": 65000,\r\n\t\t\"desplazamiento\": true\r\n\t\t}\r\n       ],\r\n       \"vueltasConDemoraEnOficina\":\r\n       [\r\n       \t {\r\n \t\t\t\"costoDeTransporte\": \"10000\",\r\n\t       \"pago\": \"dasd\",\r\n\t       \"cliente\": \"pedro\",\r\n\t       \"empleado\": \"Empleado1\",\r\n\t       \"id\": \"345\",\r\n\t       \"nombre\": \"compra1\",\r\n\t       \"costo\": \"30.000\",\r\n\t       \"puntoDeEncuentro\":\"calle 44\",\r\n\t       \"puntoDeRealizacion\": \"Exito \",\r\n\t       \"exitoDiligencia\": \"true\",\r\n\t       \"calification\": \"5\",\r\n\t       \"descripcion\": \"estuvo bien\",\r\n\t       \"costoDuracion\": \"10000\"\r\n\t\t  }\r\n       ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Crear Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los Empleados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c5c1d57b-d696-454f-8272-3d753719fff9",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"empleados count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Obtener todos los Clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "440c4271-5012-4915-8fba-dc15a2681a06",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Obtener un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1846e7b0-8873-4f0f-a6fa-b6fadfbbefcb",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"empleadoDetailDTO\",\n    \"calificacion\": 5,\n    \"cedula\": \"1014563321\",\n    \"fechaIngreso\": \"2012-04-23T13:25:43.511-05:00\",\n    \"id\": 1,\n    \"login\": \"ncaceres\",\n    \"nombre\": \"nicolas caceres\",\n    \"foto\": \"nicolascaceres.jpg\",\n    \"identificacion\": \"nicolascaceres001\",\n    \"comprasEnTienda\": [\n        {\n            \"id\": 4,\n            \"costoDeTransporte\": 10\n        }\n    ],\n    \"entregasDeDocumentos\": [\n        {\n            \"calificacion\": 4,\n            \"costo\": 15000,\n            \"descripcion\": \"Llevar carta al gerente general\",\n            \"estado\": \"EN_DESARROLLO\",\n            \"id\": 1,\n            \"nombre\": \"Entrega de documento a bancolombia\",\n            \"puntoDeEncuentro\": \"Pan Pa Ya 116\",\n            \"puntoDeRealizacion\": \"Bancolombia calle 72\",\n            \"cliente\": {},\n            \"empleado\": {},\n            \"pago\": {},\n            \"costoDeTransporte\": 8000,\n            \"porcentajeExtra\": 0.3\n        }\n    ],\n    \"organizaciones\": [\n        {\n            \"id\": 2,\n            \"costoDuracion\": 65000,\n            \"costoTransporte\": 25000,\n            \"desplazamiento\": true\n        }\n    ],\n    \"pagos\": [],\n    \"vueltasConDemoraEnOficina\": [\n        {\n            \"costo\": 30,\n            \"descripcion\": \"estuvo bien\",\n            \"id\": 3,\n            \"nombre\": \"compra1\",\n            \"puntoDeEncuentro\": \"calle 44\",\n            \"puntoDeRealizacion\": \"Exito \",\n            \"cliente\": {},\n            \"empleado\": {},\n            \"pago\": {},\n            \"costoDeTransporte\": 10000,\n            \"costoDuracion\": 10000\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Actualizar un Cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un Empleado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f261b8e6-752f-4626-b0d2-0904ebce77bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/empleados/{{new_id_empleado}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"empleados",
+						"{{new_id_empleado}}"
+					]
+				},
+				"description": "Borrar un cliente"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b4877f9a-39b3-4a04-a2ad-5106f96ae846",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c66c1b5-f58c-4545-b561-08a2f31dd7e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

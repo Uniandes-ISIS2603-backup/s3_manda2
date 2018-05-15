@@ -57,7 +57,7 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO extends ServicioDetailDTO {
+public class EntregasDeDocumentosDTO extends ServicioDTO {
 
     //Atributos
     /*
@@ -149,20 +149,8 @@ public class EntregasDeDocumentosDTO extends ServicioDetailDTO {
         entity.setNombre(nombre);
         entity.setPuntoDeEncuentro(puntoDeEncuentro);
         entity.setPuntoDeRealizacion(puntoDeRealizacion);
-        //Ciclo 3 problemas con las entidades
-        /**
-        if(this.cliente != null){
-            entity.setCliente(this.cliente.toEntity());
-        }
-        //TODO: Qué pasa si this.pago es null? 
-        if(this.pago != null){
-            entity.setPago(this.pago.toEntity());
-        }
-        if(this.empleado != null)
-        {
-            //entity.setEmpleado((this.empleado.toEntity());
-        }
-        */
+       
+
         return entity;
         
     }

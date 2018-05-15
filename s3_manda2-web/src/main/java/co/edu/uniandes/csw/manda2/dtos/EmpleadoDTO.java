@@ -44,15 +44,15 @@ public class EmpleadoDTO extends UsuarioDTO{
     /**
      * Atributo que identifica a un empleado
      */
-    public String identificacion;
+    protected String identificacion;
     /**
      * Atributo que muestra la foto del empleado
      */
-    public String  foto;
+    protected String  foto;
     /**
-     * Atributo quemuestra la EPS a la que esta afiliado el empleado
+     * Atributo quemuestra la eps a la que esta afiliado el empleado
      */
-    public String EPS;
+    protected String eps;
     //CONSTRUCTOR
     /**
      * Genera un empleado
@@ -60,16 +60,17 @@ public class EmpleadoDTO extends UsuarioDTO{
      */
     public EmpleadoDTO()
     {
-       
+       //Constructor vacío
     }
     
     public EmpleadoDTO(EmpleadoEntity entity){
         super(entity);
         if(entity != null){
-        identificacion = entity.getIdentificacio();
+        identificacion = entity.getIdentificacion();
         foto = entity.getFoto();
-        EPS = entity.getEPS();
+        eps = entity.getEps();
         this.calificacion = entity.getCalificacion();
+        this.login = entity.getLogin();
         }
     }
     //METODOS
@@ -102,18 +103,18 @@ public class EmpleadoDTO extends UsuarioDTO{
         this.foto = foto;
     }
     /**
-     * retorna la EPS del empleado
-     * @return EPS retorna la EPS a la que esta afiliado el empleado
+     * retorna la eps del empleado
+     * @return eps retorna la eps a la que esta afiliado el empleado
      */
-    public String getEPS() {
-        return EPS;
+    public String getEps() {
+        return eps;
     }
      /**
-     * asigna la EPS al empleado 
-     * @param EPS Llega la EPS a la que esta afiliado el empleado
+     * asigna la eps al empleado 
+     * @param eps Llega la eps a la que esta afiliado el empleado
      **/
-    public void setEPS(String EPS) {
-        this.EPS = EPS;
+    public void setEps(String eps) {
+        this.eps = eps;
     }
     @Override
     public EmpleadoEntity toEntity(){
@@ -122,10 +123,11 @@ public class EmpleadoDTO extends UsuarioDTO{
         entity.setNombre(this.nombre);
         entity.setCedula(this.cedula);
         entity.setFechaIngreso(this.fechaIngreso);
-        entity.setIdentificacio(this.identificacion);
-        entity.setEPS(this.EPS);
+        entity.setIdentificacion(this.identificacion);
+        entity.setEps(this.eps);
         entity.setFoto(this.foto);
         entity.setCalificacion(this.calificacion);
+        entity.setLogin(this.login);
         return entity;
     }
 }

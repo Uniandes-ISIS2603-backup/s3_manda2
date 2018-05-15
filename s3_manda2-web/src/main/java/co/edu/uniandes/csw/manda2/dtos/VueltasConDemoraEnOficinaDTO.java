@@ -55,7 +55,7 @@ import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
  * }
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
+public class VueltasConDemoraEnOficinaDTO extends ServicioDTO {
     
         //Atributos
     
@@ -79,7 +79,7 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
     }
 
     public VueltasConDemoraEnOficinaDTO(VueltasConDemoraEnOficinaEntity entityServicio) {
-        super();
+        super(entityServicio);
         if(entityServicio!= null)
         {
         this.id = entityServicio.getId();
@@ -141,6 +141,15 @@ public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
         entity.setId(this.id);
         entity.setCostoDuracion(this.getCostoDuracion());
         entity.setCostoDeTransporte(this.getCostoDeTransporte());
+        entity.setCalificacion(calificacion);
+        entity.setCosto(costo);
+        entity.setDescripcion(descripcion);
+        entity.setEstado(estado);
+        entity.setId(id);
+        entity.setNombre(nombre);
+        entity.setPuntoDeEncuentro(puntoDeEncuentro);
+        entity.setPuntoDeRealizacion(puntoDeRealizacion);
+        
         return entity;
     
     }     

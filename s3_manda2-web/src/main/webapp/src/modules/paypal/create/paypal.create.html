@@ -22,15 +22,14 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!paypal.$valid">
 
-                            <div class="alert alert-warning">
+                            <div class="alert alert-warning" >
                                 <p>Todos los campos son obligatorios.</p>
-                            </div>
-                        </div>
-                    </div>
+                            </div> 
+                        </div> 
+                    </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="paypal.$valid" ng-click="createPaypal()" value="Guardar"
-                                   class="btn btn-success"/>
+                            <input ng-show="paypal.$valid" ng-click="createPaypal()" value="Guardar" class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="paypalList">Cancelar</a>
                         </div>
                     </div>
