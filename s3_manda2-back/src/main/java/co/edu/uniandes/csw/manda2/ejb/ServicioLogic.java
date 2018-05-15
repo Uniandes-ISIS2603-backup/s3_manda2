@@ -49,27 +49,9 @@ public class ServicioLogic {
     public ServicioEntity createServicio(ServicioEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia el proceso de creación de servicio");
 
-        if (!validateCalificacion(entity.getCalificacion())) {
-            throw new BusinessLogicException("La calificación del servicio no es válida");
-        } else if (!validateCliente(entity.getCliente())) {
-            throw new BusinessLogicException("El cliente asociado al servicio no es válido");
-        } else if (!validateCosto(entity.getCosto())) {
-            throw new BusinessLogicException("El costo del servicio no es válido");
-        } else if (!validateDescripcion(entity.getDescripcion())) {
-            throw new BusinessLogicException("La descripción del servicio no es válida");
-        } else if (!validateEmpleado(entity.getEmpleado())) {
-            throw new BusinessLogicException("El empleado asociado al servicio no es válido");
-        } else if (!validateEstado(entity.getEstado())) {
-            throw new BusinessLogicException("El estado del servicio no es válido");
-        } else if (!validateNombre(entity.getNombre())) {
-            throw new BusinessLogicException("El nombre del servicio no es válido");
-        } else if (!validatePago(entity.getPago())) {
-            throw new BusinessLogicException("El pago asociado al servicio no es válido");
-        } else if (!validatePuntoDeEncuentro(entity.getPuntoDeEncuentro())) {
-            throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
-        } else if (!validatePuntoDeRealizacion(entity.getPuntoDeRealizacion())) {
-            throw new BusinessLogicException("El punto de realización del servicio no es válido");
-        } else if (servicioPersistence.find(entity.getId()) != null) {
+        if (!validateServicio(entity)) {
+            throw new BusinessLogicException("Uno o varios atributos del servicio no son válidos");
+        } if (servicioPersistence.find(entity.getId()) != null) {
             throw new BusinessLogicException("Ya existe un servicio con el id dado.");
         }
         servicioPersistence.create(entity);
@@ -79,28 +61,10 @@ public class ServicioLogic {
 
     public ServicioEntity updateServicio(Long id, ServicioEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualización del servicio con id={0}", id);
-        if (!validateCalificacion(entity.getCalificacion())) {
-            throw new BusinessLogicException("La calificación del servicio no es válida");
-        } else if (!validateCliente(entity.getCliente())) {
-            throw new BusinessLogicException("El cliente asociado al servicio no es válido");
-        } else if (!validateCosto(entity.getCosto())) {
-            throw new BusinessLogicException("El costo del servicio no es válido");
-        } else if (!validateDescripcion(entity.getDescripcion())) {
-            throw new BusinessLogicException("La descripción del servicio no es válida");
-        } else if (!validateEmpleado(entity.getEmpleado())) {
-            throw new BusinessLogicException("El empleado asociado al servicio no es válido");
-        } else if (!validateEstado(entity.getEstado())) {
-            throw new BusinessLogicException("El estado del servicio no es válido");
-        } else if (!validateNombre(entity.getNombre())) {
-            throw new BusinessLogicException("El nombre del servicio no es válido");
-        } else if (!validatePago(entity.getPago())) {
-            throw new BusinessLogicException("El pago asociado al servicio no es válido");
-        } else if (!validatePuntoDeEncuentro(entity.getPuntoDeEncuentro())) {
-            throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
-        } else if (!validatePuntoDeRealizacion(entity.getPuntoDeRealizacion())) {
-            throw new BusinessLogicException("El punto de realización del servicio no es válido");
-        }
-        else if( !id.equals(entity.getId()) ){
+        
+        if (!validateServicio(entity)) {
+            throw new BusinessLogicException("Uno o varios atributos del servicio no son válidos");
+        } if (!id.equals(entity.getId())) {
             throw new BusinessLogicException("El id del servicio no puede ser modificado.");
         }
         ServicioEntity newEntity = servicioPersistence.update(entity);
@@ -114,8 +78,14 @@ public class ServicioLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrado de servicio con id={0]", id);
     }
 
-    private boolean validateNombre(String nombre) {
-        return nombre != null && !nombre.isEmpty();
+    private boolean validateServicio(ServicioEntity entity) {
+        return validateString(entity.getNombre())
+                && validateCosto(entity.getCosto())
+                && validateEstado(entity.getEstado())
+                && validateCalificacion(entity.getCalificacion())
+                && validateString(entity.getDescripcion())
+                && validateString(entity.getPuntoDeEncuentro())
+                && validateString(entity.getPuntoDeRealizacion());
     }
 
     private boolean validateCosto(Double costo) {
@@ -129,31 +99,11 @@ public class ServicioLogic {
                 || ServicioEntity.FINALIZADO.equals(estado));
     }
 
-    private boolean validatePuntoDeEncuentro(String puntoDeEncuentro) {
-        return puntoDeEncuentro != null && !puntoDeEncuentro.isEmpty();
-    }
-
-    private boolean validatePuntoDeRealizacion(String puntoDeRealizacion) {
-        return puntoDeRealizacion != null && !puntoDeRealizacion.isEmpty();
+    private boolean validateString(String string) {
+        return string != null && !string.isEmpty();
     }
 
     private boolean validateCalificacion(Double calificacion) {
         return calificacion != null && calificacion >= 0;
-    }
-
-    private boolean validateDescripcion(String descripcion) {
-        return descripcion != null && !descripcion.isEmpty();
-    }
-
-    private boolean validatePago(PagoEntity pago) {
-        return pago != null;
-    }
-
-    private boolean validateEmpleado(EmpleadoEntity empleado) {
-        return empleado != null;
-    }
-
-    private boolean validateCliente(ClienteEntity cliente) {
-        return cliente != null;
     }
 }
