@@ -148,6 +148,7 @@ public Double getCostoDeTransporte() {
           aentity.add(articulo.toEntity());
        }
        entity.setArticulo(aentity);
+
         return entity;
     }
 }

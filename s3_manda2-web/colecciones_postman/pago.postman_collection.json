@@ -1,0 +1,149 @@
+{
+	"variables": [],
+	"info": {
+		"name": "pago",
+		"_postman_id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n      \"id\": 10,\n      \"estadoTransaccion\": \"activo\",\n      \"fecha\": \"2018-03-03T00:00:00-05:00\",\n      \"payPal\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"cliente\":{\n      \t\"id\": 084156584,\n       \"nombre\": \"Nicolas Caceres\",\n       \"cedula\": 1020839875,\n       \"fechaDeIngreso\": \"15/07/06\",\n       \"calificacion\": 5,\n       \"pagoAnticipado\": false,\n       \"horasDeServicioSemanal\": 20\n      },\n      \"organizacion\":{\n      \t\"costoDeTransporte\": 2000,\n      \t\"costoDeDuracion\":1000,\n      \t\"desplazamiento\": false,\n      \t\"id\": 1\n      }\n    \n      \n\n}\n"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los pagos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"authors count\"] = data.length >= 0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "borrar un pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos/{{new_id}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"id\": 10,\n      \"estadoTransaccion\": \"finalizado\",\n      \"fecha\": \"2018-03-03T00:00:00-05:00\",\n      \"payPal\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"cliente\":{\n      \t\"id\": 084156584,\n       \"nombre\": \"Nicolas Caceres\",\n       \"cedula\": 1020839875,\n       \"fechaDeIngreso\": \"15/07/06\",\n       \"calificacion\": 5,\n       \"pagoAnticipado\": false,\n       \"horasDeServicioSemanal\": 20\n      },\n      \"organizacion\":{\n      \t\"costoDeTransporte\": 2000,\n      \t\"costoDeDuracion\":1000,\n      \t\"desplazamiento\": false,\n      \t\"id\": 1\n      }\n    \n}"
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
