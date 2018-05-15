@@ -95,14 +95,15 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             this.calificacion = entity.getCalificacion();
             this.descripcion = entity.getDescripcion();
             this.estado = entity.getEstado();
-
             this.id = entity.getId();
             this.costoDeDuracion = entity.getCostoDeDuracion();
             this.costoDeTransporte = entity.getCostoDeTransporte();
             this.desplazamiento = entity.getDesplazamiento();
-        }
-        if (entity.getCliente() != null) {
-            this.cliente = new ClienteDTO(entity.getCliente());
+            if (entity.getElementosBusquedaReserva() != null) {
+                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
+                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
+                }
+            }
         }
         if (entity.getEmpleado() != null) {
             this.empleado = new EmpleadoDTO(entity.getEmpleado());
@@ -137,12 +138,11 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
     public PagoDTO getPagos() {
         return pago;
     }
-    
-
     public List<ElementoBusquedaReservaDTO> getElementosBusquedaReserva() {
         return elementosBusquedaReserva;
     }
 
+    @Override
     public OrganizacionEntity toEntity() {
         OrganizacionEntity entity = new OrganizacionEntity();
         entity.setId(id);
@@ -167,14 +167,5 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             entity.setEmpleado(empleado.toEntity());
         }
         return entity;
-    }
-
-    /**
-     * se asigna la lista de pagos al empleado
-     *
-     * @param pagos Lista de pagos != null
-     */
-    public void setPagos(PagoDTO pagos) {
-        this.pago = pagos;
     }
 }

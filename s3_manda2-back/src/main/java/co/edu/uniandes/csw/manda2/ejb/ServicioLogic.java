@@ -48,6 +48,7 @@ public class ServicioLogic {
 
     public ServicioEntity createServicio(ServicioEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia el proceso de creación de servicio");
+
         if (!validateServicio(entity)) {
             throw new BusinessLogicException("Uno o varios atributos del servicio no son válidos");
         } if (servicioPersistence.find(entity.getId()) != null) {

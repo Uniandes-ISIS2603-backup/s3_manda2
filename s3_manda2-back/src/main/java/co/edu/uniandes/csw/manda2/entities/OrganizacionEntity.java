@@ -26,12 +26,10 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      * el servicio.
      */
     private Double costoDeDuracion;
-    
-    @OneToOne
-    @PodamExclude
+
     private PagoEntity pago;
+    
     /**
-     * Identificacion del servicio de Organizacion
      * Representa si es necesario el desplazamiento de uno de nuestros
      * trabajadores con el fin de cumplir con la diligencia. 0
      */
