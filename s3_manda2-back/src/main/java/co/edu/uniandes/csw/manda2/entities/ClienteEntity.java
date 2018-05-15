@@ -42,7 +42,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     /**
      * Servicios de compras en tieneda asociados al empleado.
      */
-    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
     @JoinColumn(nullable = true)
     private List<ComprasEnTiendaEntity> comprasEnTienda;
@@ -50,7 +50,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     /**
      * Servicios de entregas de documentos asociados al empleado.
      */
-    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
     @JoinColumn(nullable = true)
     private List<EntregasDeDocumentosEntity> entregasDeDocumentos;
@@ -58,7 +58,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     /**
      * Servicios de organización asociados al empleado.
      */
-    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
     @JoinColumn(nullable = true)
     private List<OrganizacionEntity> organizaciones;
@@ -66,7 +66,7 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
     /**
      * Servicios de vueltas con demora en oficina asociados al empleado.
      */
-    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
     @JoinColumn(nullable = true)
     private List<VueltasConDemoraEnOficinaEntity> vueltasConDemoraEnOficina;;

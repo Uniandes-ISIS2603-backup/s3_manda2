@@ -160,7 +160,7 @@ public class ClienteDetailDTO extends ClienteDTO {
                 }
                 this.comprasEnTienda = comprasDTO;
             }
-            if (entity.getEntregasDeDocumentos() != null) {
+            if (entity.getEntregasDeDocumentos() != null&&!entity.getEntregasDeDocumentos().isEmpty()) {
                 List<EntregasDeDocumentosDTO> entregasDTO = new ArrayList<>();
                 for (EntregasDeDocumentosEntity entregaEntity : entity.getEntregasDeDocumentos()) {
                     entregasDTO.add(new EntregasDeDocumentosDTO(entregaEntity));
@@ -345,7 +345,7 @@ public class ClienteDetailDTO extends ClienteDTO {
         }
         if(comprasEnTienda!= null)
         clienteE.setComprasEnTienda(comprasListToEntity());
-        if(entregasDeDocumentos!= null)
+        if(entregasDeDocumentos!= null&& !entregasDeDocumentos.isEmpty())
         clienteE.setEntregasDeDocumentos(entregasListToEntity());
         if(organizaciones!= null)
         clienteE.setOrganizaciones(organizacionesListToEntity());
