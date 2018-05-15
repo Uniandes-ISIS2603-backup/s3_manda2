@@ -40,6 +40,29 @@ public class EmpleadoPersistence {
         return q.getSingleResult();
     }
 
+    /**
+     * Busca si hay algun empleado con el login que se envía de argumento
+     *
+     * @param login: Login del empleado que se está buscando.
+     * @return null si no existe ningun empleado con el numero de login del argumento. Si
+     * existe alguna devuelve la primera.
+     */
+    public EmpleadoEntity findByLogin(String login) {
+        LOGGER.log(Level.INFO, "Consultando empleado por numero de login ", login);
+
+        // Se crea un query para buscar un empleado con el numero de cedula que recibe el método como argumento. ":login" 
+        TypedQuery query = em.createQuery("Select e From EmpleadoEntity e where e.login = :login", EmpleadoEntity.class);
+        // Se remplaza el placeholder ":login" con el valor del argumento 
+        query = query.setParameter("login", login);
+        // Se invoca el query se obtiene la lista resultado
+        List<EmpleadoEntity> sameLogin = query.getResultList();
+        if (sameLogin.isEmpty()) {
+            return null;
+        } else {
+            return sameLogin.get(0);
+        }
+    }
+    
     public List<EmpleadoEntity> findAll() {
         LOGGER.info("Consultando todos los empleados");
         Query q = em.createQuery("select u from EmpleadoEntity u");

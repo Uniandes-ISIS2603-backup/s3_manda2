@@ -51,6 +51,20 @@ public class ClienteLogic {
         return cliente;
     }
     /**
+     * Busca un cliente por login
+     * @param login El login del cliente  a buscar
+     * @return El cliente encontrado, null si no lo encuentra.
+     */
+    public ClienteEntity getCliente(String login) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar cliente con login={0}", login);
+        ClienteEntity cliente = persistence.findByLogin(login);
+        if (cliente == null) {
+            LOGGER.log(Level.SEVERE, "El cliente con el login {0} no existe", login);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar cliente con login={0}", login);
+        return cliente;
+    }
+    /**
      * Eliminar una cliente
      * @param id El ID del cliente a eliminar
      */
@@ -67,7 +81,7 @@ public class ClienteLogic {
      */
     public ClienteEntity createCliente(ClienteEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación del cliente");
-        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())) {
+        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
             throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
         }
         if (getCliente(entity.getId())!= null) {
@@ -76,6 +90,10 @@ public class ClienteLogic {
         if(persistence.findByCedula(entity.getCedula())!= null)
         {
             throw new BusinessLogicException("No pueden existir dos clientes con la misma cedula");
+        }
+        if(persistence.findByLogin(entity.getLogin())!= null)
+        {
+            throw new BusinessLogicException("No pueden existir dos clientes con el mismo login");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del cliente");
@@ -91,7 +109,7 @@ public class ClienteLogic {
      */
     public ClienteEntity updateCliente(Long id, ClienteEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar cliente con id={0}", id);
-        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())) {
+        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
             throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
         }
         int ant = toIntExact(id);
@@ -108,6 +126,13 @@ public class ClienteLogic {
                 if(persistence.findByCedula(entity.getCedula())!= null)
                 {
                     throw new BusinessLogicException("No se puede cambiar la cedula a una ya existente");
+                }
+            }
+            if(!clienteAntes.getLogin().equals(entity.getLogin()))
+            {
+                if(persistence.findByLogin(entity.getLogin())!= null)
+                {
+                    throw new BusinessLogicException("No se puede cambiar el login por uno ya existente");
                 }
             }
         }
@@ -131,5 +156,13 @@ public class ClienteLogic {
      */
     private boolean validateCedula( String cedula ){
         return ( cedula != null && !cedula.isEmpty());
+    }
+    /**
+     * Retorna true si el login del cliente es un string válido, false de lo contrario.
+     * @param login login del cliente
+     * @return true si el login del cliente es un string válido, false de lo contrario.
+     */
+    private boolean validateLogin( String login ){
+        return ( login != null && !login.isEmpty());
     }
 }

@@ -105,10 +105,24 @@ public class ClienteDetailDTO extends ClienteDTO {
      */
     private BilleteraDTO billetera;
     /**
-     * Atributo que modela una lista con todos los servicios contratados por un
-     * usuario.
+     * Servicios de compras en tieneda asociados al cliente.
      */
-    private List<ServicioDTO> servicios;
+    private List<ComprasEnTiendaDTO> comprasEnTienda;
+
+    /**
+     * Servicios de entregas de documentos asociados al cliente.
+     */
+    private List<EntregasDeDocumentosDTO> entregasDeDocumentos;
+
+    /**
+     * Servicios de vueltas con demora en oficina asociados al cliente.
+     */
+    private List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina;
+
+    /**
+     * Servicios de organización asociados al cliente.
+     */
+    private List<OrganizacionDTO> organizaciones;
     /**
      * Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
@@ -138,43 +152,35 @@ public class ClienteDetailDTO extends ClienteDTO {
 
         super(entity);
         if (entity != null) {        
-            /**
-            //Hay errores en los constructores a entities de las diferentes relaciones que tiene cliente, por lo que se deja comentado hasta el ciclo 3
-            if (entity.getBilletera() != null) {
-                this.billetera = new BilleteraDTO(entity.getBilletera());
-            }
-            System.out.println("Entro al metodo1");
-            //Cada servicio tiene un constructuro a partir de un entity diferente¿? Preguntar a Rubby.
-            if (entity.getServicios() != null) {
-                System.out.println("Entro al metodo2");
-               this.servicios = new ArrayList();
-               System.out.println("Entro al metodo3");
-                for (ServicioEntity entityServicio : entity.getServicios()) {
-                    System.out.println("Entro al metodo4");
-                   if( true ||entityServicio instanceof EntregasDeDocumentosEntity)
-                   {
-                       System.out.println("Entro al metodo5");
-                        servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
-                   }
-                   System.out.println("Entro al metodo6");
-                   /**
-                   else if( entityServicio instanceof ComprasEnTiendaEntity)
-                   {
-                        servicios.add(new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
-                   }
-                   else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
-                   {
-                        servicios.add(new VueltasConDemoraEnOficinaDTO((VueltasConDemoraEnOficinaEntity) entityServicio));
-                   }
-                   else if( entityServicio instanceof OrganizacionEntity)
-                   {
-                        servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
-                   }
-                   
-                   
+            
+            if (entity.getComprasEnTienda() != null) {
+                List<ComprasEnTiendaDTO> comprasDTO = new ArrayList<>();
+                for (ComprasEnTiendaEntity compraEntity : entity.getComprasEnTienda()) {
+                    comprasDTO.add(new ComprasEnTiendaDTO(compraEntity));
                 }
+                this.comprasEnTienda = comprasDTO;
             }
-            */
+            if (entity.getEntregasDeDocumentos() != null&&!entity.getEntregasDeDocumentos().isEmpty()) {
+                List<EntregasDeDocumentosDTO> entregasDTO = new ArrayList<>();
+                for (EntregasDeDocumentosEntity entregaEntity : entity.getEntregasDeDocumentos()) {
+                    entregasDTO.add(new EntregasDeDocumentosDTO(entregaEntity));
+                }
+                this.entregasDeDocumentos = entregasDTO;
+            }
+            if (entity.getOrganizaciones() != null) {
+                List<OrganizacionDTO> organizacionesDTO = new ArrayList<>();
+                for (OrganizacionEntity organizacionEntity : entity.getOrganizaciones()) {
+                    organizacionesDTO.add(new OrganizacionDTO(organizacionEntity));
+                }
+                this.organizaciones = organizacionesDTO;
+            }
+            if (entity.getVueltasConDemoraEnOficina() != null) {
+                List<VueltasConDemoraEnOficinaDTO> vueltasDTO = new ArrayList<>();
+                for (VueltasConDemoraEnOficinaEntity vueltaEntity : entity.getVueltasConDemoraEnOficina()) {
+                    vueltasDTO.add(new VueltasConDemoraEnOficinaDTO(vueltaEntity));
+                }
+                this.vueltasConDemoraEnOficina = vueltasDTO;
+            }
             if (entity.getPagos() != null) {
                 this.pagos = new ArrayList();
                 for (PagoEntity entityPago : entity.getPagos()) {
@@ -187,7 +193,12 @@ public class ClienteDetailDTO extends ClienteDTO {
                     quejasYReclamos.add(new ReclamoDTO(entityReclamo));
                 }
             }
-            
+            if(entity.getBilletera()!= null)
+            {
+                billetera = new BilleteraDTO (entity.getBilletera());
+            }
+            else
+                billetera = null;
             
         }
         
@@ -206,20 +217,6 @@ public class ClienteDetailDTO extends ClienteDTO {
      */
     public void setBilletera(BilleteraDTO billetera) {
         this.billetera = billetera;
-    }
-
-    /**
-     * @return the servicios
-     */
-    public List<ServicioDTO> getServicios() {
-        return servicios;
-    }
-
-    /**
-     * @param servicios the servicios to set
-     */
-    public void setServicios(List<ServicioDTO> servicios) {
-        this.servicios = servicios;
     }
 
     /**
@@ -250,6 +247,91 @@ public class ClienteDetailDTO extends ClienteDTO {
         this.quejasYReclamos = quejasYReclamos;
     }
 
+    public List<ComprasEnTiendaDTO> getComprasEnTienda() {
+        return comprasEnTienda;
+    }
+
+    public void setComprasEnTienda(List<ComprasEnTiendaDTO> comprasEnTienda) {
+        this.comprasEnTienda = comprasEnTienda;
+    }
+
+    public List<EntregasDeDocumentosDTO> getEntregasDeDocumentos() {
+        return entregasDeDocumentos;
+    }
+
+    public void setEntregasDeDocumentos(List<EntregasDeDocumentosDTO> entregasDeDocumentos) {
+        this.entregasDeDocumentos = entregasDeDocumentos;
+    }
+
+    public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina() {
+        return vueltasConDemoraEnOficina;
+    }
+
+    public void setVueltasConDemoraEnOficina(List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina) {
+        this.vueltasConDemoraEnOficina = vueltasConDemoraEnOficina;
+    }
+
+    public List<OrganizacionDTO> getOrganizaciones() {
+        return organizaciones;
+    }
+
+    public void setOrganizaciones(List<OrganizacionDTO> organizaciones) {
+        this.organizaciones = organizaciones;
+    }
+
+    /**
+     * Convierte la lista de compras en tienda del DTO a una lista de Entities
+     *
+     * @return lista de ComprasEnTiendaEntity
+     */
+    private List<ComprasEnTiendaEntity> comprasListToEntity() {
+        ArrayList<ComprasEnTiendaEntity> lista = new ArrayList<>();
+        for (ComprasEnTiendaDTO compra : comprasEnTienda) {
+            lista.add(compra.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de entregas de documentos del DTO a una lista de
+     * Entities
+     *
+     * @return lista de EntregaDeDocumentosEntity
+     */
+    private List<EntregasDeDocumentosEntity> entregasListToEntity() {
+        ArrayList<EntregasDeDocumentosEntity> lista = new ArrayList<>();
+        for (EntregasDeDocumentosDTO entrega : entregasDeDocumentos) {
+            lista.add(entrega.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de organizaciones del DTO a una lista de Entities
+     *
+     * @return lista de OrganizacionEntity
+     */
+    private List<OrganizacionEntity> organizacionesListToEntity() {
+        ArrayList<OrganizacionEntity> lista = new ArrayList<>();
+        for (OrganizacionDTO organizacion : organizaciones) {
+            lista.add(organizacion.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de vueltas con demora del DTO a una lista de Entities
+     *
+     * @return lista de VueltasConDemoraEnOficinaEntity
+     */
+    private List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity() {
+        ArrayList<VueltasConDemoraEnOficinaEntity> lista = new ArrayList<>();
+        for (VueltasConDemoraEnOficinaDTO vuelta : vueltasConDemoraEnOficina) {
+            lista.add(vuelta.toEntity());
+        }
+        return lista;
+    }
+    
     /**
      * Transformar un DTO a un Entity
      *
@@ -263,14 +345,16 @@ public class ClienteDetailDTO extends ClienteDTO {
         if (billetera != null) {
             clienteE.setBilletera(billetera.toEntity());
         }
-
-        if (servicios != null) {
-            List<ServicioEntity> serviciosEntity = new ArrayList();
-            for (ServicioDTO dtoServicio : servicios) {
-                serviciosEntity.add(dtoServicio.toEntity());
-            }
-            clienteE.setServicios(serviciosEntity);
-        }
+        else
+            clienteE.setBilletera(null);
+        if(comprasEnTienda!= null)
+        clienteE.setComprasEnTienda(comprasListToEntity());
+        if(entregasDeDocumentos!= null&& !entregasDeDocumentos.isEmpty())
+        clienteE.setEntregasDeDocumentos(entregasListToEntity());
+        if(organizaciones!= null)
+        clienteE.setOrganizaciones(organizacionesListToEntity());
+        if(vueltasConDemoraEnOficina!= null)
+        clienteE.setVueltasConDemoraEnOficina(vueltasListToEntity());
         if (pagos != null) {
             List<PagoEntity> pagosEntity = new ArrayList();
             for (PagoDTO dtoPago : pagos) {

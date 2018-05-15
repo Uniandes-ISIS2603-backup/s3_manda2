@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -36,21 +37,47 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * Atributo que representa la billetera que tiene cada usuario.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
     private BilleteraEntity billetera;
     /**
-     *  Atributo que modela una lista con todos los servicios contratados por un
-     * usuario.
+     * Servicios de compras en tieneda asociados al empleado.
      */
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ServicioEntity> servicios;
+    @JoinColumn(nullable = true)
+    private List<ComprasEnTiendaEntity> comprasEnTienda;
+
+    /**
+     * Servicios de entregas de documentos asociados al empleado.
+     */
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<EntregasDeDocumentosEntity> entregasDeDocumentos;
+
+    /**
+     * Servicios de organización asociados al empleado.
+     */
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<OrganizacionEntity> organizaciones;
+
+    /**
+     * Servicios de vueltas con demora en oficina asociados al empleado.
+     */
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List<VueltasConDemoraEnOficinaEntity> vueltasConDemoraEnOficina;;
     /**
      *  Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(nullable = true)
     private List<PagoEntity> pagos;
     /**
      * Atributo que modela una lista con todos los reclamos hechos por un
@@ -104,27 +131,42 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
         this.billetera = billetera;
     }
 
-    /**
-     * @return the servicios
-     */
-    public List<ServicioEntity> getServicios() {
-        return servicios;
+    public List<ComprasEnTiendaEntity> getComprasEnTienda() {
+        return comprasEnTienda;
     }
 
-    /**
-     * @param servicios the servicios to set
-     */
-    public void setServicios(List<ServicioEntity> servicios) {
-        this.servicios = servicios;
+    public void setComprasEnTienda(List<ComprasEnTiendaEntity> comprasEnTienda) {
+        this.comprasEnTienda = comprasEnTienda;
     }
+
+    public List<EntregasDeDocumentosEntity> getEntregasDeDocumentos() {
+        return entregasDeDocumentos;
+    }
+
+    public void setEntregasDeDocumentos(List<EntregasDeDocumentosEntity> entregasDeDocumentos) {
+        this.entregasDeDocumentos = entregasDeDocumentos;
+    }
+
+    public List<OrganizacionEntity> getOrganizaciones() {
+        return organizaciones;
+    }
+
+    public void setOrganizaciones(List<OrganizacionEntity> organizaciones) {
+        this.organizaciones = organizaciones;
+    }
+
+    public List<VueltasConDemoraEnOficinaEntity> getVueltasConDemoraEnOficina() {
+        return vueltasConDemoraEnOficina;
+    }
+
+    public void setVueltasConDemoraEnOficina(List<VueltasConDemoraEnOficinaEntity> vueltasConDemoraEnOficina) {
+        this.vueltasConDemoraEnOficina = vueltasConDemoraEnOficina;
+    }
+
     
-//    /**
-//     * @param servicio servicio a agregar
-//     */
-//    public void addServicio( ServicioEntity servicio ){
-//        servicios.add(servicio);
-//    }
-
+    
+    
+    
     /**
      * @return the pagos
      */

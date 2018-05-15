@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.manda2.test.logic;
 
 import co.edu.uniandes.csw.manda2.ejb.PagoLogic;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.PagoPersistence;
 import java.util.ArrayList;
@@ -31,11 +33,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  *
  * @author m.moreno
  */
-
 @RunWith(Arquillian.class)
 public class PagoLogicTest {
-    
-    
 
     private PodamFactory factory = new PodamFactoryImpl();
 
@@ -48,7 +47,7 @@ public class PagoLogicTest {
     @Inject
     private UserTransaction utx;
 
-    private List<PagoEntity> data = new ArrayList<PagoEntity>();
+    private List<PagoEntity> data = new ArrayList<>();
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -114,26 +113,23 @@ public class PagoLogicTest {
     @Test
     public void createPagoTest() throws BusinessLogicException {
         PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
-        PagoEntity result = PagoLogic.createPago(newEntity);
-        Assert.assertNotNull(result);
-        PagoEntity entity = em.find(PagoEntity.class, result.getId());
-        Assert.assertEquals(newEntity.getId(), entity.getId());
-//        Assert.assertEquals(newEntity.getCliente().getNombre(), entity.getCliente().getNombre());
-        Assert.assertEquals(newEntity.getEstadoTransaccion(), entity.getEstadoTransaccion());
-        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        PayPalEntity newPayPal = factory.manufacturePojo(PayPalEntity.class);
+        VueltasConDemoraEnOficinaEntity vuelta = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        newEntity.setPayPal(newPayPal);
+        newEntity.setVueltaConDemoraEnOficina(vuelta);
         try {
-            PagoLogic.createPago(newEntity);
+            PagoEntity result = PagoLogic.createPago(newEntity);
+            Assert.assertNotNull(result);
+            Assert.assertNotNull(result.getPayPal());
+            PagoEntity entity = em.find(PagoEntity.class, result.getId());
+            Assert.assertEquals(newEntity.getId(), entity.getId());
+            Assert.assertEquals(newEntity.getEstadoTransaccion(), entity.getEstadoTransaccion());
+            Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
         } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
             fail();
         }
-//        try {
-//            PagoEntity newEntity2 = factory.manufacturePojo(PagoEntity.class);
-//            newEntity2.getCliente().setNombre(null);
-//            PagoLogic.createPago(newEntity2);
-//            fail();
-//        } catch (BusinessLogicException e) {
-//
-//        }
+
         try {
             PagoEntity newEntity3 = factory.manufacturePojo(PagoEntity.class);
             newEntity3.setEstadoTransaccion(null);
@@ -142,8 +138,8 @@ public class PagoLogicTest {
         } catch (BusinessLogicException e) {
 
         }
-        
-             try {
+
+        try {
             PagoEntity newEntity3 = factory.manufacturePojo(PagoEntity.class);
             newEntity3.setFecha(null);
             PagoEntity result4 = PagoLogic.createPago(newEntity3);
@@ -161,33 +157,33 @@ public class PagoLogicTest {
     @Test
     public void updatePagoTest() throws BusinessLogicException {
         PagoEntity entity = data.get(0);
+
         PagoEntity pojoEntity = factory.manufacturePojo(PagoEntity.class);
-
+        PayPalEntity paypalEntity = factory.manufacturePojo(PayPalEntity.class);
+        VueltasConDemoraEnOficinaEntity vuelta = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        pojoEntity.setPayPal(paypalEntity);
         pojoEntity.setId(entity.getId());
+        pojoEntity.setVueltaConDemoraEnOficina(vuelta);
 
-        PagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
+        try {
+            PagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
 
-        PagoEntity resp = em.find(PagoEntity.class, entity.getId());
-
-        Assert.assertEquals(pojoEntity.getId(), resp.getId());
-//        Assert.assertEquals(pojoEntity.getCliente().getNombre(), resp.getCliente().getNombre());
-        Assert.assertEquals(pojoEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+            PagoEntity resp = em.find(PagoEntity.class, entity.getId());
+            
+            Assert.assertNotNull(resp.getPayPal());
+            Assert.assertEquals(pojoEntity.getId(), resp.getId());
+            Assert.assertEquals(pojoEntity.getEstadoTransaccion(), resp.getEstadoTransaccion());
+        } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
+            fail();
+        }
         try {
             PagoLogic.updatePago(pojoEntity.getId(), data.get(1));
             fail();
         } catch (BusinessLogicException e) {
 
         }
-//        try {
-//
-////            pojoEntity.getCliente().setNombre(null);
-//            PagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
-//            fail();
-//        } catch (BusinessLogicException e) {
-
-        //}
         try {
-//            pojoEntity.getCliente().setNombre("Lola");
             pojoEntity.setEstadoTransaccion(null);
             pojoEntity.setFecha(null);
             PagoLogic.updatePago(pojoEntity.getId(), pojoEntity);
@@ -209,6 +205,7 @@ public class PagoLogicTest {
         PagoEntity deleted = em.find(PagoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+
     /**
      * Prueba para consultar la lista de Pagos
      *
@@ -240,9 +237,8 @@ public class PagoLogicTest {
         PagoEntity resultEntity = PagoLogic.getPago(entity.getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
-//        Assert.assertEquals(entity.getCliente().getNombre(), resultEntity.getCliente().getNombre());
         Assert.assertEquals(entity.getEstadoTransaccion(), resultEntity.getEstadoTransaccion());
         Assert.assertEquals(entity.getFecha(), resultEntity.getFecha());
     }
-    
+
 }

@@ -86,6 +86,9 @@ public class PagoLogic {
         } else if (!validateMedioDePago(entity)) {
             throw new BusinessLogicException("El pago no tiene medio de pago asociado o tiene varios medios de pago");
         }
+        if (!validateServicio(entity)) {
+            throw new BusinessLogicException("El pago no tiene un servicio asociado o tiene varios servicios");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del pago");
         return entity;
@@ -106,10 +109,15 @@ public class PagoLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar pago con id={0}", id);
         if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
-        } else if (!validateEstado(entity.getEstadoTransaccion())) {
+        }
+        if (!validateEstado(entity.getEstadoTransaccion())) {
             throw new BusinessLogicException("El estado del pago no puede ser vacio");
-        } else if (!validateMedioDePago(entity)) {
+        }
+        if (!validateMedioDePago(entity)) {
             throw new BusinessLogicException("El pago no tiene medio de pago asociado o tiene varios medios de pago");
+        }
+        if (!validateServicio(entity)) {
+            throw new BusinessLogicException("El pago no tiene un servicio asociado o tiene varios servicios");
         }
         if (!entity.getId().equals(id)) {
             throw new BusinessLogicException("No se puede cambiar el id del pago");
@@ -129,7 +137,7 @@ public class PagoLogic {
      * contrario.
      */
     private boolean validateFecha(Date fecha) {
-        return (fecha != null);
+        return fecha != null;
     }
 
     /**
@@ -141,36 +149,89 @@ public class PagoLogic {
      * contrario.
      */
     private boolean validateEstado(String estado) {
-        return (estado != null && !estado.isEmpty());
+        return estado != null && !estado.isEmpty();
     }
 
     /**
      * Valida que el pago sólo tenga un tipo de medio de pago.
      *
-     * @param entity Pago que se va a validar.
-     * @return true si el pago sólo tiene un medio de pago, false de lo
-     * contrario.
+     * @param entity Pago que se va a validar
+     * @return true si el pago sólo tiene un medio de pago, false de lo contrario.
      */
     private boolean validateMedioDePago(PagoEntity entity) {
-        if (entity.getPayPal() != null) {
-            if (entity.getPse() != null || entity.getTarjetaDeCredito() != null) {
-                return false;
-            }
-        }
-        if (entity.getPse() != null) {
-            if (entity.getPayPal() != null || entity.getTarjetaDeCredito() != null) {
-                return false;
-            }
-        }
-        if (entity.getTarjetaDeCredito() != null) {
-            if (entity.getPayPal() != null || entity.getPse() != null) {
-                return false;
-            }
-        }
-        if(entity.getPse() == null && entity.getPayPal() == null && entity.getTarjetaDeCredito() == null){
-            return false;
-        }
-        return true;
+        return validatePayPal(entity) || validatePse(entity) || validateTarjetaDeCredito(entity);
+    }
+
+    /**
+     * Valida que si el pago tiene un paypal no tenga otro medio de pago.
+     * @param entity Pago que se va a validar
+     * @return true si el pago solo tiene paypal, false en todos los demás casos.
+     */
+    private boolean validatePayPal(PagoEntity entity) {
+        return entity.getPayPal() != null && entity.getPse() == null && entity.getTarjetaDeCredito() == null;
+    }
+
+    /**
+     * Valida que si el pago tiene un pse no tenga otro medio de pago.
+     * @param entity Pago que se va a validar
+     * @return true si el pago solo tiene pse, false en todos los demás casos.
+     */
+    private boolean validatePse(PagoEntity entity) {
+        return entity.getPse() != null && entity.getPayPal() == null && entity.getTarjetaDeCredito() == null;
+    }
+
+    /**
+     * Valida que si el pago tiene una tarjeta de crédito no tenga otro medio de pago.
+     * @param entity Pago que se va a validar
+     * @return true si el pago solo tiene tarjeta de crédito, false en todos los demás casos.
+     */
+    private boolean validateTarjetaDeCredito(PagoEntity entity) {
+        return entity.getTarjetaDeCredito() != null && entity.getPayPal() == null && entity.getPse() == null;
+    }
+
+    /**
+     * Valida que el pago sólo tenga un servicio asociado.
+     * @param entity Pago que se va a validar
+     * @return true si el pago solo un servicio asociado, false de lo contrario.
+     */
+    private boolean validateServicio(PagoEntity entity) {
+        return validateCompraEnTienda(entity) || validateEntregaDeDocumentos(entity) || validateOrganizacion(entity) || validateVueltaConDemoraEnOficina(entity);
+    }
+
+    /**
+     * Valida que si el pago tiene una compra en tienda asociada no tenga otros servicios asociados.
+     * @param entity Pago que se va a validar
+     * @return true si el único servicio asociado al pago es una compra en tienda, false en todos los demás casos.
+     */
+    private boolean validateCompraEnTienda(PagoEntity entity) {
+        return entity.getCompraEnTienda() != null && entity.getEntregaDeDocumentos() == null && entity.getOrganizacion() == null && entity.getVueltaConDemoraEnOficina() == null;
+    }
+
+    /**
+     * Valida que si el pago tiene una entrega de documentos asociada no tenga otros servicios asociados.
+     * @param entity Pago que se va a validar
+     * @return true si el único servicio asociado al pago es una entrega de documentos, false en todos los demás casos.
+     */
+    private boolean validateEntregaDeDocumentos(PagoEntity entity) {
+        return entity.getCompraEnTienda() == null && entity.getEntregaDeDocumentos() != null && entity.getOrganizacion() == null && entity.getVueltaConDemoraEnOficina() == null;
+    }
+
+    /**
+     * Valida que si el pago tiene una organización asociada no tenga otros servicios asociados.
+     * @param entity Pago que se va a validar
+     * @return true si el único servicio asociado al pago es una organización, false en todos los demás casos.
+     */
+    private boolean validateOrganizacion(PagoEntity entity) {
+        return entity.getCompraEnTienda() == null && entity.getEntregaDeDocumentos() == null && entity.getOrganizacion() != null && entity.getVueltaConDemoraEnOficina() == null;
+    }
+
+    /**
+     * Valida que si el pago tiene una vuelta con demora en oficina no tenga otros servicios asociados.
+     * @param entity Pago que se va a validar
+     * @return true si el único servicio asociado al pago es una vuelta con demora en oficina, false en todos los demás casos.
+     */
+    private boolean validateVueltaConDemoraEnOficina(PagoEntity entity) {
+        return entity.getCompraEnTienda() == null && entity.getEntregaDeDocumentos() == null && entity.getOrganizacion() == null && entity.getVueltaConDemoraEnOficina() != null;
     }
 
 }

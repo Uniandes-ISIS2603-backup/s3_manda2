@@ -59,38 +59,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
     public OrganizacionDTO(ServicioEntity entity) {
         super(entity);
     }
-
-    @Override
-    public PagoDTO getPago() {
-        return super.getPago();
-    }
-
-    @Override
-    public void setPago(PagoDTO pago) {
-        super.setPago(pago);
-    }
-
-    @Override
-    public ClienteDTO getCliente() {
-        return super.getCliente();
-    }
-
-    @Override
-    public void setCliente(ClienteDTO cliente) {
-        super.setCliente(cliente);
-    }
-
-    @Override
-    public EmpleadoDTO getEmpleado() {
-        return super.getEmpleado();
-    }
-
-    @Override
-    public void setEmpleado(EmpleadoDTO empleado) {
-        super.setEmpleado(empleado);
-    }
-
-    //    public OrganizacionDTO(OrganizacionEntity entityServicio) {
+//    public OrganizacionDTO(OrganizacionEntity entityServicio) {
 //        this.costoDeTransporte = entityServicio.getCostoTransporte();
 //        this.costoDeDuracion = entityServicio.getCostoDuracion();
 //        this.desplazamiento = entityServicio.getDesplazamiento();
@@ -100,19 +69,19 @@ public class OrganizacionDTO extends ServicioDetailDTO {
     /**
      * Costo del transporte para hacer el mandado de éste tipo
      */
-    private Double costoDeTransporte;
+    protected Double costoDeTransporte;
 
     /**
      * Costo que se le cobra al usuario, por la duración que se tiene
      * al hacer el servicio.
      */
-    private Double costoDeDuracion;
+    protected Double costoDeDuracion;
 
     /**
      * Representa si es necesario el desplazamiento de uno de nuestros trabajadores
      * con el fin de cumplir con la diligencia. 0
      */
-    private Boolean desplazamiento;
+    protected Boolean desplazamiento;
 
     /**
      * Identificacion del servicio de Organizacion
@@ -134,6 +103,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
             this.id = entityServicio.getId();
             this.costoDeDuracion = entityServicio.getCostoDuracion();
             this.costoDeTransporte = entityServicio.getCostoTransporte();
+            this.desplazamiento=entityServicio.getDesplazamiento();
 
 
         }

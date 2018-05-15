@@ -10,18 +10,18 @@ import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
+import co.edu.uniandes.csw.manda2.entities.ReclamoEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Clase que representa el empleado.
- * 
+ *
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "nombre": string, 
+ *      "nombre": string,
  *      "cedula": string,
  *      "fechaingreso": date,
  *      "calificacion": number,
@@ -32,12 +32,11 @@ import java.util.List;
  *      "pagos" [{}],
  *      "servicios" [{}]
  *   }
- * </pre>
- * Por ejemplo un empleado se representa así:<br>
- * 
+ * </pre> Por ejemplo un empleado se representa así:<br>
+ *
  * <pre>
  *   {
- *      "nombre": "nicolas_caceres", 
+ *      "nombre": "nicolas_caceres",
  *      "cedula": "1014563321",
  *      "fechaingreso": date,
  *      "calificacion": 5.0,
@@ -49,7 +48,7 @@ import java.util.List;
  *       "id": 91852,
  *      "estadoTransaccion: "cancelado",
  *      "fecha": "02/06/2018"}],
- *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal", 
+ *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal",
  *      "cliente"[{"id": 001,
  *      "nombre": nicolascaceres,
  *      "cedula": 2104565210,
@@ -62,131 +61,317 @@ import java.util.List;
  *      "calificacion":5.0, "descripcion": "entregar documentos"
  *      }]
  *   }
- * </pre>   
+ * </pre>
+ *
  * @author n.bello
  */
-public class EmpleadoDetailDTO extends EmpleadoDTO{
+public class EmpleadoDetailDTO extends EmpleadoDTO {
+
     //ATRIBUTOS
     /**
-     * Listado de todos los pagos que ha hecho el empleado
+     * Listado de todos los pagos que ha hecho el empleado.
      */
     private List<PagoDTO> pagos;
-     /**
-     * Listado de todos los servicios del empleado
+
+    /**
+     * Reclamos del empleado.
      */
-    private List<ServicioDetailDTO>servicios;
+    private List<ReclamoDTO> reclamos;
+
+    /**
+     * Servicios de compras en tieneda asociados al empleado.
+     */
+    private List<ComprasEnTiendaDTO> comprasEnTienda;
+
+    /**
+     * Servicios de entregas de documentos asociados al empleado.
+     */
+    private List<EntregasDeDocumentosDTO> entregasDeDocumentos;
+
+    /**
+     * Servicios de vueltas con demora en oficina asociados al empleado.
+     */
+    private List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina;
+
+    /**
+     * Servicios de organización asociados al empleado.
+     */
+    private List<OrganizacionDTO> organizaciones;
+
     //CONSTRUCTOR
     /**
      * genera un empleado
-     **/
-    public EmpleadoDetailDTO()
-    {   
+     *
+     */
+    public EmpleadoDetailDTO() {
         super();
-        pagos = new ArrayList();
-        servicios = new ArrayList();
+        pagos = new ArrayList<>();
+        comprasEnTienda = new ArrayList<>();
+        entregasDeDocumentos = new ArrayList<>();
+        vueltasConDemoraEnOficina = new ArrayList<>();
+        organizaciones = new ArrayList<>();
+        reclamos = new ArrayList<>();
     }
 
+    /**
+     * Constructor de un EmpleadoDetailDTO a partir de un EmpleadoEntity.
+     *
+     * @param entity EmpleadoEntity.
+     */
     public EmpleadoDetailDTO(EmpleadoEntity entity) {
         super(entity);
-        if(entity !=null)
-        {
-            this.id = entity.getId();
-            this.nombre = entity.getNombre();
-            this.cedula = entity.getCedula();
-            this.calificacion = entity.getCalificacion();
-            this.fechaIngreso = entity.getFechaIngreso();
-            if (entity.getServicios() != null) {
-               this.servicios = new ArrayList();
-                for (ServicioEntity entityServicio : entity.getServicios()) {
-                   if( entityServicio instanceof EntregasDeDocumentosEntity)
-                   {
-                        servicios.add(new EntregasDeDocumentosDTO((EntregasDeDocumentosEntity) entityServicio));
-                   }
-                   else if( entityServicio instanceof ComprasEnTiendaEntity)
-                   {
-                        servicios.add(new ComprasEnTiendaDTO((ComprasEnTiendaEntity) entityServicio));
-                   }
-                   else if( entityServicio instanceof VueltasConDemoraEnOficinaEntity)
-                   {
-                        servicios.add(new VueltasConDemoraEnOficinaDTO((VueltasConDemoraEnOficinaEntity) entityServicio));
-                   }
-                   else if( entityServicio instanceof OrganizacionEntity)
-                   {
-                        servicios.add(new OrganizacionDTO((OrganizacionEntity) entityServicio));
-                   }
+        if (entity != null) {
+            pagos = new ArrayList<>();
+            comprasEnTienda = new ArrayList<>();
+            entregasDeDocumentos = new ArrayList<>();
+            vueltasConDemoraEnOficina = new ArrayList<>();
+            organizaciones = new ArrayList<>();
+            reclamos = new ArrayList<>();
+            if (entity.getComprasEnTienda() != null) {
+                for (ComprasEnTiendaEntity compraEntity : entity.getComprasEnTienda()) {
+                    comprasEnTienda.add(new ComprasEnTiendaDTO(compraEntity));
                 }
             }
-            
+            if (entity.getEntregasDeDocumentos() != null) {
+                for (EntregasDeDocumentosEntity entregaEntity : entity.getEntregasDeDocumentos()) {
+                    entregasDeDocumentos.add(new EntregasDeDocumentosDTO(entregaEntity));
+                }
+            }
+            if (entity.getOrganizaciones() != null) {
+                for (OrganizacionEntity organizacionEntity : entity.getOrganizaciones()) {
+                    organizaciones.add(new OrganizacionDTO(organizacionEntity));
+                }
+            }
+            if (entity.getVueltasConDemoraEnOficina() != null) {
+                for (VueltasConDemoraEnOficinaEntity vueltaEntity : entity.getVueltasConDemoraEnOficina()) {
+                    vueltasConDemoraEnOficina.add(new VueltasConDemoraEnOficinaDTO(vueltaEntity));
+                }
+            }
             if (entity.getPagos() != null) {
-                this.pagos = new ArrayList();
                 for (PagoEntity entityPago : entity.getPagos()) {
                     pagos.add(new PagoDTO(entityPago));
                 }
             }
+            if (entity.getReclamos() != null) {
+                for (ReclamoEntity reclamo : entity.getReclamos()) {
+                    reclamos.add(new ReclamoDTO(reclamo));
+                }
+            }
         }
     }
-   
+
     /**
      * Retorna la lista de pagos del empleado
+     *
      * @return la lista de pagos
      */
     public List<PagoDTO> getPagos() {
         return pagos;
     }
+
     /**
      * se asigna la lista de pagos al empleado
+     *
      * @param pagos Lista de pagos != null
      */
-    
     public void setPagos(List<PagoDTO> pagos) {
         this.pagos = pagos;
     }
+
     /**
-     * retorna la lista de servicios del empleado
-     * @return servicios Lista de servicios del empleado
-     **/ 
-    public List<ServicioDetailDTO> getServicios() {
-        return servicios;
-    }
-    /**
-     * Lista de servicios que se le va a asignar 
-     * @param servicios llega la lista de servicios para asignar !=null
+     * Retorna los reclamos del empleado.
+     *
+     * @return reclamos del empleado
      */
-    
-    public void setServicios(List<ServicioDetailDTO> servicios) {
-        this.servicios = servicios;
+    public List<ReclamoDTO> getReclamos() {
+        return reclamos;
     }
-    public List<ServicioEntity> servicioListToEntity()
-    {
-        ArrayList<ServicioEntity> lista = new ArrayList();
-        for (ServicioDetailDTO servicio : servicios) {
-            lista.add(servicio.toEntity());
+
+    /**
+     * Asigna los reclamos al valor dado por parámtetro.
+     *
+     * @param reclamos reclamos
+     */
+    public void setReclamos(List<ReclamoDTO> reclamos) {
+        this.reclamos = reclamos;
+    }
+
+    /**
+     * Retorna los servicios de compras en tienda asociados al empleado.
+     *
+     * @return compras en tienda
+     */
+    public List<ComprasEnTiendaDTO> getComprasEnTienda() {
+        return comprasEnTienda;
+    }
+
+    /**
+     * Asigna las compras en tienda al valor dado por parámetro
+     *
+     * @param comprasEnTienda compras en tienda
+     */
+    public void setComprasEnTienda(List<ComprasEnTiendaDTO> comprasEnTienda) {
+        this.comprasEnTienda = comprasEnTienda;
+    }
+
+    /**
+     * Retorna los servicios entregas de documentos asociados al empleado.
+     *
+     * @return entregas de documentos
+     */
+    public List<EntregasDeDocumentosDTO> getEntregasDeDocumentos() {
+        return entregasDeDocumentos;
+    }
+
+    /**
+     * Asigna las entregas de documentos al valor dado por parámetro
+     *
+     * @param entregasDeDocumentos entregas de documentos.
+     */
+    public void setEntregasDeDocumentos(List<EntregasDeDocumentosDTO> entregasDeDocumentos) {
+        this.entregasDeDocumentos = entregasDeDocumentos;
+    }
+
+    /**
+     * Retorna los servicios de vueltas con demora en oficina asociados al
+     * empleado.
+     *
+     * @return vueltas con demora en oficina
+     */
+    public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina() {
+        return vueltasConDemoraEnOficina;
+    }
+
+    /**
+     * Asigna las vueltas con demora en oficina al valor dado por parámetro
+     *
+     * @param vueltasConDemoraEnOficina vueltas con demora en oficina
+     */
+    public void setVueltasConDemoraEnOficina(List<VueltasConDemoraEnOficinaDTO> vueltasConDemoraEnOficina) {
+        this.vueltasConDemoraEnOficina = vueltasConDemoraEnOficina;
+    }
+
+    /**
+     * Retorna los servicios de organizacion asociados al empleado.
+     *
+     * @return organizaciones
+     */
+    public List<OrganizacionDTO> getOrganizaciones() {
+        return organizaciones;
+    }
+
+    /**
+     * Asigna las organizaciones al valor dado por parámetro
+     *
+     * @param organizaciones organizaciones
+     */
+    public void setOrganizaciones(List<OrganizacionDTO> organizaciones) {
+        this.organizaciones = organizaciones;
+    }
+
+    /**
+     * Convierte la lista de compras en tienda del DTO a una lista de Entities
+     *
+     * @return lista de ComprasEnTiendaEntity
+     */
+    private List<ComprasEnTiendaEntity> comprasListToEntity() {
+        ArrayList<ComprasEnTiendaEntity> lista = new ArrayList<>();
+        for (ComprasEnTiendaDTO compra : comprasEnTienda) {
+            lista.add(compra.toEntity());
         }
         return lista;
     }
-     public List<PagoEntity> pagoListToEntity()
-    {
+
+    /**
+     * Convierte la lista de entregas de documentos del DTO a una lista de
+     * Entities
+     *
+     * @return lista de EntregaDeDocumentosEntity
+     */
+    private List<EntregasDeDocumentosEntity> entregasListToEntity() {
+        ArrayList<EntregasDeDocumentosEntity> lista = new ArrayList<>();
+        for (EntregasDeDocumentosDTO entrega : entregasDeDocumentos) {
+            lista.add(entrega.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de organizaciones del DTO a una lista de Entities
+     *
+     * @return lista de OrganizacionEntity
+     */
+    private List<OrganizacionEntity> organizacionesListToEntity() {
+        ArrayList<OrganizacionEntity> lista = new ArrayList<>();
+        for (OrganizacionDTO organizacion : organizaciones) {
+            lista.add(organizacion.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de vueltas con demora del DTO a una lista de Entities
+     *
+     * @return lista de VueltasConDemoraEnOficinaEntity
+     */
+    private List<VueltasConDemoraEnOficinaEntity> vueltasListToEntity() {
+        ArrayList<VueltasConDemoraEnOficinaEntity> lista = new ArrayList<>();
+        for (VueltasConDemoraEnOficinaDTO vuelta : vueltasConDemoraEnOficina) {
+            lista.add(vuelta.toEntity());
+        }
+        return lista;
+    }
+
+    /**
+     * Convierte la lista de pagos del DTO a una lista de Entities
+     *
+     * @return lista de PagoEntity
+     */
+    private List<PagoEntity> pagoListToEntity() {
         ArrayList<PagoEntity> lista = new ArrayList();
         for (PagoDTO pago : pagos) {
             lista.add(pago.toEntity());
         }
         return lista;
     }
-     @Override
-    public EmpleadoEntity toEntity() {
-     EmpleadoEntity entity = new EmpleadoEntity();
-     entity.setNombre(nombre);
-     entity.setCedula(cedula);
-     entity.setFechaIngreso(fechaIngreso);
-     entity.setCedula(cedula);
-     entity.setId(id);
-     entity.setIdentificacio(identificacion);
-     entity.setFoto(foto);
-     entity.setEPS(EPS);
-     entity.setCalificacion(calificacion);
-     entity.setServicios(servicioListToEntity());
-     entity.setPagos(pagoListToEntity());
-     return entity;
+
+    /**
+     * Convierte la lista de reclamosdel DTO a una lista de Entities
+     *
+     * @return lista de ReclamoEntity
+     */
+    private List<ReclamoEntity> reclamosListToEntity() {
+        ArrayList<ReclamoEntity> lista = new ArrayList<>();
+        for (ReclamoDTO reclamo : reclamos) {
+            lista.add(reclamo.toEntity());
+        }
+        return lista;
     }
-    
+
+    /**
+     * Conviete el DTO a un Entity
+     *
+     * @return EmpleadoEntity
+     */
+    @Override
+    public EmpleadoEntity toEntity() {
+        EmpleadoEntity entity = new EmpleadoEntity();
+        entity.setNombre(nombre);
+        entity.setCedula(cedula);
+        entity.setFechaIngreso(fechaIngreso);
+        entity.setCedula(cedula);
+        entity.setId(id);
+        entity.setIdentificacion(identificacion);
+        entity.setFoto(foto);
+        entity.setEps(eps);
+        entity.setCalificacion(calificacion);
+        entity.setComprasEnTienda(comprasListToEntity());
+        entity.setEntregasDeDocumentos(entregasListToEntity());
+        entity.setOrganizaciones(organizacionesListToEntity());
+        entity.setVueltasConDemoraEnOficina(vueltasListToEntity());
+        entity.setPagos(pagoListToEntity());
+        entity.setLogin(login);
+        entity.setReclamos(reclamosListToEntity());
+        return entity;
+    }
 }
