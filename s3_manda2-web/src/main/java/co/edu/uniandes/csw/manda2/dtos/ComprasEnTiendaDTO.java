@@ -126,10 +126,10 @@ public Double getCostoDeTransporte() {
         //TODO:DONE Esto no puede ser un cast a List<ArticuloEntity>
         // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
         
-       for (ArticuloDTO articulo : articulo){
-           aentity.add(articulo.toEntity());
-       }
-        entity.setArticulo(aentity);
+//       for (ArticuloDTO articulo : articulo){
+//           aentity.add(articulo.toEntity());
+//       }
+//        entity.setArticulo(aentity);
         
         entity.setId(this.id);
         entity.setCostoDeTransporte(this.getCostoDeTransporte());
@@ -144,11 +144,11 @@ public Double getCostoDeTransporte() {
         
         
 
-      for (ArticuloDTO articulo : articulo){
-          aentity.add(articulo.toEntity());
-       }
-       entity.setArticulo(aentity);
-
+//      for (ArticuloDTO articulo : articulo){
+//          aentity.add(articulo.toEntity());
+//       }
+//       entity.setArticulo(aentity);
+//
         return entity;
     }
 }

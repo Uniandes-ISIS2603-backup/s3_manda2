@@ -37,7 +37,8 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      * Atributo que representa la billetera que tiene cada usuario.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
     private BilleteraEntity billetera;
     /**
      * Servicios de compras en tieneda asociados al empleado.
@@ -74,8 +75,9 @@ public class ClienteEntity extends UsuarioEntity implements Serializable {
      *  Atributo que modela una lista con todos los pagos contratados por un
      * usuario.
      */
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    @OneToMany(mappedBy = "cliente" , cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(nullable = true)
     private List<PagoEntity> pagos;
     /**
      * Atributo que modela una lista con todos los reclamos hechos por un

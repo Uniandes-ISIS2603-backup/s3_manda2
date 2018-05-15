@@ -197,6 +197,8 @@ public class ClienteDetailDTO extends ClienteDTO {
             {
                 billetera = new BilleteraDTO (entity.getBilletera());
             }
+            else
+                billetera = null;
             
         }
         
@@ -343,6 +345,8 @@ public class ClienteDetailDTO extends ClienteDTO {
         if (billetera != null) {
             clienteE.setBilletera(billetera.toEntity());
         }
+        else
+            clienteE.setBilletera(null);
         if(comprasEnTienda!= null)
         clienteE.setComprasEnTienda(comprasListToEntity());
         if(entregasDeDocumentos!= null&& !entregasDeDocumentos.isEmpty())

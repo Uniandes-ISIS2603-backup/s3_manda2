@@ -54,13 +54,6 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
     @JoinColumn(nullable = true)
     private List<TarjetaCreditoEntity> tarjetasDeCredito;
 
-    /**
-     * Atributo que modela el cliente al que le pertenece la billetera.
-     *
-     */
-    @PodamExclude
-    @OneToOne
-    private ClienteEntity cliente;
 
     /**
      * Retorna el saldo en la billetera.
@@ -152,17 +145,4 @@ public class BilleteraEntity extends BaseEntity implements Serializable {
         this.tarjetasDeCredito = tarjetasDeCredito;
     }
 
-    /**
-     * @return the cliente
-     */
-    public ClienteEntity getCliente() {
-        return cliente;
-    }
-
-    /**
-     * @param cliente the pagos to set
-     */
-    public void setCliente(ClienteEntity cliente) {
-        this.cliente = cliente;
-    }
 }

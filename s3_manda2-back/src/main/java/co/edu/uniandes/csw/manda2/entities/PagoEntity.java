@@ -93,7 +93,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      *
      */
     @PodamExclude
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     private ClienteEntity cliente;
 
     /**
