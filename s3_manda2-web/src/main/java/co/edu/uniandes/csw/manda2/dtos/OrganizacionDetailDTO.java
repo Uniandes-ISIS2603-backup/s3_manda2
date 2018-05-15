@@ -5,23 +5,18 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
-import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
-import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
-import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
-import co.edu.uniandes.csw.manda2.entities.PagoEntity;
-import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
-import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Clase que representa el empleado.
- * 
+ *
  * Al serializarse como JSON esta clase implementa el siguiente modelo: <br>
  * <pre>
  *   {
- *      "nombre": string, 
+ *      "nombre": string,
  *      "cedula": string,
  *      "fechaingreso": date,
  *      "calificacion": number,
@@ -32,12 +27,11 @@ import java.util.List;
  *      "pagos" [{}],
  *      "servicios" [{}]
  *   }
- * </pre>
- * Por ejemplo un empleado se representa así:<br>
- * 
+ * </pre> Por ejemplo un empleado se representa así:<br>
+ *
  * <pre>
  *   {
- *      "nombre": "nicolas_caceres", 
+ *      "nombre": "nicolas_caceres",
  *      "cedula": "1014563321",
  *      "fechaingreso": date,
  *      "calificacion": 5.0,
@@ -49,7 +43,7 @@ import java.util.List;
  *       "id": 91852,
  *      "estadoTransaccion: "cancelado",
  *      "fecha": "02/06/2018"}],
- *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal", 
+ *      "servicios"[{"costoduracion": 15000, "costodetransporte": 25000, "pago": "paypal",
  *      "cliente"[{"id": 001,
  *      "nombre": nicolascaceres,
  *      "cedula": 2104565210,
@@ -62,109 +56,88 @@ import java.util.List;
  *      "calificacion":5.0, "descripcion": "entregar documentos"
  *      }]
  *   }
- * </pre>   
+ * </pre>
+ *
  * @author n.bello
  */
-public class OrganizacionDetailDTO extends OrganizacionDTO{
+public class OrganizacionDetailDTO extends OrganizacionDTO {
+
     //ATRIBUTOS
-    /**
-     * Listado de todos los pagos que ha hecho el empleado
-     */
-    private List<PagoDTO> pagos;
-     /**
-     * Listado de todos los servicios del empleado
-     */
-    private List<ServicioDetailDTO>servicios;
+    private List<ElementoBusquedaReservaDTO> elementosBusquedaReserva;
+
     //CONSTRUCTOR
     /**
      * genera un empleado
-     **/
-    public OrganizacionDetailDTO()
-    {   
+     *
+     */
+    public OrganizacionDetailDTO() {
         super();
-        pagos = new ArrayList();
-        servicios = new ArrayList();
+        elementosBusquedaReserva = new ArrayList<>();
     }
 
     public OrganizacionDetailDTO(OrganizacionEntity entity) {
         super(entity);
-        if(entity !=null)
-        {
+        elementosBusquedaReserva = new ArrayList<>();
+        if (entity != null) {
             this.nombre = entity.getNombre();
             this.costo = entity.getCosto();
-            this.puntoDeEncuentro=entity.getPuntoDeEncuentro();
-            this.puntoDeRealizacion= entity.getPuntoDeRealizacion();
+            this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
             this.calificacion = entity.getCalificacion();
-            this.descripcion=entity.getDescripcion();
+            this.descripcion = entity.getDescripcion();
             this.estado = entity.getEstado();
-            this.id = entity.getId();       
-            this.costoDeDuracion=entity.getCostoDeDuracion();
-            this.costoDeTransporte=entity.getCostoDeTransporte();
-            this.desplazamiento=entity.getDesplazamiento();
+            this.id = entity.getId();
+            this.costoDeDuracion = entity.getCostoDeDuracion();
+            this.costoDeTransporte = entity.getCostoDeTransporte();
+            this.desplazamiento = entity.getDesplazamiento();
+            if (entity.getElementosBusquedaReserva() != null) {
+                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
+                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
+                }
+            }
         }
     }
-   
-    /**
-     * Retorna la lista de pagos del empleado
-     * @return la lista de pagos
-     */
-    public List<PagoDTO> getPagos() {
-        return pagos;
+
+    public List<ElementoBusquedaReservaDTO> getElementosBusquedaReserva() {
+        return elementosBusquedaReserva;
     }
-    /**
-     * se asigna la lista de pagos al empleado
-     * @param pagos Lista de pagos != null
-     */
-    
-    public void setPagos(List<PagoDTO> pagos) {
-        this.pagos = pagos;
+
+    public void setElementosBusquedaReserva(List<ElementoBusquedaReservaDTO> elementosBusquedaReserva) {
+        this.elementosBusquedaReserva = elementosBusquedaReserva;
     }
-    /**
-     * retorna la lista de servicios del empleado
-     * @return servicios Lista de servicios del empleado
-     **/ 
-    public List<ServicioDetailDTO> getServicios() {
-        return servicios;
-    }
-    /**
-     * Lista de servicios que se le va a asignar 
-     * @param servicios llega la lista de servicios para asignar !=null
-     */
-    
-    public void setServicios(List<ServicioDetailDTO> servicios) {
-        this.servicios = servicios;
-    }
-    public List<ServicioEntity> servicioListToEntity()
-    {
-        ArrayList<ServicioEntity> lista = new ArrayList();
-        for (ServicioDetailDTO servicio : servicios) {
-            lista.add(servicio.toEntity());
+
+    private List<ElementoBusquedaReservaEntity> elementosListToEntity() {
+        ArrayList<ElementoBusquedaReservaEntity> lista = new ArrayList<>();
+        for (ElementoBusquedaReservaDTO elemento : elementosBusquedaReserva) {
+            lista.add(elemento.toEntity());
         }
         return lista;
     }
-     public List<PagoEntity> pagoListToEntity()
-    {
-        ArrayList<PagoEntity> lista = new ArrayList();
-        for (PagoDTO pago : pagos) {
-            lista.add(pago.toEntity());
-        }
-        return lista;
-    }
-     @Override
+
+    @Override
     public OrganizacionEntity toEntity() {
-     OrganizacionEntity entity = new OrganizacionEntity();
-     entity.setId(id);
-     entity.setNombre(nombre);
-     entity.setCosto(costo);
-     entity.setPuntoDeEncuentro(puntoDeEncuentro);
-     entity.setPuntoDeRealizacion(puntoDeRealizacion);
-     entity.setCalificacion(calificacion);
-     entity.setDescripcion(descripcion);
-     entity.setEstado(estado);
-     entity.setCostoDeDuracion(costoDeDuracion);
-     entity.setCostoDeTransporte(costoDeTransporte);
-     entity.setDesplazamiento(desplazamiento);
-     return entity;
+        OrganizacionEntity entity = new OrganizacionEntity();
+        entity.setId(id);
+        entity.setNombre(nombre);
+        entity.setCosto(costo);
+        entity.setPuntoDeEncuentro(puntoDeEncuentro);
+        entity.setPuntoDeRealizacion(puntoDeRealizacion);
+        entity.setCalificacion(calificacion);
+        entity.setDescripcion(descripcion);
+        entity.setEstado(estado);
+        entity.setCostoDeDuracion(costoDeDuracion);
+        entity.setCostoDeTransporte(costoDeTransporte);
+        entity.setDesplazamiento(desplazamiento);
+        entity.setElementosBusquedaReserva(elementosListToEntity());
+        if (cliente != null) {
+            entity.setCliente(cliente.toEntity());
+        }
+        if (pago != null) {
+            entity.setPago(pago.toEntity());
+        }
+        if (empleado != null) {
+            entity.setEmpleado(empleado.toEntity());
+        }
+        return entity;
     }
-   
 }
