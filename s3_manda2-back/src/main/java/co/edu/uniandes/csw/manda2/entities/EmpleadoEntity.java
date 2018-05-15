@@ -28,15 +28,15 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable{
     
     @OneToMany(mappedBy = "empleado")
     @PodamExclude
-    protected List<PagoEntity> pagos;
+    private List<PagoEntity> pagos;
     
     @OneToMany(mappedBy="empleado")
     @PodamExclude
-    protected List<ReclamoEntity> reclamos;
+    private List<ReclamoEntity> reclamos;
     
     @OneToMany(mappedBy="empleado")
     @PodamExclude
-    protected List<ServicioEntity> servicios;
+    private List<ServicioEntity> servicios;
     
     public String getIdentificacio() {
         return identificacio;

@@ -1,5 +1,4 @@
-(
-    function (ng) {
+(function (ng) {
         var mod = ng.module('reclamoModule');
         mod.constant('reclamoContext', 'api/reclamos');
         mod.controller('reclamoCreateCtrl', ['$scope', '$http', 'reclamoContext', '$state',
@@ -15,5 +14,4 @@
                     });
                 };
             }]);
-})
-(window.angular);
+})(window.angular);
