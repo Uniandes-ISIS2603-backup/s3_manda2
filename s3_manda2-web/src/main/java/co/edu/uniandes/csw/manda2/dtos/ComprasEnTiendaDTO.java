@@ -53,41 +53,45 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
      */
     private Double costoDeTransporte;
 
-    //private List<ArticuloDTO> articulo;
+    private List<ArticuloDTO> articulo;
     //TODO: DONE  Revisar por qué articulo extiende de 
     // ComprasenTienda y ComprasenTienda tiene un atributo dela clase articulo
 
     public ComprasEnTiendaDTO() {
-            super();
-         }
-
-    
+        super();
+    }
 
     public ComprasEnTiendaDTO(ComprasEnTiendaEntity entityServicio) {
 
         super();
         if (entityServicio != null) {
             this.id = entityServicio.getId();
-        this.calificacion = entityServicio.getCalificacion();
-        this.costo = entityServicio.getCosto();
-        this.descripcion = entityServicio.getDescripcion();
-        this.estado = entityServicio.getEstado();
-        this.nombre = entityServicio.getNombre();
-        this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
-        this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
+            this.calificacion = entityServicio.getCalificacion();
+            this.costo = entityServicio.getCosto();
+            this.descripcion = entityServicio.getDescripcion();
+            this.estado = entityServicio.getEstado();
+            this.nombre = entityServicio.getNombre();
+            this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
             this.costoDeTransporte = entityServicio.getCostoDeTransporte();
+
+            for (ArticuloEntity articuloEntity : entityServicio.getArticulo()) {
+                articulo.add(new ArticuloDTO(articuloEntity));
+
+            }
+
         }
+    
     }
 
-    
 
-    //METODOS
-    /**
-     * Retorna el valor asociado al transporte del servicio
-     *
-     * @return costoDeTransporte
-     */
-    public Double getCostoDeTransporte() {
+//METODOS
+/**
+ * Retorna el valor asociado al transporte del servicio
+ *
+ * @return costoDeTransporte
+ */
+public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
 
@@ -100,13 +104,13 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
         this.costoDeTransporte = costoDeTransporte;
     }
 
-//    public List<ArticuloDTO> getArticulo() {
-//        return articulo;
-//    }
-//
-//    public void setArticulo(List<ArticuloDTO> articulo) {
-//        this.articulo = articulo;
-//    }
+    public List<ArticuloDTO> getArticulo() {
+       return articulo;
+    }
+
+  public void setArticulo(List<ArticuloDTO> articulo) {
+        this.articulo = articulo;
+    }
 
     
     /**
@@ -115,19 +119,36 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
      * @return
      */
     @Override
-    public ComprasEnTiendaEntity toEntity() {
+        public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        //ArrayList aentity = new ArrayList();
+        ArrayList aentity = new ArrayList();
         
-         
-        entity.setCostoDeTransporte(costoDeTransporte);
         //TODO:DONE Esto no puede ser un cast a List<ArticuloEntity>
         // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
         
-//       for (ArticuloDTO articulo : articulo){
-//           aentity.add(articulo.toEntity());
-//       }
-//        entity.setArticulo(aentity);
+       for (ArticuloDTO articulo : articulo){
+           aentity.add(articulo.toEntity());
+       }
+        entity.setArticulo(aentity);
+        
+        entity.setId(this.id);
+        entity.setCostoDeTransporte(this.getCostoDeTransporte());
+        entity.setCalificacion(calificacion);
+        entity.setCosto(costo);
+        entity.setDescripcion(descripcion);
+        entity.setEstado(estado);
+        entity.setId(id);
+        entity.setNombre(nombre);
+        entity.setPuntoDeEncuentro(puntoDeEncuentro);
+        entity.setPuntoDeRealizacion(puntoDeRealizacion);
+        
+        
+
+      for (ArticuloDTO articulo : articulo){
+          aentity.add(articulo.toEntity());
+       }
+       entity.setArticulo(aentity);
+
         return entity;
     }
 }
