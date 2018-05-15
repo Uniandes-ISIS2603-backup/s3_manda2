@@ -17,20 +17,35 @@ import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 public class PagoDetailDTO extends PagoDTO {
 
     /**
-     * Servicio por el que se realiza el pago.
+     * Servicio de compra en tienda asociado al pago.
      */
-    private ServicioDTO servicio;
+    private ComprasEnTiendaDTO compraEnTienda;
+
+    /**
+     * Servicio de entrega de documentos asociado al pago.
+     */
+    private EntregasDeDocumentosDTO entregaDeDocumentos;
+
+    /**
+     * Servicio de organización asociado al pago.
+     */
+    private OrganizacionDTO organizacion;
+
+    /**
+     * Servicio de vuelta con demora en oficina asociado al pago.
+     */
+    private VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina;
 
     /**
      * PayPal asociado al pago.
      */
     private PayPalDTO payPal;
-    
+
     /**
      * PSE asociado al pago.
      */
     private PSEDTO pse;
-    
+
     /**
      * Tarjeta de crédito asociada al pago.
      */
@@ -59,9 +74,18 @@ public class PagoDetailDTO extends PagoDTO {
             }
             if (entity.getTarjetaDeCredito() != null) {
                 this.tarjetaDeCredito = new TarjetaCreditoDTO(entity.getTarjetaDeCredito());
-            }   
-            if (entity.getServicio() != null) {
-                this.servicio = new ServicioDTO(entity.getServicio());
+            }
+            if (entity.getCompraEnTienda() != null) {
+                this.compraEnTienda = new ComprasEnTiendaDTO(entity.getCompraEnTienda());
+            }
+            if (entity.getEntregaDeDocumentos() != null) {
+                this.entregaDeDocumentos = new EntregasDeDocumentosDTO(entity.getEntregaDeDocumentos());
+            }
+            if (entity.getOrganizacion() != null) {
+                this.organizacion = new OrganizacionDTO(entity.getOrganizacion());
+            }
+            if (entity.getVueltaConDemoraEnOficina() != null) {
+                this.vueltaConDemoraEnOficina = new VueltasConDemoraEnOficinaDTO(entity.getVueltaConDemoraEnOficina());
             }
             if (entity.getCliente() != null) {
                 this.cliente = new ClienteDTO(entity.getCliente());
@@ -77,25 +101,80 @@ public class PagoDetailDTO extends PagoDTO {
     }
 
     /**
-     * Retorna el servicio relacionado al pago.
+     * Retorna la compra en tienda asociada al pago.
      *
-     * @return servicio relacionado al pago.
+     * @return compra en tienda asociada al pago.
      */
-    public ServicioDTO getServicio() {
-        return servicio;
+    public ComprasEnTiendaDTO getCompraEnTienda() {
+        return compraEnTienda;
     }
 
     /**
-     * Asigna el servicio por el que se realiza pago.
+     * Asigna la compra en tienda al valor dado por parámetro.
      *
-     * @param pServicio servicio por el que se realiza pago.
+     * @param compraEnTienda compra en tienda.
      */
-    public void setServicio(ServicioDTO pServicio) {
-        this.servicio = pServicio;
+    public void setCompraEnTienda(ComprasEnTiendaDTO compraEnTienda) {
+        this.compraEnTienda = compraEnTienda;
     }
 
     /**
-     * Retorna el cliente 
+     * Retorna la entrega de documentos al pago.
+     *
+     * @return entrega de documentos asociada al pago.
+     */
+    public EntregasDeDocumentosDTO getEntregaDeDocumentos() {
+        return entregaDeDocumentos;
+    }
+
+    /**
+     * Asigna la entrega de documentos al valor dado por parámetro.
+     *
+     * @param entregaDeDocumentos entrega de documentos.
+     */
+    public void setEntregaDeDocumentos(EntregasDeDocumentosDTO entregaDeDocumentos) {
+        this.entregaDeDocumentos = entregaDeDocumentos;
+    }
+
+    /**
+     * Retorna organización asociada al pago.
+     *
+     * @return organización asociada al pago.
+     */
+    public OrganizacionDTO getOrganizacion() {
+        return organizacion;
+    }
+
+    /**
+     * Asigna la organización al valor dado por parámetro.
+     *
+     * @param organizacion organización.
+     */
+    public void setOrganizacion(OrganizacionDTO organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    /**
+     * Retorna la vuelta con demora en oficina asociada al pago.
+     *
+     * @return vuelta con demora en oficna asociada al pago.
+     */
+    public VueltasConDemoraEnOficinaDTO getVueltaConDemoraEnOficina() {
+        return vueltaConDemoraEnOficina;
+    }
+
+    /**
+     * Asigna la vuelta con demora en oficina al valor dado por parámetro.
+     *
+     * @param vueltaConDemoraEnOficina vuelta con demora en oficina.
+     */
+    public void setVueltaConDemoraEnOficina(VueltasConDemoraEnOficinaDTO vueltaConDemoraEnOficina) {
+        this.vueltaConDemoraEnOficina = vueltaConDemoraEnOficina;
+    }
+
+    /**
+     * Retorna el cliente
+     *
      * @return cliente.
      */
     public ClienteDTO getCliente() {
@@ -104,6 +183,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Asigna el cliente a pCliente.
+     *
      * @param pCliente nuevo cliente
      */
     public void setCliente(ClienteDTO pCliente) {
@@ -112,6 +192,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Retorna el paypal.
+     *
      * @return paypal.
      */
     public PayPalDTO getPayPal() {
@@ -120,6 +201,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Asigna el paypal al valor dado por parámetro.
+     *
      * @param payPal nuevo paypal.
      */
     public void setPayPal(PayPalDTO payPal) {
@@ -128,6 +210,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Retorna el pse.
+     *
      * @return pse.
      */
     public PSEDTO getPse() {
@@ -136,6 +219,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Asigna el pse al valor dado por parámetro.
+     *
      * @param pse nuevo pse.
      */
     public void setPse(PSEDTO pse) {
@@ -144,6 +228,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Retorna la tarjeta de crédito.
+     *
      * @return Tarjeta de crédito.
      */
     public TarjetaCreditoDTO getTarjetaDeCredito() {
@@ -152,6 +237,7 @@ public class PagoDetailDTO extends PagoDTO {
 
     /**
      * Asigna la tarjeta de crédito al valor dado por parámetro.
+     *
      * @param tarjetaCredito nueva tarjeta de crédito.
      */
     public void setTarjetaDeCredito(TarjetaCreditoDTO tarjetaCredito) {
@@ -175,8 +261,17 @@ public class PagoDetailDTO extends PagoDTO {
         if (tarjetaDeCredito != null) {
             pagoE.setTarjetaDeCredito(tarjetaDeCredito.toEntity());
         }
-        if (servicio != null) {
-            pagoE.setServicio(servicio.toEntity());
+        if (compraEnTienda != null) {
+            pagoE.setCompraEnTienda(compraEnTienda.toEntity());
+        }
+        if (entregaDeDocumentos != null) {
+            pagoE.setEntregaDeDocumentos(entregaDeDocumentos.toEntity());
+        }
+        if (organizacion != null) {
+            pagoE.setOrganizacion(organizacion.toEntity());
+        }
+        if (vueltaConDemoraEnOficina != null) {
+            pagoE.setVueltaConDemoraEnOficina(vueltaConDemoraEnOficina.toEntity());
         }
         if (cliente != null) {
             pagoE.setCliente(cliente.toEntity());

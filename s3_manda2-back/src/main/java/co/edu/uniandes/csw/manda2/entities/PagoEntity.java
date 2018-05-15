@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import co.edu.uniandes.csw.manda2.podam.DateStrategy;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
@@ -58,27 +57,43 @@ public class PagoEntity extends BaseEntity implements Serializable {
     private TarjetaCreditoEntity tarjetaDeCredito;
 
     /**
-     * Atributo que modela el empleado conoce el pago
-     *
+     * Servicio de compra en tienda asociado al pago.
      */
     @PodamExclude
-    @ManyToOne
-    private EmpleadoEntity empleado;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private ComprasEnTiendaEntity compraEnTienda;
+
+    /**
+     * Servicio de entrega de documentos asociado al pago.
+     */
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private EntregasDeDocumentosEntity entregaDeDocumentos;
+
+    /**
+     * Servicio de organización asociado al pago.
+     */
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private OrganizacionEntity organizacion;
+
+    /**
+     * Servicio de vuelta con demora en oficina asociado al pago.
+     */
+    @PodamExclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @JoinColumn(nullable = true)
+    private VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina;
 
     /**
      * Atributo que modela el empleado conoce el pago
      *
      */
-    @JsonIgnore
     @PodamExclude
-    @OneToOne(mappedBy = "pago", fetch = FetchType.LAZY)
-    private ServicioEntity servicio;
-    /**
-     * Atributo que modela el empleado conoce el pago
-     *
-     */
-    @PodamExclude
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private ClienteEntity cliente;
 
     /**
@@ -132,37 +147,80 @@ public class PagoEntity extends BaseEntity implements Serializable {
     }
 
     /**
-     * @return the Servicio
+     * Retorna la compra en tienda asociada al pago.
+     *
+     * @return compra en tienda asociada al pago.
      */
-    public ServicioEntity getServicio() {
-        return servicio;
+    public ComprasEnTiendaEntity getCompraEnTienda() {
+        return compraEnTienda;
     }
 
     /**
-     * @param servicio Servicio
+     * Asigna la compra en tienda al valor dado por parámetro.
+     *
+     * @param compraEnTienda compra en tienda.
      */
-    public void setServicio(ServicioEntity servicio) {
-        this.servicio = servicio;
+    public void setCompraEnTienda(ComprasEnTiendaEntity compraEnTienda) {
+        this.compraEnTienda = compraEnTienda;
     }
 
     /**
-     * Retorna el empleado que recibe el pago.
-     * @return empleado.
+     * Retorna la entrega de documentos al pago.
+     *
+     * @return entrega de documentos asociada al pago.
      */
-    public EmpleadoEntity getEmpleado() {
-        return empleado;
+    public EntregasDeDocumentosEntity getEntregaDeDocumentos() {
+        return entregaDeDocumentos;
     }
 
     /**
-     * Asigna el empleado
-     * @param empleado 
+     * Asigna la entrega de documentos al valor dado por parámetro.
+     *
+     * @param entregaDeDocumentos entrega de documentos.
      */
-    public void setEmpleado(EmpleadoEntity empleado) {
-        this.empleado = empleado;
+    public void setEntregaDeDocumentos(EntregasDeDocumentosEntity entregaDeDocumentos) {
+        this.entregaDeDocumentos = entregaDeDocumentos;
+    }
+
+    /**
+     * Retorna organización asociada al pago.
+     *
+     * @return organización asociada al pago.
+     */
+    public OrganizacionEntity getOrganizacion() {
+        return organizacion;
+    }
+
+    /**
+     * Asigna la organización al valor dado por parámetro.
+     *
+     * @param organizacion organización.
+     */
+    public void setOrganizacion(OrganizacionEntity organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    /**
+     * Retorna la vuelta con demora en oficina asociada al pago.
+     *
+     * @return vuelta con demora en oficna asociada al pago.
+     */
+    public VueltasConDemoraEnOficinaEntity getVueltaConDemoraEnOficina() {
+        return vueltaConDemoraEnOficina;
+    }
+
+    /**
+     * Asigna la vuelta con demora en oficina al valor dado por parámetro.
+     *
+     * @param vueltaConDemoraEnOficina vuelta con demora en oficina.
+     */
+    public void setVueltaConDemoraEnOficina(VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina) {
+        this.vueltaConDemoraEnOficina = vueltaConDemoraEnOficina;
     }
 
     /**
      * Retorna el PayPal
+     *
      * @return paypal
      */
     public PayPalEntity getPayPal() {
@@ -171,6 +229,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     /**
      * Asigna el PayPal al valor dado por parámetro.
+     *
      * @param payPal paypal
      */
     public void setPayPal(PayPalEntity payPal) {
@@ -179,6 +238,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     /**
      * Retorna el pse
+     *
      * @return pse
      */
     public PSEEntity getPse() {
@@ -187,6 +247,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     /**
      * Asigna el pse al valor dado por parámetro.
+     *
      * @param pse pse
      */
     public void setPse(PSEEntity pse) {
@@ -195,6 +256,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     /**
      * Retorna la tarjeta de crédito.
+     *
      * @return tarjeta de crédito.
      */
     public TarjetaCreditoEntity getTarjetaDeCredito() {
@@ -203,6 +265,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
 
     /**
      * Asigna la tarjeta de crédito al valor dado por parámetro.
+     *
      * @param tarjetaDeCredito tarjeta de crédito.
      */
     public void setTarjetaDeCredito(TarjetaCreditoEntity tarjetaDeCredito) {
