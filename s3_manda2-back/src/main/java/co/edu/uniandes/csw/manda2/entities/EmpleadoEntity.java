@@ -38,12 +38,9 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
     /**
      * Listado de todos los pagos que ha hecho el empleado.
      */
-    @OneToMany
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     @PodamExclude
     private List<PagoEntity> pagos;
-
-   
-    
 
     /**
      * Reclamos del empleado.
