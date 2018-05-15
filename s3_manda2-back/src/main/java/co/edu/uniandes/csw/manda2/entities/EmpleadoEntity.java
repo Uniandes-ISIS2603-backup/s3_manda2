@@ -45,7 +45,7 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
     /**
      * Reclamos del empleado.
      */
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany(mappedBy = "empleado", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     @PodamExclude
     private List<ReclamoEntity> reclamos;
 
@@ -90,6 +90,10 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
         return identificacion;
     }
 
+    /**
+     * Asigna la identificación al valor dado por parámetro
+     * @param identificacion identificación.
+     */
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
@@ -103,6 +107,10 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
         return foto;
     }
 
+    /**
+     * Asigna la foto al valor dado por parámetro.
+     * @param foto foto
+     */
     public void setFoto(String foto) {
         this.foto = foto;
     }
@@ -116,6 +124,10 @@ public class EmpleadoEntity extends UsuarioEntity implements Serializable {
         return eps;
     }
 
+    /**
+     * Asigna la eps al valor dado por parámetro.
+     * @param eps eps
+     */
     public void setEps(String eps) {
         this.eps = eps;
     }

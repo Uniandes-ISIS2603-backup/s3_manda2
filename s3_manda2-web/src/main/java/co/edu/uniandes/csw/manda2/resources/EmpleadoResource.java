@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.manda2.resources;
 
+import co.edu.uniandes.csw.manda2.dtos.EmpleadoDTO;
 import co.edu.uniandes.csw.manda2.dtos.EmpleadoDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.EmpleadoLogic;
 import co.edu.uniandes.csw.manda2.entities.EmpleadoEntity;
@@ -56,8 +57,8 @@ public class EmpleadoResource {
      * @return JSONArray {@link EmpleadoDetailDTO} - Los empleados encontrados en la aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
-    public List<EmpleadoDetailDTO> getEmpleados(){
-        return listEmpleafoEntityDTO (logic.getEmpleados());
+    public List<EmpleadoDTO> getEmpleados(){
+        return listEmpleadoEntityDTO (logic.getEmpleados());
     }
      /**
      * <h1>GET /api/empleados/{cedula} : Obtener empleado por cedula.</h1>
@@ -187,11 +188,11 @@ public class EmpleadoResource {
         logic.deleteEmpleado(id);
     }
 
-    private List<EmpleadoDetailDTO> listEmpleafoEntityDTO(List<EmpleadoEntity> empleados) {
-        List<EmpleadoDetailDTO> list = new ArrayList();
+    private List<EmpleadoDTO> listEmpleadoEntityDTO(List<EmpleadoEntity> empleados) {
+        List<EmpleadoDTO> list = new ArrayList<>();
         for (EmpleadoEntity entity : empleados)
         {
-            list.add( new EmpleadoDetailDTO(entity));
+            list.add( new EmpleadoDTO(entity));
         }
         return list;
     }
