@@ -32,13 +32,21 @@ import java.util.List;
  *          "identificacion": string,
  *          "foto": string,
  *          "eps: string],
- *      "servicio": [
+ *      "organizaciones": [ 
+ *          "nombre": String,
+ *          "puntoDeEncuentro": String,
+ *          "puntoDeRealizacion": String,
+ *          "calificacion":Double,
+ *          "descripcion": String,
+ *          "estado": String,
+ *          "costoTransporte": double,
+ *          "costoDuracion": double,
+ *          "costo":double,
+ *          "desplazamiento": Boolean],
+ *      "vueltasConDemoraEnOficina":[
  *          "costoDeDuracion": Double,
  *          "costoDeTransporte": Double,
  *          "porcentajeExtra": Double,
- *          "pago": PagoDTO,
- *          "cliente": ClienteDTO,
- *          "empleado": Empleado DTO,
  *          "id": Long,
  *          "nombre": String,
  *          "costo": Double,
@@ -47,7 +55,30 @@ import java.util.List;
  *          "puntoDeRealizacion": String,
  *          "exitoDiligencia": Boolean,
  *          "calification": Double,
- *          "descripcion": String,]
+ *          "descripcion": String ],
+ *      "comprasEnTienda":[
+ *          "costoDeTransporte": Double,
+ *          "id": Long,
+ *          "nombre": String,
+ *          "costo": Double,
+ *          "puntoDeEncuentro": String,
+ *          "puntoDeRealizacion": String,
+ *          "exitoDiligencia": Boolean,
+ *          "calification": Double,
+ *          "descripcion": String],
+ *      "entregasDeDocumentos":[
+ *          "costoDeTransporte": Double,
+ *          "porcentajeExtra": Double,
+ *          "id": Long,
+ *          "nombre": String,
+ *          "costo": Double,
+ *          "puntoDeEncuentro": String,
+ *          "puntoDeRealizacion": String,
+ *          "puntoDeRealizacion": String,
+ *          "exitoDiligencia": Boolean,
+ *          "calification": Double,
+ *          "descripcion": String]
+ * 
  * }
  * </pre> Por ejemplo reclamo se representa así:<br>
  *
@@ -64,19 +95,19 @@ import java.util.List;
  *          "identificacion": "nicolascaceres001",
  *          "foto": "nicolascaceres.jpg",
  *          "eps: "millossaludprepagada"],
- *      "servicio" :[
- *          "costoDeTransporte": 10.000,
- *          "pago": PagoDTO,
- *          "cliente": pedro,
- *          "empleado": Empleado1,
+ *      "organizaciones": [],
+ *      "vueltasConDemoraEnOficina":[],
+ *      "comprasEnTienda":[],
+ *      "entregasDeDocumentos":[
+ *          "costoDeTransporte": 10,000,
  *          "id": 345,
  *          "nombre": compra1,
- *          "costo": 30.000,
+ *          "costo": 30,000,
  *          "puntoDeEncuentro":calle 44,
  *          "puntoDeRealizacion": Exito ,
  *          "exitoDiligencia": true,
  *          "calification": 5,
- *          "descripcion": estuvo bien ]
+ *          "descripcion": estuvo bien]
  *
  * </pre>
  *
