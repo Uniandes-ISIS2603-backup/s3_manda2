@@ -54,17 +54,36 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 public class OrganizacionDTO extends ServicioDetailDTO {
 
     public OrganizacionDTO() {
+        //Constructor vacio
     }
 
     public OrganizacionDTO(ServicioEntity entity) {
         super(entity);
     }
-//    public OrganizacionDTO(OrganizacionEntity entityServicio) {
-//        this.costoDeTransporte = entityServicio.getCostoTransporte();
-//        this.costoDeDuracion = entityServicio.getCostoDuracion();
-//        this.desplazamiento = entityServicio.getDesplazamiento();
-//        this.id = id;
-//    }
+    
+    
+    public OrganizacionDTO(OrganizacionEntity entityServicio) {
+        super();
+        if (entityServicio != null) {
+            this.nombre = entityServicio.getNombre();
+            this.costo = entityServicio.getCosto();
+            this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
+            this.calificacion = entityServicio.getCalificacion();
+            this.descripcion = entityServicio.getDescripcion();
+            this.estado = entityServicio.getEstado();
+            this.id = entityServicio.getId();
+            this.costoDeDuracion = entityServicio.getCostoDuracion();
+            this.costoDeTransporte = entityServicio.getCostoTransporte();
+            this.desplazamiento=entityServicio.getDesplazamiento();
+            if(entityServicio.getCliente()!=null){
+                this.cliente = new ClienteDTO(entityServicio.getCliente());
+            }
+            if(entityServicio.getEmpleado()!=null){
+                this.empleado = new EmpleadoDTO(entityServicio.getEmpleado());
+            }
+        }
+    }
 
     /**
      * Costo del transporte para hacer el mandado de éste tipo
@@ -82,32 +101,6 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      * con el fin de cumplir con la diligencia. 0
      */
     protected Boolean desplazamiento;
-
-    /**
-     * Identificacion del servicio de Organizacion
-     */
-    protected Long id;
-
-    public OrganizacionDTO(OrganizacionEntity entityServicio) {
-        //Completar
-
-        super();
-        if (entityServicio != null) {
-            this.nombre = entityServicio.getNombre();
-            this.costo = entityServicio.getCosto();
-            this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
-            this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
-            this.calificacion = entityServicio.getCalificacion();
-            this.descripcion = entityServicio.getDescripcion();
-            this.estado = entityServicio.getEstado();
-            this.id = entityServicio.getId();
-            this.costoDeDuracion = entityServicio.getCostoDuracion();
-            this.costoDeTransporte = entityServicio.getCostoTransporte();
-            this.desplazamiento=entityServicio.getDesplazamiento();
-
-
-        }
-    }
 
     /**
      * Retorna el costo del transporte del servicio
@@ -128,15 +121,6 @@ public class OrganizacionDTO extends ServicioDetailDTO {
     }
 
     /**
-     * Obtener el id del servicio organizacion
-     *
-     * @return id el id de la organizacion
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
      * Establecer el costo del trasnporte a cobrar
      *
      * @param costoDeTransporte el costo del transporte
@@ -152,15 +136,6 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      */
     public void setCostoDuracion(Double costoDeDuracion) {
         this.costoDeDuracion = costoDeDuracion;
-    }
-
-    /**
-     * Establecer el id del servicio de organizacion
-     *
-     * @param id el id de la organizacion
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**

@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.EJBException;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -89,6 +88,7 @@ public class ServicioLogicTest {
     @Test
     public void createServicioTest() {
         ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        newEntity.setEstado(ServicioEntity.EN_ESPERA);
 
         try {
             ServicioEntity result = servicioLogic.createServicio(newEntity);
@@ -103,8 +103,10 @@ public class ServicioLogicTest {
             Assert.assertEquals(newEntity.getPuntoDeRealizacion(), entity.getPuntoDeRealizacion());
             Assert.assertEquals(newEntity.getEstado(), entity.getEstado());
             Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
-        } catch (BusinessLogicException | EJBException e) {
-
+            Assert.assertEquals(newEntity.getCalificacion(), entity.getCalificacion());
+        } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
+            Assert.fail();
         }
 
         //Prueba que el servicio no pueda ser agregado más de una vez.
@@ -126,7 +128,7 @@ public class ServicioLogicTest {
             Assert.fail();
         } catch (BusinessLogicException e) {
         }
-        //Prueba que la descripción del servicio sea válido.
+        //Prueba que la descripción del servicio sea válida.
         try {
             newEntity.setDescripcion("");
             servicioLogic.createServicio(newEntity);
@@ -190,6 +192,18 @@ public class ServicioLogicTest {
             servicioLogic.createServicio(newEntity);
             Assert.fail();
         } catch (BusinessLogicException e) {
+        }
+                try{
+            newEntity.setCalificacion(null);
+            servicioLogic.updateServicio(newEntity.getId(), newEntity);
+            Assert.fail();
+        }catch(BusinessLogicException e){
+        }
+        try{
+            newEntity.setCalificacion(-5D);
+            servicioLogic.updateServicio(newEntity.getId(), newEntity);
+            Assert.fail();
+        }catch(BusinessLogicException e){
         }
     }
 
@@ -234,7 +248,8 @@ public class ServicioLogicTest {
     public void updateServicioTest() {
         ServicioEntity entity = data.get(0);
         
-        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);       
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        newEntity.setEstado(ServicioEntity.EN_DESARROLLO);
         newEntity.setId(entity.getId());
 
         try {
@@ -249,9 +264,12 @@ public class ServicioLogicTest {
             Assert.assertEquals(newEntity.getPuntoDeRealizacion(), resp.getPuntoDeRealizacion());
             Assert.assertEquals(newEntity.getEstado(), resp.getEstado());
             Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
-        } catch (BusinessLogicException e) {
-        }
+            Assert.assertEquals(newEntity.getCalificacion(), resp.getCalificacion());
 
+        } catch (BusinessLogicException e) {
+            System.out.println(e.getMessage());
+            Assert.fail();
+        }
         //Prueba que el nombre del servicio sea válido.
         try {
             newEntity.setNombre("");
@@ -265,7 +283,7 @@ public class ServicioLogicTest {
             Assert.fail();
         } catch (BusinessLogicException e) {
         }
-        //Prueba que la descripción del servicio sea válido.
+        //Prueba que la descripción del servicio sea válida.
         try {
             newEntity.setDescripcion("");
             servicioLogic.updateServicio(newEntity.getId(), newEntity);
@@ -329,6 +347,18 @@ public class ServicioLogicTest {
             servicioLogic.updateServicio(newEntity.getId(), newEntity);
             Assert.fail();
         } catch (BusinessLogicException e) {
+        }
+        try{
+            newEntity.setCalificacion(null);
+            servicioLogic.updateServicio(newEntity.getId(), newEntity);
+            Assert.fail();
+        }catch(BusinessLogicException e){
+        }
+        try{
+            newEntity.setCalificacion(-5D);
+            servicioLogic.updateServicio(newEntity.getId(), newEntity);
+            Assert.fail();
+        }catch(BusinessLogicException e){
         }
     }
 }

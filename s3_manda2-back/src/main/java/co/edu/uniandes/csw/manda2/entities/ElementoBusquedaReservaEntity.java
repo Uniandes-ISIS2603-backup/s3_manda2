@@ -8,87 +8,76 @@ package co.edu.uniandes.csw.manda2.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import uk.co.jemos.podam.common.PodamExclude;
-
 /**
  *
  * @author cv.trujillo
  */
 @Entity
-public class ElementoBusquedaReservaEntity extends OrganizacionEntity implements Serializable {
- 
-  
-      /**
+public class ElementoBusquedaReservaEntity extends BaseEntity implements Serializable {
+
+    /**
      * nombre del elemento de busqueda
-     * */
-    
-    private String nombreBusquedaReserva;
-    
-    @ManyToOne
-    private ElementoBusquedaReservaEntity elementoBusquedaReserva;
-    
+     *
+     */
+    private String nombre;
+
     /**
      * El dato de busqueda, filtro de la reserva que se quiere hcer
-     * */
+     *
+     */
     private String datosBusqueda;
     /**
      * Determina si la busqueda fue exitosa
-     * */
-    
+     *
+     */
+
     private Boolean exitosa;
-    
-    /**
-     * Obtener del nombre del elemento a buscar
-     * @return nombre retorna el nombre del elemento.
-     * */
-    
-    public String getNombreElementoBusquedaReserva()
-    {
-        return nombreBusquedaReserva;
+
+    public String getNombre() {
+        return nombre;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
     /**
      * Obtener los datos del elemento a buscar
+     *
      * @return datosBusqueda los datos de la busqueda.
-     * */
-    
-    public String getDatos()
-    {
+     *
+     */
+        public String getDatosBusqueda() {
         return datosBusqueda;
     }
-    
-    /**
-     * Establecer el nombre del nombre
-     * @param nombre a establecer
-     * */
-    
-    public void setNombreBusquedaReserva(String nombre)
-    {
-        this.nombreBusquedaReserva=nombre;
-    }
+
     /**
      * Establecer los datos del elemento
+     *
      * @param datosBusqueda los datos de la busqueda
      */
-    
-    public void setDatos(String datosBusqueda){
-        this.datosBusqueda=datosBusqueda;
+    public void setDatosBusqueda(String datosBusqueda) {
+        this.datosBusqueda = datosBusqueda;
     }
+
     /**
      * Indica si el eleme. de busq. es exitoso
+     *
      * @return exitosa boolean si la busqueda fue exitosa.
-     * */
-    public Boolean isExistosa()
-    {
-        
+     *
+     */
+    public Boolean isExistosa() {
         return exitosa;
     }
-    
+
     /**
      * Establecer si es exitosa o no
+     *
      * @param exitosa establecer el estado
-     * */
-    public void setExitosa(Boolean exitosa)
-    {
-        this.exitosa=exitosa;
+     *
+     */
+    public void setExitosa(Boolean exitosa) {
+        this.exitosa = exitosa;
     }
 }

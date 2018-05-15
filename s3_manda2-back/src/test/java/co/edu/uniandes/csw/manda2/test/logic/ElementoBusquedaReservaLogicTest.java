@@ -115,9 +115,6 @@ public class ElementoBusquedaReservaLogicTest {
         ElementoBusquedaReservaEntity entity = em.find(ElementoBusquedaReservaEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
-        
-      
-      
     }
 
     /**
@@ -192,8 +189,5 @@ public class ElementoBusquedaReservaLogicTest {
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
-        
-        
-
     }
 }

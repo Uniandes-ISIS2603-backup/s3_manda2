@@ -6,11 +6,14 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -31,9 +34,38 @@ public class ReclamoEntity implements Serializable{
     @ManyToOne
     protected EmpleadoEntity empleado;
     
+      /**
+     * Servicio de compras en tieneda asociados al Reclamo.
+     */
+    @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     @PodamExclude
-    @ManyToOne
-    protected ServicioEntity servicio;
+    @JoinColumn(nullable = true)
+    private ComprasEnTiendaEntity comprasEnTienda;
+
+    /**
+     * Servicio de entregas de documentos asociados al Reclamo.
+     */
+    @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private EntregasDeDocumentosEntity entregasDeDocumentos;
+
+    /**
+     * Servicios de organización asociados al Reclamo.
+     */
+    @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private OrganizacionEntity organizacion;
+
+    /**
+     * Servicio de vueltas con demora en oficina asociados al reclamo.
+     */
+    @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina;
+
     
     @PodamExclude
     @ManyToOne
@@ -67,9 +99,6 @@ public class ReclamoEntity implements Serializable{
         return empleado;
     }
 
-    public ServicioEntity getServicio() {
-        return servicio;
-    }
 
     public ClienteEntity getCliente() {
         return cliente;
@@ -79,12 +108,40 @@ public class ReclamoEntity implements Serializable{
         this.empleado = empleado;
     }
 
-    public void setServicio(ServicioEntity servicio) {
-        this.servicio = servicio;
-    }
-
     public void setCliente(ClienteEntity cliente) {
         this.cliente = cliente;
+    }
+
+    public ComprasEnTiendaEntity getComprasEnTienda() {
+        return comprasEnTienda;
+    }
+
+    public void setComprasEnTienda(ComprasEnTiendaEntity comprasEnTienda) {
+        this.comprasEnTienda = comprasEnTienda;
+    }
+
+    public EntregasDeDocumentosEntity getEntregasDeDocumentos() {
+        return entregasDeDocumentos;
+    }
+
+    public void setEntregasDeDocumentos(EntregasDeDocumentosEntity entregasDeDocumentos) {
+        this.entregasDeDocumentos = entregasDeDocumentos;
+    }
+
+    public OrganizacionEntity getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(OrganizacionEntity organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    public VueltasConDemoraEnOficinaEntity getVueltaConDemoraEnOficina() {
+        return vueltaConDemoraEnOficina;
+    }
+
+    public void setVueltaConDemoraEnOficina(VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina) {
+        this.vueltaConDemoraEnOficina = vueltaConDemoraEnOficina;
     }
     
     

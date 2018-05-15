@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author m.moreno
  */
 @Entity
-public class MedioPagoEntity extends BaseEntityAlternativo  implements Serializable{
+public class MedioPagoEntity extends BaseEntity implements Serializable{
  
      /**
      * Indica el id de medio pago.

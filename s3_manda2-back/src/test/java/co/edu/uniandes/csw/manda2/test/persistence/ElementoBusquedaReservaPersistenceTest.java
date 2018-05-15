@@ -61,7 +61,7 @@ public class ElementoBusquedaReservaPersistenceTest {
         
         ElementoBusquedaReservaEntity entity = em.find(ElementoBusquedaReservaEntity.class, result.getId());
         
-        Assert.assertEquals(newEntity.getNombreElementoBusquedaReserva(), entity.getNombreElementoBusquedaReserva());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
      /**
      * Prueba para eliminar un elemento búsqueda reserva.
@@ -128,7 +128,7 @@ public class ElementoBusquedaReservaPersistenceTest {
         ElementoBusquedaReservaEntity newEntity = ElementoBusquedaReservaPersistence.find(entity.getId());
         
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(newEntity.getNombreElementoBusquedaReserva(), entity.getNombreElementoBusquedaReserva());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
    
     }
     
@@ -144,9 +144,6 @@ public class ElementoBusquedaReservaPersistenceTest {
         
         ElementoBusquedaReservaEntity resp = em.find(ElementoBusquedaReservaEntity.class, entity.getId());
         
-        Assert.assertEquals(newEntity.getNombreElementoBusquedaReserva(), resp.getNombreElementoBusquedaReserva());
-    
-    
-     
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 }

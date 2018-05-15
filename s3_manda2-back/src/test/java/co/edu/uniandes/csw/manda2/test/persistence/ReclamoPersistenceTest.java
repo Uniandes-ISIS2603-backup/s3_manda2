@@ -139,23 +139,7 @@ public class ReclamoPersistenceTest {
         Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
-    /**
-     * Prueba para consultar un reclamo.
-     *
-     *
-     */
-    @Test
-    public void getReclamoByNumeroTest() {
-        ReclamoEntity entity = data.get(0);
-        /*
-         Comenté esto porque findByNumero causa un error de compilación. - Diego
-         ReclamoEntity newEntity = reclamoPersistence.findByNumero(entity.getNumero());
-        
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
-        Assert.assertEquals(entity.getId(), newEntity.getId());
-        */
-    }
+   
     @Test
     public void deleteReclamoTest() {
         ReclamoEntity entity = data.get(0);
