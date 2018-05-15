@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -28,8 +31,24 @@ public class VueltasConDemoraEnOficinaEntity extends ServicioEntity  implements 
         *El costo del transporte del servicio
         */
         private Double costoDeTransporte;
+    @OneToOne
+    @PodamExclude
+    private PagoEntity pago;
+        /**
+     * Retorna el pago asociado al servicio.
+     * @return pago asociado al servicio.
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
 
-        
+    /**
+     * Asigna el pago al dado por parámetro
+     * @param pago nuevo pago
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
     /**
      *Retorna el valor asociado a la duración del servicio
      * @return costoDeTransporte

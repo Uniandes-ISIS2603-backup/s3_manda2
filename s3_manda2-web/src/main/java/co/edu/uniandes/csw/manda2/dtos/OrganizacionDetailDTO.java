@@ -70,7 +70,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO{
     /**
      * Listado de todos los pagos que ha hecho el empleado
      */
-    private List<PagoDTO> pagos;
+    private PagoDTO pago;
      /**
      * Listado de todos los servicios del empleado
      */
@@ -81,9 +81,6 @@ public class OrganizacionDetailDTO extends OrganizacionDTO{
      **/
     public OrganizacionDetailDTO()
     {   
-        super();
-        pagos = new ArrayList();
-        servicios = new ArrayList();
     }
 
     public OrganizacionDetailDTO(OrganizacionEntity entity) {
@@ -101,6 +98,15 @@ public class OrganizacionDetailDTO extends OrganizacionDTO{
             this.costoDeDuracion=entity.getCostoDeDuracion();
             this.costoDeTransporte=entity.getCostoDeTransporte();
             this.desplazamiento=entity.getDesplazamiento();
+            if (entity.getCliente() != null) {
+                this.cliente = new ClienteDTO(entity.getCliente());
+            }
+            if (entity.getEmpleado() != null) {
+                this.empleado = new EmpleadoDTO(entity.getEmpleado());
+            }
+            if (entity.getPago() != null) {
+                this.pago = new PagoDTO(entity.getPago());
+            }
         }
     }
    
@@ -108,16 +114,16 @@ public class OrganizacionDetailDTO extends OrganizacionDTO{
      * Retorna la lista de pagos del empleado
      * @return la lista de pagos
      */
-    public List<PagoDTO> getPagos() {
-        return pagos;
+    public PagoDTO getPagos() {
+        return pago;
     }
     /**
      * se asigna la lista de pagos al empleado
      * @param pagos Lista de pagos != null
      */
     
-    public void setPagos(List<PagoDTO> pagos) {
-        this.pagos = pagos;
+    public void setPagos(PagoDTO pagos) {
+        this.pago = pagos;
     }
     /**
      * retorna la lista de servicios del empleado
@@ -142,14 +148,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO{
         }
         return lista;
     }
-     public List<PagoEntity> pagoListToEntity()
-    {
-        ArrayList<PagoEntity> lista = new ArrayList();
-        for (PagoDTO pago : pagos) {
-            lista.add(pago.toEntity());
-        }
-        return lista;
-    }
+     
      @Override
     public OrganizacionEntity toEntity() {
      OrganizacionEntity entity = new OrganizacionEntity();

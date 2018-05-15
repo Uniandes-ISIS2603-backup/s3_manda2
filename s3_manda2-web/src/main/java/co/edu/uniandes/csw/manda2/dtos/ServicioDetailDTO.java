@@ -15,11 +15,6 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
 public abstract class ServicioDetailDTO extends ServicioDTO {
 
     /**
-     * Pago asociado al servicio.
-     */
-    protected PagoDTO pago;
-
-    /**
      * Cliente que pide el servicio.
      */
     protected ClienteDTO cliente;
@@ -37,7 +32,6 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
         super(entity);
         if (entity != null) {
             this.cliente = new ClienteDTO(entity.getCliente());
-            this.pago = new PagoDTO(entity.getPago());
             this.empleado = new EmpleadoDTO(entity.getEmpleado());
         }
     }
@@ -53,32 +47,13 @@ public abstract class ServicioDetailDTO extends ServicioDTO {
         if (cliente != null) {
             entity.setCliente(this.cliente.toEntity());
         }
-        if (pago != null) {
-            entity.setPago(this.pago.toEntity());
-        }
         if (empleado != null) {
             entity.setEmpleado(this.empleado.toEntity());
         }
         return entity;
     }
 
-    /**
-     * Retorna el pago del servicio.
-     *
-     * @return Pago del servicio.
-     */
-    public PagoDTO getPago() {
-        return pago;
-    }
-
-    /**
-     * Asigna el pago del servicio al dado por parámetro.
-     *
-     * @param pago Nuevo pago del servicio.
-     */
-    public void setPago(PagoDTO pago) {
-        this.pago = pago;
-    }
+    
 
     /**
      * Retorna el cliente que pide el servicio.

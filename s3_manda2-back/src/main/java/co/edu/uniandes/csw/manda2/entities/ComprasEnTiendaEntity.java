@@ -8,10 +8,12 @@ package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -34,7 +36,10 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     *Articulos
     */
     private List<ArticuloEntity>  articulo;
-
+    
+    @OneToOne
+    @PodamExclude
+    private PagoEntity pago;
     /**
      * Retorna los articulos de la compra
      * @return atiuclo(s) de la compra
@@ -55,7 +60,21 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     
 
     //Metodos
-    
+     /**
+     * Retorna el pago asociado al servicio.
+     * @return pago asociado al servicio.
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
+
+    /**
+     * Asigna el pago al dado por parámetro
+     * @param pago nuevo pago
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
      /**
      *Retorna el valor asociado al transporte del servicio
      * @return costoDeTransporte

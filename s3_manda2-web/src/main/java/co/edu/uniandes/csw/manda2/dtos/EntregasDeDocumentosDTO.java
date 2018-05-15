@@ -57,7 +57,7 @@ import co.edu.uniandes.csw.manda2.entities.ServicioEntity;
  *
  * @author dv.gonzalez10
  */
-public class EntregasDeDocumentosDTO extends ServicioDetailDTO {
+public class EntregasDeDocumentosDTO extends ServicioDTO {
 
     //Atributos
     /*

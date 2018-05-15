@@ -63,9 +63,8 @@ public class ServicioLogic {
             throw new BusinessLogicException("El estado del servicio no es válido");
         } else if (!validateNombre(entity.getNombre())) {
             throw new BusinessLogicException("El nombre del servicio no es válido");
-        } else if (!validatePago(entity.getPago())) {
-            throw new BusinessLogicException("El pago asociado al servicio no es válido");
-        } else if (!validatePuntoDeEncuentro(entity.getPuntoDeEncuentro())) {
+        }
+        else if (!validatePuntoDeEncuentro(entity.getPuntoDeEncuentro())) {
             throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
         } else if (!validatePuntoDeRealizacion(entity.getPuntoDeRealizacion())) {
             throw new BusinessLogicException("El punto de realización del servicio no es válido");
@@ -93,8 +92,6 @@ public class ServicioLogic {
             throw new BusinessLogicException("El estado del servicio no es válido");
         } else if (!validateNombre(entity.getNombre())) {
             throw new BusinessLogicException("El nombre del servicio no es válido");
-        } else if (!validatePago(entity.getPago())) {
-            throw new BusinessLogicException("El pago asociado al servicio no es válido");
         } else if (!validatePuntoDeEncuentro(entity.getPuntoDeEncuentro())) {
             throw new BusinessLogicException("El punto de encuentro del servicio no es válido");
         } else if (!validatePuntoDeRealizacion(entity.getPuntoDeRealizacion())) {

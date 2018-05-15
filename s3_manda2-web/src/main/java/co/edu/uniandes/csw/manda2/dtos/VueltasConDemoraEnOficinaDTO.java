@@ -55,7 +55,7 @@ import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
  * }
  * @author dv.gonzalez10
  */
-public class VueltasConDemoraEnOficinaDTO extends ServicioDetailDTO {
+public class VueltasConDemoraEnOficinaDTO extends ServicioDTO {
     
         //Atributos
     

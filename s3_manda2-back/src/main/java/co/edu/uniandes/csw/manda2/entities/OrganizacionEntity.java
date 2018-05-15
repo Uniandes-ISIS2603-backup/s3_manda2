@@ -6,10 +6,13 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -44,10 +47,28 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable  
     
     private Boolean desplazamiento;
     
+    @OneToOne
+    @PodamExclude
+    private PagoEntity pago;
     /**
      * Identificacion del servicio de Organizacion
      */
   
+    /**
+     * Retorna el pago asociado al servicio.
+     * @return pago asociado al servicio.
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
+
+    /**
+     * Asigna el pago al dado por parámetro
+     * @param pago nuevo pago
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
     /**
      * Retorna el costo del transporte del servicio
      * @return costoDeTransporte el costo del transporte.
