@@ -30,7 +30,11 @@ import java.util.List;
  *      "foto": string,
  *      "eps: string,
  *      "pagos" [{}],
- *      "servicios" [{}]
+ *      "organizaciones" [{}],
+ *      "vueltasConDemoraOficina" [{}],
+ *      "entregaDeDocumentos" [{}],
+ *      "comprasEnTienda" [{}],
+ *      "reclamos" [{}]
  *   }
  * </pre> Por ejemplo un empleado se representa así:<br>
  *
