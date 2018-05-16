@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.ElementoBusquedaReservaEntity;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +67,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
     /**
      * Listado de todos los pagos que ha hecho el empleado
      */
-    private PagoDTO pago;
+    private List<PagoDTO> pago;
     /**
      * Listado de todos los servicios del empleado
      */
@@ -109,17 +110,17 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             this.empleado = new EmpleadoDTO(entity.getEmpleado());
         }
         if (entity.getPago() != null) {
-            this.pago = new PagoDTO(entity.getPago());
-            this.id = entity.getId();
-            this.costoDeDuracion = entity.getCostoDeDuracion();
-            this.costoDeTransporte = entity.getCostoDeTransporte();
-            this.desplazamiento = entity.getDesplazamiento();
-            if (entity.getElementosBusquedaReserva() != null) {
-                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
-                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
+                this.pago = new ArrayList();
+                for (PagoEntity entityPago : entity.getPago()) {
+                    pago.add(new PagoDTO(entityPago));
                 }
             }
+        if (entity.getElementosBusquedaReserva() != null) {
+            for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
+                elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
+            }
         }
+
     }
 
     private List<ElementoBusquedaReservaEntity> elementosListToEntity() {
@@ -135,9 +136,14 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
      *
      * @return la lista de pagos
      */
-    public PagoDTO getPagos() {
+    public List<PagoDTO> getPagos() {
         return pago;
     }
+
+    public void setPago(List<PagoDTO> pago) {
+        this.pago = pago;
+    }
+
     public List<ElementoBusquedaReservaDTO> getElementosBusquedaReserva() {
         return elementosBusquedaReserva;
     }
@@ -161,7 +167,11 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             entity.setCliente(cliente.toEntity());
         }
         if (pago != null) {
-            entity.setPago(pago.toEntity());
+            List<PagoEntity> pagosEntity = new ArrayList();
+            for (PagoDTO dtoPago : pago) {
+                pagosEntity.add(dtoPago.toEntity());
+            }
+            entity.setPago(pagosEntity);
         }
         if (empleado != null) {
             entity.setEmpleado(empleado.toEntity());

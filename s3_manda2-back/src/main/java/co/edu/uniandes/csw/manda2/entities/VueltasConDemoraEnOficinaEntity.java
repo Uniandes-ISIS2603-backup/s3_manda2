@@ -6,8 +6,11 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -31,14 +34,16 @@ public class VueltasConDemoraEnOficinaEntity extends ServicioEntity  implements 
         *El costo del transporte del servicio
         */
         private Double costoDeTransporte;
-    @OneToOne
+        
+    @OneToMany(mappedBy = "vueltaConDemoraEnOficina",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    private PagoEntity pago;
+    @JoinColumn(nullable = true)
+    private List<PagoEntity> pago;
         /**
      * Retorna el pago asociado al servicio.
      * @return pago asociado al servicio.
      */
-    public PagoEntity getPago() {
+    public List<PagoEntity> getPago() {
         return pago;
     }
 
@@ -46,7 +51,7 @@ public class VueltasConDemoraEnOficinaEntity extends ServicioEntity  implements 
      * Asigna el pago al dado por parámetro
      * @param pago nuevo pago
      */
-    public void setPago(PagoEntity pago) {
+    public void setPago(List<PagoEntity> pago) {
         this.pago = pago;
     }
     /**

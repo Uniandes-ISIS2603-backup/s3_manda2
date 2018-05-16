@@ -12,6 +12,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -37,9 +38,10 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
     */
     private List<ArticuloEntity>  articulo;
     
-    @OneToOne
+    @OneToMany(mappedBy = "compraEnTienda",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    private PagoEntity pago;
+    @JoinColumn(nullable = true)
+    private List<PagoEntity> pago;
     /**
      * Retorna los articulos de la compra
      * @return atiuclo(s) de la compra
@@ -64,7 +66,7 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
      * Retorna el pago asociado al servicio.
      * @return pago asociado al servicio.
      */
-    public PagoEntity getPago() {
+    public List<PagoEntity> getPago() {
         return pago;
     }
 
@@ -72,7 +74,7 @@ public class ComprasEnTiendaEntity  extends ServicioEntity  implements Serializa
      * Asigna el pago al dado por parámetro
      * @param pago nuevo pago
      */
-    public void setPago(PagoEntity pago) {
+    public void setPago(List<PagoEntity> pago) {
         this.pago = pago;
     }
      /**

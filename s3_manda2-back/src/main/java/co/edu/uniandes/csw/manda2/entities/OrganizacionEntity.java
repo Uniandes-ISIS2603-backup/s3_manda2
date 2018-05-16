@@ -27,7 +27,10 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      */
     private Double costoDeDuracion;
 
-    private PagoEntity pago;
+    @OneToMany(mappedBy = "organizacion",cascade = CascadeType.ALL, orphanRemoval = false)
+    @PodamExclude
+    @JoinColumn(nullable = true)
+    private List< PagoEntity> pago;
     
     /**
      * Representa si es necesario el desplazamiento de uno de nuestros
@@ -47,7 +50,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      * Retorna el pago asociado al servicio.
      * @return pago asociado al servicio.
      */
-    public PagoEntity getPago() {
+    public List<PagoEntity> getPago() {
         return pago;
     }
 
@@ -55,7 +58,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      * Asigna el pago al dado por parámetro
      * @param pago nuevo pago
      */
-    public void setPago(PagoEntity pago) {
+    public void setPago(List<PagoEntity> pago) {
         this.pago = pago;
     }
     /**

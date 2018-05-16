@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.test.logic;
 
 import co.edu.uniandes.csw.manda2.ejb.PagoLogic;
+import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
 import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.PayPalEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
@@ -114,9 +115,9 @@ public class PagoLogicTest {
     public void createPagoTest() throws BusinessLogicException {
         PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
         PayPalEntity newPayPal = factory.manufacturePojo(PayPalEntity.class);
-        VueltasConDemoraEnOficinaEntity vuelta = factory.manufacturePojo(VueltasConDemoraEnOficinaEntity.class);
+        //EntregasDeDocumentosEntity vuelta = factory.manufacturePojo(EntregasDeDocumentosEntity.class);
         newEntity.setPayPal(newPayPal);
-        newEntity.setVueltaConDemoraEnOficina(vuelta);
+        //newEntity.setEntregaDeDocumentos(vuelta);
         try {
             PagoEntity result = PagoLogic.createPago(newEntity);
             Assert.assertNotNull(result);

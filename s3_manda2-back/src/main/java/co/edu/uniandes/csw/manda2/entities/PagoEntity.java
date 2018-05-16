@@ -60,28 +60,28 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * Servicio de compra en tienda asociado al pago.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "pago")
+    @ManyToOne
     private ComprasEnTiendaEntity compraEnTienda;
 
     /**
      * Servicio de entrega de documentos asociado al pago.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "pago")
+    @ManyToOne
     private EntregasDeDocumentosEntity entregaDeDocumentos;
 
     /**
      * Servicio de organización asociado al pago.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "pago")
+    @ManyToOne
     private OrganizacionEntity organizacion;
 
     /**
      * Servicio de vuelta con demora en oficina asociado al pago.
      */
     @PodamExclude
-    @OneToOne(mappedBy = "pago")
+    @ManyToOne
     private VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina;
 
     /**

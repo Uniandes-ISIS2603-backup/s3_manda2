@@ -78,17 +78,19 @@ public class PagoLogic {
     public PagoEntity createPago(PagoEntity entity) throws BusinessLogicException {
 
         LOGGER.info("Inicia proceso de creación del pago");
-
         if (!validateFecha(entity.getFecha())) {
             throw new BusinessLogicException("La fecha del pago no puede ser vacio");
         } else if (!validateEstado(entity.getEstadoTransaccion())) {
             throw new BusinessLogicException("El estado del pago no puede ser vacio");
+        }
+         /**   * 
         } else if (!validateMedioDePago(entity)) {
             throw new BusinessLogicException("El pago no tiene medio de pago asociado o tiene varios medios de pago");
         }
         if (!validateServicio(entity)) {
             throw new BusinessLogicException("El pago no tiene un servicio asociado o tiene varios servicios");
         }
+        * */
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del pago");
         return entity;
