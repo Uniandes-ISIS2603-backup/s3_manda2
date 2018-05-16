@@ -61,6 +61,7 @@
                 };
             }
         ]);
+<<<<<<< HEAD
     
     var mod = ng.module("loginModule");
     mod.controller('loginCtrl', ['$scope', '$http', '$state', '$rootScope',
@@ -125,5 +126,8 @@
         }
     ]);
 }
+=======
+    }
+>>>>>>> master
 )(window.angular);
 
