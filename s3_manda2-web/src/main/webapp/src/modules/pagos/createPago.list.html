@@ -2,7 +2,7 @@
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <label  id="createPago">Crear pago</label>
+                <label id="createPago">Crear pago</label>
 
             </div>
             <div class="panel-body">
@@ -10,18 +10,19 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="pagoEstado" class="col-sm-4">Estado:</label>
-                            <input id="pagoEstado" required ng-model="data.estadoTransaccion" />
+                            <input id="pagoEstado" required ng-model="data.estadoTransaccion"/>
                         </div>
-                        <div  class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="fecha" class="col-sm-4">Fecha:</label>
-                            <input id ="fecha" type="date" required ng-model="data.fecha">
+                            <input id="fecha" type="date" required ng-model="data.fecha">
                         </div>
                     </div>
 
 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="pago.$valid" ng-click="createPago()" value="Continuar" class="btn btn-success"/>
+                            <input ng-show="pago.$valid" ng-click="createPago()" value="Continuar"
+                                   class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="pagoList">Cancelar</a>
                         </div>
                     </div>

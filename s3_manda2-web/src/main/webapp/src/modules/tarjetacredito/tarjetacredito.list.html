@@ -12,24 +12,28 @@
         <div class='col-md-8'>
             <table class='table table-hover'>
                 <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Número de tarjeta</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Número de tarjeta</th>
+                    <th></th>
+                    <th></th>
+                </tr>
                 </thead>
                 <tbody ng-repeat='tarjetacredito in tarjetacreditoRecords'>
-                    <tr>
-                        <td>{{tarjetacredito.nombreCliente}}</td>
-                        <td>{{tarjetacredito.numeroTarjeta}}</td>
-                        <td>
-                            <button class="btn btn-default btn-sm" ui-sref="tarjetacreditoUpdate({idTarjetacredito: tarjetacredito.id})">Editar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" ui-sref="tarjetacreditoDelete({idTarjetacredito: tarjetacredito.id})">Eliminar</button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{tarjetacredito.nombreCliente}}</td>
+                    <td>{{tarjetacredito.numeroTarjeta}}</td>
+                    <td>
+                        <button class="btn btn-default btn-sm"
+                                ui-sref="tarjetacreditoUpdate({idTarjetacredito: tarjetacredito.id})">Editar
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm"
+                                ui-sref="tarjetacreditoDelete({idTarjetacredito: tarjetacredito.id})">Eliminar
+                        </button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

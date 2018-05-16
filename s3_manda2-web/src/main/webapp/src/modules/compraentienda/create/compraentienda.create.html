@@ -39,27 +39,28 @@
                     </div>
                     <div class="form-group row">
                         <label for="compraPuntoDeRealizacion" class="col-sm-6">Punto de realizacion:</label>
-                        <input id="compraPuntoDeRealizacion" required ng-model="compraPuntoDeRealizacion" class="col-sm-6"/>
+                        <input id="compraPuntoDeRealizacion" required ng-model="compraPuntoDeRealizacion"
+                               class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
                         <label for="compraCostoDeTransporte" class="col-sm-6">Costo de transporte:</label>
-                        <input id="compraCostoDeTransporte" required ng-model="compraCostoDeTransporte" class="col-sm-6"/>
+                        <input id="compraCostoDeTransporte" required ng-model="compraCostoDeTransporte"
+                               class="col-sm-6"/>
                     </div>
-                 <div class="form-group row">
-                        <label for="compraArticulo" class="col-sm-6">Articulo:</label>
-                        <input id="compraArticulo" required ng-model="compraArticulo" class="col-sm-6"/>
-                    </div>
+
                     <div class="form-group row">
                         <div class="form-group col-sm-6" ng-if="!compra.$valid">
 
-                            <div class="alert alert-warning" >
-                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
-                            </div> 
-                        </div> 
-                    </div> 
+                            <div class="alert alert-warning">
+                                <strong>Advertencia!</strong>
+                                <p>Todos los campos son necesarios</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="compra.$valid" ng-click="createCompra()" value="Save" class="btn btn-success"/>
+                            <input ng-show="compra.$valid" ng-click="createCompra()" value="Save"
+                                   class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="compraentiendaList">Cancel</a>
                         </div>
                     </div>

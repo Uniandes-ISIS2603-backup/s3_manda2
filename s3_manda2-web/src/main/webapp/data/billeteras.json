@@ -1,2 +1,12 @@
-[{"id":1,"saldo":17800,"puntosFidelidad":9039},
-  {"id":2,"saldo":9000,"puntosFidelidad":400}]
+[
+  {
+    "id": 1,
+    "saldo": 17800,
+    "puntosFidelidad": 9039
+  },
+  {
+    "id": 2,
+    "saldo": 9000,
+    "puntosFidelidad": 400
+  }
+]

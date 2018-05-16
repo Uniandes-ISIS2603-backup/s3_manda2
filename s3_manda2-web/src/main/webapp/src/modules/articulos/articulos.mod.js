@@ -1,11 +1,10 @@
-/** Modulo de artículo, el cual modela funciones de tipo REST */
 (function (ng) {
     var mod = ng.module('articulosModule', ['ui.router']);
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         var basePath = 'src/modules/articulos/';
 
-        
+        $urlRouterProvider.otherwise('articulosList');
 
         $stateProvider.state('articulosList', {
             url: '/articulos',
