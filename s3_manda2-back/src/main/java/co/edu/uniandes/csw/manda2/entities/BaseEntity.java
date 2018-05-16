@@ -24,6 +24,7 @@ SOFTWARE.
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,18 +64,24 @@ public abstract class BaseEntity implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this.getId() != null && ((BaseEntity) obj).getId() != null) {
-            return this.getId().equals(((BaseEntity) obj).getId());
-        }
-        return super.equals(obj);
+    public int hashCode() {
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.id);
+        hash = 19 * hash + Objects.hashCode(this.name);
+        return hash;
     }
 
     @Override
-    public int hashCode() {
-        if (this.getId() != null) {
-            return this.getId().hashCode();
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return super.hashCode();
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return true;
     }
 }

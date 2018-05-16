@@ -22,12 +22,12 @@
             <p>&nbsp;</p>
             Punto Final: <input type="text" ng-model="nuevaReserva.puntoDeRealizacion"/>
 
-
             <p>&nbsp;</p>
             <p>Calificación<input type="text" ng-model="nuevaReserva.calificacion"/>
 
             <p>&nbsp;</p>
-            Descripci&oacute;n de tu reserva<textarea style="margin: 0px; height: 20px; width: 139px;" ng-model= "nuevaReserva.descripcion">
+            Descripci&oacute;n de tu reserva<textarea style="margin: 0px; height: 20px; width: 139px;"
+                                                      ng-model="nuevaReserva.descripcion">
         </textarea>
             <p>&nbsp;</p>
             <p>Estado<input type="text" ng-model="nuevaReserva.estado"/>
@@ -45,7 +45,10 @@
             <p>Desplazamiento<input type="checkbox" ng-model="nuevaReserva.desplazamiento"/>
 
 
-            <p> <button class="btn btn-primary" type="button"><a ui-sref='reservasCrear(nuevaReserva)'> Continuar </a></button> </p>
+            <p>
+                <button class="btn btn-primary" type="button"><a ui-sref='reservasCrear(nuevaReserva)'> Continuar </a>
+                </button>
+            </p>
             <div class="alert alert-warning">
                 <p>Todos los campos son obligatorios.</p>
             </div>

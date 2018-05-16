@@ -1,37 +1,80 @@
-.billetera {
-    border: 1px solid lightgray;
-    padding: 15px;
-    border-radius: 15px;
-}
-.pago {
-    border: 1px solid lightgray;
-    padding: 20px;
-    border-radius: 15px;
-}
 
-.cosita-arriba {
-    float: right;
-    background-color: #18beff;
-    color: white;
-}
 
-.pagoRaya {
-    margin: 20px;
-    padding: 10px;
-    border: 1px dashed lightgrey;
-    box-shadow: -1px 3px 9px -1px;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+/* bootstrap */
+@import url('boots.css');
+/* bootstrap responsive */
+@import url('bootsSensitive.css');
+
+ul, ol {
+    font-size: 1em; /* 16px */
+    line-height: 1.5; /* 24px */
+    margin: 0 0 1.5em 0;
+}
+a {
+    color: #454545;
+    text-decoration: none;
 }
 
-.botoncito {
-    border: 1px dashed  whitesmoke;
-    border-radius: 4px;
-    background-color: whitesmoke;
-    float: right;
+a:hover, a:active {
+    text-decoration: underline;
+}
+ul#menu-main > li > a {
+    font-weight: 600;
+    color: #fff;
+    font-size:14px;
+    text-transform:uppercase;
+}
+ul#menu-main > li > a:hover {
+    padding: 9px 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+ul#menu-main > li > a:focus {
+    outline:0;
+}
+/*<!-- NUEVA PAGINA -->*/
+
+.navbar-wrapper{
+    overflow:hidden;
+}
+.container {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.navbar-inner {
+    padding-right: 30px;
+    padding-left: 20px;
+}
+.navbar-inner h1.brand {
+    margin-left:20px;
+}
+.nav-collapse {
+    width:100%;
+    text-align:center;
+
 }
 
-.nuevoBotoncito{
-    border: 1px dashed  whitesmoke;
-    border-radius: 4px;
-    background-color: #5bc0de;
+#menu-main {
+    margin-top: 1.125em;
+}
+ul#menu-main > li > a {
+    font-weight: 600;
+    color: #fff;
+    font-size:14px;
+    text-transform:uppercase;
+}
+ul#menu-main > li > a:hover {
+    padding: 9px 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+ul#menu-main > li > a:focus {
+    outline:0;
+}
 
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+    text-shadow: none;
 }

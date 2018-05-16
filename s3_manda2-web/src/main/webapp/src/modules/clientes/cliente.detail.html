@@ -1,19 +1,21 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
-  <div class="row">
-      <div class="col-4">
-          <div class="btn-group-vertical">
-            <button type="button" class="btn btn-primary btn-lg" aria-pressed="true" ui-sref="clienteSubDetail">Datos Personales</button>
-            <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Historial de Servicios</button>
-            <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Billetera</button>
-            <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Pagos</button>
-           </div>
-      </div>
-      <div class="col-8" ui-view="clienteView">
-          
-      </div>
-      
-  </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-primary btn-lg" aria-pressed="true" ui-sref="clienteSubDetail">
+                    Datos Personales
+                </button>
+                <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Historial de Servicios</button>
+                <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Billetera</button>
+                <button type="button" class="btn btn-primary btn-lg" aria-pressed="true">Pagos</button>
+            </div>
+        </div>
+        <div class="col-8" ui-view="clienteView">
+
+        </div>
+
+    </div>
 </div>
 
 
