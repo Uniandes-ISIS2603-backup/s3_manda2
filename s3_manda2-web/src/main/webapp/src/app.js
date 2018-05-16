@@ -82,6 +82,30 @@
                     event.preventDefault();
                     $state.go('login', $state.params);
                 }
+                
+                $rootScope.isAdmin = function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                $rootScope.isCliente = function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                
+                $rootScope.isEmpleado= function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                
+                $rootScope.isUnregistred = function () {
+                  if (!$rootScope.isAuthenticated){
+                      return true; 
+                  }
+                };
+
 
             });
 

@@ -2,10 +2,10 @@
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-primary" ui-sref="clientesCreate">Crear un cliente</button>
+            <button ng-if="isAuthenticated() && isAdmin()"  type="button" class="btn btn-primary" ui-sref="clientesCreate">Crear un cliente</button>
         </div>
         <br> </br>
-        <table class="table table-striped">
+        <table ng-if="isAuthenticated() && isAdmin()" class="table table-striped">
             <thead>
             <tr>
                 <th>Id</th>
@@ -28,10 +28,10 @@
                 <td>{{cliente.pagoAnticipado}}</td>
                 <td>{{cliente.horasDeServicioSemanal}}</td>
                 <td id="{{$index}}-actions">
-                    <button type="button" class="btn btn-primary" ui-sref="clienteUpdate({clienteId: cliente.id})">
+                    <button ng-if="isAuthenticated() && isAdmin()" type="button" class="btn btn-primary" ui-sref="clienteUpdate({clienteId: cliente.id})">
                         Editar
                     </button>
-                    <button type="button" class="btn btn-primary" ui-sref="clienteDelete({clienteId: cliente.id})">
+                    <button ng-if="isAuthenticated() && isAdmin()" type="button" class="btn btn-primary" ui-sref="clienteDelete({clienteId: cliente.id})">
                         Eliminar
                     </button>
                 </td>
