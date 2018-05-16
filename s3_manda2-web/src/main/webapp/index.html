@@ -164,9 +164,9 @@
                 <nav class="pull-right nav-collapse">
                     <ul id="menu-main" class="nav">
                         <!--<li><a title="team" ui-sref="">Nuestro equipo</a></li>-->
-                        <li><a title="team" href="#nuestroEquipo">Nuestro equipo</a></li>
-                        <li><a title="services" href="#servicios">Servicios</a></li>
-                        <li><a title="qyr" href="#QYR">QYR</a></li>
+                        <li><a title="team" ng-click="gotoAnchor('empleadosList', 'nuestroEquipo')">Nuestro equipo</a></li>
+                        <li><a title="services" ng-click="gotoAnchor('', 'servicios')">Servicios</a></li>
+                        <li><a title="qyr" ng-click="gotoAnchor('reclamosList', 'qyr')">QYR</a></li>
                       
                         <li><a title="clientes" ng-click="gotoAnchor('clientesList', 'clientes')">Clientes</a></li>
 
@@ -299,8 +299,7 @@
     </div>
 </section>
 
-<section id="QYR" class="section white">
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+
 <section id="qyr" class="section white">
     <div class="bg-testicolor">
         <div class="container section-padding">
@@ -396,8 +395,6 @@
         </div>
     </div>
 </section>
-    </section>
-
 
 
 
