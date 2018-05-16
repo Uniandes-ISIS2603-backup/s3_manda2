@@ -1,5 +1,4 @@
 (function (ng) {
-<<<<<<< HEAD
         var mod = ng.module("loginModule");
         mod.controller('loginCtrl', ['$scope', '$http', '$state', '$rootScope',
             /**
@@ -62,8 +61,7 @@
                 };
             }
         ]);
-    }
-=======
+    
     var mod = ng.module("loginModule");
     mod.controller('loginCtrl', ['$scope', '$http', '$state', '$rootScope',
         /**
@@ -127,6 +125,5 @@
         }
     ]);
 }
->>>>>>> 0ecdf2588ffeac7fbcc2ffdf7d0aa0aa479b2a7a
 )(window.angular);
 
