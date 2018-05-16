@@ -27,6 +27,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      */
     private Double costoDeDuracion;
 
+
     @OneToMany(mappedBy = "organizacion",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
     @JoinColumn(nullable = true)
