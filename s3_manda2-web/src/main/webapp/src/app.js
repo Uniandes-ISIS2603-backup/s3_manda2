@@ -24,6 +24,15 @@
     app.config(['$qProvider', function ($qProvider) {
         $qProvider.errorOnUnhandledRejections(false);
     }]);
+
+ app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state,',
+        function ($scope, $location, $anchorScroll, $state) {
+            $scope.gotoAnchor = function (ancla) {
+                $location.hash(ancla);
+                $anchorScroll();}
+           }]);
+       
+       
     app.run(['$rootScope', '$transitions', function ($rootScope, $transitions) {
 
             $transitions.onSuccess({to: '*'}, function (trans) {
@@ -31,6 +40,7 @@
                 var $state = trans.router.stateService;
                 var requireLogin = $state.current.data.requireLogin
                 var roles = $state.current.data.roles
+               
                
 
                 /**
