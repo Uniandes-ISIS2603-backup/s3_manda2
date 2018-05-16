@@ -1,10 +1,10 @@
 <html ng-app="mainApp">
 <head>
-    <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
-    <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -14,7 +14,8 @@
     <link href="boot/css/style.css" rel="stylesheet">
     <link href="boot/color/default.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
+    <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
     <title>Manda2</title>
     <link rel="shortcut icon" href="data/images/Manda2Act.png">
     <!-- Dependencias Externas -->
@@ -210,9 +211,15 @@
                 </blockquote>
             </div>
             <div class="span6 aligncenter flyRight">
-
                 <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
             </div>
+            <div>
+                <button type="button" class="btn btn-dark"><a ui-sref="clientesList"> Prueba </a></button>
+            </div>
+            <div class="container" ui-view="mainView">
+       
+            </div>
+            
         </div>
     </div>
 </section>
