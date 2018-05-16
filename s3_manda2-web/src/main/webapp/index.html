@@ -161,9 +161,10 @@
                         <li><a title="team" href="#nuestroEquipo">Nuestro equipo</a></li>
                         <li><a title="services" href="#servicios">Servicios</a></li>
                         <li><a title="qyr" href="#QYR">QYR</a></li>
-                        <li><a title="clientes" class="nav-link" ui-sref="clientesList"
-                               ng-click="gotoAnchor('nuestrosClientes')">Nuestros
-                            Clientes</a></li>
+                        <li role="presentation"><a ui-sref="reclamosList">Quejas</a></li>
+                      
+                        <li><a title="clientes" href="#clientes" ng-click="gotoAnchor()">Clientes</a></li>
+
                         <li><a title="pagos" href="#pago" ng-click="gotoAnchor()">Pagos</a></li>
                         <li class="nav-item"><a class="nav-link" href="cuenta1.html">Cuenta</a></li>
                         <!--<li><a title="registro" href="#login">Registro</a> </li>!-->
@@ -302,34 +303,13 @@
                             </blockquote>
                             <small>Cliente Bello</small>
 
-                            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">
-                                {{alert.msg}}
-                            </alert>
-                            <div class="container-fluid">
-                                <hr>
-                                <div class="row">
-                                    <div class="row-sm-3"></div>
-                                    <div class="row-sm-6">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-outline-warning btn-lg"
-                                                    ui-sref="reclamoCreate">Crear Comentario
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="row-sm-3"></div>
-                                </div>
-                                <div class="container-fluid">
-                                    <h2>Comentarios:</h2>
-                                    <ul class="list-group">
-                                        <div ng-repeat="reclamo in reclamosRecords">
-                                            <li class="list-group-item"
-                                                ui-sref="reclamoDetail({reclamoId: reclamo.numero})">
-                                                <p> {{reclamo.mensaje}}</p>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </div>
+
+                            <div class="row" ui-sref="reclamosList">
                             </div>
+                            <div class="row">
+                            </div>
+
+
                         </li>
 
                     </ul>
@@ -339,7 +319,7 @@
     </div>
 </section>
 
-<section id="nuestrosClientes" class="section">
+<section id="clientes" class="section">
     <div class="container">
         <h4>Clientes</h4>
         <div ui-view="clienteView">
@@ -385,7 +365,7 @@
                                             <option value="">--- Please select rol ---</option>
                                             <!-- not selected / blank option -->
                                             <option value="admin">Administrator</option>
-                                            <!--<option value="assistant">Assistant</option>--!-->
+                                            <option value="assistant">Usuario</option>
                                         </select>
                                         <br>
                                         <button type="button" class="btn btn-lg btn-primary btn-block"
