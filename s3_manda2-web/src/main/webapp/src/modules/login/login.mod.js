@@ -23,7 +23,6 @@
 
             var basePath = 'src/modules/login/';
 
-            $urlRouterProvider.otherwise("/login");
 
 
             $stateProvider.state('login', {
