@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.manda2.dtos;
 
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,7 +33,7 @@ public class VueltasConDemoraEnOficinaDetailDTO extends ServicioDetailDTO {
         /**
      * Pago asociado al servicio.
      */
-    private PagoDTO pago;
+    private List<PagoDTO> pago;
         
     public VueltasConDemoraEnOficinaDetailDTO(){
        super ();
@@ -57,16 +60,19 @@ public class VueltasConDemoraEnOficinaDetailDTO extends ServicioDetailDTO {
                 this.empleado = new EmpleadoDTO(entityServicio.getEmpleado());
             }
             if (entityServicio.getPago() != null) {
-                this.pago = new PagoDTO(entityServicio.getPago());
+                this.pago = new ArrayList();
+                for (PagoEntity entityPago : entityServicio.getPago()) {
+                    pago.add(new PagoDTO(entityPago));
+                }
             }
         }
     }
    
-public PagoDTO getPago() {
+public List<PagoDTO> getPago() {
         return pago;
     }
 
-    public void setPago(PagoDTO pago) {
+    public void setPago(List<PagoDTO> pago) {
         this.pago = pago;
     }
 
@@ -126,8 +132,12 @@ public PagoDTO getPago() {
             entity.setCliente(this.cliente.toEntity());
         }
 
-       if(this.pago != null){
-            entity.setPago(this.pago.toEntity());
+       if (pago != null) {
+            List<PagoEntity> pagosEntity = new ArrayList();
+            for (PagoDTO dtoPago : pago) {
+                pagosEntity.add(dtoPago.toEntity());
+            }
+            entity.setPago(pagosEntity);
         }
         if(this.empleado != null)
         {

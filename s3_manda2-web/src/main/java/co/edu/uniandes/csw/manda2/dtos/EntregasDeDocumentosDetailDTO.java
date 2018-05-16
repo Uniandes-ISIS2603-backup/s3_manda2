@@ -6,6 +6,9 @@
 package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.EntregasDeDocumentosEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +28,7 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
     /**
      * Pago asociado al servicio.
      */
-    private PagoDTO pago;
+    private List <PagoDTO> pago;
 
     //Constructor
     /**
@@ -55,7 +58,10 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
                 this.empleado = new EmpleadoDTO(entity.getEmpleado());
             }
             if (entity.getPago() != null) {
-                this.pago = new PagoDTO(entity.getPago());
+                this.pago = new ArrayList();
+                for (PagoEntity entityPago : entity.getPago()) {
+                    pago.add(new PagoDTO(entityPago));
+                }
             }
         }
     }
@@ -74,7 +80,7 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
      *
      * @return Pago del servicio.
      */
-    public PagoDTO getPago() {
+    public List<PagoDTO> getPago() {
         return pago;
     }
 
@@ -83,7 +89,7 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
      *
      * @param pago Nuevo pago del servicio.
      */
-    public void setPago(PagoDTO pago) {
+    public void setPago(List<PagoDTO> pago) {
         this.pago = pago;
     }
     /**
@@ -137,8 +143,12 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
             entity.setCliente(this.cliente.toEntity());
         }
 
-       if(this.pago != null){
-            entity.setPago(this.pago.toEntity());
+       if (pago != null) {
+            List<PagoEntity> pagosEntity = new ArrayList();
+            for (PagoDTO dtoPago : pago) {
+                pagosEntity.add(dtoPago.toEntity());
+            }
+            entity.setPago(pagosEntity);
         }
         if(this.empleado != null)
         {

@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.manda2.dtos;
 
 import co.edu.uniandes.csw.manda2.entities.ArticuloEntity;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
+import co.edu.uniandes.csw.manda2.entities.PagoEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
 /**
      * Pago asociado al servicio.
      */
-    private PagoDTO pago;
+    private List<PagoDTO> pago;
    //CONSTRUCTOR
    
 
@@ -70,9 +71,11 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
             if (entity.getEmpleado() != null) {
                 this.empleado = new EmpleadoDTO(entity.getEmpleado());
             }
-            if(entity.getPago()!= null)
-            {
-                this.pago = new PagoDTO (entity.getPago());
+            if (entity.getPago() != null) {
+                this.pago = new ArrayList();
+                for (PagoEntity entityPago : entity.getPago()) {
+                    pago.add(new PagoDTO(entityPago));
+                }
             }
         }
     }
@@ -86,11 +89,11 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
         this.articulo = articulo;
     }
 
-    public PagoDTO getPago() {
+    public List<PagoDTO> getPago() {
         return pago;
     }
 
-    public void setPago(PagoDTO pago) {
+    public void setPago(List<PagoDTO> pago) {
         this.pago = pago;
     }
 
@@ -129,7 +132,11 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
             entity.setCliente(cliente.toEntity());
         }
         if (pago != null) {
-            entity.setPago(pago.toEntity());
+            List<PagoEntity> pagosEntity = new ArrayList();
+            for (PagoDTO dtoPago : pago) {
+                pagosEntity.add(dtoPago.toEntity());
+            }
+            entity.setPago(pagosEntity);
         }
         
         return entity;

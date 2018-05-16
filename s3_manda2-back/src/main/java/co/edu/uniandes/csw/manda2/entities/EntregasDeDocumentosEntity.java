@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -29,9 +30,10 @@ public class EntregasDeDocumentosEntity  extends ServicioEntity  implements Seri
     */
     private Double porcentajeExtra;
 
-    @OneToOne
+    @OneToMany(mappedBy = "entregaDeDocumentos",cascade = CascadeType.ALL, orphanRemoval = false)
     @PodamExclude
-    private PagoEntity pago;
+    @JoinColumn(nullable = true)
+    private List< PagoEntity> pago;
     
      /**
      *Retorna el valor asociado al transporte del servicio
@@ -45,7 +47,7 @@ public class EntregasDeDocumentosEntity  extends ServicioEntity  implements Seri
      * Retorna el pago asociado al servicio.
      * @return pago asociado al servicio.
      */
-    public PagoEntity getPago() {
+    public List<PagoEntity> getPago() {
         return pago;
     }
 
@@ -53,7 +55,7 @@ public class EntregasDeDocumentosEntity  extends ServicioEntity  implements Seri
      * Asigna el pago al dado por parámetro
      * @param pago nuevo pago
      */
-    public void setPago(PagoEntity pago) {
+    public void setPago(List<PagoEntity> pago) {
         this.pago = pago;
     }
     /**
