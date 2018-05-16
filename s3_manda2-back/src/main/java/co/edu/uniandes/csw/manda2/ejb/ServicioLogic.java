@@ -61,6 +61,7 @@ public class ServicioLogic {
 
     public ServicioEntity updateServicio(Long id, ServicioEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualización del servicio con id={0}", id);
+
         
         if (!validateServicio(entity)) {
             throw new BusinessLogicException("Uno o varios atributos del servicio no son válidos");

@@ -52,7 +52,7 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * Tarjeta de crédito asociada al pago.
      */
     @PodamExclude
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    @OneToOne
     @JoinColumn(nullable = true)
     private TarjetaCreditoEntity tarjetaDeCredito;
 
@@ -60,32 +60,28 @@ public class PagoEntity extends BaseEntity implements Serializable {
      * Servicio de compra en tienda asociado al pago.
      */
     @PodamExclude
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-    @JoinColumn(nullable = true)
+    @OneToOne(mappedBy = "pago")
     private ComprasEnTiendaEntity compraEnTienda;
 
     /**
      * Servicio de entrega de documentos asociado al pago.
      */
     @PodamExclude
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-    @JoinColumn(nullable = true)
+    @OneToOne(mappedBy = "pago")
     private EntregasDeDocumentosEntity entregaDeDocumentos;
 
     /**
      * Servicio de organización asociado al pago.
      */
     @PodamExclude
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-    @JoinColumn(nullable = true)
+    @OneToOne(mappedBy = "pago")
     private OrganizacionEntity organizacion;
 
     /**
      * Servicio de vuelta con demora en oficina asociado al pago.
      */
     @PodamExclude
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-    @JoinColumn(nullable = true)
+    @OneToOne(mappedBy = "pago")
     private VueltasConDemoraEnOficinaEntity vueltaConDemoraEnOficina;
 
     /**

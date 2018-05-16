@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.manda2.persistence.ServicioPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.EJBException;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

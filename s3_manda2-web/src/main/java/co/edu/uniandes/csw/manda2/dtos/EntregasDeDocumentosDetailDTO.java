@@ -22,6 +22,10 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
     *El porcentaaje que se cobra extra por el servicio 
      */
     private Double porcentajeExtra;
+    /**
+     * Pago asociado al servicio.
+     */
+    private PagoDTO pago;
 
     //Constructor
     /**
@@ -65,7 +69,23 @@ public class EntregasDeDocumentosDetailDTO extends ServicioDetailDTO {
     public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
+/**
+     * Retorna el pago del servicio.
+     *
+     * @return Pago del servicio.
+     */
+    public PagoDTO getPago() {
+        return pago;
+    }
 
+    /**
+     * Asigna el pago del servicio al dado por parámetro.
+     *
+     * @param pago Nuevo pago del servicio.
+     */
+    public void setPago(PagoDTO pago) {
+        this.pago = pago;
+    }
     /**
      * Asigna el valor del costo del transporte
      *

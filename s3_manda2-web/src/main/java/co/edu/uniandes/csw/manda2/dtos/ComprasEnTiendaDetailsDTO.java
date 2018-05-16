@@ -26,7 +26,10 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     *Articulo que se quiere comprar en tienda
     */
     private List<ArticuloDTO> articulo;
-
+/**
+     * Pago asociado al servicio.
+     */
+    private PagoDTO pago;
    //CONSTRUCTOR
    
 
@@ -66,6 +69,10 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
             }
             if (entity.getEmpleado() != null) {
                 this.empleado = new EmpleadoDTO(entity.getEmpleado());
+            }
+            if(entity.getPago()!= null)
+            {
+                this.pago = new PagoDTO (entity.getPago());
             }
         }
     }
