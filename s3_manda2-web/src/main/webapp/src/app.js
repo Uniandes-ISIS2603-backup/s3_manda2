@@ -25,11 +25,13 @@
         $qProvider.errorOnUnhandledRejections(false);
     }]);
 
- app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state,',
+ app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state',
         function ($scope, $location, $anchorScroll, $state) {
-            $scope.gotoAnchor = function (ancla) {
+            $scope.gotoAnchor = function (estado,ancla) {
                 $location.hash(ancla);
-                $anchorScroll();}
+                $anchorScroll();
+                $state.go(estado,{},{})
+            }
            }]);
        
        
