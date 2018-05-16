@@ -21,39 +21,6 @@
     // Configuración de los estados del módulo
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-<<<<<<< HEAD
-        var basePath = 'src/modules/login/';
-
-        $urlRouterProvider.otherwise("/login");
-
-
-        $stateProvider.state('login', {
-            url: '/login',
-            data: {
-                requireLogin: false
-            },
-            views: {
-                'mainView': {
-                    templateUrl: basePath + 'login.html',
-                    controller: 'loginCtrl'
-                }
-            }
-        }).state('logout', {
-            url: '/logout',
-            data: {
-                requireLogin: false,
-                roles: []
-            }
-            ,
-            views: {
-                'mainView': {
-                    templateUrl: basePath + 'logout.html',
-                    controller: 'logoutCtrl'
-                }
-            }
-        });
-    }
-=======
             var basePath = 'src/modules/login/';
 
             $urlRouterProvider.otherwise("/login");
@@ -85,7 +52,6 @@
                 }
             });
         }
->>>>>>> 0ecdf2588ffeac7fbcc2ffdf7d0aa0aa479b2a7a
     ]);
 })(window.angular);
 
