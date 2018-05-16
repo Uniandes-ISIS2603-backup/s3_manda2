@@ -1,4 +1,4 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
     <div class="row">
         <div ui-view="listView"></div>
@@ -6,5 +6,5 @@
     <div class="row">
         <div ui-view="detailView"></div>
     </div>
-
+    
 </div>

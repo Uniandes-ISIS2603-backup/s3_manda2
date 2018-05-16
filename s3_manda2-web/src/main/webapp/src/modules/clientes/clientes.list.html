@@ -1,41 +1,37 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
     <div class="container-fluid">
-        <div class="btn-group mr-2" role="group" aria-label="First group">
+        <div class="btn-group mr-2" role="group" aria-label="First group"> 
             <button type="button" class="btn btn-primary" ui-sref="clientesCreate">Crear un cliente</button>
         </div>
         <br> </br>
         <table class="table table-striped">
             <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Cedula</th>
-                <th>Fecha de ingreso</th>
-                <th>Calificacion</th>
-                <th>Pago Anticipado</th>
-                <th>Horas de servicio semanal</th>
-                <th>Acciones</th>
-            </tr>
+                <tr>
+                    <th>Id</th>    
+                    <th>Nombre</th>  
+                    <th>Cedula</th> 
+                    <th>Fecha de ingreso</th> 
+                    <th>Calificacion</th> 
+                    <th>Pago Anticipado</th> 
+                    <th>Horas de servicio semanal</th> 
+                    <th>Acciones</th>
+                </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="cliente in clientesRecords">
-                <td><a ui-sref="clienteDetail ({clienteId: cliente.id}) ">{{cliente.id}}</a></td>
-                <td>{{cliente.nombre}}</td>
-                <td>{{cliente.cedula}}</td>
-                <td>{{cliente.fechaIngreso| date:'yyyy-MM-dd'}}</td>
-                <td>{{cliente.calificacion}}</td>
-                <td>{{cliente.pagoAnticipado}}</td>
-                <td>{{cliente.horasDeServicioSemanal}}</td>
-                <td id="{{$index}}-actions">
-                    <button type="button" class="btn btn-primary" ui-sref="clienteUpdate({clienteId: cliente.id})">
-                        Editar
-                    </button>
-                    <button type="button" class="btn btn-primary" ui-sref="clienteDelete({clienteId: cliente.id})">
-                        Eliminar
-                    </button>
-                </td>
-            </tr>
+                <tr ng-repeat="cliente in clientesRecords">
+                    <td > <a ui-sref="clienteDetail ({clienteId: cliente.id}) ">{{cliente.id}}</a></td>
+                    <td >{{cliente.nombre}}</td>  
+                    <td >{{cliente.cedula}}</td>
+                    <td >{{cliente.fechaIngreso| date:'yyyy-MM-dd'}}</td>
+                    <td >{{cliente.calificacion}}</td>
+                    <td >{{cliente.pagoAnticipado}}</td>
+                    <td >{{cliente.horasDeServicioSemanal}}</td>
+                    <td id="{{$index}}-actions">
+                        <button type="button" class="btn btn-primary"  ui-sref="clienteUpdate({clienteId: cliente.id})">Editar</button>
+                        <button type="button" class="btn btn-primary"  ui-sref="clienteDelete({clienteId: cliente.id})">Eliminar</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

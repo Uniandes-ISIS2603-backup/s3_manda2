@@ -1,32 +1,31 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
     <div>
         <div class="btn-group">
-            <button type="button" class="btn btn-outline-warning btn-lg" ui-sref="empleadoCreate">Crear Empleado
-            </button>
+            <button type="button" class="btn btn-outline-warning btn-lg" ui-sref="empleadoCreate">Crear Empleado</button>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class ="container-fluid">
         <h2>Nuestro Equipo:</h2>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="empleado in empleadosRecords">
+            <li class="list-group-item"  ng-repeat="empleado in empleadosRecords">
                 <div class="row">
-                    <div class="col-sm-3" ui-sref="empleadoDetail({empleadoId:empleado.Id})">
-                        <h5>{{empleado.nombre}}</h5>
+                   <div class="col-sm-3" ui-sref="empleadoDetail ({empleadoId: empleado.id})">
+                            <h5>{{empleado.nombre}}</h5>
 
+                        </div>
+
+                    <div class="col-sm-3">
+                        <p > Id: {{empleado.id}}</p>
+                        <p > Cedula: {{empleado.cedula}}</p>
+                        <p >Calificacion: {{empleado.calificacion}}</p>
+                        <p >Fecha de Ingreso: {{empleado.fechaDeIngreso}}</p>
+                        <p >Identificacion: {{empleado.identificacion}}</p>
+                        <p > EPS: {{empleado.eps}}</p>  
                     </div>
                     <div class="col-sm-3">
-                        <p> Id: {{empleado.id}}</p>
-                        <p> Cedula: {{empleado.cedula}}</p>
-                        <p>Calificacion: {{empleado.calificacion}}</p>
-                        <p>Fecha de Ingreso: {{empleado.fechaDeIngreso}}</p>
-                        <p>Identificacion: {{empleado.identificacion}}</p>
-                        <p> EPS: {{empleado.eps}}</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="button" class="btn btn-danger"
-                                ui-sref="borrarEmpleado({empleadoId: empleado.id})">Borrar Empleado
-                        </button>
+                        <button type="button" class="btn btn-danger" ui-sref="borrarEmpleado({empleadoId: empleado.id})">Borrar Empleado</button>
+                        <button type="button" class="btn btn-warning" ui-sref="updateEmpleado({empleadoId: empleado.id})">Modificar Empleado</button>
                     </div>
                 </div>
             </li>

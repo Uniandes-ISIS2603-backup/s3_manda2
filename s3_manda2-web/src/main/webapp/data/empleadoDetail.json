@@ -1,11 +1,9 @@
-[
-  {
-    "id": 1,
-    "nombre": "Nicolas Caceres",
-    "cedula": 1020839875,
-    "fechaDeIngreso": "15/07/06",
-    "calificacion": 5,
-    "identificacion": "123654654",
-    "eps": "Sanitas"
-  }
-]
+[{
+       "id": 1,
+       "nombre": "Nicolas Caceres",
+       "cedula": 1020839875,
+       "fechaDeIngreso": "15/07/06",
+       "calificacion": 5,
+       "identificacion": "123654654",
+       "eps": "Sanitas"
+}]

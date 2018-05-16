@@ -1,20 +1,19 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
 <div class="container-fluid">
-    <div class="row">
-        <div>
-            <img src="data/images/trabajador.jpg" class="rounded-circle" alt="Imagen del usuario" width="200"
-                 height="192">
-        </div>
-        <div>
-            <ul>
-                <br>
-                <li>Nombre: {{empleadoseleccionado.nombre}}</li>
-                <li>Cedula: {{empleadoseleccionado.cedula}}</li>
-                <li>Fecha de Ingreso: {{empleadoseleccionado.fechaDeIngreso}}</li>
-                <li>Calificacion: {{empleadoseleccionado.calificacion}}</li>
-                <li>Identificacion: {{empleadoseleccionado.identificacion}}</li>
-                <li>EPS: {{empleadoseleccionado.eps}}</li>
-            </ul>
-        </div>
-    </div>
+  <div class="row">
+              <div>  
+                  <img src="data/images/trabajador.jpg"  class="rounded-circle" alt="Imagen del usuario" width="200" height="192"> 
+              </div>
+              <div>  
+                  <ul>
+                      <br>
+                    <li >Nombre: {{empleadoseleccionado.nombre}}</li>  
+                    <li >Cedula: {{empleadoseleccionado.cedula}}</li>
+                    <li >Fecha de Ingreso: {{empleadoseleccionado.fechaDeIngreso}}</li>
+                    <li >Calificacion: {{empleadoseleccionado.calificacion}}</li>
+                    <li >Identificacion: {{empleadoseleccionado.identificacion}}</li>
+                    <li >EPS: {{empleadoseleccionado.eps}}</li>
+                  </ul>
+              </div>
+          </div>
 </div>

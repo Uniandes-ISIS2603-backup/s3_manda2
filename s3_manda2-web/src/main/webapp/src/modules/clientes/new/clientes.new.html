@@ -22,8 +22,7 @@
                         <input id="clienteCedula" required ng-model="clienteCedula" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
-                        <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato
-                            2012-04-23T18:25:43.511Z)</label>
+                        <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato 2012-04-23T18:25:43.511Z)</label>
                         <input id="clienteFechaIngreso" required ng-model="clienteFechaIngreso" class="col-sm-6"/>
                     </div>
                     <div class="form-group row">
@@ -36,23 +35,20 @@
                     </div>
                     <div class="form-group row">
                         <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal:</label>
-                        <input id="clienteHorasDeServicioSemanal" required ng-model="clienteHorasDeServicioSemanal"
-                               class="col-sm-6"/>
+                        <input id="clienteHorasDeServicioSemanal" required ng-model="clienteHorasDeServicioSemanal" class="col-sm-6"/>
                     </div>
 
                     <div class="form-group row">
                         <div class="form-group col-sm-6" ng-if="!cliente.$valid">
 
-                            <div class="alert alert-warning">
-                                <strong>Advertencia!</strong>
-                                <p>Todos los campos son necesarios</p>
-                            </div>
-                        </div>
-                    </div>
+                            <div class="alert alert-warning" >
+                                <strong>Advertencia!</strong><p>Todos los campos son necesarios</p>
+                            </div> 
+                        </div> 
+                    </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="cliente.$valid" ng-click="createCliente()" value="Save"
-                                   class="btn btn-success"/>
+                            <input ng-show="cliente.$valid" ng-click="createCliente()" value="Save" class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="clientesList">Cancel</a>
                         </div>
                     </div>
