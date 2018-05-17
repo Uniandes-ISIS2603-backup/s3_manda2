@@ -1,26 +1,15 @@
 <div class="container-fluid">
-    <!--    <div class='row'>
-            <div class='col-md-2'>
-                <div class="btn-toolbar" role="toolbar">
-                    <div class="btn-group mr-2" role="group">
-                        <button type="button" class="btn btn-primary" onclick=<a ui-sref="vueltacondemoraAgregar"> Nueva
-                            vuelta
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <a href=".#!/inicio/inicio"><button type="button" class="btn btn-primary">Volver</button></a>
+    </div>
     <h4>Vueltas con demora</h4>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Cliente</th>
-                <th>Empleado</th>
                 <th>Punto de encuentro</th>
                 <th>Punto de realizacion</th>
-                <th>Éxito</th>
                 <th>Calificación</th>
                 <th>Descripcion</th>
                 <th>Costo</th>
@@ -34,16 +23,12 @@
             <tr ng-repeat="vuelta in vueltasRecords">
                 <td> {{vuelta.id}}</td>
                 <td>{{vuelta.nombre}}</td>
-                <td>{{vuelta.cliente}}</td>
-                <td>{{vuelta.empleado}}</td>
                 <td>{{vuelta.puntoDeEncuentro}}</td>
                 <td>{{vuelta.puntoDeRealizacion}}</td>
-                <td>{{vuelta.exitoDiligencia}}</td>
-                <td>{{vuelta.calification}}</td>
+                <td>{{vuelta.calificacion}}</td>
                 <td>{{vuelta.descripcion}}</td>
                 <td>{{vuelta.costo}}</td>
                 <td>{{vuelta.costoDuracion}}</td>
-                <!--<td>{{vuelta.pago}}</td>-->
                 <td>
                     <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
                 </td>

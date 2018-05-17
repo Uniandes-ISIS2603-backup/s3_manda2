@@ -60,7 +60,7 @@ public class VueltasConDemoraEnOficinaResource {
      * @return JSONArray {@link VueltasConDemoraEnOficinaDTO} - Las vueltasConDemoraEnOFicina encontrados en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<VueltasConDemoraEnOficinaDetailDTO> getVueltasConDemoraEnOficina(){
+    public List<VueltasConDemoraEnOficinaDTO> getVueltasConDemoraEnOficina(){
         return listVueltas2DTO(vueltasConDemoraEnOficinaLogic.getVueltas());
     }
     
@@ -169,10 +169,10 @@ public class VueltasConDemoraEnOficinaResource {
         vueltasConDemoraEnOficinaLogic.deleteVuelta(id);
     }
     
-    private List<VueltasConDemoraEnOficinaDetailDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
-        List<VueltasConDemoraEnOficinaDetailDTO> lista = new ArrayList();
+    private List<VueltasConDemoraEnOficinaDTO> listVueltas2DTO( List<VueltasConDemoraEnOficinaEntity> entityList){
+        List<VueltasConDemoraEnOficinaDTO> lista = new ArrayList();
         for( VueltasConDemoraEnOficinaEntity entity : entityList ){
-            lista.add(new VueltasConDemoraEnOficinaDetailDTO(entity));
+            lista.add(new VueltasConDemoraEnOficinaDTO(entity));
         }
         return lista;
     }
