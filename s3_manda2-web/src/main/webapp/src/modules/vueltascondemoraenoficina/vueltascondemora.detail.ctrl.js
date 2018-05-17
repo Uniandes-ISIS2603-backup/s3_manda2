@@ -5,7 +5,7 @@
         function ($scope, $http, vueltaContext, $stateParams) {
 
             $http.get(vueltaContext + '/' + $stateParams.vuelta_id, {}).then(function (response) {
-                $scope.vueltaIdRecords = response.data;
+                $scope.vueltaActual = response.data;
             });
         }
     ]);

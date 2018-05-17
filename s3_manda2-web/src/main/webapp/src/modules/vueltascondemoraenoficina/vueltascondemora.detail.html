@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <img src="data/images/businessman.jpg" class="rounded-circle" alt="Imagen de entrega de documento"
+                 width="200" height="192">
+        </div>
+        <div>
+            <ul>
+                <br>
+                <li>Id: {{vueltaActual.id}}</li>
+                <li>Nombre: {{vueltaActual.nombre}}</li>
+                <li>Calificacion: {{vueltaActual.calificacion}}</li>
+                <li>Costo: {{vueltaActual.costo}}</li>
+                <li>Descripcion: {{vueltaActual.descripcion}}</li>
+                <li>Estado: {{vueltaActual.estado}}</li>
+                <li>Punto de encuentro: {{vueltaActual.puntoDeEncuentro}}</li>
+                <li>Punto de realizacion: {{vueltaActual.puntoDeRealizacion}}</li>
+                <li>Costo de transporte: {{vueltaActual.costoDeTransporte}}</li>
+                <li>Costo de duracion:  {{vueltaActual.costoDuracion}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
