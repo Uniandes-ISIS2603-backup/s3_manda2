@@ -60,7 +60,7 @@
 
             });
             $stateProvider.state('clienteSubDetail2', {
-                url: '/pagos',
+                url: '/billetera',
                 parent: 'clienteDetail',
                 views: {
                     'clienteView': {
@@ -78,6 +78,19 @@
                 views: {
                     'clienteView': {
                         templateUrl: basePath + 'cliente.SubDetail3.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+
+                }
+
+            });
+            $stateProvider.state('clienteSubDetail4', {
+                url: '/historialPagos',
+                parent: 'clienteDetail',
+                views: {
+                    'clienteView': {
+                        templateUrl: basePath + 'cliente.SubDetail4.html',
                         controller: 'clienteDetailCtrl',
                         controllerAs: 'ctrl'
                     }
