@@ -1,14 +1,15 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
     <div class="row">
-        <div>
-            <img src="data/images/user_13230.png" class="rounded-circle" alt="Imagen del usuario" width="200"
+        <div class="col-sm-4">
+            <img src="data/images/user_13230.png" class="rounded-circle" alt="Imagen del usuario" width="180"
                  height="192">
         </div>
-        <div>
+        <div class="col-sm-8">
             <ul>
                 <br>
                 <li>Nombre: {{clienteActual.nombre}}</li>
+                <li>Login: {{clienteActual.login}}</li>
                 <li>Cedula: {{clienteActual.cedula}}</li>
                 <li>Fecha de Ingreso: {{clienteActual.fechaDeIngreso| date:'yyyy-MM-dd'}}</li>
                 <li>Calificacion: {{clienteActual.calificacion}}</li>

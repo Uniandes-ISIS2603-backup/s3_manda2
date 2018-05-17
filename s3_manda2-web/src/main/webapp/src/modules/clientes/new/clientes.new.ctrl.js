@@ -12,6 +12,7 @@
                     $http.post(clientesContext, {
                         id: $scope.clienteId,
                         nombre: $scope.clienteNombre,
+                        login: $scope.clienteLogin,
                         fechaIngreso: $scope.clienteFechaIngreso,
                         cedula: $scope.clienteCedula,
                         calificacion: $scope.clienteCalificacion,
