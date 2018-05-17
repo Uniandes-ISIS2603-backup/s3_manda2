@@ -1,13 +1,27 @@
 <div class="pagoRaya">
-    <span class="cosita-arriba">{{ pagoIdRecords.estadoTransaccion}}</span>
-    <h1> Nombre del servicio</h1>
+    <h1>Detalles del Pago</h1>
+    <p>Id: {{pagoIdRecords.id}}</p>
+    <p>Fecha: {{pagoIdRecords.fecha}}</p>
+    <p>estado {{pagoIdRecords.estadoTransaccion}}</p>
     <hr>
-    <span>{{pagoIdRecords.fecha|date}}</span>
-    <br>
-    <span> Metodo de pago</span>
-
-    <br>
-    <span> Costo:</span>
-    <br>
-    <span> Resumen del servicio:</span>
+    <h1>Cliente:</h1>
+    <ul>
+        <li>Nombre: {{pagoIdRecords.cliente.nombre}}</li>
+        <li>Login: {{pagoIdRecords.cliente.login}}</li>
+        <li>Cedula: {{pagoIdRecords.cliente.cedula}}</li>
+        <li>Calificacion: {{pagoIdRecords.cliente.calificacion}}</li>
+        <li>Fecha de Ingreso: {{pagoIdRecords.cliente.fechaIngreso}}</li>
+        <li>Pago Anticipado: {{pagoIdRecords.cliente.pagoanticipado}}</li>
+    </ul>
+    <h1>Servicio:</h1>
+    <ul>
+        <li>Descripcion: {{pagoIdRecords.entregaDeDocumentos.descripcion}}</li>
+        <li>Nombre: {{pagoIdRecords.entregaDeDocumentos.nombre}}</li>
+        <li>Estado: {{pagoIdRecords.entregaDeDocumentos.estado}}</li>
+        <li>Calificacion: {{pagoIdRecords.entregaDeDocumentos.calificacion}}</li>
+        <li>Costo: {{pagoIdRecords.entregaDeDocumentos.costo}}</li>
+    </ul>
+    <div>
+        <button type="button" class="btn btn-dark" ui-sref="pagoList">Volver</button>
+    </div>
 </div>
