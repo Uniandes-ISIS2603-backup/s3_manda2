@@ -1,69 +1,46 @@
-<div class='container-fluid'>
-    <div class=" 'row">
-        <form>
-            <!--
-            Nombre:<input type='text'> <br>
-            Descripcion: <textarea type = "text"> </textarea> <br>
-            Punto Inicio : <input type='text'> <br>
-            Punto Final: <input type='text'> <br>
-            <div>Mapa</div>
-            <button type="button" class="btn btn-primary" ui-sref="reservasDetail({id_reserva:})"> Continuar</button>
-        !-->
-
-            <p><strong>&iquest;Quieres hacer una reserva?</strong></p>
-            <p>Registra los siguientes datos:</p>
-            <p>&nbsp;</p>
-
-
-            <p>Nombre de tu reserva<input type="text" ng-model="nuevaReserva.nombre"/>
-
-            <p>&nbsp;</p>
-            Punto de Inicio : <input type="text" ng-model="nuevaReserva.puntoDeEncuentro"/>
-            <p>&nbsp;</p>
-            Punto Final: <input type="text" ng-model="nuevaReserva.puntoDeRealizacion"/>
-
-            <p>&nbsp;</p>
-            <p>Calificación<input type="text" ng-model="nuevaReserva.calificacion"/>
-
-            <p>&nbsp;</p>
-            Descripci&oacute;n de tu reserva<textarea style="margin: 0px; height: 20px; width: 139px;"
-                                                      ng-model="nuevaReserva.descripcion">
-        </textarea>
-            <p>&nbsp;</p>
-            <p>Estado<input type="text" ng-model="nuevaReserva.estado"/>
-
-            <p>&nbsp;</p>
-
-            <p>Costo Duración<input type="text" ng-model="nuevaReserva.costoDuracion"/>
-            <p>&nbsp;</p>
-            <p>Costo Transporte<input type="text" ng-model="nuevaReserva.costoTransporte"/>
-
-            <p>&nbsp;</p>
-            <p>Costo Total<input type="text" ng-model="nuevaReserva.costo"/>
-            <p>&nbsp;</p>
-
-            <p>Desplazamiento<input type="checkbox" ng-model="nuevaReserva.desplazamiento"/>
-
-
-            <p>
-                <button class="btn btn-primary" type="button"><a ui-sref='reservasCrear(nuevaReserva)'> Continuar </a>
-                </button>
-            </p>
-            <div class="alert alert-warning">
-                <p>Todos los campos son obligatorios.</p>
-            </div>
-
-
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;<strong>&iquest;Quieres buscar tu reserva?</strong></p>
-            <p>Id de tu reserva<input type="text"/>
-                <button class="btn btn-primary" type="button"> Continuar</button>
-            </p>
-        </form>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href=".#!/inicio"><button type="button" class="btn btn-primary">Volver</button></a>
+        </div>
+        <br> </br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Calificacion</th>
+                    <th>Costo</th>
+                    <th>Descripcion</th>
+                    <th>Estado</th>
+                    <th>Punto de encuentro</th>
+                    <th>Punto de realizacion</th>
+                    <th>Costo de transporte</th>
+                    <th>Desplazamiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="reserva in reservasRecords">
+                    <td><a ui-sref="entregaDetail ({reservaId: reserva.id})">{{reserva.id}}</a></td>
+                    <td>{{reserva.nombre}}</td>
+                    <td>{{reserva.calificacion}}</td>
+                    <td>{{reserva.costo}}</td>
+                    <td>{{reserva.descripcion}}</td>
+                    <td>{{reserva.estado}}</td>
+                    <td>{{reserva.puntoDeEncuentro}}</td>
+                    <td>{{reserva.puntoDeRealizacion}}</td>
+                    <td>{{reserva.costoDeTransporte}}</td>
+                    <td>{{reserva.desplazamiento}}</td>
+            <button type="button" class="btn btn-primary" ui-sref="deleteReserva({reservaId: reserva.id})">
+                Eliminar
+            </button>
+            </tr>
+            </tbody>
+        </table>
     </div>
-
-
 </div>
+
+
+
