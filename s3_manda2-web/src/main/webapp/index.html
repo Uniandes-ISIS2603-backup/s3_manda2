@@ -304,18 +304,32 @@
                         <li>
                             <blockquote>
 
-                                <img class="nuestroEquipo-thumb img-circle" src="boot/img/team/img-1.jpg" alt=""/>
-                                <p>Excelente servicio </p>
-                            </blockquote>
-                            <small>Cliente Bello</small>
+        <section id="qyr2" class="section white">
+            <div class="bg-testicolor">
+                <div class="container section-padding">
+                    <div class="row">
+                        <div class="qyr-item">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                            <div class="row" ui-view="listReclamoView">
+        <section id="qyr" class="section orange">
+            <div class="bg-testicolor">
+                <div class="container section-padding">
+                    <div class="row">
+                        <div class="qyr-item">
+                            <h4>Quejas y reclamos</h4>
+                            <div ui-view="listReclamoView">
+                            </div>
+                            <div class="row" ui-sref="reclamosList">
                             </div>
                             <div class="row">
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -327,12 +341,13 @@
         <h4>Clientes</h4>
         <div ui-view="clienteView">
 
-        </div>
-        <div class="row" ui-sref="clientesList">
-        </div>
-        <div class="row">
-        </div>
-</section>
+                </div>
+                <div class="row" ui-sref="clientesList">
+                </div>
+                <div class="row">
+                </div>
+                </div>
+        </section>
 
 <section id="pago" class="section">
     <div class="container">

@@ -2422,3 +2422,27 @@ i.icon-white {
     background-color: #007aff;
 
 }
+.color-boton{
+    background-color: #2a85a0;
+    font-weight: 700;
+    color: white;
+}
+
+.reclamo-container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+
+}
+
+#qyr{
+    background-color: red !important;
+    padding: 0;
+}
+
+.rec {
+    padding: 30px !important;
+}
+
+.item-reclamo {
+
+}
