@@ -12,6 +12,7 @@
                     var cliente = response.data;
                     $scope.clienteId = cliente.id;
                     $scope.clienteNombre = cliente.nombre;
+                    $scope.clienteLogin = cliente.login;
                     $scope.clienteFechaIngreso = new Date(cliente.fechaIngreso);
                     $scope.clienteCedula = cliente.cedula;
                     $scope.clienteCalificacion = cliente.calificacion;
@@ -19,9 +20,12 @@
                     $scope.clienteHorasDeServicioSemanal = cliente.horasDeServicioSemanal;
                 });
                 $scope.createCliente = function () {
+                    console.log($scope.clienteNombre);
+                    console.log($scope.clienteCedula);
                     $http.put(clientesContext + "/" + idCliente, {
                         id: $state.params.clienteId,
                         nombre: $scope.clienteNombre,
+                        login: $scope.clienteLogin,
                         fechaIngreso: $scope.clienteFechaIngreso,
                         cedula: $scope.clienteCedula,
                         calificacion: $scope.clienteCalificacion,

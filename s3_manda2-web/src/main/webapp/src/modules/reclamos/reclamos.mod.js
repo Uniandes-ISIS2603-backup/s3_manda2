@@ -10,7 +10,7 @@
 
             url: '/reclamos',
             views: {
-                'mainView': {
+                'listReclamoView': {
                     templateUrl: basePath + 'reclamos.list.html',
                     controller: 'reclamoCtrl',
                     controllerAs: 'ctrl'
@@ -28,7 +28,7 @@
                     controller: 'reclamoCtrl',
                     controllerAs: 'ctrl'
                 },
-                'mainView': {
+                'listReclamoView': {
                     templateUrl: basePath + 'reclamo.detail.html',
                     controller: 'reclamoDetailCtrl',
                     controllerAs: 'ctrl'
@@ -39,7 +39,7 @@
         $stateProvider.state('reclamoDetail2', {
             url: '/datosReclamo',
             views: {
-                'mainView': {
+                'listReclamoView': {
                     templateUrl: basePath + 'reclamo.detail.html',
                     controller: 'reclamoDetailCtrl',
                     controllerAs: 'ctrl'
@@ -50,7 +50,7 @@
         $stateProvider.state('reclamoCreate', {
             url: '/create',
             views: {
-                'mainView': {
+                'listReclamoView': {
                     templateUrl: basePath + 'create/reclamo.create.html',
                     controller: 'reclamoCreateCtrl',
                     controllerAs: 'ctrl'
