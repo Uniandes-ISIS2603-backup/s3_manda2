@@ -5,7 +5,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
             var basePath = 'src/modules/cuenta/';
-            $urlRouterProvider.otherwise('datosPersonalesCuenta');
+           
             $stateProvider.state('cuentaDetalle', {
                 url: '/cuenta',
                 abstract: true,
