@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.manda2.resources;
 
 import co.edu.uniandes.csw.manda2.dtos.ComprasEnTiendaDTO;
+import co.edu.uniandes.csw.manda2.dtos.ComprasEnTiendaDetailsDTO;
 import co.edu.uniandes.csw.manda2.ejb.ComprasEnTiendaLogic;
 import co.edu.uniandes.csw.manda2.entities.ComprasEnTiendaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
@@ -60,7 +61,7 @@ public class ComprasEnTiendaResource {
      * en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
      @GET
-    public List<ComprasEnTiendaDTO> getComprasEnTienda(){
+    public List<ComprasEnTiendaDetailsDTO> getComprasEnTienda(){
         return listComprasEntity2DTO(comprasEnTiendaLogic.getCompras());
     }
     
@@ -88,7 +89,7 @@ public class ComprasEnTiendaResource {
        if( entity == null ){
           throw new WebApplicationException("El recurso /compras en tienda/" + id + " no existe", 404);
        }
-       return new ComprasEnTiendaDTO(entity);
+       return new ComprasEnTiendaDetailsDTO(entity);
     }
      
     /**
@@ -112,8 +113,8 @@ public class ComprasEnTiendaResource {
      * @throws BusinessLogicException {@link BusinessLogicException} - Error de lógica que se genera cuando ya existe la compra
      */
     @POST
-    public ComprasEnTiendaDTO createComprasEnTienda( ComprasEnTiendaDTO comprasEnTienda) throws BusinessLogicException{
-        return new ComprasEnTiendaDTO (comprasEnTiendaLogic.createCompra(comprasEnTienda.toEntity()));
+    public ComprasEnTiendaDTO createComprasEnTienda( ComprasEnTiendaDetailsDTO comprasEnTienda) throws BusinessLogicException{
+        return new ComprasEnTiendaDetailsDTO (comprasEnTiendaLogic.createCompra(comprasEnTienda.toEntity()));
     }
     /**
      * <h1>PUT /api/comprasEnTienda/{id} : ActualizarComprasEnTienda con el id dado.</h1>
@@ -135,13 +136,13 @@ public class ComprasEnTiendaResource {
      */
     @PUT
     @Path("{id : \\d+}")
-    public ComprasEnTiendaDTO  updateComprasEnTienda( @PathParam("id") long id, ComprasEnTiendaDTO  comprasEnTienda ) throws BusinessLogicException{
+    public ComprasEnTiendaDTO  updateComprasEnTienda( @PathParam("id") long id, ComprasEnTiendaDetailsDTO  comprasEnTienda ) throws BusinessLogicException{
          comprasEnTienda.setId(id);
        ComprasEnTiendaEntity entity = comprasEnTiendaLogic.getCompra(id);
        if( entity == null ){
            throw new WebApplicationException("El recurso /compras /" + id + " no existe", 404);
        }
-       return new ComprasEnTiendaDTO(comprasEnTiendaLogic.updateCompra(id, comprasEnTienda.toEntity()));
+       return new ComprasEnTiendaDetailsDTO(comprasEnTiendaLogic.updateCompra(id, comprasEnTienda.toEntity()));
     }
     
     /**
@@ -169,10 +170,10 @@ public class ComprasEnTiendaResource {
     }
     
     
-    private List<ComprasEnTiendaDTO> listComprasEntity2DTO( List<ComprasEnTiendaEntity> entityList){
-        List<ComprasEnTiendaDTO> lista = new ArrayList();
+    private List<ComprasEnTiendaDetailsDTO> listComprasEntity2DTO( List<ComprasEnTiendaEntity> entityList){
+        List<ComprasEnTiendaDetailsDTO> lista = new ArrayList();
         for( ComprasEnTiendaEntity entity : entityList ){
-            lista.add(new ComprasEnTiendaDTO(entity));
+            lista.add(new ComprasEnTiendaDetailsDTO(entity));
         }
         return lista;
     }

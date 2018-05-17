@@ -51,7 +51,7 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
     /*
     *El costo del transporte del servicio
      */
-    private Double costoDeTransporte;
+    protected Double costoDeTransporte;
 
     private List<ArticuloDTO> articulo;
     //TODO: DONE  Revisar por qué articulo extiende de 
@@ -74,11 +74,6 @@ public class ComprasEnTiendaDTO extends ServicioDetailDTO implements Serializabl
             this.puntoDeEncuentro = entityServicio.getPuntoDeEncuentro();
             this.puntoDeRealizacion = entityServicio.getPuntoDeRealizacion();
             this.costoDeTransporte = entityServicio.getCostoDeTransporte();
-
-            for (ArticuloEntity articuloEntity : entityServicio.getArticulo()) {
-                articulo.add(new ArticuloDTO(articuloEntity));
-
-            }
 
         }
     
@@ -120,17 +115,7 @@ public Double getCostoDeTransporte() {
      */
     @Override
         public ComprasEnTiendaEntity toEntity() {
-        ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
-        ArrayList aentity = new ArrayList();
-        
-        //TODO:DONE Esto no puede ser un cast a List<ArticuloEntity>
-        // articulo es de tipo ArticuloEntity quien debe tener su propio toEntity
-        
-//       for (ArticuloDTO articulo : articulo){
-//           aentity.add(articulo.toEntity());
-//       }
-//        entity.setArticulo(aentity);
-        
+        ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();       
         entity.setId(this.id);
         entity.setCostoDeTransporte(this.getCostoDeTransporte());
         entity.setCalificacion(calificacion);
@@ -141,14 +126,7 @@ public Double getCostoDeTransporte() {
         entity.setNombre(nombre);
         entity.setPuntoDeEncuentro(puntoDeEncuentro);
         entity.setPuntoDeRealizacion(puntoDeRealizacion);
-        
-        
 
-//      for (ArticuloDTO articulo : articulo){
-//          aentity.add(articulo.toEntity());
-//       }
-//       entity.setArticulo(aentity);
-//
         return entity;
     }
 }
