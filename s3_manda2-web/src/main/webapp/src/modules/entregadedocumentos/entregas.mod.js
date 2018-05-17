@@ -8,7 +8,6 @@
 
             $stateProvider.state('entregas', {
                 url: '/entregas',
-                abstract: true,
                 views: {
                     'serviciosIndexView': {
                         templateUrl: basePath + 'entregas.html',
@@ -22,7 +21,7 @@
                 url: '/list',
                 parent: 'entregas',
                 views: {
-                    'serviciosIndexView': {
+                    'listView': {
                         templateUrl: basePath + 'entregas.list.html',
                         controller:'entregaCtrl',
                         controllerAs:'ctrl'
@@ -37,7 +36,6 @@
                     entregaId: null
                 },
                 views: {
-                    'serviciosIndexView': {
                         'listView': {
                             templateUrl: basePath + 'entregas.list.html',
                             controller: 'entregaCtrl',
@@ -48,7 +46,6 @@
                             controller: 'entregaDetailCtrl',
                             controllerAs: 'ctrl'
                         }
-                    }
                 }
 
             });
@@ -56,7 +53,7 @@
                 url: '/create',
                 parent: 'entregas',
                 views: {
-                    'serviciosIndexView': {
+                    'detailView': {
                         templateUrl: basePath + '/new/entregas.new.html',
                         controller: 'entregaNewCtrl'
                     }
@@ -71,7 +68,7 @@
                     entregaId: null
                 },
                 views: {
-                    'serviciosIndexView': {
+                    'detailView': {
                         templateUrl: basePath + '/new/entregas.new.html',
                         controller: 'entregasUpdateCtrl'
                     }
@@ -86,7 +83,7 @@
                     entregaId: null
                 },
                 views: {
-                    'serviciosIndexView': {
+                    'detailView': {
                         templateUrl: basePath + '/delete/entregas.delete.html',
                         controller: 'entregaDeleteCtrl'
                     }
