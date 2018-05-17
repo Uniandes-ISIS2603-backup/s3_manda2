@@ -11,7 +11,19 @@
                 views: {
                     'cuentaView': {
                         templateUrl: basePath + 'cuenta1.html',
-                        controller: 'cuentaCtrl',
+                        controller: ['$scope', '$http', 'cuentaContext', '$state', 
+                            function ($scope, $http, cuentaContext, $state) {
+                                alert(123);
+                                $scope.usuarioActual = undefined;
+
+                                $http.get('api/clientes/1000').then(function (response) {
+                                    console.log(1);
+                                    $scope.usuarioActual = response.data;
+                                    console.log(response.data);
+                                });
+
+                            }
+                        ],
                         controllerAs: 'ctrl'
                     }
                 }
