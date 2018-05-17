@@ -7,7 +7,7 @@
             .state('reservasList', {
                 url: '/reservas',
                 views: {
-                    'mainView': {
+                    'serviciosIndexView': {
                         templateUrl: basePath + 'reservas.list.html',
                         controller: 'reservasListCtrl',
                         controllerAs: 'ctrl'
@@ -32,7 +32,7 @@
 
                 },
                 views: {
-                    "mainView": {
+                    "serviciosIndexView": {
                         templateUrl: basePath + 'reservas.detail.html',
                         controller: 'reservasCreateCtrl'
                     }
@@ -45,7 +45,7 @@
 
                 },
                 views: {
-                    'mainView': {
+                    'serviciosIndexView': {
                         templateUrl: basePath + 'reservas.detail.html',
                         controller: 'reservasDetailCtrl'
                     }
