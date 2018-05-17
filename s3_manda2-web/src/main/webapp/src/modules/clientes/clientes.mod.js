@@ -59,6 +59,32 @@
                 }
 
             });
+            $stateProvider.state('clienteSubDetail2', {
+                url: '/pagos',
+                parent: 'clienteDetail',
+                views: {
+                    'clienteView': {
+                        templateUrl: basePath + 'cliente.SubDetail2.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+
+                }
+
+            });
+            $stateProvider.state('clienteSubDetail3', {
+                url: '/pagos',
+                parent: 'clienteDetail',
+                views: {
+                    'clienteView': {
+                        templateUrl: basePath + 'cliente.SubDetail3.html',
+                        controller: 'clienteDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+
+                }
+
+            });
             $stateProvider.state('clientesCreate', {
                 url: '/create',
                 parent: 'clientes',
