@@ -1,68 +1,72 @@
-<div class="container-fluid">
-    <div>
-        <h1>Ingrese la informacion del nuevo Empleado</h1>
-    </div>
-    <hr>
-    <div class="card">
-        <form ng-submit="createEmpleado()" name="empleado">
-            <div class="form-group row">
+<section id="contact" class="section green">
+    <div class="container">
+        <h4>Crear un empleado</h4>
+        <div class="blankdivider30">
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="cform" id="contact-form">
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="row">
+                            <div class="span6">
+                                <form ng-submit="createEmpleado()" name="empleado">
 
-                <label for="empleadoId" class="col-sm-2">Id:</label>
-                <input id="empleadoId" required ng-model="empleadoId" class="col-sm-6"/>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoId" class="col-sm-6">Id:</label>
+                                        <input type="text" id="empleadoId" required ng-model="empleadoId" class="form-control" id="empleadoId" placeholder="Your Id" data-rule="minlen:1" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                     <div class="field your-name form-group">
+                                        <label for="empleadoNombre" class="col-sm-6">Nombre:</label>
+                                        <input type="text" id="empleadoNombre" required ng-model="empleadoNombre" class="form-control" id="empleadoNombre" placeholder="Tu nombre" data-rule="minlen:1" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                     <div class="field your-name form-group">
+                                        <label for="empleadoLogin" class="col-sm-6">Login:</label>
+                                        <input type="text" id="empleadoLogin" required ng-model="empleadoLogin" class="form-control" id="empleadoLogin" placeholder="Tu login" data-rule="minlen:1" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoCedula" class="col-sm-6">Cedula</label>
+                                        <input type="text" id="empleadoCedula" required ng-model="empleadoCedula" class="form-control" id="empleadoCedula" placeholder="Cedula" data-rule="minlen:1" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoFechaIngreso" class="col-sm-6">Fecha de ingreso</label>
+                                        <input type="date" id="empleadoFechaIngreso" required ng-model="empleadoFechaIngreso" class="form-control" id="empleadoFechaIngreso" placeholder="1999-06-27" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoCalificacion" class="col-sm-6">Calificacion</label>
+                                        <input type="text" id="empleadoCalificacion" required ng-model="empleadoCalificacion" class="form-control" id="empleadoCalificacion" placeholder="Calificacion" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoIdentificacion" class="col-sm-6">Identificacion</label>
+                                        <input type="text" id="empleadoIdentificacion" required ng-model="empleadoIdentificacion" class="form-control" id="empleadoIdentificacion" placeholder="Identificacion" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="empleadoEPS" class="col-sm-6">EPS</label>
+                                        <input type="text" id="empleadoEPS" required ng-model="empleadoEPS" class="form-control" id="empleadoEPS" placeholder="Nombre de la EPS" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="span6">
 
-            </div>
-            <div class="form-group row">
+                                <input ng-click="createEmpleado()" value="Save" class="btn btn-success"/>
 
-                <label for="empleadoNombre" class="col-sm-2">Nombre:</label>
-                <input id="empleadoNombre" required ng-model="empleadoNombre" class="col-sm-6"/>
+                                <a class="btn btn-info" ui-sref="empleadosList">Cancel</a>
+                            </div>
 
-            </div>
-            <div class="form-group row">
-
-                <label for="empleadoFechaIngreso" class="col-sm-2">FechaIngreso:</label>
-                <input id="empleadoFechaIngreso" required ng-model="empleadoFechaIngreso" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-
-                <label for="empleadoCedula" class="col-sm-2">Cedula:</label>
-                <input id="empleadoCedula" required ng-model="empleadoCedula" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-
-                <label for="empleadoCalificacion" class="col-sm-2">Calificacion:</label>
-                <input id="empleadoCalificacion" required ng-model="empleadoCalificacion" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-
-                <label for="empleadoIdentificacion" class="col-sm-2">Identificacion:</label>
-                <input id="empleadoIdentificacion" required ng-model="empleadoIdentificacion" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-
-                <label for="empleadoEPS" class="col-sm-2">EPS:</label>
-                <input id="empleadoEPS" required ng-model="empleadoEPS" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-                <div class="form-group col-sm-6" ng-if="!empleado.$valid">
-
-                    <div class="alert alert-warning">
-                        <strong>Advertencia!</strong>
-                        <p>Todos los campos son necesarios</p>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="form-group col-sm-12">
-                    <input ng-show="empleado.$valid" ng-click="createEmpleado()" value="Save" class="btn btn-success"/>
-                    <a class="btn btn-info" ui-sref="empleadosList">Cancel</a>
-                </div>
-            </div>
-        </form>
-
+            <!-- ./span12 -->
+        </div>
     </div>
-</div>
+</section>
