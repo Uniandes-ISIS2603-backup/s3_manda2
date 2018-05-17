@@ -8,6 +8,8 @@
  * Created: 16/05/2018
  */
 delete from USUARIOENTITY_PAGOENTITY;
+delete from SERVICIOENTITY_ARTICULOENTITY;
+delete from ARTICULOENTITY;
 update SERVICIOENTITY set PAGO_ID = null WHERE ID = 1000;
 delete from PAGOENTITY;
 delete from MEDIOPAGOENTITY;
@@ -18,8 +20,6 @@ delete from BILLETERAENTITY;
 
 
 
-delete from ARTICULOENTITY;
-delete from SERVICIOENTITY_ARTICULOENTITY;
 delete from ELEMENTOBUSQUEDARESERVAENTITY;
 delete from RECLAMOENTITY;
 /** cliente1*/
