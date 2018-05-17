@@ -10,7 +10,7 @@
 
             url: '/empleados/list',
             views: {
-                'mainView': {
+                'empleadoView': {
                     templateUrl: basePath + 'empleados.list2.html',
                     controller: 'empleadoCtrl',
                     controllerAs: 'ctrl'
@@ -22,13 +22,14 @@
             param: {
                 empleadoId: null
             },
+            parent:'empleadosList',
             views: {
-                'detailView': {
+                'listView': {
                     templateUrl: basePath + 'empleados.list2.html',
                     controller: 'empleadoCtrl',
                     controllerAs: 'ctrl'
                 },
-                'mainView': {
+                'detailView': {
                     templateUrl: basePath + 'empleado.detail.html',
                     controller: 'empleadoDetailCtrl',
                     controllerAs: 'ctrl'
@@ -51,7 +52,7 @@
             url: '/empleado/list/detail/datosPersonales',
             parent: 'empleadoDetail',
             views: {
-                'empleadoView': {
+                'empleadoView2': {
                     templateUrl: basePath + 'empleado.Subdetail.html',
                     controller: 'empleadoDetailCtrl',
                     controllerAs: 'ctrl'
@@ -63,7 +64,7 @@
         $stateProvider.state('empleadoCreate', {
             url: '/create',
             views: {
-                'mainView': {
+                'empleadoView': {
                     templateUrl: basePath + 'create/empleados.create.html',
                     controller: 'empleadoNewCtrl',
                     controllerAs: 'ctrl'
@@ -77,7 +78,7 @@
                 empleadoId: null
             },
             views: {
-                'mainView': {
+                'empleadoView': {
                     templateUrl: basePath + 'delete/empleado.delete.html',
                     controller: 'empleadoDeleteCtrl',
                     controllerAs: 'ctrl'
