@@ -460,7 +460,7 @@ header .logo {
 
     line-height: 34px;
 
-    padding: 0 15px;
+    padding: 10px;
 
     min-height: 34px;
 
@@ -736,7 +736,7 @@ header .logo {
 
 .panel.panel-primary .panel-footer {
 
-    background: #5dc3e7;
+    background: #007aff;
 
     color: #092f3d;
 
@@ -2412,5 +2412,13 @@ i.icon-white {
 
 }
 
+#createPago {
+    font-weight: 700;
+    color: white;
+}
 
+.hola{
 
+    background-color: #007aff;
+
+}
