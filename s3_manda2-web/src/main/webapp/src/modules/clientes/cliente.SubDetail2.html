@@ -1,0 +1,19 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="data/images/user_13230.png" class="rounded-circle" alt="Imagen del usuario" width="180"
+                 height="192">
+        </div>
+        <div class="col-sm-8">
+            <ul>
+                
+                <h3>{{clienteActual.nombre}}</h3>
+                <hr>
+                <h3>Billetera {{clienteActual.billetera.id}}</h3>
+                <li>Saldo: {{clienteActual.billetera.saldo}}</li>
+                <li>Puntos de Fidelidad: {{clienteActual.billetera.puntosDeFidelidad}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
