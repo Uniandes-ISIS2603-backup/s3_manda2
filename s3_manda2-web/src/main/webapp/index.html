@@ -259,7 +259,8 @@
                 <h4>Servicios</h4>
                 <!-- Four columns -->
                 <div class="row" ui-view="serviciosIndexView"> 
-                    <button class="span3 animated-fast flyIn boton-sin-fondo" ui-sref="vueltacondemoraList"> 
+                    <div class="col-sm-3">
+                        <button class="span3 animated-fast flyIn boton-sin-fondo" ui-sref="vueltacondemoraList"> 
                         <div class="service-box"> 
                             <img src="data/images/office.png" alt="" style="width:20em; height:20em"/> 
                             <h2>Vueltas con demora en oficina</h2> 
@@ -269,7 +270,9 @@
                             </p> 
                         </div> 
                     </button> 
-                    <button class="span3 animated flyIn boton-sin-fondo" ui-sref="compraentiendaList"> 
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="span3 animated flyIn boton-sin-fondo" ui-sref="compraentiendaList"> 
                         <div class="service-box"> 
                             <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/> 
                             <h2>Compras en tienda</h2> 
@@ -278,7 +281,9 @@
                             </p> 
                         </div> 
                     </button> 
-                    <button class="span3 animated-fast flyIn boton-sin-fondo"  ui-sref="entregasList"> 
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="span3 animated-fast flyIn boton-sin-fondo"  ui-sref="entregasList"> 
                         <div class="service-box"> 
                             <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/> 
                             <h2>Entrega de documentos</h2> 
@@ -287,7 +292,9 @@
                             </p> 
                         </div> 
                     </button> 
-                    <button  class="span3 animated-slow flyIn boton-sin-fondo"  ui-sref="reservasList"> 
+                    </div>
+                    <div class="col-sm-3">
+                         <button  class="span3 animated-slow flyIn boton-sin-fondo"  ui-sref="reservasList"> 
                         <div class="service-box"> 
                             <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/> 
                             <h2>Reservas y organizacion</h2> 
@@ -296,6 +303,8 @@
                             </p> 
                         </div> 
                     </button> 
+                    </div>
+                   
                 </div>
             </div>
         </section>
