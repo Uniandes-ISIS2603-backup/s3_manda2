@@ -1,4 +1,5 @@
 <html ng-app="mainApp">
+
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -191,14 +192,11 @@
                                             <li class="nameUser">Hola,{{currentUser}}</li>
                                         </ul>
                                     </div>
+                                </li>
                             </ul>
                         </nav>
-
                     </div>
-
-
                 </div>
-
             </div>
         </div>
 
@@ -210,6 +208,7 @@
                 </div>
             </header>
         </div>
+
 
         <section id ="cuenta" class="spacer orange">
             <div class="container" >
@@ -225,7 +224,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -250,15 +248,15 @@
                     </div>
                 </div>
                 <div ui-view="empleadoView">
-                </div>    
+                </div>
         </section>
 
         <section id="servicios" class="section green">
             <div class="container">
+                <h4>Servicios</h4>
                 <!-- Four columns -->
-                <div class="row" ui-view="serviciosIndexView">
-                    <h4>Servicios</h4>
-                    <button class="span3 animated-fast flyIn boton-sin-fondo" ui-sref="vueltacondemoraList">
+                <div class="row">
+                    <button class="span3 animated-fast flyIn boton-sin-fondo" ng-click="irVueltas()">
                         <div class="service-box">
                             <img src="data/images/office.png" alt="" style="width:20em; height:20em"/>
                             <h2>Vueltas con demora en oficina</h2>
@@ -268,7 +266,7 @@
                             </p>
                         </div>
                     </button>
-                    <button class="span3 animated flyIn boton-sin-fondo" ui-sref="compraentiendaList">
+                    <button class="span3 animated flyIn boton-sin-fondo" ng-disabled="isadmin()">
                         <div class="service-box">
                             <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/>
                             <h2>Compras en tienda</h2>
@@ -277,7 +275,7 @@
                             </p>
                         </div>
                     </button>
-                    <button class="span3 animated-fast flyIn boton-sin-fondo"  ui-sref="entregasList">
+                    <button class="span3 animated-fast flyIn boton-sin-fondo" ng-disabled="isadmin()">
                         <div class="service-box">
                             <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/>
                             <h2>Entrega de documentos</h2>
@@ -286,7 +284,7 @@
                             </p>
                         </div>
                     </button>
-                    <button  class="span3 animated-slow flyIn boton-sin-fondo"  ui-sref="reservasList">
+                    <button class="span3 animated-slow flyIn boton-sin-fondo" ng-disabled="isadmin()">
                         <div class="service-box">
                             <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/>
                             <h2>Reservas y organizacion</h2>
@@ -297,21 +295,10 @@
                     </button>
                 </div>
             </div>
-
         </section>
 
 
-        <section id="qyr2" class="section white">
-            <div class="bg-testicolor">
-                <div class="container section-padding">
-                    <div class="row">
-                        <div class="qyr-item">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="qyr" class="section orange">
             <div class="bg-testicolor">
@@ -330,6 +317,20 @@
                 </div>
             </div>
         </section>
+        <section id="clientes" class="section">
+            <div class="container">
+                <h4>Clientes</h4>
+                <div ui-view="clienteView">
+
+                </div>
+                <div class="row" ui-sref="clientesList">
+                </div>
+                <div class="row">
+                </div>
+                >>>>>>> 9a3b1097e37efe54ea5b9e25708f1b6e8c633b47
+            </div>
+
+        </section>
 
         <section id="pago" class="section">
             <div class="container">
@@ -337,48 +338,15 @@
                 <div ui-view="pagoView">
                 </div>
                 <div class="row" ui-sref="pagoList">
-
                 </div>
-            </div>
         </section>
 
         <section id="login" class="wow fadeInUp delay-05s">
             <div class="bg-testicolor">
                 <div class="container section-padding">
                     <div class="row">
-                        <div class="login-item">
-                            <ul class="bxslider">
-                                <li>
-                                    <blockquote>
+                        <div class="login-item" ui-view="loginView">
 
-                                        <div ng-if="!isAuthenticated()" class="container">
-                                            <form class="form-signin">
-                                                <alert ng-repeat="alert in alerts" type="{{alert.type}}"
-                                                       close="closeAlert()"></alert>
-                                                <h1 class="form-signin-heading text-muted">Sign In</h1>
-                                                <input type="text" class="form-control" placeholder="Username" required=""
-                                                       autofocus="" ng-model="data.username">
-                                                <input type="password" class="form-control" placeholder="Password" required=""
-                                                       ng-model="data.password">
-                                                <select class="form-control" name="singleSelect" id="singleSelect"
-                                                        ng-model="data.rol" required="true">
-                                                    <option value="">--- Please select rol ---</option>
-                                                    <!-- not selected / blank option -->
-                                                    <option value="admin">Administrator</option>
-                                                    <option value="assistant">Usuario</option>
-                                                </select>
-                                                <br>
-                                                <button type="button" class="btn btn-lg btn-primary btn-block"
-                                                        ng-click="autenticar()">
-                                                    Sign In
-                                                </button>
-                                                <a class="btn btn-lg btn-primary btn-block" ui-sref="index.html">Cancel</a>
-                                            </form>
-                                        </div>
-                                    </blockquote>
-                                </li>
-
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -387,4 +355,3 @@
 
     </body>
 </html>
-

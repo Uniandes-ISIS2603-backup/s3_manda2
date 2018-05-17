@@ -7,7 +7,7 @@
         $stateProvider.state('vueltacondemoraList', {
             url: '/vueltascondemoraenoficina',
             views: {
-                'serviciosIndexView': {
+                'despliegueServicios': {
                     templateUrl: basePath + 'vueltascondemora.lista.html',
                     controller: 'vueltaCtrl',
                     controllerAs: 'ctrl'
@@ -17,7 +17,7 @@
             .state('vueltacondemoraAgregar', {
                 url: '/create',
                 views: {
-                    'serviciosIndexView': {
+                    'despliegueServicios': {
                         templateUrl: basePath + 'create/vueltacondemora.create.html',
                         controller: 'vueltaCreateCtrl'
                     }
@@ -29,10 +29,9 @@
                     idVuelta: null
                 },
                 views: {
-                    'serviciosIndexView': {
+                    'despliegueServicios': {
                         templateUrl: basePath + 'delete/vueltacondemora.delete.html',
                         controller: 'vueltaDeleteCtrl',
-                        controllerAs:'ctrl'
                     }
                 }
             })
