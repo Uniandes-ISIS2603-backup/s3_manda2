@@ -2463,3 +2463,10 @@ i.icon-white {
     width: 150px;
     display: inline-block;
 }
+
+.bonito {
+    color: #1bac91;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: #e5e5e5;
+}

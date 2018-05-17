@@ -4,70 +4,70 @@
     mod.constant("cuentaContext", "api/cuenta");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-            var basePath = 'src/modules/cuenta/';
-           
-            $stateProvider.state('cuentaDetalle', {
-                url: '/cuenta',
-                abstract: true,
-                views: {
-                    'cuentaView': {
-                        templateUrl: basePath + 'cuenta1.html',
-                        controller: ['$scope', '$http', 'cuentaContext', '$state', 
-                            function ($scope, $http, cuentaContext, $state) {
-                                alert(123);
-                                $scope.usuarioActual = undefined;
+        var basePath = 'src/modules/cuenta/';
 
-                                $http.get('api/clientes/1000').then(function (response) {
-                                    console.log(1);
-                                    $scope.usuarioActual = response.data;
-                                    console.log(response.data);
-                                });
+        $stateProvider.state('cuentaDetalle', {
+            url: '/cuenta',
+            abstract: true,
+            views: {
+                'cuentaView': {
+                    templateUrl: basePath + 'cuenta1.html',
+                    controller: ['$scope', '$http', 'cuentaContext', '$state',
+                        function ($scope, $http, cuentaContext, $state) {
 
-                            }
-                        ],
-                        controllerAs: 'ctrl'
-                    }
+                            $scope.usuarioActual = undefined;
+
+                            $http.get('api/clientes/1000').then(function (response) {
+                                console.log(1);
+                                $scope.usuarioActual = response.data;
+                                console.log(response.data);
+                            });
+
+                        }
+                    ],
+                    controllerAs: 'ctrl'
                 }
-            });
-            $stateProvider.state('datosPersonalesCuenta', {
+            }
+        });
+        $stateProvider.state('datosPersonalesCuenta', {
 
-                url: '/datospersonales',
-                parent: 'cuentaDetalle',
-                views: {
-                    'vistacambia': {
-                        templateUrl: basePath + 'datospersonales.html',
-                    }
+            url: '/datospersonales',
+            parent: 'cuentaDetalle',
+            views: {
+                'vistacambia': {
+                    templateUrl: basePath + 'datospersonales.html',
                 }
-            });
-            $stateProvider.state('pagosCuenta', {
+            }
+        });
+        $stateProvider.state('pagosCuenta', {
 
-                url: '/pagos',
-                parent: 'cuentaDetalle',
-                views: {
-                    'vistacambia': {
-                        templateUrl: basePath + 'pagos.html',
-                    }
+            url: '/pagos',
+            parent: 'cuentaDetalle',
+            views: {
+                'vistacambia': {
+                    templateUrl: basePath + 'pagos.html',
                 }
-            });
-            $stateProvider.state('billeterasCuenta', {
+            }
+        });
+        $stateProvider.state('billeterasCuenta', {
 
-                url: '/billeterasCuenta',
-                parent: 'cuentaDetalle',
-                views: {
-                    'vistacambia': {
-                        templateUrl: basePath + 'billeteraCuenta.html',
-                    }
+            url: '/billeterasCuenta',
+            parent: 'cuentaDetalle',
+            views: {
+                'vistacambia': {
+                    templateUrl: basePath + 'billeteraCuenta.html',
                 }
-            });
-            $stateProvider.state('historialServiciosCuenta', {
+            }
+        });
+        $stateProvider.state('historialServicioCuenta', {
 
-                url: '/historialServicios',
-                parent: 'cuentaDetalle',
-                views: {
-                    'vistacambia': {
-                        templateUrl: basePath + 'historialServicioCuenta.html',
-                    }
+            url: '/historialServicios',
+            parent: 'cuentaDetalle',
+            views: {
+                'vistacambia': {
+                    templateUrl: basePath + 'historialServicioCuenta.html'
                 }
-            });
-        }]);
+            }
+        });
+    }]);
 })(window.angular);
