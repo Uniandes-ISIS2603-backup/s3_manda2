@@ -1,36 +1,39 @@
 (function (ng) {
-        var mod = ng.module("clienteModule");
-        mod.constant("clientesContext", "api/clientes");
-        mod.controller('clienteUpdateCtrl', ['$scope', '$http', 'clientesContext', '$state', '$rootScope',
+        var mod = ng.module("empleadoModule");
+        mod.constant("empleadosContext", "api/empleados");
+        mod.controller('empleadoUpdateCtrl', ['$scope', '$http', 'empleadosContext', '$state', '$rootScope',
 
-            function ($scope, $http, clientesContext, $state, $rootScope) {
+            function ($scope, $http, empleadosContext, $state, $rootScope) {
                 $rootScope.edit = true;
 
-                var idCliente = $state.params.clienteId;
+                var idEmpleado= $state.params.empleadoId;
 
-                //Consulto el autor a editar.
-                $http.get(clientesContext + '/' + idCliente).then(function (response) {
-                    var cliente = response.data;
-                    $scope.clienteId = cliente.id;
-                    $scope.clienteNombre = cliente.nombre;
-                    $scope.clienteFechaIngreso = new Date(cliente.fechaIngreso);
-                    $scope.clienteCedula = cliente.cedula;
-                    $scope.clienteCalificacion = cliente.calificacion;
-                    $scope.clientePagoAnticipado = cliente.pagoAnticipado;
-                    $scope.clienteHorasDeServicioSemanal = cliente.horasDeServicioSemanal;
+                $http.get(empleadosContext + '/' + idEmpleado).then(function (response) {
+                    var empleado = response.data;
+                    $scope.empleadoId = empleado.id;
+                    $scope.empleadoNombre = empleado.nombre;
+                    $scope.empleadoLogin = empleado.login;
+                    $scope.empleadoFechaIngreso = new Date(empleado.fechaDeIngreso);
+                    $scope.empleadoCedula = empleado.cedula;
+                    $scope.empleadoCalificacion = empleado.calificacion;
+                    $scope.empleadoIdentificacion = empleado.identificacion;
+                    $scope.empleadoEPS = empleado.eps;
                 });
-                $scope.createCliente = function () {
-                    $http.put(clientesContext + "/" + idCliente, {
-                        id: $state.params.clienteId,
-                        nombre: $scope.clienteNombre,
-                        fechaIngreso: $scope.clienteFechaIngreso,
-                        cedula: $scope.clienteCedula,
-                        calificacion: $scope.clienteCalificacion,
-                        pagoAnticipado: $scope.clientePagoAnticipado,
-                        horasDeServicioSemanal: $scope.clienteHorasDeServicioSemanal
+                console.log("hola");
+                $scope.createEmpleado = function () {
+                    console.log($scope.empleadoNombre);
+                    $http.put(empleadosContext + "/" + idEmpleado, {
+                        id: $state.params.empleadoId,
+                        nombre: $scope.empleadoNombre,
+                        login: $scope.empleadoLogin,
+                        fechaIngreso: $scope.empleadoFechaIngreso,
+                        cedula: $scope.empleadoCedula,
+                        calificacion: $scope.empleadoCalificacion,
+                        identificacion: $scope.empleadoIdentificacion,
+                        EPS: $scope.empleadoEPS
                     }).then(function (response) {
-                        //Author created successfully
-                        $state.go('clientesList', {clienteId: response.data.id}, {reload: true});
+                        //Empleado created successfully
+                        $state.go('empleadosList', {empleadoId: response.data.id}, {reload: true});
                     });
                 };
             }
