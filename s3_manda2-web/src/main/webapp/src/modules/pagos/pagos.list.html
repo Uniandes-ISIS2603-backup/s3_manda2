@@ -19,8 +19,7 @@
                     <tr>
 
                         <th>Fecha</th>
-                        <th>Costo</th>
-                        <th>Nombre del servicio</th>
+                        <th>Id</th>
                         <th>Estado de transaccion</th>
                         <th>Resumen</th>
 
@@ -30,9 +29,8 @@
 
                     <tr ng-repeat = "pagos in pagosRecords" class="pagoRaya">
 
-                        <td >{{'pagos.fecha|date'}}</td>
-                        <td >{{ 'aqui va el costo del servicio relacionado'}}</td>
-                        <td >{{ 'aqui va el nombre del servicio'}}</td>
+                        <td >{{pagos.fecha}}</td>
+                        <td >{{pagos.id}}</td>
                         <td >{{pagos.estadoTransaccion}}</td>
                         <td> <button ui-sref="pagosDetail({pago_id: pagos.id})" type="button" class="btn btn-primary">Ver resumen</button></td>
 
