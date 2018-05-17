@@ -56,11 +56,6 @@ public class OrganizacionDTO extends ServicioDetailDTO {
     public OrganizacionDTO() {
         //Constructor vacio
     }
-
-    public OrganizacionDTO(ServicioEntity entity) {
-        super(entity);
-    }
-    
     
     public OrganizacionDTO(OrganizacionEntity entityServicio) {
         super();
@@ -73,8 +68,8 @@ public class OrganizacionDTO extends ServicioDetailDTO {
             this.descripcion = entityServicio.getDescripcion();
             this.estado = entityServicio.getEstado();
             this.id = entityServicio.getId();
-            this.costoDeDuracion = entityServicio.getCostoDuracion();
-            this.costoDeTransporte = entityServicio.getCostoTransporte();
+            this.costoDeDuracion = entityServicio.getCostoDeDuracion();
+            this.costoDeTransporte = entityServicio.getCostoDeTransporte();
             this.desplazamiento=entityServicio.getDesplazamiento();
             if(entityServicio.getCliente()!=null){
                 this.cliente = new ClienteDTO(entityServicio.getCliente());
@@ -107,7 +102,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      *
      * @return costoDeTransporte el costo del transporte.
      */
-    public Double getCostoTransporte() {
+    public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
 
@@ -116,7 +111,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      *
      * @return costoDeDuracion retorna el costo de la duracion.
      */
-    public Double getCostoDuracion() {
+    public Double getCostoDeDuracion() {
         return costoDeDuracion;
     }
 
@@ -125,7 +120,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      *
      * @param costoDeTransporte el costo del transporte
      */
-    public void setCostoTransporte(Double costoDeTransporte) {
+    public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
 
@@ -134,7 +129,7 @@ public class OrganizacionDTO extends ServicioDetailDTO {
      *
      * @param costoDeDuracion el costo por la duracion.
      */
-    public void setCostoDuracion(Double costoDeDuracion) {
+    public void setCostoDeDuracion(Double costoDeDuracion) {
         this.costoDeDuracion = costoDeDuracion;
     }
 
@@ -171,8 +166,8 @@ public class OrganizacionDTO extends ServicioDetailDTO {
         entity.setCalificacion(this.calificacion);
         entity.setDescripcion(this.descripcion);
         entity.setEstado(this.estado);
-        entity.setCostoDuracion(this.costoDeDuracion);
-        entity.setCostoTransporte(this.costoDeTransporte);
+        entity.setCostoDeDuracion(this.costoDeDuracion);
+        entity.setCostoDeTransporte(this.costoDeTransporte);
         entity.setCosto(this.costo);
         entity.setDesplazamiento(this.desplazamiento);
         return entity;

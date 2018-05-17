@@ -68,10 +68,6 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
      * Listado de todos los pagos que ha hecho el empleado
      */
     private List<PagoDTO> pago;
-    /**
-     * Listado de todos los servicios del empleado
-     */
-    private List<ServicioDetailDTO> servicios;
 
     private List<ElementoBusquedaReservaDTO> elementosBusquedaReserva;
 
@@ -100,11 +96,6 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             this.costoDeDuracion = entity.getCostoDeDuracion();
             this.costoDeTransporte = entity.getCostoDeTransporte();
             this.desplazamiento = entity.getDesplazamiento();
-            if (entity.getElementosBusquedaReserva() != null) {
-                for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
-                    elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
-                }
-            }
         }
         if (entity.getEmpleado() != null) {
             this.empleado = new EmpleadoDTO(entity.getEmpleado());
@@ -119,16 +110,33 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
             for (ElementoBusquedaReservaEntity elementoEntity : entity.getElementosBusquedaReserva()) {
                 elementosBusquedaReserva.add(new ElementoBusquedaReservaDTO(elementoEntity));
             }
+            setElementosBusquedaReserva(elementosBusquedaReserva);
         }
 
     }
 
-    private List<ElementoBusquedaReservaEntity> elementosListToEntity() {
-        ArrayList<ElementoBusquedaReservaEntity> lista = new ArrayList<>();
-        for (ElementoBusquedaReservaDTO elemento : elementosBusquedaReserva) {
-            lista.add(elemento.toEntity());
-        }
-        return lista;
+    public Boolean getDesplazamiento() {
+        return desplazamiento;
+    }
+
+    public void setDesplazamiento(Boolean desplazamiento) {
+        this.desplazamiento = desplazamiento;
+    }
+
+    public ClienteDTO getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteDTO cliente) {
+        this.cliente = cliente;
+    }
+
+    public EmpleadoDTO getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoDTO empleado) {
+        this.empleado = empleado;
     }
 
     /**
@@ -136,7 +144,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
      *
      * @return la lista de pagos
      */
-    public List<PagoDTO> getPagos() {
+    public List<PagoDTO> getPago() {
         return pago;
     }
 
@@ -146,6 +154,10 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
 
     public List<ElementoBusquedaReservaDTO> getElementosBusquedaReserva() {
         return elementosBusquedaReserva;
+    }
+
+    public void setElementosBusquedaReserva(List<ElementoBusquedaReservaDTO> elementosBusquedaReserva) {
+        this.elementosBusquedaReserva = elementosBusquedaReserva;
     }
 
     @Override
@@ -162,7 +174,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
         entity.setCostoDeDuracion(costoDeDuracion);
         entity.setCostoDeTransporte(costoDeTransporte);
         entity.setDesplazamiento(desplazamiento);
-        entity.setElementosBusquedaReserva(elementosListToEntity());
+
         if (cliente != null) {
             entity.setCliente(cliente.toEntity());
         }
@@ -175,6 +187,14 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
         }
         if (empleado != null) {
             entity.setEmpleado(empleado.toEntity());
+        }
+        if(elementosBusquedaReserva!= null)
+        {
+            ArrayList<ElementoBusquedaReservaEntity> lista = new ArrayList<>();
+            for (ElementoBusquedaReservaDTO elemento : elementosBusquedaReserva) {
+            lista.add(elemento.toEntity());
+        }
+            entity.setElementosBusquedaReserva(lista);
         }
         return entity;
     }

@@ -42,9 +42,8 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
     /**
      * Elementos de la organización.
      */
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="ORGANIZACION_ID", nullable = true)
-    @PodamExclude
+     @PodamExclude
+    @OneToMany
     private List<ElementoBusquedaReservaEntity> elementosBusquedaReserva;
 
     /**
@@ -67,7 +66,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      *
      * @return costoDeTransporte el costo del transporte.
      */
-    public Double getCostoTransporte() {
+    public Double getCostoDeTransporte() {
         return costoDeTransporte;
     }
 
@@ -76,7 +75,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      *
      * @return costoDeDuracion retorna el costo de la duracion.
      */
-    public Double getCostoDuracion() {
+    public Double getCostoDeDuracion() {
         return costoDeDuracion;
     }
 
@@ -85,7 +84,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      *
      * @param costoDeTransporte el costo del transporte
      */
-    public void setCostoTransporte(Double costoDeTransporte) {
+    public void setCostoDeTransporte(Double costoDeTransporte) {
         this.costoDeTransporte = costoDeTransporte;
     }
 
@@ -94,7 +93,7 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
      *
      * @param costoDeDuracion el costo por la duracion.
      */
-    public void setCostoDuracion(Double costoDeDuracion) {
+    public void setCostoDeDuracion(Double costoDeDuracion) {
         this.costoDeDuracion = costoDeDuracion;
     }
 
@@ -116,21 +115,6 @@ public class OrganizacionEntity extends ServicioEntity implements Serializable {
         this.desplazamiento = desplazamiento;
     }
 
-    public Double getCostoDeTransporte() {
-        return costoDeTransporte;
-    }
-
-    public void setCostoDeTransporte(Double costoDeTransporte) {
-        this.costoDeTransporte = costoDeTransporte;
-    }
-
-    public Double getCostoDeDuracion() {
-        return costoDeDuracion;
-    }
-
-    public void setCostoDeDuracion(Double costoDeDuracion) {
-        this.costoDeDuracion = costoDeDuracion;
-    }
 
     public List<ElementoBusquedaReservaEntity> getElementosBusquedaReserva() {
         return elementosBusquedaReserva;

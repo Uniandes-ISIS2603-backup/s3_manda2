@@ -3,9 +3,12 @@ package co.edu.uniandes.csw.manda2.resources;
 //TODO: Borrar los import que no usan
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDTO;
 import co.edu.uniandes.csw.manda2.dtos.OrganizacionDetailDTO;
+import co.edu.uniandes.csw.manda2.dtos.VueltasConDemoraEnOficinaDetailDTO;
 import co.edu.uniandes.csw.manda2.ejb.OrganizacionLogic;
 import co.edu.uniandes.csw.manda2.entities.OrganizacionEntity;
+import co.edu.uniandes.csw.manda2.entities.VueltasConDemoraEnOficinaEntity;
 import co.edu.uniandes.csw.manda2.exceptions.BusinessLogicException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
@@ -87,16 +90,16 @@ public class OrganizacionResource {
      * @return JSON {@link OrganizacionDetailDTO} - El organización buscada
      */
     @GET
-    public List<OrganizacionDTO> getorganizacionBusquedas() {
+    public List<OrganizacionDetailDTO> getorganizacionBusquedas() {
 
         return listorganizacions(organizacionLogic.getOrganizaciones());
 
     }
 //TODO: Revisar este código. De qué se trata?
     //DONE: Es para tener una lista de las organizaciones, el código está escrito de forma acortada
-    private List<OrganizacionDTO> listorganizacions(List<OrganizacionEntity> entityList) {
+    private List<OrganizacionDetailDTO> listorganizacions(List<OrganizacionEntity> entityList) {
 
-        return entityList.stream().map(a -> new OrganizacionDTO(a)).collect(Collectors.toList());
+        return listVueltas2DTO(organizacionLogic.getOrganizaciones());
 
     }
 
@@ -199,4 +202,11 @@ public class OrganizacionResource {
         organizacionLogic.deleteOrganizacion(id);
     }
 
+    private List<OrganizacionDetailDTO> listVueltas2DTO( List<OrganizacionEntity> entityList){
+        List<OrganizacionDetailDTO> lista = new ArrayList();
+        for( OrganizacionEntity entity : entityList ){
+            lista.add(new OrganizacionDetailDTO(entity));
+        }
+        return lista;
+    }
 }
