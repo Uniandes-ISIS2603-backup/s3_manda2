@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "94e07428-6aa4-4b74-80ec-d7ba742834bb",
+		"_postman_id": "3760e9d0-5456-4211-9faa-beb1e3b5c391",
 		"name": "Elemento Busqueda Reserva",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n      \"nombre\": \"concierto Carrangueros de Ráquira\",\r\n      \"exitosa\": true,\r\n      \"datosBusqueda\": \"primera fila con meet and greet\"\r\n     \r\n }"
+					"raw": "{\n\t\"id\": 001,\n\t\"nombre\": \"Entradas para concierto de Maroon 5\",\n\t\"datosBusqueda\": \"Preferiblemente conseguir 3 entradas en VIP\",\n\t\"exitosa\": true\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/busquedaselementos",
@@ -95,11 +95,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "76578f4a-5ed1-4edc-992d-82f21298eb9d",
+						"id": "7933b396-77ba-4009-9859-930510538d6f",
 						"type": "text/javascript",
 						"exec": [
 							"var data= JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"tests[\"authors count\"] = data.length >= 0;"
 						]
@@ -136,12 +135,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "242da37b-540f-40a8-8fef-a6d564ebef73",
+						"id": "c45a367a-ad4d-4cf7-a10b-ef3a97466d44",
 						"type": "text/javascript",
 						"exec": [
 							"console.log(responseBody);",
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;"
 						]
 					}
@@ -182,12 +180,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6d4694ef-c884-4584-a620-10facfe5980d",
+						"id": "637c4846-0da7-4ba7-8f17-2e49556b7759",
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 204\"] = responseCode.code === 204;",
-							"postman.setGlobalVariable(\"new_id_elemento\",data.id);",
-							""
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
 						]
 					}
 				}

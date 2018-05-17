@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "0e72a909-2e76-427a-aeb2-54981d4392d8",
 		"name": "Articulo",
-		"_postman_id": "761e08d3-399f-4ea2-9396-c4eda62f0f77",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -33,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n      \"rutaImagen\": \"ruta\",\r\n      \"nombre\": \"morcilla\",\r\n      \"precio\": 5000\r\n }"
+					"raw": "{\r\n\t\t\"id\": 1,\r\n      \"rutaImagen\": \"data/images/morcilla\",\r\n      \"nombreArticulo\": \"morcilla\",\r\n      \"precio\": 5000\r\n }"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/articulos",
@@ -47,8 +46,7 @@
 						"api",
 						"articulos"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -71,7 +69,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/articulos",
 					"protocol": "http",
@@ -84,8 +85,7 @@
 						"api",
 						"articulos"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -108,9 +108,12 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/articulo/{{new_id_articulo}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos/{{new_id_art}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -119,11 +122,10 @@
 					"path": [
 						"s3_manda2-web",
 						"api",
-						"articulo",
-						"{{new_id_articulo}}"
+						"articulos",
+						"{{new_id_art}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -168,8 +170,7 @@
 						"articulos",
 						"{{new_id_art}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -190,9 +191,12 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/s3_manda2-web/api/articulos/{{new_id_articulos}}",
+					"raw": "http://localhost:8080/s3_manda2-web/api/articulos/{{new_id_art}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -202,10 +206,9 @@
 						"s3_manda2-web",
 						"api",
 						"articulos",
-						"{{new_id_articulos}}"
+						"{{new_id_art}}"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}

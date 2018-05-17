@@ -2,10 +2,28 @@
 <div class="container-fluid">
     <div class="row">
         <div>
-            <ul ng-repeat="reclamo in reclamoDetailRecords ">
-                <br>
-                <li><h1>Mensaje:</h1> <h4>{{reclamo.mensaje}}</h4></li>
-            </ul>
+            <h1>Mensaje:</h1> <h4>{{reclamoDetailRecords.mensaje}}</h4>
+            <div class = "row">
+                <div class = "col-sm-3">
+                    <h4>Cliente</h4> 
+             <ul>
+                 <li><h2>Nombre:</h2><p>{{reclamoDetailRecords.cliente.nombre}}</p></li>
+                 <li><h2>Login</h2><p>{{reclamoDetailRecords.cliente.login}}</p></li>
+                 <li><h2>Cedula:</h2><p>{{reclamoDetailRecords.cliente.cedula}}</p></li>
+                 <li><h2>Calificacion:</h2><p>{{reclamoDetailRecords.cliente.calificacion}}</p></li>
+             </ul>
+                </div>
+                 <div class = "col-sm-3">
+                    <h4>Empleado</h4> 
+             <ul>
+                 <li><h2>Nombre:</h2><p>{{reclamoDetailRecords.empleado.nombre}}</p></li>
+                 <li><h2>Login</h2><p>{{reclamoDetailRecords.empleado.login}}</p></li>
+                 <li><h2>Cedula:</h2><p>{{reclamoDetailRecords.empleado.cedula}}</p></li>
+                 <li><h2>Calificacion:</h2><p>{{reclamoDetailRecords.empleado.calificacion}}</p></li>
+             </ul>
+                </div>
+            </div>
+
         </div>
     </div>
     <div>

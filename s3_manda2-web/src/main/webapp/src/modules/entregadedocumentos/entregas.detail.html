@@ -1,13 +1,21 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
     <div class="row">
-        <div>
-            <img src="data/images/entregaDocumento.jpg" class="rounded-circle" alt="Imagen de entrega de documento"
+        <div class ="col-sm-3">
+            <img src="data/images/entrega.gif" class="rounded-circle" alt="Imagen de entrega de documento"
                  width="200" height="192">
+            
+            <div ng-repeat="pago in entregaActual.pago">
+                    <h2>Pago {{pago.id}}</h2>
+                    <ul>
+                    <li>Estado de la Transaccion: {{pago.estadoTransaccion}}</li>
+                    <li>Fecha: {{pago.fecha}}</li>
+                    </ul>
+                </div>
         </div>
-        <div>
+        <div class= "col-sm-3">
             <ul>
-                <br>
+                <h1> <center>Descripcion de la entrega de documento</center></h1>
                 <li>Id: {{entregaActual.id}}</li>
                 <li>Nombre: {{entregaActual.nombre}}</li>
                 <li>Calificacion: {{entregaActual.calificacion}}</li>
@@ -18,6 +26,32 @@
                 <li>Punto de realizacion: {{entregaActual.puntoDeRealizacion}}</li>
                 <li>Costo de transporte: {{entregaActual.costoDeTransporte}}</li>
                 <li>Porcentaje extra: {{entregaActual.porcentajeExtra}}</li>
+            </ul>
+        </div> 
+        <div  class= "col-sm-3">
+            <ul>
+                <h1> <center>Descripcion del cliente que contrato el servicio</center></h1>
+            <li> Id: {{entregaActual.cliente.id}}</li>
+            <li> Cedula: {{entregaActual.cliente.cedula}}</li>
+            <li> Calificicacion: {{entregaActual.cliente.calificacion}}</li>
+            <li> Fecha de ingreso: {{entregaActual.cliente.fechaIngreso}}</li>
+            <li> Login: {{entregaActual.cliente.login}}</li>
+            <li> Nombre: {{entregaActual.cliente.nombre}}</li>
+            <li> Horas de servicio semanal: {{entregaActual.cliente.horasDeServicioSemanal}}</li>
+            <li> Pago Anticipado: {{entregaActual.cliente.pagoAnticipado}}</li>
+            </ul>
+        </div> 
+        <div  class= "col-sm-3">
+            <h1><center> Descripcion del empleado que tiene asignado el servicio</center></h1>
+            <ul>
+            <li> Id: {{entregaActual.empleado.id}}</li>
+            <li> Cedula: {{entregaActual.empleado.cedula}}</li>
+            <li> Calificicacion: {{entregaActual.empleado.calificacion}}</li>
+            <li> Fecha de ingreso: {{entregaActual.empleado.fechaIngreso}}</li>
+            <li> Login: {{entregaActual.empleado.login}}</li>
+            <li> Nombre: {{entregaActual.empleado.nombre}}</li>
+            <li> EPS: {{entregaActual.empleado.eps}}</li>
+            <li> Identificacion: {{entregaActual.empleado.identificacion}}</li>
             </ul>
         </div>
     </div>

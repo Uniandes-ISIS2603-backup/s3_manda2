@@ -1,27 +1,46 @@
-<div class="pagoRaya">
-    <h1>Detalles del Pago</h1>
-    <p>Id: {{pagoIdRecords.id}}</p>
-    <p>Fecha: {{pagoIdRecords.fecha}}</p>
-    <p>estado {{pagoIdRecords.estadoTransaccion}}</p>
-    <hr>
-    <h1>Cliente:</h1>
-    <ul>
-        <li>Nombre: {{pagoIdRecords.cliente.nombre}}</li>
-        <li>Login: {{pagoIdRecords.cliente.login}}</li>
-        <li>Cedula: {{pagoIdRecords.cliente.cedula}}</li>
-        <li>Calificacion: {{pagoIdRecords.cliente.calificacion}}</li>
-        <li>Fecha de Ingreso: {{pagoIdRecords.cliente.fechaIngreso}}</li>
-        <li>Pago Anticipado: {{pagoIdRecords.cliente.pagoanticipado}}</li>
-    </ul>
-    <h1>Servicio:</h1>
-    <ul>
-        <li>Descripcion: {{pagoIdRecords.entregaDeDocumentos.descripcion}}</li>
-        <li>Nombre: {{pagoIdRecords.entregaDeDocumentos.nombre}}</li>
-        <li>Estado: {{pagoIdRecords.entregaDeDocumentos.estado}}</li>
-        <li>Calificacion: {{pagoIdRecords.entregaDeDocumentos.calificacion}}</li>
-        <li>Costo: {{pagoIdRecords.entregaDeDocumentos.costo}}</li>
-    </ul>
+<section class="section">
+    <div class="container">
+        <h4>Resumen del pago</h4>
+
+        <div class="row">
+            <div class=" text-center center-block">
+                <div>
+                    <h5>{{pagoIdRecords.fecha|date}}</h5>
+                    <h3>{{pagoIdRecords.estadoTransaccion}} </h3>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="holaaa">
+            <div class="">
+
+                <img class="team-thumb img-circle" src="boot/img/team/img-3.jpg" alt="" />
+                <ul class="list-style-type">
+                    <li>Nombre: {{pagoIdRecords.cliente.nombre}}</li>
+                    <li>Login: {{pagoIdRecords.cliente.login}}</li>
+                    <li>Cedula: {{pagoIdRecords.cliente.cedula}}</li>
+                    <li>Calificacion: {{pagoIdRecords.cliente.calificacion}}</li>
+                    <li>Fecha de Ingreso: {{pagoIdRecords.cliente.fechaIngreso}}</li>
+                    <li>Pago Anticipado: {{pagoIdRecords.cliente.pagoanticipado}}</li>
+                </ul>
+            </div>
+            <div class="">
+                <div class="people">
+                    <div  class="team-thumb img-circle sij" >
+                    </div>
+                    <ul class="list-style-type">
+                        <li>Descripcion: {{pagoIdRecords.entregaDeDocumentos.descripcion}}</li>
+                        <li>Nombre: {{pagoIdRecords.entregaDeDocumentos.nombre}}</li>
+                        <li>Estado: {{pagoIdRecords.entregaDeDocumentos.estado}}</li>
+                        <li>Calificacion: {{pagoIdRecords.entregaDeDocumentos.calificacion}}</li>
+                        <li>Costo: {{pagoIdRecords.entregaDeDocumentos.costo}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div>
         <button type="button" class="btn btn-dark" ui-sref="pagoList">Volver</button>
     </div>
-</div>
+    </div>
+</section>

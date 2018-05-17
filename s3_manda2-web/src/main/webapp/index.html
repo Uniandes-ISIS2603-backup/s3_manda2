@@ -47,6 +47,7 @@
         <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
         <script src="src/modules/pagos/pagos.crtl.js" type="text/javascript"></script>
         <script src="src/modules/pagos/pagos.detail.crtl.js" type="text/javascript"></script>
+        <script src="src/modules/pagos/pago.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/pagos/createPago.ctrl.js" type="text/javascript"></script>
 
         <!-- PayPal -->
@@ -137,6 +138,8 @@
         <script src="src/modules/reclamos/reclamos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/reclamoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/reclamos/create/reclamos.create.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reclamos/delete/reclamo.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/reclamos/update/reclamo.update.ctrl.js" type="text/javascript"></script>
 
         <!-- Login-->
         <script src="src/modules/login/login.mod.js" type="text/javascript"></script>
@@ -261,44 +264,53 @@
             <div class="container">
                 <h4>Servicios</h4>
                 <!-- Four columns -->
-                <div class="row">
-                    <button class="span3 animated-fast flyIn boton-sin-fondo" ng-click="irVueltas()">
-                        <div class="service-box">
-                            <img src="data/images/office.png" alt="" style="width:20em; height:20em"/>
-                            <h2>Vueltas con demora en oficina</h2>
-                            <p>
-                                Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno
-                                y esperar por usted.
-                            </p>
-                        </div>
-                    </button>
-                    <button class="span3 animated flyIn boton-sin-fondo" ng-disabled="isadmin()">
-                        <div class="service-box">
-                            <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/>
-                            <h2>Compras en tienda</h2>
-                            <p>
-                                Vamos a la tienda que usted nos diga y compramos lo que necesite.
-                            </p>
-                        </div>
-                    </button>
-                    <button class="span3 animated-fast flyIn boton-sin-fondo" ng-disabled="isadmin()">
-                        <div class="service-box">
-                            <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/>
-                            <h2>Entrega de documentos</h2>
-                            <p>
-                                Recogemos y entregamos los documentos que necesite.
-                            </p>
-                        </div>
-                    </button>
-                    <button class="span3 animated-slow flyIn boton-sin-fondo" ng-disabled="isadmin()">
-                        <div class="service-box">
-                            <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/>
-                            <h2>Reservas y organizacion</h2>
-                            <p>
-                                Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades.
-                            </p>
-                        </div>
-                    </button>
+                <div class="row" ui-view="serviciosIndexView"> 
+                    <div class="col-sm-3">
+                        <button class="span3 animated-fast flyIn boton-sin-fondo" ui-sref="vueltacondemoraList"> 
+                        <div class="service-box"> 
+                            <img src="data/images/office.png" alt="" style="width:20em; height:20em"/> 
+                            <h2>Vueltas con demora en oficina</h2> 
+                            <p> 
+                                Se hacen las vueltas que necesite en bancos u otras entidades en las cuales le toque coger turno 
+                                y esperar por usted. 
+                            </p> 
+                        </div> 
+                    </button> 
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="span3 animated flyIn boton-sin-fondo" ui-sref="compraentiendaList"> 
+                        <div class="service-box"> 
+                            <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/> 
+                            <h2>Compras en tienda</h2> 
+                            <p> 
+                                Vamos a la tienda que usted nos diga y compramos lo que necesite. 
+                            </p> 
+                        </div> 
+                    </button> 
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="span3 animated-fast flyIn boton-sin-fondo"  ui-sref="entregasList"> 
+                        <div class="service-box"> 
+                            <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/> 
+                            <h2>Entrega de documentos</h2> 
+                            <p> 
+                                Recogemos y entregamos los documentos que necesite. 
+                            </p> 
+                        </div> 
+                    </button> 
+                    </div>
+                    <div class="col-sm-3">
+                         <button  class="span3 animated-slow flyIn boton-sin-fondo"  ui-sref="reservasList"> 
+                        <div class="service-box"> 
+                            <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/> 
+                            <h2>Reservas y organizacion</h2> 
+                            <p> 
+                                Le ayudamos con la reservas para cine, conciertos, teatro u otras actividades. 
+                            </p> 
+                        </div> 
+                    </button> 
+                    </div>
+                   
                 </div>
             </div>
         </section>
@@ -347,7 +359,7 @@
                 </div>
         </section>
 
-        <section id="login" class="wow fadeInUp delay-05s">
+       <section id="login" class="wow fadeInUp delay-05s">
             <div class="bg-testicolor">
                 <div class="container section-padding">
                     <div class="row">

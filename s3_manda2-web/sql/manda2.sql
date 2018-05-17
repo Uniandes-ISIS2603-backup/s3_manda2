@@ -15,10 +15,9 @@ delete from ARTICULOENTITY;
 delete from PAGOENTITY;
 delete from MEDIOPAGOENTITY;
 delete from SERVICIOENTITY;
+delete from RECLAMOENTITY;
 delete from USUARIOENTITY;
 delete from BILLETERAENTITY;
-
-delete from RECLAMOENTITY;
 /** cliente1*/
 
 insert into BILLETERAENTITY (ID, PUNTOSDEFIDELIDAD, SALDO) values (1000,100,3700.0);
@@ -68,3 +67,7 @@ insert into PAGOENTITY (ID, ESTADOTRANSACCION, FECHA,CLIENTE_ID,ORGANIZACION_ID,
 insert into USUARIOENTITY_PAGOENTITY (EMPLEADOENTITY_ID , PAGOS_ID) values (1000,2000);
 
 insert into USUARIOENTITY_PAGOENTITY (EMPLEADOENTITY_ID , PAGOS_ID) values (2000,2000);
+   /** Reclamo 1 asociado al cliente 1, al servicio 1 y al empleado 1 */
+    insert into RECLAMOENTITY (ID, MENSAJE, NUMERO, CLIENTE_ID, EMPLEADO_ID) values (1000,'El servicio se demoro mucho', 1, 1000,2000);
+    
+    update SERVICIOENTITY set ENTREGASDEDOCUMENTOS_ID = 1000 where ID = 1000;

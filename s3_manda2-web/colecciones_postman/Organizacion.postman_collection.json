@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fe40a3ba-ec73-4dfe-b4e6-f06cc43bdc26",
+		"_postman_id": "cdb5983c-7cef-4581-8539-77d643e76846",
 		"name": "Organizacion",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"costo\":12343,\r\n\t\"puntoDeEncuentro\":\"sdfsa\",\r\n\t\"exitoDiligencia\":true,\r\n\t\"calificacion\":5,\r\n\t\"descripcion\":\"asdf\",\r\n\t\"estado\":\"FINALIZADO\",\r\n   \"costoTransporte\":25000,\r\n   \"costoDuracion\": 65000,\r\n   \"desplazamiento\": true,\t\r\n   \"elementosBusquedaReserva\":\r\n\t[\r\n\t\t{\r\n\t\t\t\"nombre\":\"asdf\",\r\n\t\t\t\"exitosa\":false,\r\n\t\t\t\"datosBusqueda\":\"asdfasdf\"\r\n\t\t}\r\n   \t]\r\n }"
+					"raw": "\r\n{\r\n\t\r\n        \"calificacion\": 1,\r\n        \"costo\": 5000,\r\n        \"descripcion\": \"Compra de entradas para concierto de Maroon5\",\r\n        \"estado\": \"FINALIZADO\",\r\n        \"id\": 4000,\r\n        \"nombre\": \"Compra de entradas\",\r\n        \"puntoDeEncuentro\": \"TuBoleta C.C cedritos\",\r\n        \"puntoDeRealizacion\": \"Estadio Nemesio Camacho El Campin\",\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"costoDeDuracion\": 4000,\r\n        \"costoDeTransporte\": 11000,\r\n        \"desplazamiento\": true,\r\n        \"elementosBusquedaReserva\": [\r\n            {\r\n                \"datosBusqueda\": \"Preferiblemente conseguir 3 entradas en VIP\",\r\n                \"exitosa\": true,\r\n                \"id\": {{new_id_elemento}},\r\n                \"nombre\": \"Entradas para concierto de Maroon 5\"\r\n            }\r\n        ]\r\n    \r\n\t\r\n }"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones",
@@ -155,7 +155,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"costoTransporte\":2,\r\n   \"costoDuracion\": 1,\r\n   \"desplazamiento\": true,\r\n   \"nombre\": \"asdf\"\r\n }"
+					"raw": "{\r\n    \"costoTransporte\":2,\r\n   \"costoDuracion\": 1,\r\n   \"desplazamiento\": true\r\n }"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/organizaciones/{{new_id_org}}",
