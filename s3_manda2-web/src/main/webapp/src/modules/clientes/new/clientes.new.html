@@ -1,66 +1,62 @@
-<div class="container-fluid">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createCliente">Crear un nuevo cliente</label>
-                <label ng-if="edit" id="editCliente">Editar cliente</label></div>
-            <div class="panel-body">
-                <form ng-submit="createCleinte()" name="cliente">
-                    <div class="form-group row">
+<section id="contact" class="section green">
+    <div class="container">
+        <h4>Crear un cliente</h4>
+        <div class="blankdivider30">
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="cform" id="contact-form">
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="row">
+                            <div class="span6">
+                                <form ng-submit="createCliente()" name="cliente">
 
-                        <label for="clienteId" class="col-sm-6">Id:</label>
-                        <input id="clienteId" required ng-model="clienteId" class="col-sm-6"/>
-
-                    </div>
-                    <div class="form-group row">
-
-                        <label for="clienteNombre" class="col-sm-6">Nombre:</label>
-                        <input id="clienteNombre" required ng-model="clienteNombre" class="col-sm-6"/>
-
-                    </div>
-                    <div class="form-group row">
-                        <label for="clienteCedula" class="col-sm-6">Cedula:</label>
-                        <input id="clienteCedula" required ng-model="clienteCedula" class="col-sm-6"/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="clienteFechaIngreso" class="col-sm-6">Fecha de Ingreso: (Formato
-                            2012-04-23T18:25:43.511Z)</label>
-                        <input id="clienteFechaIngreso" required ng-model="clienteFechaIngreso" class="col-sm-6"/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="clienteCalificacion" class="col-sm-6">Calificacion:</label>
-                        <input id="clienteCalificacion" required ng-model="clienteCalificacion" class="col-sm-6"/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="clientePagoAnticipado" class="col-sm-6">Pago Anticipado:</label>
-                        <input id="clientePagoAnticipado" required ng-model="clientePagoAnticipado" class="col-sm-6"/>
-                    </div>
-                    <div class="form-group row">
-                        <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal:</label>
-                        <input id="clienteHorasDeServicioSemanal" required ng-model="clienteHorasDeServicioSemanal"
-                               class="col-sm-6"/>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="form-group col-sm-6" ng-if="!cliente.$valid">
-
-                            <div class="alert alert-warning">
-                                <strong>Advertencia!</strong>
-                                <p>Todos los campos son necesarios</p>
+                                    <div class="field your-name form-group">
+                                        <label for="clienteId" class="col-sm-6">Id:</label>
+                                        <input type="text" id="clienteId" required ng-model="clienteId" class="form-control" id="clienteId" placeholder="Your Id" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="clienteCedula" class="col-sm-6">Cedula</label>
+                                        <input type="text" id="clienteCedula" required ng-model="clienteCedula" class="form-control" id="clienteCedula" placeholder="Cedula" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="clienteFechaIngreso" class="col-sm-6">Fecha de ingreso</label>
+                                        <input type="date" id="clienteFechaIngreso" required ng-model="clienteFechaIngreso" class="form-control" id="clienteFechaIngreso" placeholder="1999-06-27" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="clienteCalificacion" class="col-sm-6">Calificacion</label>
+                                        <input type="text" id="clienteCalificacion" required ng-model="clienteCalificacion" class="form-control" id="clienteCalificacion" placeholder="Calificacion" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="clientePagoAnticipado" class="col-sm-6">Pago anticipado</label>
+                                        <input type="text" id="clientePagoAnticipado" required ng-model="clientePagoAnticipado" class="form-control" id="clientePagoAnticipado" placeholder="Pago anticipado" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="clienteHorasDeServicioSemanal" class="col-sm-6">Horas de servicio semanal</label>
+                                        <input type="text" id="clienteHorasDeServicioSemanal" required ng-model="clienteHorasDeServicioSemanal" class="form-control" id="clienteHorasDeServicioSemanal" placeholder="Horas de servicio semanal" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-sm-12">
-                            <input ng-show="cliente.$valid" ng-click="createCliente()" value="Save"
-                                   class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="clientesList">Cancel</a>
-                        </div>
-                    </div>
+                            <div class="span6">
 
-                </form>
+                                <input ng-click="createCliente()" value="Save" class="btn btn-success"/>
+
+                                <a class="btn btn-info" ui-sref="clientesList">Cancel</a>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
             </div>
+            <!-- ./span12 -->
         </div>
     </div>
-</div>
-
-
+</section>

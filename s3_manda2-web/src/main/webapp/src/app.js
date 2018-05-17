@@ -25,11 +25,13 @@
         $qProvider.errorOnUnhandledRejections(false);
     }]);
 
- app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state,',
+ app.controller('ScrollController', ['$scope', '$location', '$anchorScroll', '$state',
         function ($scope, $location, $anchorScroll, $state) {
-            $scope.gotoAnchor = function (ancla) {
+            $scope.gotoAnchor = function (estado,ancla) {
                 $location.hash(ancla);
-                $anchorScroll();}
+                $anchorScroll();
+                $state.go(estado,{},{})
+            }
            }]);
        
        
@@ -82,6 +84,30 @@
                     event.preventDefault();
                     $state.go('login', $state.params);
                 }
+                
+                $rootScope.isAdmin = function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                $rootScope.isCliente = function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                
+                $rootScope.isEmpleado= function () {
+                  if (($rootScope.isAuthenticated) && (roles.sessionStorage.getItem("rol").equals("admin"))){
+                      return true; 
+                  }
+                };
+                
+                $rootScope.isUnregistred = function () {
+                  if (!$rootScope.isAuthenticated){
+                      return true; 
+                  }
+                };
+
 
             });
 

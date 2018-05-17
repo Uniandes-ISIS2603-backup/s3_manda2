@@ -3,7 +3,6 @@
     mod.constant("compraContext", "api/servicios");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouteProvider) {
         var basePath = 'src/modules/reservas/';
-        $urlRouteProvider.otherwise('reservas');
         $stateProvider
             .state('reservasList', {
                 url: '/reservas',
