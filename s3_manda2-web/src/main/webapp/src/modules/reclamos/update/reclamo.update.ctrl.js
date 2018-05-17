@@ -19,10 +19,9 @@
                 $scope.createEmpleado = function () {
                     console.log($scope.empleadoNombre);
                     $http.put(reclamoContext + "/" + idReclamo, {
-                        id: $state.params.reclamoId,
-                        numero: $scope.empleadoId,
-                        mensaje: $scope.reclamoNumero,
-                        fechaIngreso: $scope.reclamoMensaje
+                        id: $scope.reclamoId,
+                        numero: $scope.reclamoNumero,
+                        mensaje: $scope.reclamoMensaje
                     }).then(function (response) {
                         //Empleado created successfully
                         $state.go('reclamosList', {reclamoId: response.data.id}, {reload: true});

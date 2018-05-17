@@ -58,28 +58,29 @@
             }
 
         });
-        $stateProvider.state('reclamoDelete', {
-            url: '/delete/{reclamoId : int}',
-            param:{
+        
+        $stateProvider.state('reclamoUpdate', {
+            url: '/update/{reclamoId : int}',
+            params:{
                 reclamoId: null
             },
             views: {
                 'listReclamoView': {
                     templateUrl: basePath + 'create/reclamo.create.html',
-                    controller: 'reclamoDeleteCtrl'
+                    controller: 'empleadoUpdateCtrl'
                 }
             }
 
         });
-        $stateProvider.state('reclamoUpdate', {
-            url: '/update/{reclamoId : int}',
-            param:{
+        $stateProvider.state('reclamoDelete', {
+            url: '/delete/{reclamoId : int}',
+            params:{
                 reclamoId: null
             },
             views: {
                 'listReclamoView': {
-                    templateUrl: basePath + 'create/reclamo.create.html',
-                    controller: 'empleadoUpdateCtrl',
+                    templateUrl: basePath + 'delete/reclamo.delete.html',
+                    controller: 'reclamoDeleteCtrl'
                 }
             }
 

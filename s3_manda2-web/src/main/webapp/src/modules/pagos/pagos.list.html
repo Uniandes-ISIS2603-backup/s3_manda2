@@ -22,6 +22,7 @@
                         <th>Id</th>
                         <th>Estado de transaccion</th>
                         <th>Resumen</th>
+                        <th>Acciones</th>
 
                     </tr>
                     </thead>
@@ -29,10 +30,13 @@
 
                     <tr ng-repeat = "pagos in pagosRecords" class="pagoRaya">
 
-                        <td >{{pagos.fecha}}</td>
+                        <td >{{pagos.fecha|date}}</td>
                         <td >{{pagos.id}}</td>
                         <td >{{pagos.estadoTransaccion}}</td>
                         <td> <button ui-sref="pagosDetail({pago_id: pagos.id})" type="button" class="btn btn-primary">Ver resumen</button></td>
+                        <td id="{{$index}}-actions">
+                            <button  type="button" class="btn btn-primary"  ui-sref="pagoDelete({pagoId: pagos.id})">Eliminar</button>
+                        </td>
 
                     </tr>
 

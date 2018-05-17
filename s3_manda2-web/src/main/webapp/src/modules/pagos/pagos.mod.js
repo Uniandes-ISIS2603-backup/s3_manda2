@@ -37,6 +37,21 @@
                         }
                     }
                 });
+            $stateProvider.state('pagoDelete', {
+                url: '/delete/{pagoId:int}',
+                // parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                views: {
+                    'pagoView': {
+                        templateUrl: 'src/modules/pagos/pago.delete.html',
+                        controller: 'pagoDeleteCtrl'
+                    }
+
+                }
+
+            });
 
         }
     ]);
