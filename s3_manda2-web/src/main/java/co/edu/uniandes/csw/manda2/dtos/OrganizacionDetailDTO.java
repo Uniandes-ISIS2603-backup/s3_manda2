@@ -144,7 +144,7 @@ public class OrganizacionDetailDTO extends OrganizacionDTO {
      *
      * @return la lista de pagos
      */
-    public List<PagoDTO> getPagos() {
+    public List<PagoDTO> getPago() {
         return pago;
     }
 
