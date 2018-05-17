@@ -1,22 +1,32 @@
 <div class="container-fluid">
-    <div class="btn-group mr-2" role="group" aria-label="First group">
-        <a href=".#!/inicio"><button type="button" class="btn btn-primary">Volver</button></a>
+    <div class='row'>
+        <div class='col-md-2'>
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group">
+                    <button type="button" class="btn btn-primary" onclick=<a ui-sref="vueltacondemoraAgregar"> Nueva
+                        vuelta
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <h4>Vueltas con demora</h4>
+
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Punto de encuentro</th>
-                <th>Punto de realizacion</th>
-                <th>Calificación</th>
-                <th>Descripcion</th>
-                <th>Costo</th>
-                <th>Costo por duración</th>
-                <!--<th>Pago</th>-->
-                <th></th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Cliente</th>
+            <th>Empleado</th>
+            <th>Punto de encuentro</th>
+            <th>Punto de realizacion</th>
+            <th>Exito de la vuelta</th>
+            <th>Calificación</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Costo de duración</th>
+            <th>Pago</th>
+        </tr>
         </thead>
 
         <tbody>
@@ -30,9 +40,14 @@
                 <td>{{vuelta.costo}}</td>
                 <td>{{vuelta.costoDuracion}}</td>
                 <td>
+                    <button class="btn btn-primary btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Ver detalle</button>
+                </td>
+                <td>
                     <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
                 </td>
+
             </tr>
         </tbody>
     </table>
+</div>
 </div>
