@@ -30,8 +30,12 @@
                 <td>{{vuelta.costo}}</td>
                 <td>{{vuelta.costoDuracion}}</td>
                 <td>
+                    <button class="btn btn-primary btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Ver detalle</button>
+                </td>
+                <td>
                     <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
                 </td>
+
             </tr>
         </tbody>
     </table>
