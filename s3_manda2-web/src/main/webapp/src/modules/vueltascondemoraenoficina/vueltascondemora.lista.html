@@ -25,21 +25,22 @@
 
         <tbody>
             <tr ng-repeat="vuelta in vueltasRecords">
-                <td> {{vuelta.id}}</td>
+                <td><a ui-sref="entregaDetail ({idVuelta vuelta.id}) ">{{vuelta.id}} </a> </td>
                 <td>{{vuelta.nombre}}</td>
                 <td>{{vuelta.puntoDeEncuentro}}</td>
                 <td>{{vuelta.puntoDeRealizacion}}</td>
                 <td>{{vuelta.calificacion}}</td>
                 <td>{{vuelta.descripcion}}</td>
+                <td>{{vuelta.estado}}</td>
                 <td>{{vuelta.costo}}</td>
+                <td>{{vuelta.costoDeTransporte}}</td>
                 <td>{{vuelta.costoDuracion}}</td>
-                <td>
-                    <button class="btn btn-primary btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Ver detalle</button>
-                </td>
-                <td>
+                <td id="{{$index}}-actions">
+               
+                    <button class="btn btn-primary btn-sm" ui-sref="vueltasUpdate({idVuelta: vuelta.id})">Editar</button>
+                
                     <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
                 </td>
-
             </tr>
         </tbody>
     </table>

@@ -72,7 +72,6 @@
                         templateUrl: basePath + '/new/entregas.new.html',
                         controller: 'entregasUpdateCtrl'
                     }
-
                 }
 
             });

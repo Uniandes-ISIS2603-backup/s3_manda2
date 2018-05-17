@@ -54,7 +54,7 @@
             });
             
             $stateProvider.state('vueltacondemoraDelete', {
-                url: '/delete/(idVuelta:int)',
+                url: '/delete/{idVuelta:int}',
                 parent: 'vueltas',
                 param: {
                     idVuelta: null
