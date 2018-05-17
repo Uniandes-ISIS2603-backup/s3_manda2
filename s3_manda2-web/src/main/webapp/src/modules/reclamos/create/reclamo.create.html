@@ -1,45 +1,47 @@
-<div class="container-fluid">
-    <div>
-        <h1>Ingrese la informacion del nuevo Reclamo</h1>
-    </div>
-    <hr>
-    <div class="card">
-        <form ng-submit="createReclamo()" name="reclamo">
-            <div class="form-group row">
+<section id="contact" class="section orange">
+    <div class="container">
+        <h4>Ingrese la informacion del nuevo reclamo</h4>
+        <div class="blankdivider30">
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="cform" id="contact-form">
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="row">
+                            <div class="span6">
+                                <form ng-submit="createReclamo()" name="cliente">
 
-                <label for="reclamoId" class="col-sm-2">Id</label>
-                <input id="reclamoId" required ng-model="reclamoId" class="col-sm-6"/>
+                                    <div class="field your-name form-group">
+                                        <label for="reclamoId" class="col-sm-6">Id:</label>
+                                        <input type="text" id="reclamoId" required ng-model="reclamoId" class="form-control" id="reclamoId" placeholder="Id" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="reclamoNumero" class="col-sm-6">Numero del reclamo:</label>
+                                        <input type="text" id="reclamoNumero" required ng-model="reclamoNumero" class="form-control" id="reclamoNumero" placeholder="numero reclamo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                    <div class="field your-name form-group">
+                                        <label for="reclamoMensaje" class="col-sm-6">Mensaje:</label>
+                                        <input type="text" id="reclamoMensaje" required ng-model="reclamoMensaje" class="form-control" id="reclamoMensaje" placeholder="reclamo mensaje" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div  class="validation"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="span6">
 
-            </div>
-            <div class="form-group row">
+                                <input ng-click="createReclamo()" value="Save" class="btn btn-success"/>
 
-                <label for="reclamoNumero" class="col-sm-2">Numero</label>
-                <input id="reclamoNumero" required ng-model="reclamoNumero" class="col-sm-6"/>
+                                <a class="btn btn-info" ui-sref="reclamosList">Cancel</a>
+                            </div>
 
-            </div>
-            <div class="form-group row">
-
-                <label for="reclamoMensaje" class="col-sm-2">Mensaje:</label>
-                <input id="reclamoMensaje" required ng-model="reclamoMensaje" class="col-sm-6"/>
-
-            </div>
-            <div class="form-group row">
-                <div class="form-group col-sm-6" ng-if="!reclamo.$valid">
-
-                    <div class="alert alert-warning">
-                        <strong>Advertencia!</strong>
-                        <p>Todos los campos son necesarios</p>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="form-group col-sm-12">
-                    <input ng-show="reclamo.$valid" ng-click="createReclamo()" value="Save" class="btn btn-success"/>
-                    <a class="btn btn-info" ui-sref="reclamosList">Cancel</a>
-                </div>
-            </div>
-        </form>
-
+            <!-- ./span12 -->
+        </div>
     </div>
-</div>
-
+</section>
