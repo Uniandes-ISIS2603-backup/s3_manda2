@@ -1,9 +1,10 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
     <div class="btn-group mr-2" role="group" aria-label="First group">
         <a href=".#!/inicio"><button type="button" class="btn btn-primary">Volver</button></a>
+        <a ui-sref = "vueltacondemoraAgregar"><button type="button" class="btn btn-primary">Crear una vuelta</button></a>
     </div>
-    <h4>Vueltas con demora</h4>
-    <table class="table table-hover">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -12,8 +13,11 @@
                 <th>Punto de realizacion</th>
                 <th>Calificación</th>
                 <th>Descripcion</th>
+                <th>Estado</th>
                 <th>Costo</th>
+                <th>Costo de transporte</th>
                 <th>Costo por duración</th>
+                <th>Acciones</th>
                 <!--<th>Pago</th>-->
                 <th></th>
             </tr>
