@@ -1,10 +1,10 @@
 <div class="col-sm-8 bonito">
     <ul>
 
-        <h3>{{clienteActual.nombre}}</h3>
+        <h3>{{usuarioActual.nombre}}</h3>
         <hr>
         <h2>Compras en Tienda:</h2>
-        <div ng-repeat=" compra in clienteActual.comprasEnTienda">
+        <div ng-repeat=" compra in usuarioActual.comprasEnTienda">
             <li>Descripcion: {{compra.descripcion}}</li>
             <li>Estado: {{compra.estado}}</li>
             <li>Calificacion: {{compra.calificacion}}</li>
@@ -12,7 +12,7 @@
             <li>Costo de Transporte: {{compra.costoDeTransporte}}</li>
         </div>
         <h2>Entrega de Documentos:</h2>
-        <div ng-repeat=" doc in clienteActual.entregasDeDocumentos">
+        <div ng-repeat=" doc in usuarioActual.entregasDeDocumentos">
             <li>Descripcion: {{doc.descripcion}}</li>
             <li>Estado: {{doc.estado}}</li>
             <li>Calificacion: {{doc.calificacion}}</li>
@@ -21,7 +21,7 @@
             <li>Porcentaje Extra: {{doc.porcentajeExtra}}</li>
         </div>
         <h2>Organizaciones:</h2>
-        <div ng-repeat=" org in clienteActual.organizaciones">
+        <div ng-repeat=" org in usuarioActual.organizaciones">
             <li>Descripcion: {{org.descripcion}}</li>
             <li>Estado: {{org.estado}}</li>
             <li>Calificacion: {{org.calificacion}}</li>
@@ -31,7 +31,7 @@
             <li> Desplazamiento: {{org.desplazamiento}}</li>
         </div>
         <h2>Vueltas con demora en Oficina:</h2>
-        <div ng-repeat=" ofi in clienteActual.vueltasConDemoraEnOficina">
+        <div ng-repeat=" ofi in usuarioActual.vueltasConDemoraEnOficina">
             <li>Descripcion: {{ofi.descripcion}}</li>
             <li>Estado: {{ofi.estado}}</li>
             <li>Calificacion: {{ofi.calificacion}}</li>
