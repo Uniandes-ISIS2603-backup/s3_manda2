@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "aaa9e288-1d9b-440a-98cb-ec729cb0e760",
 		"name": "Billetera",
-		"_postman_id": "a54b3aa2-be59-9edb-18c0-5a9cc48ddb3a",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -13,10 +11,11 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "78764e7c-27dc-49f0-92ce-3bf06bb0d411",
 						"type": "text/javascript",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id\",data.id);",
+							"postman.setGlobalVariable(\"new_id_billetera\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"console.log(data.id);"
 						]
@@ -24,20 +23,30 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id\": 2,\n  \"saldo\": 3700,\n  \"puntosDeFidelidad\": 100,\n  \"payPals\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      }\n}"
+					"raw": "{\n  \"id\": 2,\n  \"saldo\": 3700,\n  \"puntosDeFidelidad\": 100,\n  \"payPals\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"carlos bello\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"tarjetasDeCredito\":{\n      \t\"id\": 6,\n    \"nombreCliente\": \"carlos bello\",\n    \"numeroTarjeta\": \"0123456987124568\"\n      },\n      \"pses\":{\n      \t\"nombreCliente\": \"carlos bello\",      \n     \"id\": 01234566789,\n     \"linkPse\": \"https://www.pse.com.co/inicio\"\n      }\n}"
 				},
-				"description": null
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/billeteras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"billeteras"
+					]
+				}
 			},
 			"response": []
 		},
@@ -57,11 +66,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/billeteras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"billeteras"
+					]
+				}
 			},
 			"response": []
 		},
@@ -81,11 +104,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/billeteras/{{new_id_billetera}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"billeteras",
+						"{{new_id_billetera}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -103,11 +141,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/billeteras/{{new_id}}",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/billeteras/{{new_id_billetera}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"billeteras",
+						"{{new_id_billetera}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -128,20 +181,31 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web/api/billeteras",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id\": 2,\n  \"saldo\": 5000,\n  \"puntosDeFidelidad\": 100,\n  \"payPals\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      }\n}"
+					"raw": "{\n  \"id\": 1,\n  \"saldo\": 5000,\n  \"puntosDeFidelidad\": 100,\n  \"payPals\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      }\n}"
 				},
-				"description": null
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/billeteras/{{new_id_billetera}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"billeteras",
+						"{{new_id_billetera}}"
+					]
+				}
 			},
 			"response": []
 		}

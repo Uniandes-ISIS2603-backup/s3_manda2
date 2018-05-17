@@ -1,37 +1,13 @@
 {
-	"id": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-	"name": "Pruebas clase comprasEnTienda",
-	"description": "",
-	"order": [
-		"34adaed9-a9dd-1d3e-9dc5-875fa5328a4f",
-		"8820aa65-768b-4cf2-1d5d-b4e05999546f",
-		"a990f1c3-2b40-6b87-1313-361ff20fc5e2",
-		"93780349-a614-547d-631e-3d440a27ec64",
-		"6733e97b-282c-fa9f-8f1f-7609b719f626"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1520275496224,
-	"owner": 0,
-	"public": false,
-	"events": [],
-	"variables": [],
-	"auth": null,
-	"requests": [
+	"info": {
+		"_postman_id": "bfac98c0-94ad-4d11-9110-3f84b54b4623",
+		"name": "Pruebas clase comprasEnTienda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "34adaed9-a9dd-1d3e-9dc5-875fa5328a4f",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
-			"queryParams": [],
-			"events": [
+			"name": "postCompraEntienda",
+			"event": [
 				{
 					"listen": "test",
 					"script": {
@@ -46,27 +22,66 @@
 					}
 				}
 			],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"auth": null,
-			"time": 1523607910989,
-			"name": "postCompraEntienda",
-			"description": "",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-			"responses": [
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type\": \"comprasEnTiendaDetailsDTO\",\r\n        \"calificacion\": 2,\r\n        \"costo\": 9000,\r\n        \"descripcion\": \"Compra de morcilla en doña juana\",\r\n        \"estado\": \"EN_DESARROLLO\",\r\n        \"id\": 3000,\r\n        \"nombre\": \"Compra de alimentos\",\r\n        \"puntoDeEncuentro\": \"Doña Juana cra 68\",\r\n        \"puntoDeRealizacion\": \"Universidad de los Andes\",\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"articulo\": [\r\n            {\r\n                \"id\": {{new_id_art}},\r\n                \"nombreArticulo\": \"morcilla\",\r\n                \"precio\": 5000,\r\n                \"rutaImagen\": \"data/images/morcilla\"\r\n            }\r\n        ],\r\n        \"costoDeTransporte\": 11000,\r\n        \"pago\": []\r\n    }\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"comprasentienda"
+					]
+				}
+			},
+			"response": [
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					"id": "f44916eb-79b3-428b-a635-6eba703e8aba",
+					"name": "postCompraEntienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"type\": \"comprasEnTiendaDetailsDTO\",\r\n        \"calificacion\": 2,\r\n        \"costo\": 9000,\r\n        \"descripcion\": \"Compra de morcilla en doña juana\",\r\n        \"estado\": \"EN_DESARROLLO\",\r\n        \"id\": 3000,\r\n        \"nombre\": \"Compra de alimentos\",\r\n        \"puntoDeEncuentro\": \"Doña Juana cra 68\",\r\n        \"puntoDeRealizacion\": \"Universidad de los Andes\",\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"articulo\": [\r\n            {\r\n                \"id\": {{new_id_art}},\r\n                \"nombreArticulo\": \"morcilla\",\r\n                \"precio\": 5000,\r\n                \"rutaImagen\": \"data/images/morcilla\"\r\n            }\r\n        ],\r\n        \"costoDeTransporte\": 11000,\r\n        \"pago\": []\r\n    }\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"s3_manda2-web",
+								"api",
+								"comprasentienda"
+							]
+						}
 					},
-					"time": 97,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
 						{
 							"key": "Content-Length",
 							"value": "258",
@@ -98,62 +113,90 @@
 							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"type\":\"comprasEnTiendaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10.0}",
-					"language": "json",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"code": 200,
-					"responseSize": {
-						"body": 258,
-						"header": 269,
-						"total": 527
-					},
-					"mimeType": "text",
-					"fileName": "response.json",
-					"dataURI": "data:application/json;base64, eyJ0eXBlIjoiY29tcHJhc0VuVGllbmRhRFRPIiwiY29zdG8iOjMwLjAsImRlc2NyaXBjaW9uIjoiZXN0dXZvIGJpZW4iLCJpZCI6MzQ1LCJub21icmUiOiJjb21wcmExIiwicHVudG9EZUVuY3VlbnRybyI6ImNhbGxlIDQ0IiwicHVudG9EZVJlYWxpemFjaW9uIjoiRXhpdG8gIiwiY2xpZW50ZSI6e30sImVtcGxlYWRvIjp7ImlkZW50aWZpY2FjaW9uIjoiIiwiZm90byI6IiIsIkVQUyI6IiJ9LCJwYWdvIjp7fSwiY29zdG9EZVRyYW5zcG9ydGUiOjEwLjB9",
-					"name": "postCompraEntienda",
-					"id": "29040511-83d8-61f7-47e1-754dd49622e2",
-					"request": {
-						"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true
-							}
-						],
-						"headers": "Content-Type: application/json\n",
-						"data": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }",
-						"method": "POST",
-						"dataMode": "raw"
-					}
+					"cookie": [],
+					"body": "{\"type\":\"comprasEnTiendaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10.0}"
 				}
-			],
-			"preRequestScript": null,
-			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
+			]
 		},
 		{
-			"id": "6733e97b-282c-fa9f-8f1f-7609b719f626",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [
+			"name": "get Allcomprasentienda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"comprasentienda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get compra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"comprasentienda",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update  compra con id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \t\"costoDeTransporte\": \"20.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"comprasentienda",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete compra con id",
+			"event": [
 				{
 					"listen": "test",
 					"script": {
@@ -165,98 +208,26 @@
 					}
 				}
 			],
-			"auth": null,
-			"method": "DELETE",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-			"data": null,
-			"dataMode": "params",
-			"name": "delete compra con id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1523609680101,
-			"version": 2,
-			"responses": [],
-			"preRequestScript": null,
-			"tests": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "8820aa65-768b-4cf2-1d5d-b4e05999546f",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "GET",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-			"data": null,
-			"dataMode": "params",
-			"name": "get Allcomprasentienda",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1520792001987,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "93780349-a614-547d-631e-3d440a27ec64",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"comprasentienda",
+						"{{id}}"
+					]
 				}
-			],
-			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "PUT",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-			"data": [],
-			"dataMode": "raw",
-			"name": "update  compra con id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1523609168038,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null,
-			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"20.000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\"\r\n }"
-		},
-		{
-			"id": "a990f1c3-2b40-6b87-1313-361ff20fc5e2",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/comprasentienda/{{id}}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "GET",
-			"collectionId": "a03e7ec8-c95a-d47c-07f5-186f33e082d6",
-			"data": null,
-			"dataMode": "params",
-			"name": "get compra",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1523608363669,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
+			},
+			"response": []
 		}
 	]
 }

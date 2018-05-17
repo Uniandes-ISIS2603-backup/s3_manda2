@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "0f55f5e0-3b77-4ce6-9f6e-42af35f115f4",
 		"name": "Pruebas Clase PSE",
-		"_postman_id": "7bd8aebb-e059-4066-9616-93e00dae40e7",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -71,7 +70,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/pses",
 					"protocol": "http",
@@ -108,7 +110,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/pses/{{new_id_pse}}",
 					"protocol": "http",
@@ -190,7 +195,10 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/pses/{{new_id_pse}}",
 					"protocol": "http",

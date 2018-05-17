@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "f9be3544-aa98-4993-8190-58360ee8314c",
 		"name": "pago",
-		"_postman_id": "f7d75057-a8e4-5836-fad4-7ba60036fee7",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -24,20 +22,30 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n      \"id\": 10,\n      \"estadoTransaccion\": \"activo\",\n      \"fecha\": \"2018-03-03T00:00:00-05:00\",\n      \"payPal\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"cliente\":{\n      \t\"id\": 084156584,\n       \"nombre\": \"Nicolas Caceres\",\n       \"cedula\": 1020839875,\n       \"fechaDeIngreso\": \"15/07/06\",\n       \"calificacion\": 5,\n       \"pagoAnticipado\": false,\n       \"horasDeServicioSemanal\": 20\n      },\n      \"organizacion\":{\n      \t\"costoDeTransporte\": 2000,\n      \t\"costoDeDuracion\":1000,\n      \t\"desplazamiento\": false,\n      \t\"id\": 1\n      }\n    \n      \n\n}\n"
+					"raw": "{\n\n      \"id\": 10,\n      \"estadoTransaccion\": \"activo\",\n      \"fecha\": \"2018-03-03T00:00:00-05:00\",\n      \"payPal\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"cliente\":{\n      \t\"id\": {{new_id_cliente}},\n       \"nombre\": \"Nicolas Caceres\",\n       \"cedula\": 1026767655,\n       \"fechaIngreso\": \"2012-04-23T18:25:43.511Z\",\n       \"calificacion\": 5,\n       \"pagoAnticipado\": true,\n       \"horasDeServicioSemanal\": 20,\n       \"login\": \"nacaceres45\"\n      },\n      \"entregaDeDocumentos\":{\n \t    \"id\": {{id_entregaDoc}},\n \t\t\"nombre\": \"Entrega de documento a bancolombia\",\n \t\t\"costo\": 15000,\n \t\t\"puntoDeEncuentro\":\"Pan Pa Ya 116\",\n \t\t\"estado\": \"EN_DESARROLLO\",\n \t\t\"calificacion\": 4,\n \t\t\"descripcion\": \"Llevar carta al gerente general\",\n \t\t\"puntoDeRealizacion\": \"Bancolombia calle 72\",\n \t\t\"costoDeTransporte\": 8000,\n \t\t\"porcentajeExtra\": 0.3\n      }\n    \n      \n\n}\n"
 				},
-				"description": null
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pagos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -57,11 +65,25 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pagos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -81,11 +103,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pagos",
+						"{{new_id}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -103,11 +140,26 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
-				"description": null
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pagos",
+						"{{new_id}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -128,20 +180,31 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/s3_manda2-web-1.0/api/pagos/{{new_id}}",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n      \"id\": 10,\n      \"estadoTransaccion\": \"finalizado\",\n      \"fecha\": \"2018-03-03T00:00:00-05:00\",\n      \"payPal\": {\n      \t\"id\": 1,\n      \t\"nombreCliente\": \"pedro\",\n      \t\"linkPayPal\": \"http://www.paypal.com/users/pedro\"\n      },\n      \"cliente\":{\n      \t\"id\": 084156584,\n       \"nombre\": \"Nicolas Caceres\",\n       \"cedula\": 1020839875,\n       \"fechaDeIngreso\": \"15/07/06\",\n       \"calificacion\": 5,\n       \"pagoAnticipado\": false,\n       \"horasDeServicioSemanal\": 20\n      },\n      \"organizacion\":{\n      \t\"costoDeTransporte\": 2000,\n      \t\"costoDeDuracion\":1000,\n      \t\"desplazamiento\": false,\n      \t\"id\": 1\n      }\n    \n}"
 				},
-				"description": null
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/pagos/{{new_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"pagos",
+						"{{new_id}}"
+					]
+				}
 			},
 			"response": []
 		}
