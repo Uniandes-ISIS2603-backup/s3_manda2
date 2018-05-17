@@ -11,11 +11,11 @@
         var basePath = 'src/modules/compraentienda/';
 
         $stateProvider.state('compraentiendaList', {
-            url: '/vueltascondemoraenoficina',
+            url: '/compraentienda',
             views: {
                 'serviciosIndexView': {
                     templateUrl: basePath + 'compraentienda.list.html',
-                    controller: 'vueltaCtrl',
+                    controller: 'compraCtrl',
                     controllerAs: 'ctrl'
                 }
             }
@@ -23,9 +23,10 @@
             .state('compraentiendaCreate', {
                 url: '/create',
                 views: {
-                    'seviciosIndexVew': {
+                    'serviciosIndexVew': {
                         templateUrl: basePath + 'create/compraentienda.create.html',
-                        controller: 'compraCreateCtrl'
+                        controller: 'compraCreateCtrl',
+                        controllerAs:'ctrl'
                     }
                 }
             })
@@ -38,6 +39,7 @@
                     'serviciosIndexView': {
                         templateUrl: basePath + 'delete/compraentienda.delete.html',
                         controller: 'compraDeleteCtrl',
+                        controllerAs:'ctrl'
                     }
                 }
             });
