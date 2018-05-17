@@ -35,6 +35,7 @@
             parent: 'cuentaDetalle',
             views: {
                 'vistacambia': {
+                    
                     templateUrl: basePath + 'datospersonales.html',
                 }
             }
