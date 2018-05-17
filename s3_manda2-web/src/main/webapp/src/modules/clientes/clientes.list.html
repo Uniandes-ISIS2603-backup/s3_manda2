@@ -26,6 +26,7 @@
                         <th></th>
                         <th>Id</th>
                         <th>Nombre</th>
+                        <th>Login</th>
                         <th>Cedula</th>
                         <th>Fecha de ingreso</th>
                         <th>Calificacion</th>
@@ -40,6 +41,7 @@
                         <td><img src="boot/img/team/img-1.jpg" style="height:18px; margin-top:-2px;"></td>
                         <td > <a ui-sref="clienteDetail ({clienteId: cliente.id}) ">{{cliente.id}}</a></td>
                         <td >{{cliente.nombre}}</td>
+                        <td >{{cliente.login}}</td>
                         <td >{{cliente.cedula}}</td>
                         <td >{{cliente.fechaIngreso| date:'yyyy-MM-dd'}}</td>
                         <td >{{cliente.calificacion}}</td>
@@ -48,13 +50,6 @@
                         <td id="{{$index}}-actions">
                             <button type="button" class="btn btn-primary"  ui-sref="clienteUpdate({clienteId: cliente.id})">Editar</button>
                             <button type="button" class="btn btn-primary"  ui-sref="clienteDelete({clienteId: cliente.id})">Eliminar</button>
-                    </tr>
-
-                    <tr>
-                        <td><img src="boot/img/team/img-1.jpg" style="height:18px; margin-top:-2px;"></td>
-                        <td>Hola esto es una prueba pueden borrarlo :) </td>
-                        <td>2563</td>
-                        <td>1025</td>
                     </tr>
                     </tbody>
                 </table>

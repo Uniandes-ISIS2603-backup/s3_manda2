@@ -199,37 +199,13 @@
         </div>
 
 
-<div id="header-wrapper" class="header-slider">
-    <header class="clearfix">
-        <div class="logo">
-            <img src="data/images/Manda2.png" alt=""/>
+        <div id="header-wrapper" class="header-slider">
+            <header class="clearfix">
+                <div class="logo">
+                    <img src="data/images/Manda2.png" alt=""/>
+                </div>
+            </header>
         </div>
-    </header>
-</div>
-
-<section class="spacer orange">
-    <div class="container">
-        <div class="row">
-            <div class="span6 alignright flyLeft">
-                <blockquote class="large">
-                    Manda2 en pocos minutos <cite>Hola</cite>
-                </blockquote>
-            </div>
-            <div class="span6 aligncenter flyRight">
-                <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
-            </div>
-            <div>
-                <button type="button" class="btn btn-dark"><a ui-sref="clientesList"> Prueba </a></button>
-            </div>
-            <div class="container" ui-view="mainView">
-       
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-
 
         <section class="spacer orange">
             <div class="container">
@@ -242,7 +218,6 @@
                     <div class="span6 aligncenter flyRight">
                         <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -250,14 +225,14 @@
         <section id="nuestroEquipo" class="section">
             <div class="container">
                 <h4>Nuestro Equipo</h4>
-               
-                    <div class="span4 offset1">
-                        <div>
-                            <h2>Somos el equipo de Manda2 quienes dia a dia nos esforzamos por hacer de el <strong>servicio el
-                                    mejor posible</strong></h2>
-                        </div>
+
+                <div class="span4 offset1">
+                    <div>
+                        <h2>Somos el equipo de Manda2 quienes dia a dia nos esforzamos por hacer de el <strong>servicio el
+                                mejor posible</strong></h2>
                     </div>
-              
+                </div>
+
                 <div class="row">
                     <div class="span2 offset1 flyIn">
                         <div class="people">
@@ -267,11 +242,9 @@
                         </div>
                     </div>
                 </div>
-                 <div ui-view="empleadoView">
-            </div>    
+                <div ui-view="empleadoView">
+                </div>    
         </section>
-
-
 
         <section id="servicios" class="section green">
             <div class="container">
@@ -336,7 +309,7 @@
                                     <small>Cliente Bello</small>
 
 
-                                    <div class="row" ui-sref="reclamosList">
+                                    <div class="row" ui-view="listReclamoView">
                                     </div>
                                     <div class="row">
                                     </div>
