@@ -58,5 +58,31 @@
             }
 
         });
+        $stateProvider.state('reclamoDelete', {
+            url: '/delete/{reclamoId : int}',
+            param:{
+                reclamoId: null
+            },
+            views: {
+                'listReclamoView': {
+                    templateUrl: basePath + 'create/reclamo.create.html',
+                    controller: 'reclamoDeleteCtrl'
+                }
+            }
+
+        });
+        $stateProvider.state('reclamoUpdate', {
+            url: '/update/{reclamoId : int}',
+            param:{
+                reclamoId: null
+            },
+            views: {
+                'listReclamoView': {
+                    templateUrl: basePath + 'create/reclamo.create.html',
+                    controller: 'empleadoUpdateCtrl',
+                }
+            }
+
+        });
     }]);
 })(window.angular);

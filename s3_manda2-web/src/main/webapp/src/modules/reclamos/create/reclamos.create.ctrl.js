@@ -6,6 +6,7 @@
             function ($scope, $http, reclamoContext, $state) {
                 $scope.data = {};
                 $scope.createReclamo = function () {
+                    console.log(1);
                     $http.post(reclamoContext, {
                             id: $scope.reclamoId,
                             numero: $scope.reclamoNumero,
