@@ -19,6 +19,7 @@
         'entregaModule',
         'reservasModule',
         'articulosModule',
+        'cuentaModule',
         'loginModule'
     ]);
     app.config(['$qProvider', function ($qProvider) {
