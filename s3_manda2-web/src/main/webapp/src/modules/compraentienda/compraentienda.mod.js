@@ -13,7 +13,7 @@
         $stateProvider.state('compraentiendaList', {
             url: '/vueltascondemoraenoficina',
             views: {
-                'despliegueServicios': {
+                'serviciosIndexView': {
                     templateUrl: basePath + 'compraentienda.list.html',
                     controller: 'vueltaCtrl',
                     controllerAs: 'ctrl'
@@ -23,7 +23,7 @@
             .state('compraentiendaCreate', {
                 url: '/create',
                 views: {
-                    'despliegueServicios': {
+                    'seviciosIndexVew': {
                         templateUrl: basePath + 'create/compraentienda.create.html',
                         controller: 'compraCreateCtrl'
                     }
@@ -35,7 +35,7 @@
                     idCompra: null
                 },
                 views: {
-                    'despliegueServicios': {
+                    'serviciosIndexView': {
                         templateUrl: basePath + 'delete/compraentienda.delete.html',
                         controller: 'compraDeleteCtrl',
                     }
