@@ -112,8 +112,8 @@
         <script src="src/modules/empleados/empleadoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/create/empleados.create.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/delete/empleado.delete.ctrl.js" type="text/javascript"></script>
-         <script src="src/modules/empleados/update/empleado.update.ctrl.js" type="text/javascript"></script>
-        
+        <script src="src/modules/empleados/update/empleado.update.ctrl.js" type="text/javascript"></script>
+
 
         <!-- Reservas -->
         <script src="src/modules/reservas/reservas.mod.js" type="text/javascript"></script>
@@ -139,7 +139,7 @@
         <script src="src/modules/login/login.mod.js" type="text/javascript"></script>
         <script src="src/modules/login/login.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/login/logout.ctrl.js" type="text/javascript"></script>
-        
+
         <!-- Cuenta-->
         <script src="src/modules/cuenta/cuenta.mod.js" type="text/javascript"></script>
         <script src="src/modules/cuenta/cuenta.ctrl.js" type="text/javascript"></script>
@@ -177,7 +177,7 @@
                                 <li><a title="clientes" ng-click="gotoAnchor('clientesList', 'clientes')">Clientes</a></li>
 
                                 <li><a title="pagos" ng-click="gotoAnchor('pagoList', 'pago')">Pagos</a></li>
-                                <li class="nav-item"><a class="nav-link" ng-click="gotoAnchor('cuentaDetalle', 'cuenta')">Cuenta</a></li>
+                                <li class="nav-item"><a title="cuenta" ng-click="gotoAnchor('cuentaDetalle', 'cuenta')">Cuenta</a></li>
                                 <!--<li><a title="registro" href="#login">Registro</a> </li>!-->
                                 <li>
                                     <div class="col-md-5">
@@ -187,12 +187,8 @@
                                         </ul>
                                         <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
                                             <li class="nameUser">Hola,{{currentUser}}</li>
-                                            <!--<li class="nav-item"><a class="nav-link" href="cuenta1.html">Cuenta</a> </li>-->
                                         </ul>
                                     </div>
-                                    <!--<li><a title="registro" href="#login">Registro</a> </li>!-->
-
-
                             </ul>
                         </nav>
 
@@ -215,19 +211,19 @@
 
         <section id ="cuenta" class="spacer orange">
             <div class="container" >
-
-                <div class="row">
-                    <div class="span6 alignright flyLeft">
-                        <blockquote class="large">
-                            Manda2 en pocos minutos <cite>Hola</cite>
-                        </blockquote>
-                    </div>
-                    <div class="span6 aligncenter flyRight">
-                        <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
-                    </div>
-                </div>
                 <div ui-view="cuentaView">
+                    <div class="row">
+                        <div class="span6 alignright flyLeft">
+                            <blockquote class="large">
+                                Manda2 en pocos minutos <cite>Hola</cite>
+                            </blockquote>
+                        </div>
+                        <div class="span6 aligncenter flyRight">
+                            <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 

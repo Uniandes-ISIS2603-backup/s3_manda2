@@ -21,7 +21,7 @@
 
 
 <div class="span6">
-    <h4>Cuenta</h4>
+    <h1>Cuenta</h1>
     <div class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#one" data-toggle="tab"><i class="icon-rocket"></i> Datos Personales</a></li>
@@ -31,13 +31,15 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="one">
-                <p>
-                    <strong>Aqui van los datos</strong> Como se quieran poner.
-                </p>
-                <p>
-                    jeje hola
-                </p>
-
+                <ul>
+                    <li>Nombre: {{usuarioActual.nombre}}</li>
+                    <li>Login: {{usuarioActual.login}}</li>
+                    <li>Cedula: {{usuarioActual.cedula}}</li>
+                    <li>Fecha Ingreso: {{usuarioActual.fechaIngreso| date:'yyyy-MM-dd'}}</li>
+                    <li>Calificaion: {{usuarioActual.calificacion}}</li>
+                    <li>Pago Anticipado: {{usuarioActual.pagoAnticipado}}</li>
+                    <li>Horas de Servicio Semanal:{{usuarioActual.horasDeServicioSemanal}}</li>
+                </ul>
             </div>
             <div class="tab-pane" id="two">
 

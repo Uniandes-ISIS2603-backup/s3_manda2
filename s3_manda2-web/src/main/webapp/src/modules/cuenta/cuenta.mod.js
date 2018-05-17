@@ -8,7 +8,6 @@
 
             $stateProvider.state('cuentaDetalle', {
                 url: '/cuenta',
-                abstract: true,
                 views: {
                     'cuentaView': {
                         templateUrl: basePath + 'cuenta1.html',

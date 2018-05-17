@@ -1,12 +1,16 @@
 (function (ng) {
-        var mod = ng.module("cuentaModule");
-        mod.constant("cuentaContext", "api/cuenta");
-        mod.controller('cuentaCtrl', ['$scope', '$http', 'cuentaContext',
-            function ($scope, $http, cuentaContext) {
-                $http.get(cuentaContext).then(function (response) {
-                    $scope.clientesRecords = response.data;
+    var mod = ng.module("cuentaModule");
+    mod.constant("cuentaContext", "api/cuenta");
+    mod.controller('cuentaCtrl', ['$scope', '$http', 'cuentaContext','$state','currentUser',
+        function ($scope, $http, cuentaContext, $state, currentUser) {
+            $scope.usuarioActual =undefined;
+                $http.get('clientes/1000').then(function (response) {
+                    console.log(1);
+                    $scope.usuarioActual = response.data;
+                    console.log(response.data);
                 });
-            }
-        ]);
-    }
+            
+        }
+    ]);
+}
 )(window.angular);
