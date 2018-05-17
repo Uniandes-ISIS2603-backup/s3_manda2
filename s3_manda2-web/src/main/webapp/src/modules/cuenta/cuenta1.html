@@ -21,37 +21,16 @@
 
 
 <div class="span6">
-    <h1>Cuenta 123</h1>
+    <h1>Cuenta </h1>
     <div class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#one" data-toggle="tab"><i class="icon-rocket"></i> Datos Personales</a></li>
-            <li><a href="#two" data-toggle="tab">Historial de servicios</a></li>
-            <li><a href="#three" data-toggle="tab">Billetera</a></li>
-            <li><a href="#four" data-toggle="tab">Pagos</a></li>
+            <li><a data-toggle="tab" ui-sref="historialServiciosCuenta">Historial de servicios</a></li>
+            <li><a data-toggle="tab" ui-sref="billeterasCuenta">Billetera</a></li>
+            <li><a data-toggle="tab" ui-sref="pagosCuenta">Pagos</a></li>
         </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="one">
-                <ul>
-                    <li>Nombre:{{usuarioActual.nombre}}</li>
-                    <li>Login: {{usuarioActual.login}}</li>
-                    <li>Cedula: {{usuarioActual.cedula}}</li>
-                    <li>Fecha Ingreso: {{usuarioActual.fechaIngreso| date:'yyyy-MM-dd'}}</li>
-                    <li>Calificaion: {{usuarioActual.calificacion}}</li>
-                    <li>Pago Anticipado: {{usuarioActual.pagoAnticipado}}</li>
-                    <li>Horas de Servicio Semanal:{{usuarioActual.horasDeServicioSemanal}}</li>
-                </ul>
-            </div>
-            <div class="tab-pane" id="two">
-
-                <p>
-                    hola
-                </p>
-            </div>
-            <div class="tab-pane" id="three">
-                <p>
-                    holaaa
-                </p>
-            </div>
+        <div class="tab-content" ui-view="vistacambia">
+            
         </div>
     </div>
 </div>

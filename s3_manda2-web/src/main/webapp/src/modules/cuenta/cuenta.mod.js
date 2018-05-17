@@ -5,9 +5,10 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
             var basePath = 'src/modules/cuenta/';
-
+            $urlRouterProvider.otherwise('datosPersonalesCuenta');
             $stateProvider.state('cuentaDetalle', {
                 url: '/cuenta',
+                abstract: true,
                 views: {
                     'cuentaView': {
                         templateUrl: basePath + 'cuenta1.html',
@@ -25,6 +26,46 @@
                             }
                         ],
                         controllerAs: 'ctrl'
+                    }
+                }
+            });
+            $stateProvider.state('datosPersonalesCuenta', {
+
+                url: '/datospersonales',
+                parent: 'cuentaDetalle',
+                views: {
+                    'vistacambia': {
+                        templateUrl: basePath + 'datospersonales.html',
+                    }
+                }
+            });
+            $stateProvider.state('pagosCuenta', {
+
+                url: '/pagos',
+                parent: 'cuentaDetalle',
+                views: {
+                    'vistacambia': {
+                        templateUrl: basePath + 'pagos.html',
+                    }
+                }
+            });
+            $stateProvider.state('billeterasCuenta', {
+
+                url: '/billeterasCuenta',
+                parent: 'cuentaDetalle',
+                views: {
+                    'vistacambia': {
+                        templateUrl: basePath + 'billeteraCuenta.html',
+                    }
+                }
+            });
+            $stateProvider.state('historialServiciosCuenta', {
+
+                url: '/historialServicios',
+                parent: 'cuentaDetalle',
+                views: {
+                    'vistacambia': {
+                        templateUrl: basePath + 'historialServicioCuenta.html',
                     }
                 }
             });
