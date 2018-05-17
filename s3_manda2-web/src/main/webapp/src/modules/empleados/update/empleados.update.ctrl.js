@@ -22,7 +22,6 @@
                 console.log("hola");
                 $scope.createEmpleado = function () {
                     console.log($scope.empleadoNombre);
-                    console.log($scope.empleadoCedula);
                     $http.put(empleadosContext + "/" + idEmpleado, {
                         id: $state.params.empleadoId,
                         nombre: $scope.empleadoNombre,
