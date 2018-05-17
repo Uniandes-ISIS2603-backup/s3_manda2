@@ -59,6 +59,15 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     public ComprasEnTiendaDetailsDTO(ComprasEnTiendaEntity entity){
     super(entity);
         if (entity != null){
+            this.id = entity.getId();
+            this.calificacion = entity.getCalificacion();
+            this.costo = entity.getCosto();
+            this.descripcion = entity.getDescripcion();
+            this.estado = entity.getEstado();
+            this.nombre = entity.getNombre();
+            this.puntoDeEncuentro = entity.getPuntoDeEncuentro();
+            this.puntoDeRealizacion = entity.getPuntoDeRealizacion();
+            this.costoDeTransporte = entity.getCostoDeTransporte();
             if(entity.getArticulo()!= null){
                 this.articulo = new ArrayList();
                 for (ArticuloEntity articuloEntity: entity.getArticulo()){
@@ -117,6 +126,16 @@ public class ComprasEnTiendaDetailsDTO extends ComprasEnTiendaDTO implements Ser
     public ComprasEnTiendaEntity toEntity() {
         ComprasEnTiendaEntity entity = new ComprasEnTiendaEntity();
         
+        entity.setId(this.id);
+        entity.setCostoDeTransporte(this.getCostoDeTransporte());
+        entity.setCalificacion(calificacion);
+        entity.setCosto(costo);
+        entity.setDescripcion(descripcion);
+        entity.setEstado(estado);
+        entity.setId(id);
+        entity.setNombre(nombre);
+        entity.setPuntoDeEncuentro(puntoDeEncuentro);
+        entity.setPuntoDeRealizacion(puntoDeRealizacion);
         
          if (articulo != null) {
             List<ArticuloEntity> articuloEntity = new ArrayList();
