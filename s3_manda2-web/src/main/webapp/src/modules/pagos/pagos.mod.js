@@ -9,7 +9,7 @@
                 .state('pagoList', {
                     url: '/pagos',
                     views: {
-                        'mainView': {
+                        'pagoView': {
                             templateUrl: 'src/modules/pagos/pagos.list.html',
                             controller: 'pagosCtrl'
                         }
@@ -21,7 +21,7 @@
                         pago_id: null
                     },
                     views: {
-                        'mainView': {
+                        'pagoView': {
                             templateUrl: 'src/modules/pagos/pagos.detail.list.html',
                             // controller: 'pagosDetailCtrl'
 
@@ -31,7 +31,7 @@
                 .state('createPago', {
                     url: '/createPago',
                     views: {
-                        'mainView': {
+                        'pagoView': {
                             templateUrl: 'src/modules/pagos/createPago.list.html',
                             controller: 'createPagoCtrl'
                         }

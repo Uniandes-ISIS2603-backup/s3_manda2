@@ -56,11 +56,6 @@ public class OrganizacionDTO extends ServicioDetailDTO {
     public OrganizacionDTO() {
         //Constructor vacio
     }
-
-    public OrganizacionDTO(ServicioEntity entity) {
-        super(entity);
-    }
-    
     
     public OrganizacionDTO(OrganizacionEntity entityServicio) {
         super();

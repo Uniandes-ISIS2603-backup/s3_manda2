@@ -6,6 +6,7 @@
                 if (($state.params.clienteId !== undefined) && ($state.params.clienteId !== null)) {
                     $http.get(clienteContext + '/' + $state.params.clienteId).then(function (response) {
                         $scope.clienteActual = response.data;
+                        console.log($scope.clienteActual);
                     });
                 }
             }
