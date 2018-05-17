@@ -5,7 +5,8 @@
         </div>
     </div>
     <br> 
-    <div class="container-fluid">
+     <section class="panel">
+    <div class="panel-body progress-panel">
         <h2>Nuestro Equipo:</h2>
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="empleado in empleadosRecords">
@@ -24,14 +25,13 @@
                         <p> Login: {{empleado.login}}</p>
                     </div>
                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-danger"
-                                ui-sref="borrarEmpleado({empleadoId: empleado.id})">Borrar Empleado
-                        </button>
+                        <button type="button" class="btn btn-primary"  ui-sref="empleadoUpdate({empleadoId: empleado.id})">Editar Empleado</button>
+                        <button type="button" class="btn btn-primary"  ui-sref="borrarEmpleado({empleadoId: empleado.id})">Eliminar Empleado</button>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
-
+     </div>
+    </section>
 </div>
 
