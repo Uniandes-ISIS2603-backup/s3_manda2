@@ -111,7 +111,9 @@
         <script src="src/modules/empleados/empleados.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/empleadoDetail.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/empleados/create/empleados.create.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/empleados/delete/empleado.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/empleados/delete/empleados.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/empleados/update/empleados.update.ctrl.js" type="text/javascript"></script>
+        
 
         <!-- Reservas -->
         <script src="src/modules/reservas/reservas.mod.js" type="text/javascript"></script>
@@ -248,10 +250,10 @@
 
         <section id="servicios" class="section green">
             <div class="container">
-                <h4>Servicios</h4>
                 <!-- Four columns -->
-                <div class="row">
-                    <button class="span3 animated-fast flyIn boton-sin-fondo" ng-click="irVueltas()">
+                <div class="row" ui-view="serviciosIndexView">
+                    <h4>Servicios</h4>
+                    <button class="span3 animated-fast flyIn boton-sin-fondo" ui-sref="vueltacondemoraList">
                         <div class="service-box">
                             <img src="data/images/office.png" alt="" style="width:20em; height:20em"/>
                             <h2>Vueltas con demora en oficina</h2>
@@ -261,7 +263,7 @@
                             </p>
                         </div>
                     </button>
-                    <button class="span3 animated flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+                    <button class="span3 animated flyIn boton-sin-fondo" ui-sref="compraentiendaList">
                         <div class="service-box">
                             <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/>
                             <h2>Compras en tienda</h2>
@@ -270,7 +272,7 @@
                             </p>
                         </div>
                     </button>
-                    <button class="span3 animated-fast flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+                    <button class="span3 animated-fast flyIn boton-sin-fondo"  ui-sref="entregasList">
                         <div class="service-box">
                             <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/>
                             <h2>Entrega de documentos</h2>
@@ -279,7 +281,7 @@
                             </p>
                         </div>
                     </button>
-                    <button  class="span3 animated-slow flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+                    <button  class="span3 animated-slow flyIn boton-sin-fondo"  ui-sref="reservasList">
                         <div class="service-box">
                             <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/>
                             <h2>Reservas y organizacion</h2>
@@ -290,6 +292,7 @@
                     </button>
                 </div>
             </div>
+
         </section>
 
 

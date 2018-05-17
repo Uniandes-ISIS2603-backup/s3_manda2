@@ -7,7 +7,6 @@
         var basePath = 'src/modules/empleados/';
 
         $stateProvider.state('empleadosList', {
-
             url: '/empleados/list',
             views: {
                 'empleadoView': {
@@ -72,16 +71,28 @@
                 }
             }
         });
+        
+        $stateProvider.state('empleadoUpdate', {
+                url: '/update/{empleadoId:int}',
+                param: {
+                    empleadoId: null
+                },               
+                views: {
+                    'empleadoView': {
+                        templateUrl: basePath + 'create/empleados.create.html',
+                        controller: 'empleadoUpdateCtrl'
+                    }
+                }
+            });
         $stateProvider.state('borrarEmpleado', {
-            url: 'delete/{empleadoId:int}',
+            url: '/delete/{empleadoId:int}',
             param: {
                 empleadoId: null
             },
             views: {
                 'empleadoView': {
-                    templateUrl: basePath + 'delete/empleado.delete.html',
-                    controller: 'empleadoDeleteCtrl',
-                    controllerAs: 'ctrl'
+                    templateUrl: basePath + 'delete/empleados.delete.html',
+                    controller: 'empleadoDeleteCtrl'                   
                 }
             }
         });
