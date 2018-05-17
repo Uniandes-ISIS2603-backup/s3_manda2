@@ -1,19 +1,46 @@
-<h1 class="text-center"> Pagos</h1>
-<hr>
+<div class="row">
+    <div class="col-lg-12">
 
-<div ng-repeat="pagos in pagosRecords" class="pagoRaya">
-    <span>{{pagos.fecha|date}}</span>
-    <span class="cosita-arriba">{{ pagos.estadoTransaccion}}</span>
-    <br>
-    <span> Costo:</span>
-    <br>
-    <span> Nombre del servicio:</span>
-    <div>
-        <button ui-sref="pagosDetail({pago_id: pagos.id})" class="botoncito">Ver resumen</button>
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary" ui-sref="createPago">Crear un pago</button>
+        </div>
+        <br> </br>
+        <section class="panel">
+            <div class="panel-body progress-panel">
+                <div class="row">
+                    <div class="col-lg-8 task-progress pull-left">
+                        <h1>Todos los pagos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover personal-task">
+                    <thead>
+                    <tr>
+
+                        <th>Fecha</th>
+                        <th>Costo</th>
+                        <th>Nombre del servicio</th>
+                        <th>Estado de transaccion</th>
+                        <th>Resumen</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat = "pagos in pagosRecords" class="pagoRaya">
+
+                        <td >{{'pagos.fecha|date'}}</td>
+                        <td >{{ 'aqui va el costo del servicio relacionado'}}</td>
+                        <td >{{ 'aqui va el nombre del servicio'}}</td>
+                        <td >{{pagos.estadoTransaccion}}</td>
+                        <td> <button ui-sref="pagosDetail({pago_id: pagos.id})" type="button" class="btn btn-primary">Ver resumen</button></td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
     </div>
 </div>
-
-<div>
-    <button ui-sref="createPago" class="nuevoBotoncito"> Crear un pago</button>
-</div>
-

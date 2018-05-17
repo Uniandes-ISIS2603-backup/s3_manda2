@@ -91,16 +91,7 @@ public class ElementoBusquedaReservaDTO {
         return nombre;
     }
 
-    /**
-     * Obtener los datos del elemento a buscar
-     *
-     * @return datosBusqueda los datos de la busqueda.
-     *
-     */
 
-    public String getDatos() {
-        return datosBusqueda;
-    }
 
     /**
      * Establecer el nombre del nombre
@@ -112,15 +103,6 @@ public class ElementoBusquedaReservaDTO {
         this.nombre = nombre;
     }
 
-    /**
-     * Establecer los datos del elemento
-     *
-     * @param datosBusqueda los datos de la busqueda
-     */
-
-    public void setDatos(String datosBusqueda) {
-        this.datosBusqueda = datosBusqueda;
-    }
 
     /**
      * Indica si el eleme. de busq. es exitoso
