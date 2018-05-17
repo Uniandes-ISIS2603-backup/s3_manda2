@@ -31,7 +31,7 @@
                     requireLogin: false
                 },
                 views: {
-                    'mainView': {
+                    'loginView': {
                         templateUrl: basePath + 'login.html',
                         controller: 'loginCtrl'
                     }
@@ -44,7 +44,7 @@
                 }
                 ,
                 views: {
-                    'mainView': {
+                    'loginView': {
                         templateUrl: basePath + 'logout.html',
                         controller: 'logoutCtrl'
                     }
@@ -53,4 +53,3 @@
         }
     ]);
 })(window.angular);
-
