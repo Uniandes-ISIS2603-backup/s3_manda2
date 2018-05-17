@@ -1,11 +1,14 @@
 (function (ng) {
         var mod = ng.module("articulosModule");
-        mod.constant("articulosContext2", "api/articulos");
-        mod.controller('articulosDetailCtrl', ['$scope', '$http', 'articulosContext2',
-            function ($scope, $http, articulosContext2) {
-                $http.get('data/articulos.json').then(function (response) {
-                    $scope.articulosDetailRecords = response.data;
-                });
+        mod.constant("articulosContext", "api/articuloss");
+        mod.controller('articulosDetailCtrl', ['$scope', '$http', 'articulosContext', '$state',
+            function ($scope, $http, articulosContext, $state) {
+                if (($state.params.articulosRutaImagen !== undefined) && ($state.params.articulosRutaImagen !== null)) {
+                    $http.get(articulosContext + '/' + $state.params.articulosRutaImagen).then(function (response) {
+                        $scope.articulosActual = response.data;
+                        console.log($scope.articulosActual);
+                    });
+                }
             }
         ]);
     }

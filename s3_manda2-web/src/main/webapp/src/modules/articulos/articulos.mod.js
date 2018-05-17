@@ -1,53 +1,106 @@
 (function (ng) {
-    var mod = ng.module('articulosModule', ['ui.router']);
 
+    var mod = ng.module("articulosModule", ['ui.router']);
+    mod.constant("articulosContext", "api/articulos");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        var basePath = 'src/modules/articulos/';
 
-        $stateProvider.state('articulosList', {
-            url: '/articulos',
-            views: {
-                'mainView': {
-                    templateUrl: basePath + 'articulos.list.html',
-                    controller: 'articulosListCtrl',
-                    controllerAs: 'ctrl'
+            var basePath = 'src/modules/articulos/';
+
+            $stateProvider.state('articulos', {
+                url: '/articulos',
+                abstract: true,
+                views: {
+                    'articulosView': {
+                        templateUrl: basePath + 'articulos.html',
+                        controller: 'articulosCtrl',
+                        controllerAs: 'ctrl'
+                    }
                 }
-            }
-        }).state('articulosCreate', {
-            url: '/articulo/create',
-            params: {
-                nombreArticulo: null,
-                rutaImagen: null,
-                precio: null
-            },
-            views: {
-                'mainView': {
-                    templateUrl: basePath + 'create/articulos.detail.html',
-                    controller: 'articulosCreateCtrl'
+            });
+
+            $stateProvider.state('articulosList', {
+
+                url: '/list',
+                parent: 'articulos',
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'articulos.list.html',
+                    }
                 }
-            }
-        }).state('articulosUpdate', {
-            url: '/update/{idArticulos:int}',
-            param: {
-                idArticulos: null
-            },
-            views: {
-                'mainView': {
-                    templateUrl: basePath + 'create/articulos.create.html',
-                    controller: 'articulosUpdateCtrl'
+            });
+            $stateProvider.state('articulosDetail', {
+                url: '/{articulosRutaImagen:string}/detail',
+                parent: 'articulos',
+                param: {
+                    articulosId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'articulos.list.html',
+                        controller: 'articulosCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'articulos.detail.html'
+                    }
                 }
-            }
-        }).state('articulosDelete', {
-            url: '/delete/{idArticulos:int}',
-            param: {
-                idArticulos: null
-            },
-            views: {
-                'detailView': {
-                    templateUrl: basePath + 'delete/articulos.delete.html',
-                    controller: 'articulosDeleteCtrl'
+
+            });
+            $stateProvider.state('articulosSubDetail', {
+                url: '/datosPersonales',
+                parent: 'articulosDetail',
+                views: {
+                    'articulosView': {
+                        templateUrl: basePath + 'articulos.SubDetail.html',
+                        controller: 'articulosDetailCtrl',
+                        controllerAs: 'ctrl'
+                    }
+
                 }
-            }
-        });
-    }]);
+
+            });
+            
+            $stateProvider.state('articulosCreate', {
+                url: '/create',
+                parent: 'articulos',
+                views: {
+                    'listView': {
+                        templateUrl: basePath + '/new/articulos.new.html',
+                        controller: 'articulosNewCtrl'
+                    }
+
+                }
+
+            });
+            $stateProvider.state('articulosUpdate', {
+                url: '/update/{articulosRutaImagen:int}',
+                parent: 'articulos',
+                param: {
+                    articulosId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + '/new/articulos.new.html',
+                        controller: 'articulosUpdateCtrl'
+                    }
+
+                }
+
+            });
+            $stateProvider.state('articulosDelete', {
+                url: '/delete/{articulosRutaImagen:int}',
+                parent: 'articulos',
+                param: {
+                    articulosId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + '/delete/articulos.delete.html',
+                        controller: 'articulosDeleteCtrl'
+                    }
+
+                }
+
+            });
+        }]);
 })(window.angular);
