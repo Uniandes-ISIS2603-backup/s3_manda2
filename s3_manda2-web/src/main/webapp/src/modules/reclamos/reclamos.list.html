@@ -1,24 +1,38 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
-<div class="container-fluid">
-    <hr>
-    <div class="row">
-        <div class="row-sm-3"></div>
-        <div class="row-sm-6">
-            <div class="btn-group">
-                <button type="button" class="btn btn-outline-warning btn-lg" ui-sref="reclamoCreate">Crear Comentario
-                </button>
-            </div>
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary color-boton" ui-sref="reclamoCreate">Crear un reclamo</button>
         </div>
-        <div class="row-sm-3"></div>
-    </div>
-    <div class="container-fluid">
-        <h2>Comentarios:</h2>
-        <ul class="list-group">
-            <div ng-repeat="reclamo in reclamosRecords">
-                <li class="list-group-item" ui-sref="reclamoDetail({reclamoId: reclamo.numero})">
-                    <p> {{reclamo.mensaje}}</p>
-                </li>
+        <br> </br>
+        <section class="section rec">
+            <div class="container">
+                <div class="row">
+                    <div class="span4 offset1">
+                        <ul class="list-group reclamo-container">
+                            <div ng-repeat="reclamo in reclamosRecords" class="item-reclamo">
+                                <h2>"</h2>
+                                <div class="row">
+                                    <div class="col-sm-6" ui-sref="reclamoDetail({reclamoId: reclamo.id})" >
+                                        <p> {{reclamo.mensaje}}</p>
+                                    </div>
+                                </div>
+                                <h2>"</h2>
+                                <div class="col-sm-3">
+                                    <button type="button" class="btn btn-danger" ui-sref="borrarReclamo({reclamoId: reclamo.id})">Borrar Reclamo</button>
+                                    <button type="button" class="btn btn-warning" ui-sref="updateReclamo({reclamoId: reclamo.id})">Modificar Reclamo</button>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-        </ul>
+        </section>
+
     </div>
 </div>
+
+
+
