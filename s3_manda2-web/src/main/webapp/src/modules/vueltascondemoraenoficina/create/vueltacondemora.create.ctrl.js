@@ -7,7 +7,7 @@
 
                 $scope.createVuelta = function () {
                     $http.post(vueltaContext, $scope.data).then(function (response) {
-                        $state.go('vueltacondemoraList', {idVuelta: response.id}, {reload: true});
+                        $state.go('vueltacondemoraList', {vueltaId: response.id}, {reload: true});
                     });
 
                 };

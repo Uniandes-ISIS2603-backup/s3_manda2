@@ -4,7 +4,7 @@
     mod.controller('vueltasDetailCtrl', ['$scope', '$http', "vueltaContext", '$state',
         function ($scope, $http, vueltaContext, $state) {
             
-            if (($state.params.entregaId !== undefined) && ($state.params.entregaId !== null)) {
+            if (($state.params.vueltaId !== undefined) && ($state.params.vueltaId !== null)) {
 
 
             $http.get(vueltaContext + '/' + $state.params.vueltaId).then(function (response) {
