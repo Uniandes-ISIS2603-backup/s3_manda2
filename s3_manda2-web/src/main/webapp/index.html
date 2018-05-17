@@ -310,14 +310,27 @@
             </div>
         </section>
 
-
-
-        <section id="qyr" class="section orange">
+         <section id="qyr" class="section orange">
             <div class="bg-testicolor">
                 <div class="container section-padding">
                     <div class="row">
                         <div class="qyr-item">
                             <h4>Quejas y reclamos</h4>
+                            <div class="row">
+                                <div class="span4 offset1">
+                                    <div>
+                                        <h2> Lo que mas nos importa es tu <strong>opinion</strong></h2>
+                                        <p>
+                                            Dejanos tus sugerencias
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="aligncenter">
+                                        <img src="boot/img/team/queja.png" width="200" alt="" />
+                                    </div>
+                                </div>
+
                             <div ui-view="listReclamoView">
                             </div>
                             <div class="row" ui-sref="reclamosList">
@@ -329,40 +342,76 @@
                 </div>
             </div>
         </section>
+
+        
         <section id="clientes" class="section">
             <div class="container">
                 <h4>Clientes</h4>
-                <div ui-view="clienteView">
-
-                </div>
-                <div class="row" ui-sref="clientesList">
-                </div>
                 <div class="row">
-                </div>
-            </div>
-
-        </section>
-
-        <section id="pago" class="section">
-            <div class="container">
-                <h4>Pagos</h4>
-                <div ui-view="pagoView">
-                </div>
-                <div class="row" ui-sref="pagoList">
-                </div>
-        </section>
-
-        <section id="login" class="wow fadeInUp delay-05s">
-            <div class="bg-testicolor">
-                <div class="container section-padding">
-                    <div class="row">
-                        <div class="login-item" ui-view="loginView">
-
+                    <div class="span4 offset1">
+                        <div>
+                            <h2> Para nosotros lo mas importantes son los <strong>clientes</strong></h2>
+                            <p>
+                                Buscamos brindarles el mejor servicio de manda2, desde cualquier parte a cualquier hora.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="aligncenter">
+                            <img src="boot/img/team/service.png" width="200" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-    </body>
+
+            <div ui-view="clienteView">
+            </div>
+            <div class="row" ui-sref="clientesList">
+            </div>
+            <div class="row">
+            </div>
+
+    </section>
+
+    <section id="pago" class="section">
+
+        <div class="container">
+            <h4>Pagos</h4>
+            <div class="row">
+                <div class="span4 offset1">
+                    <div>
+                        <h2> Aca podras ver los pagos realizados por nuestros clientes <strong>fieles</strong></h2>
+                        <p>
+                            Se mostrara un resumen del servicio y mas.
+                        </p>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="aligncenter">
+                        <img src="boot/img/team/dolla.png" width="200" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ui-view="pagoView">
+        </div>
+        <div class="row" ui-sref="pagoList">
+        </div>
+
+    </section>
+
+    <section id="login" class="wow fadeInUp delay-05s">
+        <div class="bg-testicolor">
+            <div class="container section-padding">
+                <div class="row">
+                    <div class="login-item" ui-view="loginView">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
 </html>
