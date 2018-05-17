@@ -38,10 +38,10 @@
             });
             
             $stateProvider.state('vueltasUpdate', {
-                url: '/update/{idVuelta:int}',
+                url: '/update/{vueltaId:int}',
                 parent: 'vueltas',
                 param: {
-                    idVuelta: null
+                    vueltaId: null
                 },
                 views: {
                     'detailView': {
@@ -54,10 +54,10 @@
             });
             
             $stateProvider.state('vueltacondemoraDelete', {
-                url: '/delete/{idVuelta:int}',
+                url: '/delete/{vueltaId:int}',
                 parent: 'vueltas',
                 param: {
-                    idVuelta: null
+                    vueltaId: null
                 },
                 views: {
                     'detailView': {
@@ -68,10 +68,10 @@
                 }
             }) ;
             $stateProvider.state('vueltasDetail', {
-                url: '/{idVuelta:int}/vueltasDetail',
+                url: '/{vueltaId:int}/vueltasDetail',
                 parent: 'vueltas',
                 param: {
-                    idVuelta: null
+                    vueltaId: null
                 },
                 views: {
                         'listView': {

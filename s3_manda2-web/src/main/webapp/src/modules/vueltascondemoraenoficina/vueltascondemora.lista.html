@@ -4,6 +4,7 @@
         <a href=".#!/inicio"><button type="button" class="btn btn-primary">Volver</button></a>
         <a ui-sref = "vueltacondemoraAgregar"><button type="button" class="btn btn-primary">Crear una vuelta</button></a>
     </div>
+    <br> </br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,14 +19,14 @@
                 <th>Costo de transporte</th>
                 <th>Costo por duración</th>
                 <th>Acciones</th>
-                <!--<th>Pago</th>-->
-                <th></th>
+                
+              
             </tr>
         </thead>
 
         <tbody>
             <tr ng-repeat="vuelta in vueltasRecords">
-                <td><a ui-sref="entregaDetail ({idVuelta vuelta.id}) ">{{vuelta.id}} </a> </td>
+                <td><a ui-sref="vueltasDetail ({vueltaId: vuelta.id}) ">{{vuelta.id}} </a> </td>
                 <td>{{vuelta.nombre}}</td>
                 <td>{{vuelta.puntoDeEncuentro}}</td>
                 <td>{{vuelta.puntoDeRealizacion}}</td>
@@ -37,11 +38,12 @@
                 <td>{{vuelta.costoDuracion}}</td>
                 <td id="{{$index}}-actions">
                
-                    <button class="btn btn-primary btn-sm" ui-sref="vueltasUpdate({idVuelta: vuelta.id})">Editar</button>
+                    <button class="btn btn-primary btn-sm" ui-sref="vueltasUpdate({vueltaId: vuelta.id})">Editar</button>
                 
-                    <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({idVuelta: vuelta.id})">Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    <button class="btn btn-danger btn-sm" ui-sref="vueltaDelete({vueltaId: vuelta.id})">Eliminar</button>
+                 </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

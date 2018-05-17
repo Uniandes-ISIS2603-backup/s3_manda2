@@ -1,13 +1,21 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
 <div class="container-fluid">
     <div class="row">
-        <div class ="col-sm-4">
+        <div class ="col-sm-3">
             <img src="data/images/businessman.jpg" class="rounded-circle" alt="Imagen de vuelta con demora"
                  width="200" height="192">
+            
+            <div ng-repeat="pago in vueltaActual.pago">
+                    <h2>Pago {{pago.id}}</h2>
+                    <ul>
+                    <li>Estado de la Transaccion: {{pago.estadoTransaccion}}</li>
+                    <li>Fecha: {{pago.fecha}}</li>
+                    </ul>
+                </div>
         </div>
-        <div class ="col-sm-4">
+        <div class= "col-sm-3">
             <ul>
-                <br>
+                <h1> <center>Descripcion de la vuelta con demora</center></h1>
                 <li>Id: {{vueltaActual.id}}</li>
                 <li>Nombre: {{vueltaActual.nombre}}</li>
                 <li>Calificacion: {{vueltaActual.calificacion}}</li>
@@ -17,7 +25,33 @@
                 <li>Punto de encuentro: {{vueltaActual.puntoDeEncuentro}}</li>
                 <li>Punto de realizacion: {{vueltaActual.puntoDeRealizacion}}</li>
                 <li>Costo de transporte: {{vueltaActual.costoDeTransporte}}</li>
-                <li>Costo de duracion:  {{vueltaActual.costoDuracion}}</li>
+                <li>Costo de duracion: {{vueltaActual.costoDuracion}}</li>
+            </ul>
+        </div> 
+        <div  class= "col-sm-3">
+            <ul>
+                <h1> <center>Descripcion del cliente que contrato el servicio</center></h1>
+            <li> Id: {{vueltaActual.cliente.id}}</li>
+            <li> Cedula: {{vueltaActual.cliente.cedula}}</li>
+            <li> Calificicacion: {{vueltaActual.cliente.calificacion}}</li>
+            <li> Fecha de ingreso: {{vueltaActual.cliente.fechaIngreso}}</li>
+            <li> Login: {{vueltaActual.cliente.login}}</li>
+            <li> Nombre: {{vueltaActual.cliente.nombre}}</li>
+            <li> Horas de servicio semanal: {{vueltaActual.cliente.horasDeServicioSemanal}}</li>
+            <li> Pago Anticipado: {{vueltaActual.cliente.pagoAnticipado}}</li>
+            </ul>
+        </div> 
+        <div  class= "col-sm-3">
+            <h1><center> Descripcion del empleado que tiene asignado el servicio</center></h1>
+            <ul>
+            <li> Id: {{vueltaActual.empleado.id}}</li>
+            <li> Cedula: {{vueltaActual.empleado.cedula}}</li>
+            <li> Calificicacion: {{vueltaActual.empleado.calificacion}}</li>
+            <li> Fecha de ingreso: {{vueltaActual.empleado.fechaIngreso}}</li>
+            <li> Login: {{vueltaActual.empleado.login}}</li>
+            <li> Nombre: {{vueltaActual.empleado.nombre}}</li>
+            <li> EPS: {{vueltaActual.empleado.eps}}</li>
+            <li> Identificacion: {{vueltaActual.empleado.identificacion}}</li>
             </ul>
         </div>
     </div>
