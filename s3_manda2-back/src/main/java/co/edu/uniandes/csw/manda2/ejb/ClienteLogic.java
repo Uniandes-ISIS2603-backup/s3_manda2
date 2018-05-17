@@ -109,9 +109,9 @@ public class ClienteLogic {
      */
     public ClienteEntity updateCliente(Long id, ClienteEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar cliente con id={0}", id);
-        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
-            throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
-        }
+//        if (!validateNombreCliente(entity.getNombre())||!validateCedula(entity.getCedula())||!validateLogin(entity.getLogin())) {
+//            throw new BusinessLogicException("El nombre o la cedula no pueden ser vacios");
+//        }
         int ant = toIntExact(id);
         int desp = toIntExact(entity.getId());
         if(ant!= desp)
