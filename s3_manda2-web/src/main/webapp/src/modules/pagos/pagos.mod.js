@@ -23,7 +23,7 @@
                     views: {
                         'pagoView': {
                             templateUrl: 'src/modules/pagos/pagos.detail.list.html',
-                            // controller: 'pagosDetailCtrl'
+                            controller: 'pagosDetailCtrl'
 
                         }
                     }
