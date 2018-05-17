@@ -15,9 +15,8 @@
     <link href="boot/css/style.css" rel="stylesheet">
     <link href="boot/color/default.css" rel="stylesheet">
     <link href="boot/css/bootstrap-theme.css" rel="stylesheet">
-    <link href="boot/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="boot/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
     <link rel="stylesheet" type="text/css" href="s3_manda2-web/src/main/webapp/src/login.css"/>
 
     <title>Manda2</title>
@@ -164,7 +163,8 @@
                 <nav class="pull-right nav-collapse">
                     <ul id="menu-main" class="nav">
                         <!--<li><a title="team" ui-sref="">Nuestro equipo</a></li>-->
-                        <li><a title="team" ng-click="gotoAnchor('empleadosList', 'nuestroEquipo')">Nuestro equipo</a></li>
+                        <li><a title="team" ng-click="gotoAnchor('empleadosList', 'nuestroEquipo')">Nuestro equipo</a>
+                        </li>
                         <li><a title="services" ng-click="gotoAnchor('', 'servicios')">Servicios</a></li>
                         <li><a title="qyr" ng-click="gotoAnchor('reclamosList', 'qyr')">QYR</a></li>
 
@@ -187,7 +187,7 @@
                             </div>
                             <!--<li><a title="registro" href="#login">Registro</a> </li>!-->
 
-
+                        </li>
                     </ul>
                 </nav>
 
@@ -219,18 +219,6 @@
             </div>
             <div class="span6 aligncenter flyRight">
                 <img src="data/images/munequito.png" alt="" style="width:20em; height:20em"/>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="login" class="wow fadeInUp delay-05s">
-    <div class="bg-testicolor">
-        <div class="container section-padding">
-            <div class="row">
-                <div class="login-item" ui-view="loginView">
-
-                </div>
             </div>
         </div>
     </div>
@@ -275,7 +263,7 @@
                     </p>
                 </div>
             </button>
-            <button class="span3 animated flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+            <button class="span3 animated flyIn boton-sin-fondo" ng-disabled="isadmin()">
                 <div class="service-box">
                     <img src="data/images/carromercado.png" alt="" style="width:20em; height:20em"/>
                     <h2>Compras en tienda</h2>
@@ -284,7 +272,7 @@
                     </p>
                 </div>
             </button>
-            <button class="span3 animated-fast flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+            <button class="span3 animated-fast flyIn boton-sin-fondo" ng-disabled="isadmin()">
                 <div class="service-box">
                     <img src="data/images/delivery.png" alt="" style="width:20em; height:20em"/>
                     <h2>Entrega de documentos</h2>
@@ -293,7 +281,7 @@
                     </p>
                 </div>
             </button>
-            <button  class="span3 animated-slow flyIn boton-sin-fondo"  ng-disabled="isadmin()">
+            <button class="span3 animated-slow flyIn boton-sin-fondo" ng-disabled="isadmin()">
                 <div class="service-box">
                     <img src="data/images/reservas.png" alt="" style="width:20em; height:20em"/>
                     <h2>Reservas y organizacion</h2>
