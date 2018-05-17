@@ -1,94 +1,13 @@
 {
-	"id": "df763051-e04f-289f-490e-82b14042873a",
-	"name": "Pruebas clase vueltas con demora",
-	"description": "",
-	"order": [
-		"9a75ac78-d89f-0a8a-25aa-30035f3dca36",
-		"c5cb01e8-d866-b967-1b57-ab1310778c0a",
-		"30024223-d940-fea7-894a-4c3275bbdf1e",
-		"ccf3ec02-de4b-a560-f381-5e300c4b806e",
-		"206b49ae-9c43-d486-7841-14cf0e317ad2"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1520791868421,
-	"owner": 0,
-	"public": false,
-	"events": [],
-	"variables": [],
-	"auth": null,
-	"requests": [
+	"info": {
+		"_postman_id": "f9026199-c8b6-4aad-86b3-ec6ae8b04f13",
+		"name": "Pruebas clase vueltas con demora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "206b49ae-9c43-d486-7841-14cf0e317ad2",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
-			"queryParams": [],
-			"events": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "e9decbf6-9769-4065-b59f-6a4d65c9404f",
-						"type": "text/javascript",
-						"exec": [
-							"http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}"
-						]
-					}
-				}
-			],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"auth": null,
-			"time": 1523609916113,
-			"name": "delete vueltascondemoraenoficin con id",
-			"description": "",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
-			"responses": [],
-			"preRequestScript": null,
-			"tests": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "30024223-d940-fea7-894a-4c3275bbdf1e",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "GET",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
-			"data": null,
-			"dataMode": "params",
-			"name": "get vuelta",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1523608620917,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "9a75ac78-d89f-0a8a-25aa-30035f3dca36",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
-			"queryParams": [],
-			"events": [
+			"name": "postvueltascondemoraenoficina",
+			"event": [
 				{
 					"listen": "test",
 					"script": {
@@ -103,26 +22,66 @@
 					}
 				}
 			],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"auth": null,
-			"time": 1523609304466,
-			"name": "postvueltascondemoraenoficina",
-			"description": "",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
-			"responses": [
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \t\"calificacion\": 3,\r\n        \"costo\": 18000,\r\n        \"costoDeTransporte\": 10000,\r\n        \"descripcion\": \"Pague los impuestos 2018\",\r\n        \"estado\": \"EN_DESARROLLO\",\r\n        \"id\": 2000,\r\n        \"nombre\": \"Vuelta en banco de bogota\",\r\n        \"puntoDeEncuentro\": \"Archies 116\",\r\n        \"puntoDeRealizacion\": \"Banco de bogota calle 68\",\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"costoDeTransporte\": 10000,\r\n        \"pago\": []\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"vueltascondemoraenoficina"
+					]
+				}
+			},
+			"response": [
 				{
-					"status": "",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
+					"id": "07677329-879b-4265-8f27-5bfb92aafcd7",
+					"name": "postvueltascondemoraenoficina",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n \t\"calificacion\": 3,\r\n        \"costo\": 18000,\r\n        \"costoDeTransporte\": 10000,\r\n        \"descripcion\": \"Pague los impuestos 2018\",\r\n        \"estado\": \"EN_DESARROLLO\",\r\n        \"id\": 2000,\r\n        \"nombre\": \"Vuelta en banco de bogota\",\r\n        \"puntoDeEncuentro\": \"Archies 116\",\r\n        \"puntoDeRealizacion\": \"Banco de bogota calle 68\",\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"costoDeTransporte\": 10000,\r\n        \"pago\": []\r\n }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"s3_manda2-web",
+								"api",
+								"vueltascondemoraenoficina"
+							]
+						}
 					},
-					"time": 64,
-					"headers": [
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
 						{
 							"key": "Content-Length",
 							"value": "295",
@@ -154,113 +113,122 @@
 							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
 						}
 					],
-					"cookies": [],
-					"mime": "",
-					"text": "{\"type\":\"vueltasConDemoraEnOficinaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10000.0,\"costoDuracion\":10000.0}",
-					"language": "json",
-					"previewType": "text",
-					"searchResultScrolledTo": -1,
-					"forceNoPretty": false,
-					"write": true,
-					"empty": false,
-					"failed": false,
-					"code": 200,
-					"responseSize": {
-						"body": 295,
-						"header": 269,
-						"total": 564
-					},
-					"mimeType": "text",
-					"fileName": "response.json",
-					"dataURI": "data:application/json;base64, eyJ0eXBlIjoidnVlbHRhc0NvbkRlbW9yYUVuT2ZpY2luYURUTyIsImNvc3RvIjozMC4wLCJkZXNjcmlwY2lvbiI6ImVzdHV2byBiaWVuIiwiaWQiOjM0NSwibm9tYnJlIjoiY29tcHJhMSIsInB1bnRvRGVFbmN1ZW50cm8iOiJjYWxsZSA0NCIsInB1bnRvRGVSZWFsaXphY2lvbiI6IkV4aXRvICIsImNsaWVudGUiOnt9LCJlbXBsZWFkbyI6eyJpZGVudGlmaWNhY2lvbiI6IiIsImZvdG8iOiIiLCJFUFMiOiIifSwicGFnbyI6e30sImNvc3RvRGVUcmFuc3BvcnRlIjoxMDAwMC4wLCJjb3N0b0R1cmFjaW9uIjoxMDAwMC4wfQ==",
-					"name": "postvueltascondemoraenoficina",
-					"id": "dc003450-9c7f-4a6a-c341-e4e70d09af8c",
-					"isSample": true,
-					"scrollToResult": false,
-					"runTests": false,
-					"request": {
-						"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina",
-						"pathVariables": {},
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"enabled": true
-							},
-							{
-								"key": "id",
-								"value": "{{new_id}}",
-								"description": "",
-								"enabled": true
-							}
-						],
-						"headers": "Content-Type: application/json\nid: {{new_id}}\n",
-						"data": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }",
-						"method": "POST",
-						"dataMode": "raw"
+					"cookie": [],
+					"body": "{\"type\":\"vueltasConDemoraEnOficinaDTO\",\"costo\":30.0,\"descripcion\":\"estuvo bien\",\"id\":345,\"nombre\":\"compra1\",\"puntoDeEncuentro\":\"calle 44\",\"puntoDeRealizacion\":\"Exito \",\"cliente\":{},\"empleado\":{\"identificacion\":\"\",\"foto\":\"\",\"EPS\":\"\"},\"pago\":{},\"costoDeTransporte\":10000.0,\"costoDuracion\":10000.0}"
+				}
+			]
+		},
+		{
+			"name": "get Allvueltascondemoraenoficina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"vueltascondemoraenoficina",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vuelta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"vueltascondemoraenoficina",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update vueltascondemoraenoficina con id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"vueltasConDemoraEnOficinaDTO\",\n    \"id\": 10,\n    \"costoDeTransporte\": 10000,\n    \"costoDuracion\": 44000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"vueltascondemoraenoficina",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete vueltascondemoraenoficin con id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9decbf6-9769-4065-b59f-6a4d65c9404f",
+						"type": "text/javascript",
+						"exec": [
+							"http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}"
+						]
 					}
 				}
 			],
-			"preRequestScript": null,
-			"tests": "var data = JSON.parse(responseBody);\npostman.setGlobalVariable(\"id\",data.id);\ntests[\"Status code is 200\"] = responseCode.code === 200;\nconsole.log(data.id);",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"rawModeData": " {\r\n \t\"costoDeTransporte\": \"10000\",\r\n       \"pago\": \"dasd\",\r\n       \"cliente\": \"pedro\",\r\n       \"empleado\": \"Empleado1\",\r\n       \"id\": \"345\",\r\n       \"nombre\": \"compra1\",\r\n       \"costo\": \"30.000\",\r\n       \"puntoDeEncuentro\":\"calle 44\",\r\n       \"puntoDeRealizacion\": \"Exito \",\r\n       \"exitoDiligencia\": \"true\",\r\n       \"calification\": \"5\",\r\n       \"descripcion\": \"estuvo bien\",\r\n       \"costoDuracion\": \"10000\"\r\n }"
-		},
-		{
-			"id": "c5cb01e8-d866-b967-1b57-ab1310778c0a",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"auth": null,
-			"time": 1523608531324,
-			"name": "get Allvueltascondemoraenoficina",
-			"description": "",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "ccf3ec02-de4b-a560-f381-5e300c4b806e",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3_manda2-web",
+						"api",
+						"vueltascondemoraenoficina",
+						"{{id}}"
+					]
 				}
-			],
-			"url": "http://localhost:8080/s3_manda2-web/api/vueltascondemoraenoficina/{{id}}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "PUT",
-			"collectionId": "df763051-e04f-289f-490e-82b14042873a",
-			"data": [],
-			"dataMode": "raw",
-			"name": "update vueltascondemoraenoficina con id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1523609545922,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null,
-			"rawModeData": "{\n    \"type\": \"vueltasConDemoraEnOficinaDTO\",\n    \"id\": 10,\n    \"costoDeTransporte\": 10000,\n    \"costoDuracion\": 44000\n}"
+			},
+			"response": []
 		}
 	]
 }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "94faf7ba-56f0-4687-ae9a-7d8162708c8c",
+		"_postman_id": "636f8e6e-b59b-43bf-8232-a1d4c4a27c20",
 		"name": "Pruebas Clase Reclamo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,11 +11,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "913376fc-ec26-422b-bb29-94f76b8ffafd",
+						"id": "2970f371-b734-4f4f-a14b-cb311cb54d40",
 						"type": "text/javascript",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_reclamo\",data.id);",
+							"postman.setGlobalVariable(\"new_id_empleado\",data.id);",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"console.log(data.id);",
 							""
@@ -33,7 +33,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t   \"mensaje\": \"Ayoida\", \r\n       \"numero\": 2,\r\n       \"id\": 2123132121,\r\n       \"cliente\":[],\r\n       \"empleado\":[],\r\n       \"servicio\":[]\r\n\t\r\n}"
+					"raw": "{\r\n        \"id\": 1000,\r\n        \"mensaje\": \"El servicio se demoro mucho\",\r\n        \"numero\": 1,\r\n        \"cliente\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839175\",\r\n            \"fechaIngreso\": \"2012-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_cliente}},\r\n            \"login\": \"pacosta\",\r\n            \"nombre\": \"Pablo Emilio Acosta\",\r\n            \"horasDeServicioSemanal\": 20,\r\n            \"pagoAnticipado\": true\r\n        },\r\n        \"comprasEnTienda\": [],\r\n        \"empleado\": {\r\n            \"calificacion\": 5,\r\n            \"cedula\": \"1020839170\",\r\n            \"fechaIngreso\": \"2011-04-23T00:00:00-05:00\",\r\n            \"id\": {{new_id_empleado}},\r\n            \"login\": \"asuarez\",\r\n            \"nombre\": \"Alfonso Suarez Velez\",\r\n            \"eps\": \"Colsanitas\",\r\n            \"foto\": \"data/images/munequito.png\",\r\n            \"identificacion\": \"AlfonsoSuarez001\"\r\n        },\r\n        \"entregasDeDocumentos\": [\r\n            {\r\n                \"calificacion\": 4,\r\n                \"costo\": 15000,\r\n                \"descripcion\": \"Llevar carta a gerente general\",\r\n                \"estado\": \"FINALIZADO\",\r\n                \"id\": {{id_entregaDoc}},\r\n                \"nombre\": \"Entrega de documento a bancolombia\",\r\n                \"puntoDeEncuentro\": \"Pan Pa Ya 116\",\r\n                \"puntoDeRealizacion\": \"Bancolombia calle 72\",\r\n                \"costoDeTransporte\": 8000,\r\n                \"porcentajeExtra\": 0.3\r\n            }\r\n        ],\r\n        \"organizaciones\": [],\r\n        \"vueltasConDemoraEnOficina\": []\r\n\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/s3_manda2-web/api/reclamos",
