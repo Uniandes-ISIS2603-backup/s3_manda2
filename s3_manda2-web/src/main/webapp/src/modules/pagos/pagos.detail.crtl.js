@@ -6,6 +6,7 @@
 
             $http.get(pagoContext + '/' + $stateParams.pago_id, {}).then(function (response) {
                 $scope.pagoIdRecords = response.data;
+                console.log($scope.pagoIdRecords);
             });
         }
 
