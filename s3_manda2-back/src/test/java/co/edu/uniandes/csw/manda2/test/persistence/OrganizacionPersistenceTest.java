@@ -61,8 +61,8 @@ public class OrganizacionPersistenceTest {
         
         OrganizacionEntity entity = em.find(OrganizacionEntity.class, result.getId());
         
-        Assert.assertEquals(newEntity.getCostoDuracion(), entity.getCostoDuracion());
-        Assert.assertEquals(newEntity.getCostoTransporte(), entity.getCostoTransporte());
+        Assert.assertEquals(newEntity.getCostoDeDuracion(), entity.getCostoDeDuracion());
+        Assert.assertEquals(newEntity.getCostoDeTransporte(), entity.getCostoDeTransporte());
 
     }
     
